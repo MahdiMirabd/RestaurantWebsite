@@ -1,6 +1,6 @@
 package uk.ac.rhul.cs2810.restaurantsystem.model;
 
-import lombok.Data;
+import lombok.*;
 
 import javax.persistence.*;
 
@@ -11,7 +11,8 @@ import javax.persistence.*;
  */
 @Entity //signals that this class represents a table stored in the database.
 @Table(name = "menu") // the name of the table in the database
-@Data // project lombok dependency will automatically create getters, setters, constructors, toString etc
+// project lombok dependency will automatically create getters, setters, constructors, toString etc
+@Getter @Setter @ToString @RequiredArgsConstructor @NoArgsConstructor
 public class Menu {
 
     /**
