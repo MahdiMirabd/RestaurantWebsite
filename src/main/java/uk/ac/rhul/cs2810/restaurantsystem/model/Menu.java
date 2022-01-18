@@ -12,7 +12,7 @@ import javax.persistence.*;
 @Entity //signals that this class represents a table stored in the database.
 @Table(name = "menu") // the name of the table in the database
 // project lombok dependency will automatically create getters, setters, constructors, toString etc
-@Getter @Setter @ToString @RequiredArgsConstructor @NoArgsConstructor
+@Getter @Setter @ToString @RequiredArgsConstructor
 public class Menu {
 
     /**

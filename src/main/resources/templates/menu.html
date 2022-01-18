@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<!-- ensure that thymeleaf is added or the data will not display on the page -->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Menu</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <th> item </th>
+            <th> price </th>
+            <th> calories </th>
+
+        </tr>
+            <!-- iterates through the table rows and display on webpage -->
+        <tr th:each="item: ${items}">
+            <td th:text="${item.name}"></td>
+            <td th:text="${item.price}"></td>
+            <td th:text="${item.calories}"></td>
+        </tr>
+    </table>
+</body>
+</html>

@@ -7,9 +7,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import uk.ac.rhul.cs2810.restaurantsystem.repository.MenuRepository;
 
+/**
+ * Queries the repository for data in the menu table,
+ * This data will be displayed on a webpage
+ */
 @Controller
 public class MenuController {
-
     @Autowired
     private MenuRepository menuRepository;
 
@@ -19,13 +22,14 @@ public class MenuController {
     public String findAll(Model model) {
 
         // List<Menu> menu = menuRepository.findAll();
-        // 1st param: name of the data model that will be available to the UI
+        // 1st param: name of the data model that will be available to the UI.
+        // use this name in the html file to access the data
         // 2nd param:the data you want to pass (the list).
         //      gets all the rows of data from the menu table in the database and place it into a list.
         model.addAttribute("items", menuRepository.findAll());
 
         //the name of the html web page on which to display the data
         // after running the application enter in browser "http://localhost:8080/menu" to view the page
-        return "index";
+        return "menu";
     }
 }
