@@ -3,9 +3,18 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet"  type="text/css" href="/src/main/resources/Style/Css.css">
     <title>Menu</title>
 </head>
 <body>
+    <div> 
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#news">Menu</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#about">About</a></li>
+          </ul>          
+    </div>
     <table>
         <tr>
             <th> item </th>
@@ -20,5 +29,6 @@
             <td th:text="${item.calories}"></td>
         </tr>
     </table>
+    
 </body>
 </html>

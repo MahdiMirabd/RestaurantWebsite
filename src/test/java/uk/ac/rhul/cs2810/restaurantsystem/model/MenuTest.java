@@ -11,7 +11,7 @@ class MenuTest {
     @Test
     void testNullObjects() {
         menu = new Menu();
-        assertNull(menu.getName(), "No arguments passed to the constructor.");
+       assertNull(menu.getName(), "No arguments passed to the constructor.");
     }
 
 }
