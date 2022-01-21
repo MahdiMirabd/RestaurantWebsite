@@ -11,8 +11,9 @@ import javax.persistence.*;
  */
 @Entity //signals that this class represents a table stored in the database.
 @Table(name = "menu") // the name of the table in the database
-// project lombok dependency will automatically create getters, setters, constructors, toString etc
-@Getter @Setter @ToString @RequiredArgsConstructor
+@Getter
+@Setter
+@ToString
 public class Menu {
 
     /**
@@ -39,4 +40,25 @@ public class Menu {
      */
     @Column(name = "calories")
     private float calories;
+
+    /**
+     * A no argument constructor.
+     */
+    public Menu() {
+    }
+
+    /**
+     * Required argument constructor.
+     *
+     * @param id the table primary key
+     * @param name of food item
+     * @param price of food item
+     * @param calories contained within food item
+     */
+    public Menu(long id, String name, float price, float calories) {
+        this.id = id;
+        this.name = name;
+        this.price = price;
+        this.calories = calories;
+    }
 }

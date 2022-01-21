@@ -10,25 +10,31 @@ import uk.ac.rhul.cs2810.restaurantsystem.repository.MenuRepository;
 /**
  * Queries the repository for data in the menu table,
  * This data will be displayed on a webpage
+ *
+ * @author Hestre
  */
 @Controller
 public class MenuController {
     @Autowired
     private MenuRepository menuRepository;
 
-    //value is the address of the page and
-    // Get request method is an indicator that we are trying to get data from the database
+    /**
+     * Retrieves the rows of data stored within the menu table.
+     * value is the address of the page
+     * Get request method is an indicator that we are trying to get data from the database
+     *
+     * @param model the database table being queried.
+     * @return the html page on which to render the data
+     */
     @RequestMapping(value = "menu", method = RequestMethod.GET)
     public String findAll(Model model) {
 
-        // List<Menu> menu = menuRepository.findAll();
         // 1st param: name of the data model that will be available to the UI.
         // use this name in the html file to access the data
         // 2nd param:the data you want to pass (the list).
         //      gets all the rows of data from the menu table in the database and place it into a list.
         model.addAttribute("items", menuRepository.findAll());
 
-        //the name of the html web page on which to display the data
         // after running the application enter in browser "http://localhost:8080/menu" to view the page
         return "menu";
     }

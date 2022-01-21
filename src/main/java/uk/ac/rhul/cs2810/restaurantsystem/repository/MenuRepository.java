@@ -10,6 +10,8 @@ import uk.ac.rhul.cs2810.restaurantsystem.model.Menu;
  *
  * Menu - the model name.
  * Long - the primary key of the table
+ *
+ * @author Hestre
  */
 @Repository
 public interface MenuRepository extends JpaRepository<Menu, Long> {
