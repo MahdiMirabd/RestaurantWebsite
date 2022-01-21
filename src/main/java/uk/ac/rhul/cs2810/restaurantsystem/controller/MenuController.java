@@ -20,10 +20,10 @@ public class MenuController {
 
     /**
      * Retrieves the rows of data stored within the menu table.
-     * value is the address of the page
-     * Get request method is an indicator that we are trying to get data from the database
+     * value is the address of the page.
+     * Get request method is an indicator that we are trying to get data from the database.
      *
-     * @param model the database table being queried.
+     * @param model the database table being queried
      * @return the html page on which to render the data
      */
     @RequestMapping(value = "menu", method = RequestMethod.GET)

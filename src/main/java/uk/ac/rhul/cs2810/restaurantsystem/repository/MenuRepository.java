@@ -9,7 +9,7 @@ import uk.ac.rhul.cs2810.restaurantsystem.model.Menu;
  * searching, updating and deleting objects in the database.
  *
  * Menu - the model name.
- * Long - the primary key of the table
+ * Long - the primary key of the table.
  *
  * @author Hestre
  */

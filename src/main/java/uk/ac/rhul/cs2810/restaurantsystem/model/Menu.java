@@ -50,13 +50,11 @@ public class Menu {
     /**
      * Required argument constructor.
      *
-     * @param id the table primary key
      * @param name of food item
      * @param price of food item
      * @param calories contained within food item
      */
-    public Menu(long id, String name, float price, float calories) {
-        this.id = id;
+    public Menu(String name, float price, float calories) {
         this.name = name;
         this.price = price;
         this.calories = calories;

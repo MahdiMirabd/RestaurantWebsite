@@ -14,4 +14,11 @@ class MenuTest {
        assertNull(menu.getName(), "No arguments passed to the constructor.");
     }
 
+    @Test
+    void testConstructorWithArgs() {
+        menu = new Menu("Burito", 20.5F, 90.0F);
+        assertEquals(menu.getPrice(), 20.5, "Could not get the item price.");
+        assertNotNull(menu.getName(), "Could not get the item name.");
+    }
+
 }
