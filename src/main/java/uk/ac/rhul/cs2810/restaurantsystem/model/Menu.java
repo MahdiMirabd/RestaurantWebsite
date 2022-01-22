@@ -11,6 +11,8 @@ import javax.persistence.*;
  */
 @Entity //signals that this class represents a table stored in the database.
 @Table(name = "menu") // the name of the table in the database
+@NoArgsConstructor
+@AllArgsConstructor
 @Getter
 @Setter
 @ToString
@@ -26,37 +28,22 @@ public class Menu {
     /**
      * The name of a food item.
      */
+    @NonNull
     @Column(name = "name") //
     private String name;
 
     /**
      * The price of a food item.
      */
+    @NonNull
     @Column(name = "price")
     private float price;
 
     /**\
      * The amount of calories in a food item.
      */
+    @NonNull
     @Column(name = "calories")
     private float calories;
 
-    /**
-     * A no argument constructor.
-     */
-    public Menu() {
-    }
-
-    /**
-     * Required argument constructor.
-     *
-     * @param name of food item
-     * @param price of food item
-     * @param calories contained within food item
-     */
-    public Menu(String name, float price, float calories) {
-        this.name = name;
-        this.price = price;
-        this.calories = calories;
-    }
 }

@@ -7,7 +7,7 @@ CREATE TABLE menu (
 );
 
 INSERT INTO menu (name, price, calories)
-VALUES  ('Burito', 20.50, 90),
+VALUES  ('Burrito', 20.50, 90),
         ('Nachos', 10.50, 100),
         ('Tacos', 15, 120),
         ('Quesadillas', 13, 80);
