@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet"  type="text/css" href="/src/main/resources/style/menu.css">
-    <title>Menu</title>
+    <title>Order</title>
 </head>
 <body>
     <div> 
@@ -15,20 +15,6 @@
             <li><a href="#login">Login</a></li>
           </ul>          
     </div>
-    <table>
-        <tr>
-            <th> item </th>
-            <th> price </th>
-            <th> calories </th>
-
-        </tr>
-            <!-- iterates through the table rows and display on webpage -->
-        <tr th:each="item: ${items}">
-            <td th:text="${item.name}"></td>
-            <td th:text="${item.price}"></td>
-            <td th:text="${item.calories}"></td>
-        </tr>
-    </table>
-    
+    <!-- Display the menu and buttons to add to the item basket -->
 </body>
 </html>
