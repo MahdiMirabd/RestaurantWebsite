@@ -15,7 +15,7 @@ import uk.ac.rhul.cs2810.restaurantsystem.repository.MenuRepository;
  * @author Hestre
  */
 @Controller
-@RequestMapping(value = {"menu"})
+@RequestMapping(value = {"/menu"})
 public class MenuController {
     @Autowired
     private MenuRepository menuRepository;
