@@ -3,6 +3,7 @@ package uk.ac.rhul.cs2810.restaurantsystem.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import uk.ac.rhul.cs2810.restaurantsystem.repository.MenuRepository;
@@ -14,6 +15,7 @@ import uk.ac.rhul.cs2810.restaurantsystem.repository.MenuRepository;
  * @author Hestre
  */
 @Controller
+@RequestMapping(value = {"/menu"})
 public class MenuController {
     @Autowired
     private MenuRepository menuRepository;
@@ -26,7 +28,8 @@ public class MenuController {
      * @param model the database table being queried
      * @return the html page on which to render the data
      */
-    @RequestMapping(value = "menu", method = RequestMethod.GET)
+    //@RequestMapping(value = "menu", method = RequestMethod.GET)
+    @GetMapping(value = {""})
     public String findAll(Model model) {
 
         // 1st param: name of the data model that will be available to the UI.
