@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet"  type="text/css" href="/style/menu.css">
+    <link rel="stylesheet"  type="text/css" href="/style/menu.css"/>
     <script src="/javascript/header.js" type="text/javascript" defer></script>
     <title>Menu</title>
 </head>
@@ -32,24 +32,24 @@
                         </div>
                         <br/>
                         <div class="menu-item-details" >
-                            <p> served with: &nbsp;</p>
+                            <div class="ingredients">
+                                <p> served with:&nbsp;</p>
+                                <p th:text=" ${item.ingredients}" > </p>
+                            </div>
                             <br/>
                             <div class="calories">
-                                <p class="item-label">calories: &nbsp;</p>
-                                <p th:text=" ${item.calories}" class="item-text"> </p>
+                                <p class="item-label">calories:&nbsp;</p>
+                                <p th:text=" ${item.calories}" > </p>
                             </div>
                             <div class="allergens">
-                                <p > allergens: &nbsp;</p>
-                                <p> something here</p>
+                                <p> contains:&nbsp;</p>
+                                <p th:text=" ${item.allergen}" > </p>
                             </div>
-
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
-
 </body>
 </html>

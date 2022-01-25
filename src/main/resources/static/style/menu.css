@@ -36,9 +36,6 @@ body {
     margin-right: 1.5em;
 }
 
-/*.item-details {
-  flex-grow: 1;
-}*/
 .menu-item-text {
     flex-grow: 1;
 }
@@ -62,7 +59,7 @@ p {
     margin-bottom: 0;
 }
 
-.calories, .allergens{
+.calories, .allergens, .ingredients{
     display: flex;
 
 }

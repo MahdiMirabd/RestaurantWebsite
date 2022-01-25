@@ -3,8 +3,6 @@ package uk.ac.rhul.cs2810.restaurantsystem.model;
 import lombok.*;
 
 import javax.persistence.*;
-import java.util.HashSet;
-import java.util.Set;
 
 /**
  * The Menu table on the database.
@@ -30,31 +28,26 @@ public class Menu {
     /**
      * The name of a food item.
      */
-    @NonNull
-    @Column(name = "name") //
+    @Column(name = "name", nullable = false) //
     private String name;
 
     /**
      * The price of a food item.
      */
-    @NonNull
-    @Column(name = "price")
+    @Column(name = "price", nullable = false)
     private float price;
 
     /**\
      * The amount of calories in a food item.
      */
-    @NonNull
-    @Column(name = "calories")
+    @Column(name = "calories", nullable = false)
     private float calories;
 
-    @NonNull
-    @Column(name = "ingredients")
+
+    @Column(name = "ingredients", nullable = false)
     private String ingredients;
 
-    @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(name = "menu_allergen", joinColumns = @JoinColumn(name = "menu_id"),
-            inverseJoinColumns = @JoinColumn(name = "allergen_id"))
-    private Set<Allergen> allergens = new HashSet<>();
+    @Column(name = "allergen")
+    private String allergen;
 
 }
