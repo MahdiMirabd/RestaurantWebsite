@@ -61,11 +61,10 @@ p {
     margin-top: 0;
     margin-bottom: 0;
 }
-.cal-label {
-    float: left;
-}
-.cal-text {
-    float: none;
+
+.calories, .allergens{
+    display: flex;
+
 }
 
 @media screen and (min-width: 992px) {

@@ -34,9 +34,15 @@
                         <div class="menu-item-details" >
                             <p> served with: </p>
                             <br/>
-                            <p class="cal-label">calories: </p> <p th:text=" ${item.calories}" class="cal-text"> </p>
-                            <br/>
-                            <p> allergens: </p>
+                            <div class="calories">
+                                <p class="item-label">calories: </p>
+                                <p th:text=" ${item.calories}" class="item-text"> </p>
+                            </div>
+                            <div class="allergens">
+                                <p > allergens: </p>
+                                <p> something here</p>
+                            </div>
+
                         </div>
                     </div>
                 </div>
