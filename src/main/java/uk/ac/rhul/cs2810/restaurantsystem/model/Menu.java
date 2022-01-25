@@ -3,6 +3,8 @@ package uk.ac.rhul.cs2810.restaurantsystem.model;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * The Menu table on the database.
@@ -45,5 +47,14 @@ public class Menu {
     @NonNull
     @Column(name = "calories")
     private float calories;
+
+    @NonNull
+    @Column(name = "ingredients")
+    private float ingredients;
+
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "menu_allergen", joinColumns = @JoinColumn(name = "menu_id"),
+            inverseJoinColumns = @JoinColumn(name = "allergen_id"))
+    private Set<Allergen> allergens = new HashSet<>();
 
 }

@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import uk.ac.rhul.cs2810.restaurantsystem.repository.AllergenRepository;
 import uk.ac.rhul.cs2810.restaurantsystem.repository.MenuRepository;
 
 /**
@@ -19,6 +20,7 @@ import uk.ac.rhul.cs2810.restaurantsystem.repository.MenuRepository;
 public class MenuController {
     @Autowired
     private MenuRepository menuRepository;
+    private AllergenRepository allergenRepository;
 
     /**
      * Retrieves the rows of data stored within the menu table.
