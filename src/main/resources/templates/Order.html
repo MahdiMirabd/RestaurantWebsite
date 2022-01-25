@@ -3,18 +3,11 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet"  type="text/css" href="/src/main/resources/style/menu.css">
+    <link rel="stylesheet"  type="text/css" href="/style/menu.css">
+    <script src="/javascript/header.js" type="text/javascript" defer></script>
     <title>Order</title>
 </head>
 <body>
-    <div> 
-        <ul>
-            <li><a href="index">Home</a></li>
-            <li><a href="menu">Menu</a></li>
-            <li><a href="order">Order</a></li>
-            <li><a href="#login">Login</a></li>
-          </ul>          
-    </div>
-    <!-- Display the menu and buttons to add to the item basket -->
+    <header-component></header-component> <!-- custom tag created in header.js -->
 </body>
 </html>
