@@ -12,15 +12,15 @@ CREATE TABLE allergies (
     description NUMERIC VARCHAR(50) NOT NULL,
 );
 
-INSERT INTO menu (name, price, calories)
-VALUES  ('Burrito', 20.50, 90),
-        ('Nachos', 10.50, 100),
-        ('Tacos', 15, 120),
-        ('Quesadillas', 13, 80),
-        ('Burger', 10, 50),
+INSERT INTO menu (name, price, calories, allergies)
+VALUES  ('Burrito', 20.50, 90, 'Milk'),
+        ('Nachos', 10.50, 100, 'Milk'),
+        ('Tacos', 15, 120, 'Milk'),
+        ('Quesadillas', 13, 80, 'Milk'),
+        ('Burger', 10, 50, 'Milk'),
         ('Chicken Wrap', 10, 30),
         ('Beef Wrap', 10, 30),
-        ('Fish Burger' 10, 25);
+        ('Fish Burger' 10, 25, 'Fish');
 INSERT INTO allergies(name, description)
 VALUES  ('Celery', "Contains Celery"),
         ('Gluten', "Contains Gluten"),
