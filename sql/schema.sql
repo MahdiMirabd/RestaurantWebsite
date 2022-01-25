@@ -16,7 +16,11 @@ INSERT INTO menu (name, price, calories)
 VALUES  ('Burrito', 20.50, 90),
         ('Nachos', 10.50, 100),
         ('Tacos', 15, 120),
-        ('Quesadillas', 13, 80);
+        ('Quesadillas', 13, 80),
+        ('Burger', 10, 50),
+        ('Chicken Wrap', 10, 30),
+        ('Beef Wrap', 10, 30),
+        ('Fish Burger' 10, 25);
 INSERT INTO allergies(name, description)
 VALUES  ('Celery', "Contains Celery"),
         ('Gluten', "Contains Gluten"),
