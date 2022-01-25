@@ -29,6 +29,6 @@ VALUES  ('Celery', "Contains Celery"),
         ('Mustard', "Contains Sin a 1 in Yellow Mustard, Bra j 1 in Brown Mustard"),
         ('Nuts', "Contains nuts"),
         ('Peanuts', "Contains peanuts"),
-        ('Sesame Seeds', "Contains Sesame"),
+        ('Sesame Seeds', "Contains Sesame Seed"),
         ('Soya', "Contains Soy"),
         ('Sulphur Dioxide', "Contains Sulphur Dioxide");
