@@ -20,7 +20,9 @@ VALUES  ('Burrito', 20.50, 90, 'Milk'),
         ('Burger', 10, 50, 'Milk'),
         ('Chicken Wrap', 10, 30),
         ('Beef Wrap', 10, 30),
-        ('Fish Burger' 10, 25, 'Fish');
+        ('Fish Burger', 10, 25, 'Fish'),
+        ('Egg Breakfast', 10, 15, 'Egg'),
+        ('Salsa', 5, 5, 'Gluten');
 INSERT INTO allergies(name, description)
 VALUES  ('Celery', "Contains Celery"),
         ('Gluten', "Contains Gluten"),
