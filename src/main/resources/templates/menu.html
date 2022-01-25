@@ -16,7 +16,7 @@
     <div class="container">
         <div class="menu">
             <h2 class="menu-group-heading">
-                Entrée
+                Menu
             </h2>
             <div class="menu-group">
                 <div th:each="item: ${items}" class="menu-item">
@@ -32,14 +32,14 @@
                         </div>
                         <br/>
                         <div class="menu-item-details" >
-                            <p> served with: </p>
+                            <p> served with: &nbsp;</p>
                             <br/>
                             <div class="calories">
-                                <p class="item-label">calories: </p>
+                                <p class="item-label">calories: &nbsp;</p>
                                 <p th:text=" ${item.calories}" class="item-text"> </p>
                             </div>
                             <div class="allergens">
-                                <p > allergens: </p>
+                                <p > allergens: &nbsp;</p>
                                 <p> something here</p>
                             </div>
 

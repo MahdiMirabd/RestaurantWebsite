@@ -20,7 +20,6 @@ import uk.ac.rhul.cs2810.restaurantsystem.repository.MenuRepository;
 public class MenuController {
     @Autowired
     private MenuRepository menuRepository;
-    private AllergenRepository allergenRepository;
 
     /**
      * Retrieves the rows of data stored within the menu table.

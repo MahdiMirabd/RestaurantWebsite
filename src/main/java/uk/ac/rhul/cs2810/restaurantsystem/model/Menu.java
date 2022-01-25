@@ -50,7 +50,7 @@ public class Menu {
 
     @NonNull
     @Column(name = "ingredients")
-    private float ingredients;
+    private String ingredients;
 
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "menu_allergen", joinColumns = @JoinColumn(name = "menu_id"),

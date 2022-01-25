@@ -5,7 +5,7 @@ CREATE TABLE menu (
     name VARCHAR (50) NOT NULL,
     price NUMERIC (12, 2) NOT NULL,
     calories NUMERIC NOT NULL,
-    ingredients VARCHAR(500) NOT NULL
+    ingredients VARCHAR(100) NOT NULL
 );
 
 CREATE TABLE allergen (
@@ -44,14 +44,11 @@ VALUES  ('Celery', 'Contains Celery'),
         ('Peanuts', 'Contains peanuts'),
         ('Sesame Seeds', 'Contains Sesame Seed'),
         ('Soya', 'Contains Soy'),
-        ('Sulphur Dioxide', 'Contains Sulphur Dioxide');
+        ('Sulphites', 'Contains Sulphur Dioxide');
 
 INSERT INTO menu_allergen (menu_id, allergen_id)
 VALUES ('1', 'Gluten'),
        ('1', 'Milk'),
-       ('2', 'Gluten'),
-       ('2', 'Milk'),
-       ('3', 'Milk'),
-       ('3', 'Gluten'),
-       ('4', 'Milk'),
-       ('4', 'Gluten');
+       ('2', 'Eggs'),
+       ('3', 'Sulphites'),
+       ('4', 'Mustard');
