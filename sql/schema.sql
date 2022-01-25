@@ -4,6 +4,7 @@ CREATE TABLE menu (
     price NUMERIC (12, 2) NOT NULL,
     calories NUMERIC NOT NULL,
     allergies VARCHAR (50),
+    ingredients VARCHAR(500) NOT NULL,
     FOREIGN KEY (allergies) REFERENCES allergies(name)
 );
 
@@ -12,7 +13,7 @@ CREATE TABLE allergies (
     description VARCHAR(50) NOT NULL,
 );
 
-INSERT INTO menu (name, price, calories, allergies)
+INSERT INTO menu (name, price, calories, allergies, ingredients)
 VALUES  ('Burrito', 20.50, 90, 'Milk'),
         ('Nachos', 10.50, 100, 'Milk'),
         ('Tacos', 15, 120, 'Milk'),
