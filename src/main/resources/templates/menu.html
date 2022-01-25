@@ -12,20 +12,38 @@
 <body>
 
     <header-component></header-component> <!-- custom tag created in header.js -->
-    <table>
-        <tr>
-            <th> item </th>
-            <th> price </th>
-            <th> calories </th>
 
-        </tr>
-            <!-- iterates through the table rows and display on webpage -->
-        <tr th:each="item: ${items}">
-            <td th:text="${item.name}"></td>
-            <td th:text="${item.price}"></td>
-            <td th:text="${item.calories}"></td>
-        </tr>
-    </table>
-    
+    <div class="container">
+        <div class="menu">
+            <h2 class="menu-group-heading">
+                Entrée
+            </h2>
+            <div class="menu-group">
+                <div th:each="item: ${items}" class="menu-item">
+                    <img class="menu-item-image" src="https://dummyimage.com/600x400/000/fff" alt="Menu Item"/>
+                    <div class="menu-item-text">
+                        <div class="menu-item-heading">
+                            <h3 th=:inline="text" class="menu-item-name">
+                                [[${item.name}]]
+                            </h3>
+                            <h3 th=:inline="text" class="menu-item-price">
+                                [[${item.price}]]
+                            </h3>
+                        </div>
+                        <br/>
+                        <div class="menu-item-details" >
+                            <p> served with: </p>
+                            <br/>
+                            <p class="cal-label">calories: </p> <p th:text=" ${item.calories}" class="cal-text"> </p>
+                            <br/>
+                            <p> allergens: </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
 </body>
 </html>
