@@ -9,7 +9,7 @@ CREATE TABLE menu (
 
 CREATE TABLE allergies (
     name VARCHAR (50) NOT NULL PRIMARY KEY,
-    description NUMERIC VARCHAR(50) NOT NULL,
+    description VARCHAR(50) NOT NULL,
 );
 
 INSERT INTO menu (name, price, calories, allergies)
