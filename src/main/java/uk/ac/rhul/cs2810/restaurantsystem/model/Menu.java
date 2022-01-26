@@ -43,10 +43,15 @@ public class Menu {
     @Column(name = "calories", nullable = false)
     private float calories;
 
-
+    /**\
+     * The list of toppings and extras on the meal.
+     */
     @Column(name = "ingredients", nullable = false)
     private String ingredients;
 
+    /**
+     * The allergens contained in the meal.
+     */
     @Column(name = "allergen")
     private String allergen;
 

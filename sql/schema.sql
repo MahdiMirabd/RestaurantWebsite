@@ -13,17 +13,11 @@ CREATE TABLE menu (
     ingredients VARCHAR(100) NOT NULL,
     allergen TEXT [] NOT NULL
 );
-INSERT INTO menu (name, price, calories, ingredients, allergen )
+INSERT INTO menu (name, price, calories, image, ingredients, allergen )
 VALUES  ('Burrito', 20.50, 90, 'beef, cheese and spicy rice', ARRAY ['Milk', 'Celery']),
         ('Nachos', 10.50, 100, 'cheese, tomato', ARRAY ['Eggs']),
         ('Tacos', 15, 120, 'beef, cheese, tomato', ARRAY ['Gluten']),
         ('Quesadillas', 13, 80, 'cheese', ARRAY ['Mustard']);
-        /*('Burger', 10, 50, 'Milk', 'Burger containing cheese and a beef patty'),
-        ('Chicken Wrap', 10, 30 'Milk', 'Chicken wrap containing shredded cheese and lettuce with tomato'),
-        ('Beef Wrap', 10, 30, 'Milk', 'Beef Wrap containing shredded cheese and lettuce with tomato'),
-        ('Fish Burger', 10, 25, 'Fish','Fish burger with nothing extra added'),
-        ('Egg Breakfast', 10, 15, 'Egg','Simple egg breakfast'),
-        ('Salsa', 5, 5, 'Gluten','Salsa dip containing tomato and fresh chilli peppers');*/
 
 INSERT INTO allergen(name, description)
 VALUES  ('Celery', 'Contains Celery'),

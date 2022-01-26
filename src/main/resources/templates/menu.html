@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet"  type="text/css" href="/style/allPages.css"/>
     <link rel="stylesheet"  type="text/css" href="/style/menu.css"/>
     <script src="/javascript/header.js" type="text/javascript" defer></script>
     <title>Menu</title>
@@ -34,7 +35,7 @@
                         <div class="menu-item-details" >
                             <div class="ingredients">
                                 <p> served with:&nbsp;</p>
-                                <p th:text=" ${item.ingredients}" > </p>
+                                <div th:text=" ${item.ingredients}" > </div>
                             </div>
                             <br/>
                             <div class="calories">
