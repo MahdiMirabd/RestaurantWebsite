@@ -1,6 +1,3 @@
-body {
-    background-color: rgb(235, 231, 231);
-  }
 
 Nav {
     list-style-type: none;
@@ -15,4 +12,24 @@ table, th, td {
 .btn {
     white-space: nowrap;
     text-align: center;
-  }
+}
+
+.item-img {
+    width: 35px;
+    height: 35px;
+    flex-shrink: 0;
+    object-fit: cover;
+    margin-right: 1.5em;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1.5em;
+}
+
+.order-heading {
+  margin: 0;
+  padding-bottom: 1em;
+  border-bottom: 2px solid #ccc;
+}
