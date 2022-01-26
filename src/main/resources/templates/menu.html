@@ -21,7 +21,7 @@
             </h2>
             <div class="menu-group">
                 <div th:each="item: ${items}" class="menu-item">
-                    <img class="menu-item-image" src="https://dummyimage.com/600x400/000/fff" alt="Menu Item"/>
+                    <img class="menu-item-image" th:src="@{${item.image}}" alt="Menu Item"/>
                     <div class="menu-item-text">
                         <div class="menu-item-heading">
                             <h3 th=:inline="text" class="menu-item-name">

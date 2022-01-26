@@ -55,4 +55,10 @@ public class Menu {
     @Column(name = "allergen")
     private String allergen;
 
+    /**
+     * A picture depicting the menu item.
+     */
+    @Column(name = "image")
+    private String image;
+
 }
