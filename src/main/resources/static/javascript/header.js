@@ -29,9 +29,11 @@ class Header extends HTMLElement {
                     'padding-bottom: 5px;' +
                     'box-shadow: inset 0 -2px 0 0 #0a0a23;' +
                 '} ' +
+                'h1.Logo{left:350px; position: absolute; border: 2px solid red;border-radius: 5px; color: green; }' +
             '</style> ' +
             '<header> ' +
                 '<nav> ' +
+                '<h1 class = "Logo">Oaxaca</h1>' +
                     '<ul>' +
                         '<li><a href="/">Home</a></li>' +
                         '<li><a href="/menu">Menu</a></li>' +
