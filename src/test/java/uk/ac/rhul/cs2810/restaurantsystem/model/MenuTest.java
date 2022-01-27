@@ -16,23 +16,11 @@ class MenuTest {
 
    @Test
     void testLombokAnnotations() {
-        menu = new Menu();
-        menu.setName("Burrito");
-        menu.setPrice(20.5F);
-        assertEquals(menu.getPrice(), 20.5, "Could not get the item price.");
-        assertNotNull(menu.getName(), "Could not get the item name.");
-    }
-   // @Test
-    void testConstructorWithArgs() {
-        menu = new Menu(1, "Burrito", 20.5F, 90.0F);
-        assertEquals(menu.getPrice(), 20.5, "Could not get the item price.");
-        assertNotNull(menu.getName(), "Could not get the item name.");
-    }
+       menu = new Menu();
+       menu.setName("Burrito");
+       menu.setPrice(20.5F);
+       assertEquals(menu.getPrice(), 20.5, "Could not get the item price.");
+       assertNotNull(menu.getName(), "Could not get the item name.");
 
-    //@Test
-    void testNullPointerException() {
-        assertThrows(NullPointerException.class, () -> menu = new Menu(1, null, 20.5F, 90.0F)
-                , "This field cannot be null." );
-    }
-
+   }
 }
