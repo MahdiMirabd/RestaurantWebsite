@@ -28,22 +28,37 @@ public class Menu {
     /**
      * The name of a food item.
      */
-    @NonNull
-    @Column(name = "name") //
+    @Column(name = "name", nullable = false) //
     private String name;
 
     /**
      * The price of a food item.
      */
-    @NonNull
-    @Column(name = "price")
+    @Column(name = "price", nullable = false)
     private float price;
 
     /**\
      * The amount of calories in a food item.
      */
-    @NonNull
-    @Column(name = "calories")
+    @Column(name = "calories", nullable = false)
     private float calories;
+
+    /**\
+     * The list of toppings and extras on the meal.
+     */
+    @Column(name = "ingredients", nullable = false)
+    private String ingredients;
+
+    /**
+     * The allergens contained in the meal.
+     */
+    @Column(name = "allergen")
+    private String allergen;
+
+    /**
+     * A picture depicting the menu item.
+     */
+    @Column(name = "image")
+    private String image;
 
 }

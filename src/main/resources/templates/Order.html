@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<!-- ensure that thymeleaf is added or the data will not display on the page -->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"  type="text/css" href="/style/allPages.css"/>
+    <link rel="stylesheet"  type="text/css" href="/style/order.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="/javascript/header.js" type="text/javascript" defer></script>
+    <title>Menu</title>
+</head>
+<body>
+    <header-component></header-component> <!-- custom tag created in header.js -->
+    <button class="btn"><i class="fa fa-shopping-cart" id="shopping-cart-button"></i></button>
+    <div class="container">
+        <table>
+            <tr>
+                <th> item </th>
+                <th> price </th>
+            </tr>
+            <tr th:each="item: ${items}">
+                <td th:text="${item.name}"></td>
+                <td th:text="${item.price}"></td>
+                <td>
+                    <label>Quantity:</label>
+                    <select name="quantity" id="quantity">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option>6</option>
+                        <option>7</option>
+                        <option>8</option>
+                        <option>9</option>
+                        <option>10</option>
+                    </select>
+                </td>
+                <td>
+                    <button class="btn">Add to cart</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
