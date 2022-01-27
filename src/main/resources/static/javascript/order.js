@@ -6,7 +6,8 @@ var totalPrice = 0;
 $().ready(function () {
     $(".add-to-cart-btn").click(function () {
         var quantity = $(this).closest('tr').find('input.qty').val();
-        window.alert("THIS IS A TEST!\n" + "The Quantity is: " + quantity + "\n^ ^ ^ ^");
+        var price = $(this).closest('tr').find('.row-price').text();
+        totalPrice += (parseInt(quantity) * parseFloat(price));
     });
 });
 
@@ -34,4 +35,11 @@ $().ready(function () {
         quantity = quantityInt.toString();
         $(this).closest('tr').find('input.qty').val(quantity);
     });
+});
+
+// Shopping cart button
+// it displays the total price of the items added to the cart.
+$().ready(function () {
+    $(".shopping-cart-button").click(function () {
+        window.alert("Total cost :   " + totalPrice.toString());    });
 });
