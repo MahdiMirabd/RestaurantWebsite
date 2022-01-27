@@ -8,6 +8,7 @@
     <link rel="stylesheet" type="text/css" href="/style/allPages.css" />
     <link rel="stylesheet" type="text/css" href="/style/order.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
     <script src="/javascript/header.js" type="text/javascript" defer></script>
     <script src="/javascript/order.js" type="text/javascript" defer></script>
     <title>Menu</title>
@@ -20,39 +21,23 @@
             <h2 class="order-heading">
                 Order
             </h2>
-            <!-- <button class="shopping-cart-button"><i class="fa fa-shopping-cart"></i></button> -->
             <div>
                 <table class="table">
-                    <tr th:each="item: ${items}">
+                    <tr class="table-row" th:each="item: ${items}">
                         <td>
                             <img class="item-img" th:src="@{${item.image}}" />
                         </td>
-                        <td th:text="${item.name}"></td>
-                        <td th:text="${item.price}"></td>
+                        <td class="row-data" th:text="${item.name}"></td>
+                        <td class="row-data" th:text="${item.price}"></td>
                         <td>
-                            <!-- IMPLEMENTATION 1: drop down menu-->
-                            <!-- <label>Quantity:</label>
-                            <select name="quantity" id="quantity">
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                                <option>6</option>
-                                <option>7</option>
-                                <option>8</option>
-                                <option>9</option>
-                                <option>10</option>
-                            </select> -->
-                            <!-- IMPLEMENTATION 2: input with increment/decrement buttons -->
                             <div class="button-container">
-                                <button onclick="decrementQuantity()" id="button-quantity-minus" type="button" value="-">-</button>
-                                <input type="text" name="quantity" min="0" id="item-quantity" value="0"></input>
-                                <button onclick="incrementQuantity()" id="button-quantity-plus" type="button" value="+">+</button>
+                                <button class="decrement-qty-btn" type="button" value="-">-</button>
+                                <input  class="qty" id="item-quantity" type="text" name="quantity" min="0" value="0"></input>
+                                <button class="increment-qty-btn" type="button" value="+">+</button>
                             </div>
                         </td>
                         <td>
-                            <button onclick="addToCart()" class="btn" id="add-to-cart">Add to cart</button>
+                            <button class="add-to-cart-btn" id="add-to-cart" value="submit">Add to cart</button>
                         </td>
                     </tr>
                 </table>

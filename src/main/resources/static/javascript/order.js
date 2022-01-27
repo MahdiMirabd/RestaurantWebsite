@@ -1,14 +1,37 @@
-function decrementQuantity(){
+//The total price of the order
+var totalPrice = 0;
 
-	document.getElementById("item-quantity").value --;
-}
+// Add to cart button
+// It button will multiply the price of the item by the quantity and add it to the total price.
+$().ready(function () {
+    $(".add-to-cart-btn").click(function () {
+        var quantity = $(this).closest('tr').find('input.qty').val();
+        window.alert("THIS IS A TEST!\n" + "The Quantity is: " + quantity + "\n^ ^ ^ ^");
+    });
+});
 
-function incrementQuantity(){
+// "-" button
+// It decrements the quantity of the item in that row ONLY if the integer value of quantity is bigger than 0,
+// if not then the button does nothing and the quantity value remains unchanged (0).
+$().ready(function () {
+    $(".decrement-qty-btn").click(function () {
+        var quantity = $(this).closest('tr').find('input.qty').val();
+        var quantityInt = parseInt(quantity);
+        if (0 < quantity)
+            quantityInt--;
+        quantity = quantityInt.toString();
+        $(this).closest('tr').find('input.qty').val(quantity);
+    });
+});
 
-	document.getElementById("item-quantity").value ++;
-}
-
-function addToCart() {
-    //Just to test if it reads the correct value.
-    window.alert(document.getElementById("item-quantity").value);
-}
+// "=" button
+// It increments the quantity of the item in that row.
+$().ready(function () {
+    $(".increment-qty-btn").click(function () {
+        var quantity = $(this).closest('tr').find('input.qty').val();
+        var quantityInt = parseInt(quantity);
+        quantityInt++;
+        quantity = quantityInt.toString();
+        $(this).closest('tr').find('input.qty').val(quantity);
+    });
+});
