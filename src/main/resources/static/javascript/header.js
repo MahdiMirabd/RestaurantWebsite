@@ -39,12 +39,18 @@ class Header extends HTMLElement {
                     'position:absolute;' +
                     'top:20px;' +
                     'right:200px;' +
-                  '} ' +
+                '} ' +
                   '.shopping-cart-button:hover {' +
                     'background-color: DodgerBlue;' +
                     'color: white;' +
-                  '} ' +
-                'h1.Logo{left:350px; position: absolute; border: 2px solid red;border-radius: 5px; color: green; }' +
+                '} ' +
+                'h1.Logo{' +
+                    'left:40px; ' +
+                    'position: absolute; ' +
+                    'border: 2px solid red;' +
+                    'border-radius: 5px; ' +
+                    'color: green; ' +
+                '}' +
             '</style> ' +
             '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">' +
             '<header> ' +
