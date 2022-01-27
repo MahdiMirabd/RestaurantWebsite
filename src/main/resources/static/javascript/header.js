@@ -38,7 +38,7 @@ class Header extends HTMLElement {
                     'cursor: pointer;' +
                     'position:absolute;' +
                     'top:20px;' +
-                    'right:85px;' +
+                    'right:200px;' +
                   '} ' +
                   '.shopping-cart-button:hover {' +
                     'background-color: DodgerBlue;' +
