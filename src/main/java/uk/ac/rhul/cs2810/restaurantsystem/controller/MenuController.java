@@ -28,7 +28,6 @@ public class MenuController {
      * @param model the database table being queried
      * @return the html page on which to render the data
      */
-    //@RequestMapping(value = "menu", method = RequestMethod.GET)
     @GetMapping(value = {""})
     public String findAll(Model model) {
 

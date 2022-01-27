@@ -44,10 +44,12 @@ class Header extends HTMLElement {
                     'background-color: DodgerBlue;' +
                     'color: white;' +
                   '} ' +
+                'h1.Logo{left:350px; position: absolute; border: 2px solid red;border-radius: 5px; color: green; }' +
             '</style> ' +
             '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">' +
             '<header> ' +
                 '<nav> ' +
+                '<h1 class = "Logo">Oaxaca</h1>' +
                     '<ul>' +
                         '<li><a href="/">Home</a></li>' +
                         '<li><a href="/menu">Menu</a></li>' +

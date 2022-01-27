@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import uk.ac.rhul.cs2810.restaurantsystem.repository.MenuRepository;
-import uk.ac.rhul.cs2810.restaurantsystem.repository.OrderRepository;
 
 @Controller
 @RequestMapping(value = {"/order"})
