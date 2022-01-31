@@ -10,7 +10,7 @@
 </head>
 <body>
     <header-component></header-component> <!-- custom tag created in header.js -->
-    <form action="waiter.html" method="POST">
+    <form action="waiter" method="POST">
         <label for="pass">Enter your password: </label>
         <input type="password" id="pass">
         <input type="button" value="Submit" onclick="checkPass() ;" />
@@ -21,7 +21,7 @@
             var confirmPassword = "admin";
             var password = document.getElementById("pass").value;
             if (password == confirmPassword) {
-                 window.location="waiter.html";
+                 window.location="waiter";
             }
             else{
                 alert("Passwords do not match.");
