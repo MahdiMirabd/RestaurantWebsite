@@ -1,25 +1,30 @@
-// package uk.ac.rhul.cs2810.restaurantsystem.model;
+package uk.ac.rhul.cs2810.restaurantsystem.model;
 
-// import lombok.*;
+import lombok.*;
 
-// import javax.persistence.*;
+import javax.persistence.*;
 
-// @Entity //signals that this class represents a table stored in the database.
-// @Table(name = "order") // the name of the table in the database
-// @NoArgsConstructor
-// @AllArgsConstructor
-// @Getter
-// @Setter
-// @ToString
-// public class Order {
+@Entity
+@Table(name = "order")
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
+@ToString
+public class Order {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
 
-//     // private static int orderNo = 0; // The id of the order
-//     // private ArrayList<Menu> orderList; // The list of all the items that the customer ordered
-//     // private float orderPrice; // The total price of all items the customer ordered
+    @Column(name = "name", nullable = false)
+    private String name;
 
-//     // public Order(){
-//     //     orderNo++;
-//     //     //orderList = ... get the list of objects from the item basket
-//     //     //orderPrice = ... get the total price of the objects in the item basket
-//     // }
-// }
+    @Column(name = "quantity", nullable = false)
+    private int quantity;
+
+    @Column(name = "price", nullable = false)
+    private float price;
+
+    @Column(name = "price", nullable = false)
+    private String status;
+}
