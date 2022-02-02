@@ -35,6 +35,8 @@ function addItemToCart(name, quantity, price) {
         <div class="cart-quantity">
             <input class="cart-quantity-input" type="number" value="${quantity}">
             <button class="btn btn-remove" type="button">REMOVE</button>
+        <div class="submit-button">
+            <button class="submit-order"type="button" value="submit">submit order</button></div>
         </div>`
         cartRow.innerHTML = cartRowContents;
     cartItems.append(cartRow);
