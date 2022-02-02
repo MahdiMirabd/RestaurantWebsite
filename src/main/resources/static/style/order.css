@@ -105,5 +105,9 @@ th, td {
   font-size: 16px;
   cursor: pointer;
   right:200px;
-
 }
+
+.call-waiter:disabled {
+  background-color: rgb(191, 26, 26);
+  color: white;
+} 
