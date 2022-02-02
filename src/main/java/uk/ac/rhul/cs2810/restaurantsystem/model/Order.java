@@ -5,7 +5,7 @@ import lombok.*;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "order")
+@Table(name = "orders")
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
@@ -25,6 +25,6 @@ public class Order {
     @Column(name = "price", nullable = false)
     private float price;
 
-    @Column(name = "price", nullable = false)
+    @Column(name = "status", nullable = false)
     private String status;
 }
