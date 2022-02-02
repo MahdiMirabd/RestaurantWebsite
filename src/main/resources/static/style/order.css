@@ -111,3 +111,7 @@ th, td {
   background-color: rgb(191, 26, 26);
   color: white;
 } 
+.call-waiter:hover {
+  background-color: rgb(191, 26, 26);
+  color: white;
+} 
