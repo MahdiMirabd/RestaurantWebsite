@@ -134,6 +134,7 @@ function updateCartTotal() {
 function callWaiterFunction() {
     if (callWaiterClicked == 0) {
         document.getElementById("call-waiter").disabled = true;
+        document.getElementById("call-waiter").innerHTML = "Waiter called, please wait!";
         callWaiterClicked++;
         alert("Please wait until a waiter comes to see you!!")
     }
