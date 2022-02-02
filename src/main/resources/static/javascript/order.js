@@ -1,5 +1,6 @@
 //The total price of the order
 var totalPrice = 0;
+var callWaiterClicked = 0;
 
 // Add to cart button
 // It button will multiply the price of the item by the quantity and add it to the total price.
@@ -128,4 +129,12 @@ function updateCartTotal() {
     total = Math.round(total*100) / 100;
     totalPrice = total;
     document.getElementsByClassName('cart-total-price')[0].innerText = '£' + total;
+}
+
+function callWaiterFunction() {
+    if (callWaiterClicked == 0) {
+        document.getElementById("call-waiter").disabled = true;
+        callWaiterClicked++;
+        alert("Please wait until a waiter comes to see you!!")
+    }
 }
