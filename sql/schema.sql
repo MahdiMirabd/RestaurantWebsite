@@ -13,12 +13,13 @@ CREATE TABLE menu (
     ingredients VARCHAR(100) NOT NULL,
     allergen TEXT [] NOT NULL,
     image VARCHAR (150) NOT NULL
+    inStock BOOLEAN
 );
-INSERT INTO menu (name, price, calories, ingredients, allergen, image )
-VALUES  ('Burrito', 20.50, 90, 'beef, cheese and spicy rice', ARRAY ['Milk', 'Celery'], '/img/burrito.jpg'),
-        ('Nachos', 10.50, 100, 'cheese, tomato', ARRAY ['Eggs'], '/img/nacho.jpg'),
-        ('Tacos', 15, 120, 'beef, cheese, tomato', ARRAY ['Gluten'], '/img/taco.jpg'),
-        ('Quesadillas', 13, 80, 'cheese', ARRAY ['Mustard'], '/img/quesadilla.jpg');
+INSERT INTO menu (name, price, calories, ingredients, allergen, image, inStock )
+VALUES  ('Burrito', 20.50, 90, 'beef, cheese and spicy rice', ARRAY ['Milk', 'Celery'], '/img/burrito.jpg', TRUE),
+        ('Nachos', 10.50, 100, 'cheese, tomato', ARRAY ['Eggs'], '/img/nacho.jpg', TRUE),
+        ('Tacos', 15, 120, 'beef, cheese, tomato', ARRAY ['Gluten'], '/img/taco.jpg', TRUE),
+        ('Quesadillas', 13, 80, 'cheese', ARRAY ['Mustard'], '/img/quesadilla.jpg', TRUE);
 
 INSERT INTO allergen(name, description)
 VALUES  ('Celery', 'Contains Celery'),
