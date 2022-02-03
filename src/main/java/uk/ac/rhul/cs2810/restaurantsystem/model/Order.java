@@ -19,11 +19,11 @@ public class Order {
     @Column(name = "name", nullable = false)
     private String name;
 
-    @Column(name = "quantity", nullable = false)
-    private int quantity;
-
     @Column(name = "price", nullable = false)
     private float price;
+
+    @Column(name = "quantity", nullable = false)
+    private int quantity;
 
     @Column(name = "status", nullable = false)
     private String status;
