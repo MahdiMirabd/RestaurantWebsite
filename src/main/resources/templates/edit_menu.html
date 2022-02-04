@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<!-- ensure that thymeleaf is added or the data will not display on the page -->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet"  type="text/css" href="/style/allPages.css"/>
+    <link rel="stylesheet"  type="text/css" href="/style/menu.css"/>
+    <script src="/javascript/header.js" type="text/javascript" defer></script>
+    <title>Menu</title>
+</head>
+<body>
+
+    <header-component></header-component> <!-- custom tag created in header.js -->
+
+    <div class="container">
+        <div class="menu">
+            <h2 class="menu-group-heading">
+                Menu
+            </h2>
+            <div class="menu-group">
+                <div th:each="item: ${items}" class="menu-item">
+                    <img class="menu-item-image" th:src="@{${item.image}}" alt="Menu Item"/>
+                    <div class="menu-item-text">
+                        <div class="menu-item-heading">
+                            <h3 th=:inline="text" class="menu-item-name">
+                                [[${item.name}]]
+                            </h3>
+                            <h3 th=:inline="text" class="menu-item-price">
+                                [[${item.price}]]
+                            </h3>
+                        </div>
+                        <br/>
+                        <div class="menu-item-details" >
+                            <div class="ingredients">
+                                <p> served with:&nbsp;</p>
+                                <div th:text=" ${item.ingredients}" > </div>
+                            </div>
+                            <br/>
+                            <div class="calories">
+                                <p class="item-label">calories:&nbsp;</p>
+                                <p th:text=" ${item.calories}" > </p>
+                            </div>
+                            <div class="allergens">
+                                <p> contains:&nbsp;</p>
+                                <p th:text=" ${item.allergen}" > </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
