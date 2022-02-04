@@ -78,9 +78,6 @@ $().ready(function () {
     $(".shopping-cart-button").click(function(){
         $('.cart-popup').show();
     });
-    $('.cart-popup').click(function(){
-        $('.cart-popup').hide();
-    });
     $('.popupCloseButton').click(function(){
         $('.cart-popup').hide();
     });
