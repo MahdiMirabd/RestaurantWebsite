@@ -90,3 +90,17 @@ th, td {
   display: inline-block;
   margin: 0px 5px;
 }
+
+.cart-popup{
+  position:fixed;
+  text-align:center;
+  top:0;
+  width:100%;
+}
+  
+.cart-popup > div {
+  display: inline-block;
+  background-color: #fff;
+  box-shadow: 10px 10px 60px #555;
+  padding: 15px; 
+}
