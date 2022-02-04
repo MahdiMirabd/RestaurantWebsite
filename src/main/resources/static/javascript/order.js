@@ -75,8 +75,15 @@ $().ready(function () {
 // Shopping cart button
 // it displays the total price of the items added to the cart.
 $().ready(function () {
-    $(".shopping-cart-button").click(function () {
-        window.alert("Total cost :   " + totalPrice.toString());    });
+    $(".shopping-cart-button").click(function(){
+        $('.cart-popup').show();
+    });
+    $('.cart-popup').click(function(){
+        $('.cart-popup').hide();
+    });
+    $('.popupCloseButton').click(function(){
+        $('.cart-popup').hide();
+    });
 });
 
 //Waits for a remove button to be clicked
