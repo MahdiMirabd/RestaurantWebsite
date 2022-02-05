@@ -34,7 +34,7 @@ public class OrderTest {
     @Test
     void addOneOrder() {
         Order order = new Order();
-        order.setTableNumber(1);
+        order.setTableNo(1);
         order.setName("Nacho");
         order.setQuantity(2);
         order.setStatus("pending");

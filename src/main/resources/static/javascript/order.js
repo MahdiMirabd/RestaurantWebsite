@@ -1,6 +1,6 @@
 //The total price of the order
-var totalPrice = 0;
-
+let totalPrice = 0;
+let tableNumber = 1;
 // Add to cart button
 // It button will multiply the price of the item by the quantity and add it to the total price.
 $().ready(function () {
@@ -33,6 +33,7 @@ function addItemToCart(name, quantity, price) {
             <p class="cart-item-title"><input type="hidden" value="${name}" name="name"/>${name}</p> 
          </div>
          <p class="cart-price cart-column"><input type="hidden" value="${price}" th:field="*{price}" name="price"/>${price} </p>
+         <p class="cart-price cart-column"><input type="hidden" value="${tableNumber}" th:field="*{tableNo}" name="tableNo"/></p>
          <p class="cart-price cart-column"><input type="hidden" value="pending" th:field="*{status}" name="status"/></p>
         <div class="cart-quantity">
             <p class="cart-quantity-input"><input type="hidden" value="${quantity}" name="quantity"/>${quantity}</p>
@@ -143,9 +144,23 @@ function updateCartTotal() {
         let price = parseFloat(priceElement.innerText.replace('£', ''));
         const quantity = quantityElement.value;
         console.log(price * quantity);
-        total = total + (price*quantity);
+        total = total + (price * quantity);
     }
-    total = Math.round(total*100) / 100;
+    total = Math.round(total * 100) / 100;
     totalPrice = total;
     document.getElementsByClassName('cart-total-price')[0].innerText = '£' + total;
+}
+
+//hide the order form when the document is loaded.
+$(document).ready(function () {
+    $(".order-heading-with-logo").hide();
+});
+
+
+function getTable() {
+        tableNumber+= 1;
+        $(".table-btn").hide();
+        $(".table-id").text(tableNumber);
+        $(".order-heading-with-logo").show();
+        document.getElementsByClassName('table-field').value = tableNumber;
 }

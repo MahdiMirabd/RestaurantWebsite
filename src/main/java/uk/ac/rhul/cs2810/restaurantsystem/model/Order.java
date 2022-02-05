@@ -18,7 +18,7 @@ public class Order {
     private long id;
 
     @Column(name = "tableNo", nullable = false)
-    private int tableNumber;
+    private int tableNo;
 
     @Column(name = "name", nullable = false)
     private String name;
