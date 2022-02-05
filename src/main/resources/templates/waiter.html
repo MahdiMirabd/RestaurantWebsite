@@ -16,5 +16,21 @@
 
     <button onclick="myFunction()">Try it</button>
 
+    <!-- section to list all orders in the database -->
+    <table>
+        <tr>
+            <th>Order number</th>
+            <th>Item</th>
+            <th>Quantity</th>
+            <th>status</th>
+        </tr>
+        <tr th:each="order: ${orders}">
+            <td th:text="${order.id}"></td>
+            <td th:text="${order.name}"></td>
+            <td th:text="${order.quantity}"></td>
+            <td th:text="${order.status}"></td>
+        </tr>
+    </table>
+
 </body>
 </html>
