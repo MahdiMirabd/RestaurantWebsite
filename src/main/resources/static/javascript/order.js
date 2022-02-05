@@ -28,7 +28,7 @@ function addItemToCart(name, quantity, price) {
         }
     }
     let cartRowContents = `
-        <form action="order" class="cart-item cart-column" method="POST" th:action="@{/order}"  >
+        <form action="order" class="cart-item-cart-column" method="POST" th:action="@{/order}"  >
          <div>
             <p class="cart-item-title"><input type="hidden" value="${name}" name="name"/>${name}</p> 
          </div>
@@ -38,13 +38,27 @@ function addItemToCart(name, quantity, price) {
             <p class="cart-quantity-input"><input type="hidden" value="${quantity}" name="quantity"/>${quantity}</p>
             <button class="btn btn-remove" type="button">REMOVE</button>
         </div>
-        <input type="submit" value="submit"/>
+        <button class="order-submit-button" type="submit" value="submit"/></button>
     </form>`
         cartRow.innerHTML = cartRowContents;
     cartItems.append(cartRow);
     cartRow.getElementsByClassName('btn-remove')[0].addEventListener('click', removeItemFromCart);
     cartRow.getElementsByClassName('cart-quantity-input')[0].addEventListener('change', quantityChanged);
 }
+
+$(function() {
+    $("#submit-all").click(function(){
+        $('.cart-item-cart-column').each(function(){
+            valuesToSend = $(this).serialize();
+            $.ajax($(this).attr('action'),
+                {
+                method: $(this).attr('method'),
+                data: valuesToSend
+                }
+            )
+        });
+    });
+});
 
 // "-" button
 // It decrements the quantity of the item in that row ONLY if the integer value of quantity is bigger than 0,
