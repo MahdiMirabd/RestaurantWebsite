@@ -12,7 +12,12 @@ $().ready(function () {
         if (quantity != 0) {
             addItemToCart(name,quantity,price);
             updateCartTotal();
-        }
+
+            // Changing the styling
+            $(this).closest('tr').find('.add-to-cart-btn').html("Added");
+            $(this).closest('tr').find('.add-to-cart-btn').css("color", "white");
+            $(this).closest('tr').find('.add-to-cart-btn').css("background-color", "rgb(23, 194, 63)");
+        } 
     });
 });
 
