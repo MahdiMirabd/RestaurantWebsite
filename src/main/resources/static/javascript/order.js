@@ -30,12 +30,12 @@ function addItemToCart(name, quantity, price) {
     let cartRowContents = `
         <form action="order" class="cart-item cart-column" method="POST" th:action="@{/order}"  >
          <div>
-            <p class="cart-item-title"><input type="text" value="${name}" th:field="*{name}" name="name"></p> 
+            <p class="cart-item-title"><input type="hidden" value="${name}" name="name"/>${name}</p> 
          </div>
-         <p class="cart-price cart-column"><input type="number" value="${price}" th:field="*{price}" name="price"></p>
-         <p class="cart-price cart-column"><input type="hidden" value="pending" th:field="*{status}" name="status"></p>
+         <p class="cart-price cart-column"><input type="hidden" value="${price}" th:field="*{price}" name="price"/>${price} </p>
+         <p class="cart-price cart-column"><input type="hidden" value="pending" th:field="*{status}" name="status"/></p>
         <div class="cart-quantity">
-            <input class="cart-quantity-input" type="number" value="${quantity}" th:field="*{quantity} name="quantity">
+            <p class="cart-quantity-input"><input type="hidden" value="${quantity}" name="quantity"/>${quantity}</p>
             <button class="btn btn-remove" type="button">REMOVE</button>
         </div>
         <input type="submit" value="submit"/>
