@@ -45,7 +45,7 @@ class Header extends HTMLElement {
                     'color: white;' +
                 '} ' +
                 'h1.Logo{' +
-                    'left:40px; ' +
+                    'left:350px; ' +
                     'position: absolute; ' +
                     'border: 2px solid red;' +
                     'border-radius: 5px; ' +

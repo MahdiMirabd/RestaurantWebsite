@@ -12,34 +12,35 @@
 </head>
 <body>
     <header-component></header-component> <!-- custom tag created in header.js -->
-    <h1> Welcome to oaxaca waiter system! </h1>
+    <div class="container">
+        <h1> Welcome to oaxaca waiter system! </h1>
 
-    <button onclick="myFunction()">Try it</button>
+        <button onclick="myFunction()">Try it</button>
 
-    <!-- section to list all orders in the database -->
-    <br/>
-    <br/>
-    <h2>Orders</h2>
-    <table>
-        <tr>
-            <th>Order number</th>
-            <th>Item</th>
-            <th>Quantity</th>
-            <th>status</th>
-            <th>action</th>
-        </tr>
-        <tr th:each="order: ${orders}">
-            <td th:text="${order.id}"></td>
-            <td th:text="${order.name}"></td>
-            <td th:text="${order.quantity}"></td>
-            <td th:text="${order.status}"></td>
-            <td>
-                <div class="btn-group">
-                    <input type="button" value="confirm">
-                </div>
-            </td>
-        </tr>
-    </table>
-
+        <!-- section to list all orders in the database -->
+        <br/>
+        <br/>
+        <h2>Orders</h2>
+        <table>
+            <tr>
+                <th>Order number</th>
+                <th>Item</th>
+                <th>Quantity</th>
+                <th>status</th>
+                <th>action</th>
+            </tr>
+            <tr th:each="order: ${orders}">
+                <td th:text="${order.id}"></td>
+                <td th:text="${order.name}"></td>
+                <td th:text="${order.quantity}"></td>
+                <td th:text="${order.status}"></td>
+                <td>
+                    <div class="btn-group">
+                        <input type="button" value="confirm">
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
 </body>
 </html>

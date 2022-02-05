@@ -35,12 +35,6 @@ th, td {
     margin-right: 1.5em;
 }
 
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 1.5em;
-}
-
 .order-heading {
   margin: 0;
   padding-bottom: 1em;
