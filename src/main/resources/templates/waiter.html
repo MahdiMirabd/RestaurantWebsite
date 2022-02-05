@@ -27,14 +27,14 @@
         <h2>Orders</h2>
         <table>
             <tr>
-                <th>Order number</th>
+                <th>Table number</th>
                 <th>Item</th>
                 <th>Quantity</th>
                 <th>status</th>
                 <th>action</th>
             </tr>
             <tr th:each="order: ${orders}">
-                <td th:text="${order.id}"></td>
+                <td th:text="${order.tableNo}"></td>
                 <td th:text="${order.name}"></td>
                 <td th:text="${order.quantity}"></td>
                 <td th:text="${order.status}"></td>

@@ -22,8 +22,10 @@
 <body>
     <header-component></header-component> <!-- custom tag created in header.js -->
     <div class="container">
-        <h2>Table Number:</h2>
-        <div class="table-id"></div>
+        <div class="table-detail">
+            <h2>Table Number:&nbsp </h2>
+            <h2 class="table-id"></h2>
+        </div>
         <input type="button" value="Request table"  class="table-btn" onclick="getTable()" />
         <div class="order-heading-with-logo"> <!-- need to hide this div until a table number is generated -->
             <h2 class="order-heading">

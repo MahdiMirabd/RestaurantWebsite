@@ -1,6 +1,6 @@
 //The total price of the order
 let totalPrice = 0;
-let tableNumber = 1;
+let tableNumber = 0;
 // Add to cart button
 // It button will multiply the price of the item by the quantity and add it to the total price.
 $().ready(function () {
@@ -163,7 +163,14 @@ $(document).ready(function () {
 
 
 function getTable() {
-        tableNumber+= 1;
+    if (typeof(Storage) !== "undefined") {
+        if (localStorage.clickcount) {
+            localStorage.clickcount = Number(localStorage.clickcount)+1;
+        } else {
+            localStorage.clickcount = 1;
+        }
+    }
+        tableNumber = localStorage.clickcount;
         $(".table-btn").hide();
         $(".table-id").text(tableNumber);
         $(".order-heading-with-logo").show();

@@ -142,3 +142,7 @@ th, td {
 .cart-contents::-webkit-scrollbar {
   display: none; /* for Chrome, Safari, and Opera */
 }
+
+.table-detail{
+  display: flex;
+}
