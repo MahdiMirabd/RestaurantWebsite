@@ -102,6 +102,7 @@ th, td {
   box-shadow: 10px 10px 60px rgb(85, 85, 85);
   padding: 15px;
   border-radius: 10px;
+  vertical-align:middle;
 }
 
 .helper{
@@ -128,4 +129,16 @@ th, td {
 
 .order-submit-button {
   visibility: hidden;
+}
+
+.cart-contents {
+  -ms-overflow-style: none; /* for Internet Explorer, Edge */
+  scrollbar-width: none; /* for Firefox */
+  overflow-y: scroll;
+  max-height:500px;
+  width:500px;
+}
+
+.cart-contents::-webkit-scrollbar {
+  display: none; /* for Chrome, Safari, and Opera */
 }
