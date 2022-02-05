@@ -30,14 +30,7 @@ public class MenuController {
      */
     @GetMapping(value = {""})
     public String findAll(Model model) {
-
-        // 1st param: name of the data model that will be available to the UI.
-        // use this name in the html file to access the data
-        // 2nd param:the data you want to pass (the list).
-        //      gets all the rows of data from the menu table in the database and place it into a list.
         model.addAttribute("items", menuRepository.findAll());
-
-        // after running the application enter in browser "http://localhost:8080/menu" to view the page
         return "menu";
     }
 }

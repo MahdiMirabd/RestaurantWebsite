@@ -17,7 +17,6 @@ public class OrderController {
     @Autowired
     private OrderRepository orderRepository;
 
-    //@GetMapping(value = {""})
     @RequestMapping(value = "/order", method = RequestMethod.GET)
     public String findAll(Model model) {
 
