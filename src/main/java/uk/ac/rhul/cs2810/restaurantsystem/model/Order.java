@@ -17,9 +17,10 @@ public class Order {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
+    @Column(name = "tableNo", nullable = false)
+    private int tableNumber;
+
     @Column(name = "name", nullable = false)
-    //@ManyToOne
-   // @JoinColumn(name = "name")
     private String name;
 
     @Column(name = "quantity", nullable = false)

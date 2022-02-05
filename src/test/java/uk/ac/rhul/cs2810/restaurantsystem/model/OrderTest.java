@@ -18,9 +18,6 @@ public class OrderTest {
     @Autowired
     private OrderRepository orderRepository;
 
-   // @Autowired
-   // TestEntityManager entityManager;
-
     @Test
     void testNullObjects() {
         order = new Order();
@@ -36,8 +33,8 @@ public class OrderTest {
 
     @Test
     void addOneOrder() {
-        //Menu menu = entityManager.find(Menu.class, 2);
         Order order = new Order();
+        order.setTableNumber(1);
         order.setName("Nacho");
         order.setQuantity(2);
         order.setStatus("pending");
