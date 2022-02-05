@@ -1,7 +1,7 @@
 <!--Function to check password the already set password is admin-->
 function checkPass() {
-    var confirmPassword = "admin";
-    var password = document.getElementById("pass").value;
+    const confirmPassword = "admin";
+    let password = document.getElementById("pass").value;
     if (password == confirmPassword) {
         window.location="waiter";
     }
