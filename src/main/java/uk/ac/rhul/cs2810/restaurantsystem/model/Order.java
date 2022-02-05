@@ -10,6 +10,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @Getter
 @Setter
+@EqualsAndHashCode
 @ToString
 public class Order {
     @Id
@@ -17,10 +18,9 @@ public class Order {
     private long id;
 
     @Column(name = "name", nullable = false)
+    //@ManyToOne
+   // @JoinColumn(name = "name")
     private String name;
-
-    @Column(name = "price", nullable = false)
-    private float price;
 
     @Column(name = "quantity", nullable = false)
     private int quantity;
