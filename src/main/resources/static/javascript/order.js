@@ -158,13 +158,7 @@ function updateCartTotal() {
     document.getElementsByClassName('cart-total-price')[0].innerText = '£' + total;
 }
 
-//hide the order form when the document is loaded.
 $(document).ready(function () {
-    $(".order-heading-with-logo").hide();
-});
-
-
-function getTable() {
     if (typeof(Storage) !== "undefined") {
         if (localStorage.clickcount) {
             localStorage.clickcount = Number(localStorage.clickcount)+1;
@@ -173,8 +167,7 @@ function getTable() {
         }
     }
         tableNumber = localStorage.clickcount;
-        $(".table-btn").hide();
         $(".table-id").text(tableNumber);
         $(".order-heading-with-logo").show();
         document.getElementsByClassName('table-field').value = tableNumber;
-}
+});
