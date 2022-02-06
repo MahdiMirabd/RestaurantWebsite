@@ -41,14 +41,15 @@ function addItemToCart(image,name, quantity, price) {
          <div>
             <p class="cart-item-title"><input type="hidden" value="${name}" name="name"/>${name}</p> 
          </div>
-         <p class="cart-price cart-column"><input type="hidden" value="${price}" th:field="*{price}" name="price"/>${price} </p>
+         <p class="cart-item-price"><input type="hidden" value="${price}" th:field="*{price}" name="price"/>${price} </p>
          <p class="cart-price cart-column"><input type="hidden" value="${tableNumber}" th:field="*{tableNo}" name="tableNo"/></p>
          <p class="cart-price cart-column"><input type="hidden" value="pending" th:field="*{status}" name="status"/></p>
         <div class="cart-quantity">
-            <p class="cart-quantity-input"><input type="hidden" value="${quantity}" name="quantity"/>${quantity}</p>
+            <!-- <p class="cart-quantity-input"><input type="hidden" value="${quantity}" name="quantity"/>${quantity}</p> -->
+            <input class="cart-quantity-input" type="number" value="${quantity}" name="quantity"/>
+        </div>
         </div>
         <button class="btn btn-remove" type="button">REMOVE</button>
-        </div>
         <button class="order-submit-button" type="submit" value="submit"/></button>
     </form>
     </div>`
