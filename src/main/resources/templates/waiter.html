@@ -39,9 +39,10 @@
                 <td th:text="${order.quantity}"></td>
                 <td th:text="${order.status}"></td>
                 <td>
-                    <div class="btn-group">
-                        <input type="button" value="confirm">
-                    </div>
+                    <form th:action="@{/waiter/{id}(id=${order.id})}" method="PUT" >
+                        <input type="hidden" class="order-id" name="id"  th:value="${order.id}"/>
+                        <input type="button" value="confirm" />
+                    </form>
                 </td>
             </tr>
         </table>

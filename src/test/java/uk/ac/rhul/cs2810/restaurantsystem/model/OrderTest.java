@@ -1,11 +1,13 @@
 package uk.ac.rhul.cs2810.restaurantsystem.model;
 
 import org.junit.jupiter.api.Test;
+import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.test.annotation.Rollback;
+import uk.ac.rhul.cs2810.restaurantsystem.controller.WaiterController;
 import uk.ac.rhul.cs2810.restaurantsystem.repository.OrderRepository;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -15,7 +17,9 @@ import static org.junit.jupiter.api.Assertions.*;
 @Rollback(value = false)
 public class OrderTest {
     private Order  order;
+
     @Autowired
+    @Mock
     private OrderRepository orderRepository;
 
     @Test
@@ -41,5 +45,12 @@ public class OrderTest {
 
         Order savedOrder = orderRepository.save(order);
         assertTrue(savedOrder.getId() > 0);
+    }
+
+    @Test
+    void UpdateField() {
+        Order order = orderRepository.getById((long)38);
+        order.setStatus("confirmed");
+        orderRepository.save(order);
     }
 }
