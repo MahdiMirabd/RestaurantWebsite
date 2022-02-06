@@ -173,14 +173,16 @@ th, td {
   padding: 5px;
 }
 
-.item-info {
+.cart-item-info {
   display:grid;
   row-gap:0.5rem;
+  text-align:left;
 }
 
 .cart-item-title {
   font-size:1rem;
   font-weight:bold
+
 }
 
 .cart-item-price {
@@ -211,6 +213,17 @@ th, td {
   border: 2px solid red;
 }
 
+.cart-total {
+  display:flex;
+  justify-content:flex-end;
+  margin-top:1.5rem;
+  border-top:1px solid;
+  padding: 6px;
+}
+
+.cart-total-price {
+  margin-left:0.5rem;
+}
 
 .table-detail{
   display: flex;
