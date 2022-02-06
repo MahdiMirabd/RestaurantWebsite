@@ -6,11 +6,12 @@ let tableNumber = 0;
 $().ready(function () {
     $(".add-to-cart-btn").click(function (event) {
         buttonClicked = event.target;
+        const image = $(this).closest('tr').find('.row-img').find('.item-img').attr('src');
         const name = $(this).closest('tr').find('.row-name').text();
         let quantity = $(this).closest('tr').find('input.qty').val();
         const price = $(this).closest('tr').find('.row-price').text();
         if (quantity != 0) {
-            addItemToCart(name,quantity,price);
+            addItemToCart(image,name,quantity,price);
             updateCartTotal();
 
             // Changing the styling
@@ -21,7 +22,7 @@ $().ready(function () {
     });
 });
 
-function addItemToCart(name, quantity, price) {
+function addItemToCart(image,name, quantity, price) {
     let cartRow = document.createElement('div');
     cartRow.classList.add('cart-row');
     let cartItems = document.getElementsByClassName('cart-items')[0];
@@ -33,6 +34,7 @@ function addItemToCart(name, quantity, price) {
         }
     }
     let cartRowContents = `
+        <img class="cart-item cart-column" src="${image}" alt="The image of the item." name="image" />
         <form action="order" class="cart-item-cart-column" method="POST" th:action="@{/order}"  >
          <div>
             <p class="cart-item-title"><input type="hidden" value="${name}" name="name"/>${name}</p> 
