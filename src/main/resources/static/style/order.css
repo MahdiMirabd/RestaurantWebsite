@@ -194,6 +194,24 @@ th, td {
   width:2.4rem;
 }
 
+.btn-remove {
+  background-color: white;
+  border: 2px solid white;
+  color: red;
+  padding: 0px;
+  font-size: 20px;
+  cursor: pointer;
+  width: 45px;
+  height: 45px;
+  margin:auto;
+}
+
+.btn-remove:hover {
+  border-radius: 10px;
+  border: 2px solid red;
+}
+
+
 .table-detail{
   display: flex;
 }

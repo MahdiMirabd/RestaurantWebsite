@@ -49,7 +49,7 @@ function addItemToCart(image,name, quantity, price) {
             <input class="cart-quantity-input" type="number" value="${quantity}" name="quantity"/>
         </div>
         </div>
-        <button class="btn btn-remove" type="button">REMOVE</button>
+        <button class="btn btn-remove"><i class='fas fa-trash-alt'></i></button>
         <button class="order-submit-button" type="submit" value="submit"/></button>
     </form>
     </div>`
@@ -131,7 +131,7 @@ $().ready(function() {
 //Removes an item from the cart
 function removeItemFromCart(event) {
     let buttonClicked = event.target;
-    buttonClicked.parentElement.parentElement.parentElement.remove();
+    buttonClicked.parentElement.parentElement.remove();
     updateCartTotal();
 }
 
