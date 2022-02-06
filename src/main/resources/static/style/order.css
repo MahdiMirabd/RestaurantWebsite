@@ -156,27 +156,25 @@ th, td {
 
 .cart-item-box {
   display:grid;
-  grid-template-columns: 32% 50% 18%;
+  grid-template-columns: 30% 50% 20%;
   align-items:center;
   gap:1rem;
-  margin-top:1rem;
-  width:88%;
-  padding: 5px;
+  width:95%;
 }
 
 #cart-item-img {
-  width: 80px;
-  height: 80px;
+  width: 95px;
+  height: 95px;
   flex-shrink: 0;
   object-fit: cover;
   margin-right: 1.5em;
-  padding: 5px;
+  padding: 25px 5px 5px 5px;
 }
 
 .cart-item-info {
-  display:grid;
-  row-gap:0.5rem;
-  text-align:left;
+  display:flex;
+  justify-content:flex-start;
+  text-align:start;
 }
 
 .cart-item-title {
