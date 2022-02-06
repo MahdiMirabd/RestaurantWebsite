@@ -34,7 +34,9 @@ function addItemToCart(image,name, quantity, price) {
         }
     }
     let cartRowContents = `
-        <img class="cart-item cart-column" src="${image}" alt="The image of the item." name="image" />
+        <div class="cart-item-box">
+        <img class="cart-item cart-column" src="${image}" id="cart-item-img" alt="The image of the item." name="image" />
+        <div class="cart-item-info">
         <form action="order" class="cart-item-cart-column" method="POST" th:action="@{/order}"  >
          <div>
             <p class="cart-item-title"><input type="hidden" value="${name}" name="name"/>${name}</p> 
@@ -44,10 +46,12 @@ function addItemToCart(image,name, quantity, price) {
          <p class="cart-price cart-column"><input type="hidden" value="pending" th:field="*{status}" name="status"/></p>
         <div class="cart-quantity">
             <p class="cart-quantity-input"><input type="hidden" value="${quantity}" name="quantity"/>${quantity}</p>
-            <button class="btn btn-remove" type="button">REMOVE</button>
+        </div>
+        <button class="btn btn-remove" type="button">REMOVE</button>
         </div>
         <button class="order-submit-button" type="submit" value="submit"/></button>
-    </form>`
+    </form>
+    </div>`
         cartRow.innerHTML = cartRowContents;
     cartItems.append(cartRow);
     cartRow.getElementsByClassName('btn-remove')[0].addEventListener('click', removeItemFromCart);
@@ -126,7 +130,7 @@ $().ready(function() {
 //Removes an item from the cart
 function removeItemFromCart(event) {
     let buttonClicked = event.target;
-    buttonClicked.parentElement.parentElement.remove();
+    buttonClicked.parentElement.parentElement.parentElement.remove();
     updateCartTotal();
 }
 
