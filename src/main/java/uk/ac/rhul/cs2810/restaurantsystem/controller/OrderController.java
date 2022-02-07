@@ -27,7 +27,7 @@ public class OrderController {
     @RequestMapping(value = "/order", method = RequestMethod.POST)
     public String submitOrder(Model model, @ModelAttribute(value = "orders") Order orders) {
        Order order = orderRepository.save(orders);
-       return "Order";
+       return "order";
     }
 
 

@@ -12,6 +12,7 @@
     <link rel="stylesheet"  type="text/css" href="/style/waiter.css">
     <script src="/javascript/header.js" type="text/javascript" defer></script>
     <script src="/javascript/waiter.js" type="text/javascript" defer></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <title>Waiter</title>
 </head>
 <body>
@@ -39,9 +40,8 @@
                 <td th:text="${order.quantity}"></td>
                 <td th:text="${order.status}"></td>
                 <td>
-                    <form th:action="@{/waiter/{id}(id=${order.id})}" method="PUT" >
-                       <!-- <input type="hidden" class="order-id" name="id"  th:value="${order.id}"/> -->
-                        <input type="button" value="confirm" />
+                    <form  th:action="@{/waiter/{id}(id=${order.id})}" method="PUT">
+                            <input type="submit" value="confirm" />
                     </form>
                 </td>
             </tr>

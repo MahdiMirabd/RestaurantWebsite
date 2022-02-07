@@ -3,6 +3,7 @@ package uk.ac.rhul.cs2810.restaurantsystem.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.MultiValueMap;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import uk.ac.rhul.cs2810.restaurantsystem.model.Order;
@@ -23,14 +24,13 @@ public class WaiterController {
         return "waiter";
     }
 
-    @RequestMapping(value = "/waiter/{id}" , method = RequestMethod.PUT)
-    //@RequestMapping(value = "/waiter", method = RequestMethod.PUT)
-    public void confirmOrder(@PathVariable long id){
-        System.out.println("we got here");
+    @RequestMapping(value = "/waiter/{id}" , method = {RequestMethod.GET, RequestMethod.PUT})
+    public String confirmOrder(@PathVariable long id, Model model){
         Order order = orderRepository.getById(id);
         order.setStatus("confirmed");
         orderRepository.save(order);
-        System.out.println("saved the changes");
+        return findAllOrders(model);
     }
+
 
 }
