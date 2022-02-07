@@ -52,5 +52,6 @@ public class OrderTest {
         Order order = orderRepository.getById((long)38);
         order.setStatus("confirmed");
         orderRepository.save(order);
+        assertEquals(order.getStatus(), "confirmed");
     }
 }
