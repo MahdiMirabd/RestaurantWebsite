@@ -5,28 +5,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" sizes="180x180" href="/img/favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="/img/favicon_io/site.webmanifest">
     <link rel="stylesheet" type="text/css" href="/style/allPages.css" />
     <link rel="stylesheet" type="text/css" href="/style/order.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="/javascript/allPages.js" type="text/javascript" defer></script>
     <script src="/javascript/header.js" type="text/javascript" defer></script>
     <script src="/javascript/order.js" type="text/javascript" defer></script>
-    <title>Menu</title>
+    <title>Order</title>
 </head>
 
 <body>
     <header-component></header-component> <!-- custom tag created in header.js -->
     <div class="container">
-        <div class="order-heading-with-logo">
+        <div class="table-detail">
+            <h2>Table Number:&nbsp </h2>
+            <h2 class="table-id"></h2>
+        </div>
+        <div class="order-heading-with-logo"> <!-- need to hide this div until a table number is generated -->
             <h2 class="order-heading">
                 Order
             </h2>
-            <!-- <button class="shopping-cart-button"><i class="fa fa-shopping-cart"></i></button> -->
             <div>
                 <table class="table">
                     <tr class="table-row" th:each="item: ${items}">
-                        <td>
+                        <td class="row-img">
                             <img class="item-img" th:src="@{${item.image}}" />
                         </td>
                         <td class="row-name" th:text="${item.name}"></td>
@@ -46,18 +54,28 @@
                 </table>
             </div>
         </div>
-        <div class="call-waiter-button">
-            <button onclick="callWaiterFunction()" class="call-waiter" id="call-waiter" type="button" value="Call a waiter" enabled>Call a waiter</button></div>
-        <div class="cart-heading">
+    </div>
+    <div class="cart-popup">
+        <span class="helper"></span>
+        <div>
+            <div class="popupCloseButton">&times;</div>
+
             <h1>Cart</h1>
             <hr>
-            <div class="cart-items">
+            <div class="cart-contents">
+                <div class="cart-heading"></div>
+                <div class="cart-items">
+                </div>
+                <div class="cart-total">
+                    <strong class="cart-total-title">Total</strong>
+                    <span class="cart-total-price">£0.00</span>
+                </div>
             </div>
-            <div class="cart-total">
-                <strong class="cart-total-title">Total</strong>
-                <span class="cart-total-price">£0.00</span>
+            <div class="submit-button">
+                <button id="submit-all" class="btn btn-info">Submit</button>
             </div>
         </div>
+    </div>
     </div>
 </body>
 

@@ -12,15 +12,11 @@
     <link rel="stylesheet"  type="text/css" href="/style/waiter.css">
     <script src="/javascript/header.js" type="text/javascript" defer></script>
     <script src="/javascript/waiter.js" type="text/javascript" defer></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <title>Waiter</title>
+    <title>Kitchen</title>
 </head>
 <body>
     <header-component></header-component> <!-- custom tag created in header.js -->
     <div class="container">
-        <h1> Welcome to oaxaca waiter system! </h1>
-
-        <button onclick="myFunction()">Try it</button>
 
         <!-- section to list all orders in the database -->
         <br/>
@@ -40,9 +36,7 @@
                 <td th:text="${order.quantity}"></td>
                 <td th:text="${order.status}"></td>
                 <td>
-                    <form  th:action="@{/waiter/{id}(id=${order.id})}" method="PUT">
-                            <input type="submit" value="confirm" />
-                    </form>
+                    <input type="button" value="ready" />
                 </td>
             </tr>
         </table>

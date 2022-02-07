@@ -39,13 +39,14 @@ class Header extends HTMLElement {
                     'position:absolute;' +
                     'top:20px;' +
                     'right:200px;' +
+                    '  border-radius: 10px;'  +
                 '} ' +
                   '.shopping-cart-button:hover {' +
                     'background-color: DodgerBlue;' +
                     'color: white;' +
                 '} ' +
                 'h1.Logo{' +
-                    'left:40px; ' +
+                    'left:350px; ' +
                     'position: absolute; ' +
                     'border: 2px solid red;' +
                     'border-radius: 5px; ' +

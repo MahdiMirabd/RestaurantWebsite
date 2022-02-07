@@ -10,13 +10,17 @@
     <link rel="manifest" href="/img/favicon_io/site.webmanifest">
     <link rel="stylesheet"  type="text/css" href="/style/allPages.css">
     <script src="/javascript/header.js" type="text/javascript" defer></script>
-    <title>oaxaca</title>
+    <script src="/javascript/login.js" type="text/javascript" defer></script>
+    <title>Login</title>
 </head>
 <body>
     <header-component></header-component> <!-- custom tag created in header.js -->
     <div class="container">
-        <h1>Welcome to our mexican restaurant</h1>
+        <form action="waiter" method="POST">
+            <label for="pass">Enter your password: </label>
+            <input type="password" id="pass">
+            <input type="button" value="Login" onclick="checkPass() ;" />
+        </form>
     </div>
-
 </body>
 </html>

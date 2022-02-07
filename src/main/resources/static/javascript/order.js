@@ -1,57 +1,85 @@
 //The total price of the order
-var totalPrice = 0;
-var callWaiterClicked = 0;
-
+let totalPrice = 0;
+let tableNumber = 0;
 // Add to cart button
 // It button will multiply the price of the item by the quantity and add it to the total price.
 $().ready(function () {
     $(".add-to-cart-btn").click(function (event) {
         buttonClicked = event.target;
-        var name = $(this).closest('tr').find('.row-name').text();
-        var quantity = $(this).closest('tr').find('input.qty').val();
-        var price = $(this).closest('tr').find('.row-price').text();
+        const image = $(this).closest('tr').find('.row-img').find('.item-img').attr('src');
+        const name = $(this).closest('tr').find('.row-name').text();
+        let quantity = $(this).closest('tr').find('input.qty').val();
+        const price = $(this).closest('tr').find('.row-price').text();
         if (quantity != 0) {
-            addItemToCart(name,quantity,price);
+            addItemToCart(image,name,quantity,price);
             updateCartTotal();
-        }
+
+            // Changing the styling
+            $(this).closest('tr').find('.add-to-cart-btn').html("Added");
+            $(this).closest('tr').find('.add-to-cart-btn').css("color", "white");
+            $(this).closest('tr').find('.add-to-cart-btn').css("background-color", "rgb(23, 194, 63)");
+        } 
     });
 });
 
-function addItemToCart(name, quantity, price) {
-    var cartRow = document.createElement('div');
+function addItemToCart(image,name, quantity, price) {
+    let cartRow = document.createElement('div');
     cartRow.classList.add('cart-row');
-    var cartItems = document.getElementsByClassName('cart-items')[0];
-    var cartItemNames = cartItems.getElementsByClassName('cart-item-title');
-    for (var i = 0; i < cartItemNames.length; i++) {
+    let cartItems = document.getElementsByClassName('cart-items')[0];
+    let cartItemNames = cartItems.getElementsByClassName('cart-item-title');
+    for (let i = 0; i < cartItemNames.length; i++) {
         if (cartItemNames[i].innerText == name) {
             alert('This item has already been added, change the quantity in the cart.');
             return;
         }
     }
-    var cartRowContents = `
-        <div class="cart-item cart-column">
-            <span class="cart-item-title">${name}</span>
-        </div>
-        <span class="cart-price cart-column">${price}</span>
+    let cartRowContents = `
+        <div class="cart-item-box">
+        <img class="cart-item cart-column" src="${image}" id="cart-item-img" alt="The image of the item." name="image" />
+        <div class="cart-item-info">
+        <form action="order" class="cart-item-cart-column" method="POST" th:action="@{/order}"  >
+         <div>
+            <p class="cart-item-title"><input type="hidden" value="${name}" name="name"/>${name}</p> 
+         </div>
+         <p class="cart-item-price"><input type="hidden" value="${price}" th:field="*{price}" name="price"/>${price} </p>
+         <p class="cart-price cart-column"><input type="hidden" value="${tableNumber}" th:field="*{tableNo}" name="tableNo"/></p>
+         <p class="cart-price cart-column"><input type="hidden" value="pending" th:field="*{status}" name="status"/></p>
         <div class="cart-quantity">
-            <input class="cart-quantity-input" type="number" value="${quantity}">
-            <button class="btn btn-remove" type="button">REMOVE</button>
-        <div class="submit-button">
-            <button class="submit-order"type="button" value="submit">submit order</button></div>
-        </div>`
+            <!-- <p class="cart-quantity-input"><input type="hidden" value="${quantity}" name="quantity"/>${quantity}</p> -->
+            <input class="cart-quantity-input" type="number" value="${quantity}" name="quantity"/>
+        </div>
+        </div>
+        <button class="btn btn-remove"><i class='fas fa-trash-alt'></i></button>
+        <button class="order-submit-button" type="submit" value="submit"/></button>
+    </form>
+    </div>`
         cartRow.innerHTML = cartRowContents;
     cartItems.append(cartRow);
     cartRow.getElementsByClassName('btn-remove')[0].addEventListener('click', removeItemFromCart);
     cartRow.getElementsByClassName('cart-quantity-input')[0].addEventListener('change', quantityChanged);
 }
 
+$(function() {
+    $("#submit-all").click(function(){
+        $('.cart-item-cart-column').each(function(){
+            valuesToSend = $(this).serialize();
+            $.ajax($(this).attr('action'),
+                {
+                method: $(this).attr('method'),
+                data: valuesToSend
+                }
+            )
+        });
+    });
+});
+
 // "-" button
 // It decrements the quantity of the item in that row ONLY if the integer value of quantity is bigger than 0,
 // if not then the button does nothing and the quantity value remains unchanged (0).
 $().ready(function () {
     $(".decrement-qty-btn").click(function () {
-        var quantity = $(this).closest('tr').find('input.qty').val();
-        var quantityInt = parseInt(quantity);
+        let quantity = $(this).closest('tr').find('input.qty').val();
+        let quantityInt = parseInt(quantity);
         if (0 < quantity)
             quantityInt--;
         quantity = quantityInt.toString();
@@ -63,8 +91,8 @@ $().ready(function () {
 // It increments the quantity of the item in that row.
 $().ready(function () {
     $(".increment-qty-btn").click(function () {
-        var quantity = $(this).closest('tr').find('input.qty').val();
-        var quantityInt = parseInt(quantity);
+        let quantity = $(this).closest('tr').find('input.qty').val();
+        let quantityInt = parseInt(quantity);
         quantityInt++;
         quantity = quantityInt.toString();
         $(this).closest('tr').find('input.qty').val(quantity);
@@ -74,38 +102,42 @@ $().ready(function () {
 // Shopping cart button
 // it displays the total price of the items added to the cart.
 $().ready(function () {
-    $(".shopping-cart-button").click(function () {
-        window.alert("Total cost :   " + totalPrice.toString());    });
+    $(".shopping-cart-button").click(function(){
+        $('.cart-popup').show();
+    });
+    $('.popupCloseButton').click(function(){
+        $('.cart-popup').hide();
+    });
 });
 
 //Waits for a remove button to be clicked
 $().ready(function() {
-    var removeBtn = document.getElementsByClassName('btn-remove');
-    for (var i = 0; i < removeBtn.length; i++) {
-        var input = removeBtn[i];
+    let removeBtn = document.getElementsByClassName('btn-remove');
+    for (let i = 0; i < removeBtn.length; i++) {
+        let input = removeBtn[i];
         input.addEventListener('click', removeItemFromCart)
     }
 });
 
 //checks if the menu has been updated so the price can then be updated
 $().ready(function() {
-    var quantityInputs = document.getElementsByClassName('cart-quantity-input');
-    for (var i = 0; i < quantityInputs.length; i++) {
-        var input = quantityInputs[i];
+    let quantityInputs = document.getElementsByClassName('cart-quantity-input');
+    for (let i = 0; i < quantityInputs.length; i++) {
+        let input = quantityInputs[i];
         input.addEventListener('change', quantityChanged)
     }
 });
 
 //Removes an item from the cart
 function removeItemFromCart(event) {
-    var buttonClicked = event.target;
+    let buttonClicked = event.target;
     buttonClicked.parentElement.parentElement.remove();
     updateCartTotal();
 }
 
 //updates total price in real time
 function quantityChanged(event) {
-    var input = event.target;
+    let input = event.target;
     if (isNaN(input.value) || input.value <= 0) {
         input.value = 1;
     }
@@ -114,28 +146,33 @@ function quantityChanged(event) {
 
 //Update cart total after changes have been made
 function updateCartTotal() {
-    var cartItemContainer = document.getElementsByClassName('cart-items')[0];
-    var cartRows = cartItemContainer.getElementsByClassName('cart-row');
-    var total = 0;
-    for (var i = 0; i < cartRows.length; i++) {
-        var cartRow = cartRows[i];
-        var priceElement = cartRow.getElementsByClassName('cart-price')[0];
-        var quantityElement = cartRow.getElementsByClassName('cart-quantity-input')[0];
-        var price = parseFloat(priceElement.innerText.replace('£', ''));
-        var quantity = quantityElement.value;
+    let cartItemContainer = document.getElementsByClassName('cart-items')[0];
+    let cartRows = cartItemContainer.getElementsByClassName('cart-row');
+    let total = 0;
+    for (let i = 0; i < cartRows.length; i++) {
+        let cartRow = cartRows[i];
+        let priceElement = cartRow.getElementsByClassName('cart-price')[0];
+        let quantityElement = cartRow.getElementsByClassName('cart-quantity-input')[0];
+        let price = parseFloat(priceElement.innerText.replace('£', ''));
+        const quantity = quantityElement.value;
         console.log(price * quantity);
-        total = total + (price*quantity);
+        total = total + (price * quantity);
     }
-    total = Math.round(total*100) / 100;
+    total = Math.round(total * 100) / 100;
     totalPrice = total;
     document.getElementsByClassName('cart-total-price')[0].innerText = '£' + total;
 }
 
-function callWaiterFunction() {
-    if (callWaiterClicked == 0) {
-        document.getElementById("call-waiter").disabled = true;
-        document.getElementById("call-waiter").innerHTML = "Waiter called, please wait!";
-        callWaiterClicked++;
-        alert("Please wait until a waiter comes to see you!!")
+$(document).ready(function () {
+    if (typeof(Storage) !== "undefined") {
+        if (localStorage.clickcount) {
+            localStorage.clickcount = Number(localStorage.clickcount)+1;
+        } else {
+            localStorage.clickcount = 1;
+        }
     }
-}
+        tableNumber = localStorage.clickcount;
+        $(".table-id").text(tableNumber);
+        $(".order-heading-with-logo").show();
+        document.getElementsByClassName('table-field').value = tableNumber;
+});
