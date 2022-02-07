@@ -71,6 +71,9 @@ $(function() {
                 }
             )
         });
+        $(".btn-remove").click();
+        $('.cart-popup').hide();
+        alert("Your order have been placed.")
     });
 });
 
