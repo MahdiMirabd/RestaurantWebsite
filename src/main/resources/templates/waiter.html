@@ -12,6 +12,7 @@
     <link rel="stylesheet"  type="text/css" href="/style/waiter.css">
     <script src="/javascript/header.js" type="text/javascript" defer></script>
     <script src="/javascript/waiter.js" type="text/javascript" defer></script>
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
     <title>Waiter</title>
 </head>
 <body>
@@ -33,16 +34,23 @@
                 <th>status</th>
                 <th>action</th>
             </tr>
-            <tr th:each="order: ${orders}">
-                <td th:text="${order.tableNo}"></td>
-                <td th:text="${order.name}"></td>
-                <td th:text="${order.quantity}"></td>
-                <td th:text="${order.status}"></td>
+            <tr th:each="pending: ${pendingOrders}">
+                <td th:text="${pending.tableNo}"></td>
+                <td th:text="${pending.name}"></td>
+                <td th:text="${pending.quantity}"></td>
+                <td class="order-status" th:text="${pending.status}"></td>
                 <td>
-                    <form  th:action="@{/waiter/{id}(id=${order.id})}" method="PUT">
-                            <input type="submit" value="confirm" />
+                    <form  th:action="@{/waiter/{id}(id=${pending.id})}" method="PUT">
+                            <input type="submit" value="confirm" class="table-btn"/>
                     </form>
                 </td>
+            </tr>
+            <tr th:each="confirmed: ${confirmedOrders}">
+                <td th:text="${confirmed.tableNo}"></td>
+                <td th:text="${confirmed.name}"></td>
+                <td th:text="${confirmed.quantity}"></td>
+                <td class="order-status" th:text="${confirmed.status}"></td>
+                <td></td>
             </tr>
         </table>
     </div>

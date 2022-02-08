@@ -7,20 +7,26 @@ import org.springframework.util.MultiValueMap;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import uk.ac.rhul.cs2810.restaurantsystem.model.Order;
+import uk.ac.rhul.cs2810.restaurantsystem.repository.AlertRepository;
 import uk.ac.rhul.cs2810.restaurantsystem.repository.OrderRepository;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Optional;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 @Controller
 public class WaiterController {
     @Autowired
     private OrderRepository orderRepository;
+    private AlertRepository alertRepository;
 
     @RequestMapping(value = "/waiter", method = RequestMethod.GET)
     @GetMapping(value = {""})
     public String findAllOrders(Model model) {
-        model.addAttribute("orders", orderRepository.findAll());
+        model.addAttribute("pendingOrders", orderRepository.findOrders("pending"));
+        model.addAttribute("confirmedOrders", orderRepository.findOrders("confirmed"));
         return "waiter";
     }
 
@@ -32,5 +38,10 @@ public class WaiterController {
         return findAllOrders(model);
     }
 
+@GetMapping(value={""})
+public String findAll(Model model) {
+    model.addAttribute("Message", alertRepository.findAll());
+    return "Message";
+}
 
 }

@@ -13,7 +13,7 @@ import java.util.List;
 @Repository
 public interface OrderRepository extends JpaRepository<Order, Long> {
     @Query("SELECT order FROM orders  order WHERE order.status = :stat")
-    List<Order> findConfirmedOrders(@Param("stat") String stat);
+    List<Order> findOrders(@Param("stat") String stat);
 
 
 }

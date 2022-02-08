@@ -1,7 +1,7 @@
 //The total price of the order
 let totalPrice = 0;
 let tableNumber = 0;
-var callWaiterClicked = 0;
+let callWaiterClicked = 0;
 // Add to cart button
 // It button will multiply the price of the item by the quantity and add it to the total price.
 $().ready(function () {
