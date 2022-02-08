@@ -20,7 +20,8 @@ public class WaiterController {
     @RequestMapping(value = "/waiter", method = RequestMethod.GET)
     @GetMapping(value = {""})
     public String findAllOrders(Model model) {
-        model.addAttribute("orders", orderRepository.findAll());
+        model.addAttribute("pendingOrders", orderRepository.findOrders("pending"));
+        model.addAttribute("confirmedOrders", orderRepository.findOrders("confirmed"));
         return "waiter";
     }
 

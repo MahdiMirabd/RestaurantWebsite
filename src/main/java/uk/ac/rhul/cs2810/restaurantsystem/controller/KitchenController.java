@@ -18,7 +18,7 @@ public class KitchenController {
     @RequestMapping(value = "/kitchen", method = RequestMethod.GET)
     @GetMapping(value = {""})
     public String findAllOrders(Model model) {
-        model.addAttribute("orders", orderRepository.findConfirmedOrders("confirmed"));
+        model.addAttribute("orders", orderRepository.findOrders("confirmed"));
         return "kitchen";
     }
 
