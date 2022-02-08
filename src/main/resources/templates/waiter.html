@@ -41,7 +41,7 @@
                 <td class="order-status" th:text="${pending.status}"></td>
                 <td>
                     <form  th:action="@{/waiter/{id}(id=${pending.id})}" method="PUT">
-                            <input type="submit" value="confirm" class="confirm-btn"/>
+                            <input type="submit" value="confirm" class="table-btn"/>
                     </form>
                 </td>
             </tr>
