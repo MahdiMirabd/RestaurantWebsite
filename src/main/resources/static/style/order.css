@@ -249,9 +249,12 @@ th, td {
   border: 2px solid rgb(191, 26, 26);
   color: rgb(191, 26, 26);
   padding: 12px 16px;
-  font-size: 16px;
+  font-size: 12px;
   cursor: pointer;
-  right:200px;
+  width: 83px;
+  position: relative;
+  left: 70px;
+  border-radius: 12px;
 }
 
 .call-waiter:disabled {
