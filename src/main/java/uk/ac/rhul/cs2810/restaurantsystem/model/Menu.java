@@ -61,4 +61,10 @@ public class Menu {
     @Column(name = "image")
     private String image;
 
+    /**
+     * Conveys whether a menu item is in stock.
+     */
+    @Column(name = "available", nullable = false)
+    private boolean available;
+
 }

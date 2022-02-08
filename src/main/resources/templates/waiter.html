@@ -12,6 +12,7 @@
     <link rel="stylesheet"  type="text/css" href="/style/waiter.css">
     <script src="/javascript/header.js" type="text/javascript" defer></script>
     <script src="/javascript/waiter.js" type="text/javascript" defer></script>
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
     <title>Waiter</title>
 </head>
 <body>
@@ -37,10 +38,10 @@
                 <td th:text="${order.tableNo}"></td>
                 <td th:text="${order.name}"></td>
                 <td th:text="${order.quantity}"></td>
-                <td th:text="${order.status}"></td>
+                <td class="order-status" th:text="${order.status}"></td>
                 <td>
                     <form  th:action="@{/waiter/{id}(id=${order.id})}" method="PUT">
-                            <input type="submit" value="confirm" />
+                            <input type="submit" value="confirm" class="confirm-btn"/>
                     </form>
                 </td>
             </tr>
