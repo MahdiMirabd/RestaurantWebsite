@@ -186,6 +186,22 @@ function callWaiterFunction() {
         document.getElementById("call-waiter").disabled = true;
         document.getElementById("call-waiter").innerHTML = "Waiter called, please wait!";
         callWaiterClicked++;
-        alert("Please wait until a waiter comes to see you!!")
+        let alertM = document.createElement('div');
+        let alertMessage = `
+          <form action="waiter" class="waiter-alert" method="POST" th:action="@{/waiter}"  >
+            <p class="Table-No"><input type="hidden" value="${tableNumber}" th:field="*{tableNo}" name="tableNo"/></p>
+            <p class="Alert-Message"><input type="hidden" value="Needs help" th:field="*{message}" name="messgae"/></p>
+            <button class="order-submit-button" type="submit" value="submit"/></button>
+          </form>`
+           alertM.interHTML = alertMessage;
+           $('.waiter-alert').each(function(){
+            valuesToSend = $(this).serialize();
+            $.ajax($(this).attr('action'),
+                {
+                method: $(this).attr('method'),
+                data: valuesToSend
+                }
+            )
+        alert("Please wait until a waiter comes to see you!!");
     }
 }

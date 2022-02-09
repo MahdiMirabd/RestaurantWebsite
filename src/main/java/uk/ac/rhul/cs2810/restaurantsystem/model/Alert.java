@@ -17,11 +17,13 @@ public class Alert {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
+    @Column(name = "tableNo", nullable = false)
+    private int tableNo;
+    
     @Column(name = "message", nullable = false)
     private String message;
 
-    @Column(name = "readFlag", nullable = false)
-    private String readFlag;
+   
 
     
 }
