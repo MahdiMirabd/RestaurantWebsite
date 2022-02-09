@@ -9,7 +9,7 @@ import javax.persistence.*;
  *
  * @author Hestre
  */
-@Entity //signals that this class represents a table stored in the database.
+@Entity(name = "menu") //signals that this class represents a table stored in the database.
 @Table(name = "menu") // the name of the table in the database
 @NoArgsConstructor
 @AllArgsConstructor
