@@ -6,6 +6,8 @@ import org.springframework.ui.Model;
 import org.springframework.util.MultiValueMap;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+
+import uk.ac.rhul.cs2810.restaurantsystem.model.Alert;
 import uk.ac.rhul.cs2810.restaurantsystem.model.Order;
 import uk.ac.rhul.cs2810.restaurantsystem.repository.AlertRepository;
 import uk.ac.rhul.cs2810.restaurantsystem.repository.OrderRepository;
@@ -37,6 +39,11 @@ public class WaiterController {
         order.setStatus("confirmed");
         orderRepository.save(order);
         return findAllOrders(model);
+    }
+    @RequestMapping(value = "/waiter", method = RequestMethod.POST)
+    public String submitOrder(Model model, @ModelAttribute(value = "messageTable") Alert message) {
+       Alert alert = alertRepository.save(message);
+       return "waiter";
     }
 
 }
