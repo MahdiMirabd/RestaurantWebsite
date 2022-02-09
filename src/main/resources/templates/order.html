@@ -14,7 +14,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="/javascript/allPages.js" type="text/javascript" defer></script>
     <script src="/javascript/header.js" type="text/javascript" defer></script>
     <script src="/javascript/order.js" type="text/javascript" defer></script>
     <title>Order</title>
@@ -58,6 +57,18 @@
                 <button onclick="callWaiterFunction()" class="call-waiter" id="call-waiter" type="button"
                     value="Call a waiter" enabled>Call a waiter</button>
             </div>
+
+
+            <form action="waiter" class="waiter-alert" method="POST" th:action="@{/waiter}"  >
+                <input type="text" value="25"  name="tableNo"/>
+                <input type="text" value="Needs help"  name="messgae"/>
+                <input type="submit" value="confirm" class="table-btn"/>
+              </form>
+
+
+            <div class="alertM"> </div>
+
+
             <div class="cart-heading">
             </div>
         </div>

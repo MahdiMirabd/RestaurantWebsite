@@ -18,6 +18,7 @@ public class OrderController {
 
     @Autowired
     private OrderRepository orderRepository;
+  
 
     @RequestMapping(value = "/order", method = RequestMethod.GET)
     public String findAll(Model model) {
@@ -31,5 +32,6 @@ public class OrderController {
        return "order";
     }
 
+   
 
 }
