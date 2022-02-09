@@ -16,11 +16,22 @@
 <body>
 <header-component></header-component> <!-- custom tag created in header.js -->
 <div class="container">
-  <form action="waiter" method="POST">
+  <form action="waiter" method="GET"> <!-- using GET method for convinience during development, change to POST -->
     <label for="pass">Enter your password: </label>
-    <input type="password" id="pass">
-    <input type="button" value="Login" onclick="checkPass() ;" />
+    <input type="password" id="pass" placeholder="Password.">
+
+    <label for="department">Department</label>
+    <select id="department" name="department">
+      <option value="waiter">Waiter</option>
+      <option value="kitchen">Kitchen</option>
+      <option value="customer">Customer</option>
+    </select>
+
+    <input type="button" value="Submit" onclick="checkPass();"/>
   </form>
+</div>
+
+
 </div>
 </body>
 </html>
