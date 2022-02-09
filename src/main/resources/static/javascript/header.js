@@ -8,9 +8,9 @@ class Header extends HTMLElement {
                 'nav {' +
                     'height: 50px;' +
                     'display:flex;' +
-                    'align-items:center;' +
+                    'align-items:center;' +  
                     'justify-content: center;' +
-                    'background-color: #fff;' +
+                    //'background-color: #fff;' +
                 '}' +
                 'ul {' +
                     'padding: 0;' +
@@ -37,7 +37,7 @@ class Header extends HTMLElement {
                     'font-size: 16px;' +
                     'cursor: pointer;' +
                     'position:absolute;' +
-                    'top:20px;' +
+                    'top:10px;' +
                     'right:200px;' +
                     'border-radius: 10px;'  +
                 '} ' +
