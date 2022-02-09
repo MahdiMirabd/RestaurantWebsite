@@ -5,7 +5,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import uk.ac.rhul.cs2810.restaurantsystem.model.Alert;
 import uk.ac.rhul.cs2810.restaurantsystem.model.Order;
+import uk.ac.rhul.cs2810.restaurantsystem.repository.AlertRepository;
 import uk.ac.rhul.cs2810.restaurantsystem.repository.MenuRepository;
 import uk.ac.rhul.cs2810.restaurantsystem.repository.OrderRepository;
 
@@ -18,7 +20,8 @@ public class OrderController {
 
     @Autowired
     private OrderRepository orderRepository;
-  
+    @Autowired
+    private AlertRepository alertRepository;
 
     @RequestMapping(value = "/order", method = RequestMethod.GET)
     public String findAll(Model model) {
@@ -31,6 +34,8 @@ public class OrderController {
        Order order = orderRepository.save(orders);
        return "order";
     }
+
+
 
    
 

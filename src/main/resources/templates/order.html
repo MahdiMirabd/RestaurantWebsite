@@ -53,22 +53,12 @@
                     </tr>
                 </table>
             </div>
-            <div class="call-waiter-button">
-                <button onclick="callWaiterFunction()" class="call-waiter" id="call-waiter" type="button"
-                    value="Call a waiter" enabled>Call a waiter</button>
-            </div>
 
-
-            <form action="waiter" class="waiter-alert" method="POST" th:action="@{/waiter}"  >
-                <input type="text" value="25"  name="tableNo"/>
-                <input type="text" value="Needs help"  name="messgae"/>
-                <input type="submit" value="confirm" class="table-btn"/>
-              </form>
-
-
-            <div class="alertM"> </div>
-
-
+            <form action="help" class="waiter-alert" method="POST" th:action="@{/help}"  >
+                <input type="text" name="tableNo" class="tbl-no" value="30"/>
+                <input type="hidden" value="Needs help"  name="message"/>
+                <input type="submit" value="confirm" class="call-waiter"/>
+            </form>
             <div class="cart-heading">
             </div>
         </div>

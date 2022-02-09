@@ -4,8 +4,8 @@ import lombok.*;
 
 import javax.persistence.*;
 
-@Entity(name = "MessageTable")
-@Table(name = "MessageTable")
+@Entity(name = "alert")
+@Table(name = "alert")
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter

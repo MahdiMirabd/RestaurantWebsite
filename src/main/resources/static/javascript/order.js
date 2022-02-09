@@ -179,6 +179,7 @@ $(document).ready(function () {
         $(".table-id").text(tableNumber);
         $(".order-heading-with-logo").show();
         document.getElementsByClassName('table-field').value = tableNumber;
+        document.getElementsByClassName('tbl-no').value = tableNumber;
 });
 
 function callWaiterFunction() {

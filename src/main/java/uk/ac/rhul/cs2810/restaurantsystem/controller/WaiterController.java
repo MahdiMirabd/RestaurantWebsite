@@ -3,25 +3,20 @@ package uk.ac.rhul.cs2810.restaurantsystem.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.util.MultiValueMap;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import org.springframework.web.servlet.view.RedirectView;
 import uk.ac.rhul.cs2810.restaurantsystem.model.Alert;
 import uk.ac.rhul.cs2810.restaurantsystem.model.Order;
 import uk.ac.rhul.cs2810.restaurantsystem.repository.AlertRepository;
 import uk.ac.rhul.cs2810.restaurantsystem.repository.OrderRepository;
-
-import javax.servlet.http.HttpServletRequest;
-import java.util.Optional;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 
 @Controller
 public class WaiterController {
     @Autowired
     private OrderRepository orderRepository;
+
     @Autowired
     private AlertRepository alertRepository;
 
@@ -40,9 +35,11 @@ public class WaiterController {
         orderRepository.save(order);
         return findAllOrders(model);
     }
-    @RequestMapping(value = "/waiter", method = RequestMethod.POST)
-    public void submitOrder(Model model, @ModelAttribute(value = "messageTable") Alert message) {
-       Alert alert = alertRepository.save(message);
+
+    @RequestMapping(value = "/help", method = RequestMethod.POST)
+    public RedirectView submitOrder(Model model, @ModelAttribute(value = "messageTable") Alert message) {
+        Alert alert = alertRepository.save(message);
+        return new RedirectView("order");
     }
 
 }
