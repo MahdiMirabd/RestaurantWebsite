@@ -4,3 +4,11 @@
 
 
 }
+body{
+  background-image: url('/img/backgroundimg.jpeg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  display:absolute;
+  top:100px;
+}
