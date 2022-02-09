@@ -41,9 +41,8 @@ public class WaiterController {
         return findAllOrders(model);
     }
     @RequestMapping(value = "/waiter", method = RequestMethod.POST)
-    public String submitOrder(Model model, @ModelAttribute(value = "messageTable") Alert message) {
+    public void submitOrder(Model model, @ModelAttribute(value = "messageTable") Alert message) {
        Alert alert = alertRepository.save(message);
-       return "waiter";
     }
 
 }

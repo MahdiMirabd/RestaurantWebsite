@@ -21,6 +21,7 @@
         <h1> Welcome to oaxaca waiter system! </h1>
 
         <button onclick="myFunction()">Try it</button>
+        <button onclick="editMenu()">Edit Menu</button>
 
         <div th:each="pending: ${alert}"> 
             <div th:text="${pending.message}"> </div>
