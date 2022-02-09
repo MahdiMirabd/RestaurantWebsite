@@ -20,13 +20,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class WaiterController {
     @Autowired
     private OrderRepository orderRepository;
+    @Autowired
     private AlertRepository alertRepository;
 
     @RequestMapping(value = "/waiter", method = RequestMethod.GET)
-    @GetMapping(value = {""})
     public String findAllOrders(Model model) {
         model.addAttribute("pendingOrders", orderRepository.findOrders("pending"));
         model.addAttribute("confirmedOrders", orderRepository.findOrders("confirmed"));
+        model.addAttribute("alert", alertRepository.findAll());
         return "waiter";
     }
 
@@ -37,11 +38,5 @@ public class WaiterController {
         orderRepository.save(order);
         return findAllOrders(model);
     }
-
-@GetMapping(value={""})
-public String findAll(Model model) {
-    model.addAttribute("Message", alertRepository.findAll());
-    return "Message";
-}
 
 }

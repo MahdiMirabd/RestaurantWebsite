@@ -22,6 +22,9 @@
 
         <button onclick="myFunction()">Try it</button>
 
+        <div th:each="pending: ${alert}"> my name is jeff</div>
+        <div th:text="${pending.message}"> </div>
+
         <!-- section to list all orders in the database -->
         <br/>
         <br/>

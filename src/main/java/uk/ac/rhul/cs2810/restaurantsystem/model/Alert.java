@@ -17,8 +17,8 @@ public class Alert {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    @Column(name = "Message", nullable = false)
-    private String name;
+    @Column(name = "message", nullable = false)
+    private String message;
 
     @Column(name = "readFlag", nullable = false)
     private String readFlag;
