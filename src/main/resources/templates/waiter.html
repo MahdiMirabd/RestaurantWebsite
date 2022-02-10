@@ -23,6 +23,7 @@
         <button onclick="editMenu()">Edit Menu</button>
 
             <div th:each="pending: ${alert}"> 
+            <div th:text="${pending.tableNo}"> </div>
             <div th:text="${pending.message}"> </div>
         </div>
 
