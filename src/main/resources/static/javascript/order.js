@@ -155,7 +155,7 @@ function updateCartTotal() {
     let total = 0;
     for (let i = 0; i < cartRows.length; i++) {
         let cartRow = cartRows[i];
-        let priceElement = cartRow.getElementsByClassName('cart-price')[0];
+        let priceElement = cartRow.getElementsByClassName('cart-item-price')[0];
         let quantityElement = cartRow.getElementsByClassName('cart-quantity-input')[0];
         let price = parseFloat(priceElement.innerText.replace('£', ''));
         const quantity = quantityElement.value;
