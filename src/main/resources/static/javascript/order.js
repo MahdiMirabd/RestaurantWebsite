@@ -190,23 +190,14 @@ function callWaiterFunction() {
         alert("Please wait until a waiter comes to see you!!");
     }
 function postAlert(){
-    //let alertM = document.createElement('div');
     let alertMessage = `
     <form action="waiter" class="waiter-alert" method="POST" th:action="@{/waiter}"  >
       <p class="Table-No"><input type="hidden" value="${tableNumber}" th:field="*{tableNo}" name="tableNo"/></p>
       <p class="Alert-Message"><input type="hidden" value="Needs help" th:field="*{message}" name="messgae"/></p>
       <button class="order-submit-button" type="submit" value="submit"/>
     </form>`
-    document.getElementsByClassName("alertM").innerHTML  =alertMessage;  // alertM.innerHTML = alertMessage;
-  //    $('.waiter-alert').each(function(){
-  //     valuesToSend = $(this).serialize();
-  //     $.ajax($(this).attr('action'),
-  //         {
-  //         method: $(this).attr('method'),
-  //         data: valuesToSend
-  //         }
-  //     )
-  // });
+    document.getElementsByClassName("alertM").innerHTML  =alertMessage;
+  
 }
 
 }
