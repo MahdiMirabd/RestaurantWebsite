@@ -7,6 +7,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/img/favicon_io/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon_io/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon_io/favicon-16x16.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="manifest" href="/img/favicon_io/site.webmanifest">
     <link rel="stylesheet"  type="text/css" href="/style/allPages.css">
     <link rel="stylesheet"  type="text/css" href="/style/waiter.css">
@@ -22,9 +23,20 @@
 
         <button onclick="editMenu()">Edit Menu</button>
 
-            <div th:each="pending: ${alert}"> 
-            <div th:text="${pending.tableNo}"> </div>
-            <div th:text="${pending.message}"> </div>
+        <br> <br>
+
+        <div class="notification"> <i class="fa fa-bell"></i>
+        <div class="box">
+            <ul>
+                <li>
+            <div class="text" th:each="pending: ${alert}">
+                <div style="display: inline;" class="text" th:text="${pending.tableNo}"> </div>
+            <div style="display: inline;" class="text" th:text="${pending.message}"></div>
+            </li>
+            </ul>
+        </div>
+        </div>
+        
         </div>
 
         <!-- section to list all orders in the database -->
