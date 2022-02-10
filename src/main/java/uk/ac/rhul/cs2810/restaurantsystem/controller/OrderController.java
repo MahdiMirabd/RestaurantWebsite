@@ -24,8 +24,8 @@ public class OrderController {
     private AlertRepository alertRepository;
 
     @RequestMapping(value = "/order", method = RequestMethod.GET)
-    public String findAll(Model model) {
-        model.addAttribute("items", menuRepository.findAll());
+    public String findAvailableItems(Model model) {
+        model.addAttribute("items", menuRepository.findAvailableItems(true));
         return "order";
     }
 
