@@ -8,6 +8,7 @@
     <link rel="stylesheet"  type="text/css" href="/style/allPages.css"/>
     <link rel="stylesheet"  type="text/css" href="/style/menu.css"/>
     <script src="/javascript/header.js" type="text/javascript" defer></script>
+    <script src="/javascript/editMenu.js" type="text/javascript" defer></script>
     <title>Menu</title>
 </head>
 <body>
@@ -31,7 +32,6 @@
                                 [[${item.price}]]
                             </h3>
                         </div>
-                        <br/>
                         <div class="menu-item-details" >
                             <div class="ingredients">
                                 <p> served with:&nbsp;</p>
@@ -45,6 +45,10 @@
                             <div class="allergens">
                                 <p> contains:&nbsp;</p>
                                 <p th:text=" ${item.allergen}" > </p>
+                            </div>
+                            <div class="available">
+                                <label for="available">available:</label>
+                                <input type="checkbox" id="availability" name="availability" checked>
                             </div>
                         </div>
                     </div>
