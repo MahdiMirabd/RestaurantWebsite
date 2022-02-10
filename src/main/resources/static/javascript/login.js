@@ -16,5 +16,6 @@ function checkPass() {
     }
     else{
         alert("Passwords do not match.");
+        window.location="";
     }
 }
