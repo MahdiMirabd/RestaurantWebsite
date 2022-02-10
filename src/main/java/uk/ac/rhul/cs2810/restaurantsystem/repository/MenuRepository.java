@@ -10,7 +10,7 @@ import uk.ac.rhul.cs2810.restaurantsystem.model.Menu;
 
 /**
  * Provides the means for storing, retrieving,
- * searching, updating and deleting objects in the database.
+ * searching, updating and deleting menu items in the database.
  *
  * Menu - the model name.
  * Long - the primary key of the table.
@@ -19,6 +19,12 @@ import uk.ac.rhul.cs2810.restaurantsystem.model.Menu;
  */
 @Repository
 public interface MenuRepository extends JpaRepository<Menu, Long> {
+    /**
+     * Finds all the menu items whose status is equal to true.
+     *
+     * @param status can be either true or false
+     * @return menu items where the status field is true.
+     */
     @Query("SELECT item FROM menu item WHERE item.available = :status")
     List<Menu> findAvailableItems(@Param("status") boolean status);
 }

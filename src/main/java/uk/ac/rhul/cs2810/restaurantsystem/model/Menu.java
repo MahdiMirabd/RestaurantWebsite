@@ -28,7 +28,7 @@ public class Menu {
     /**
      * The name of a food item.
      */
-    @Column(name = "name", nullable = false) //
+    @Column(name = "name", nullable = false)
     private String name;
 
     /**
