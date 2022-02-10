@@ -1,4 +1,4 @@
-<!--Function to check password the already set password is admin-->
+// Function to check password the already set password is admin
 function checkPass() {
     const confirmWaiterPassword = "admin";
     const confirmKitchenPassword = "pass";
