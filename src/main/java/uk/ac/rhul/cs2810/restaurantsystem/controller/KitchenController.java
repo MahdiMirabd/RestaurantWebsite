@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import uk.ac.rhul.cs2810.restaurantsystem.model.Notification;
+import uk.ac.rhul.cs2810.restaurantsystem.repository.NotificationRepository;
 import uk.ac.rhul.cs2810.restaurantsystem.repository.OrderRepository;
 import uk.ac.rhul.cs2810.restaurantsystem.model.Order;
 
@@ -22,6 +24,9 @@ public class KitchenController {
      */
     @Autowired
     private OrderRepository orderRepository;
+
+    @Autowired
+    private NotificationRepository notificationRepository;
 
     /**
      * Finds all orders with confirmed status in the database.
@@ -44,11 +49,26 @@ public class KitchenController {
      * @return the view back to the waiter page
      */
     @RequestMapping(value = "/kitchen/{id}" , method = {RequestMethod.GET, RequestMethod.PUT})
-    public String notifyWaiters(@PathVariable long id, Model model){
+    public String changeStatus(@PathVariable long id, Model model){
         Order order = orderRepository.getById(id);
         order.setStatus("ready");
         orderRepository.save(order);
+        notifyWaiters(id, order);
         return findAllOrders(model);
+    }
+
+    /**
+     * Adds notification of delivery.
+     *
+     * @param id the order id
+     * @param order the table on which to post the notification
+     */
+    @RequestMapping(value = "/notify" , method = RequestMethod.POST)
+    public void notifyWaiters(Long id, Order order){
+        Notification notification = new Notification();
+        notification.setMessage("order is ready");
+        notification.setTableNo(order.getTableNo());
+        notificationRepository.save(notification);
     }
 
 }
