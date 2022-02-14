@@ -36,7 +36,9 @@
                 <td th:text="${order.quantity}"></td>
                 <td th:text="${order.status}"></td>
                 <td>
-                    <input type="button" value="ready" class="table-btn"/>
+                    <form  th:action="@{/kitchen/{id}(id=${order.id})}" method="PUT">
+                        <input type="submit" value="ready" class="table-btn"/>
+                    </form>
                 </td>
             </tr>
         </table>

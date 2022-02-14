@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import uk.ac.rhul.cs2810.restaurantsystem.repository.OrderRepository;
+import uk.ac.rhul.cs2810.restaurantsystem.model.Order;
 
 /**
  * Queries the backend for data to be displayed on the kitchen page.
@@ -43,11 +44,11 @@ public class KitchenController {
      * @return the view back to the waiter page
      */
     @RequestMapping(value = "/kitchen/{id}" , method = {RequestMethod.GET, RequestMethod.PUT})
-    public String confirmOrder(@PathVariable long id, Model model){
+    public String notifyWaiters(@PathVariable long id, Model model){
         Order order = orderRepository.getById(id);
         order.setStatus("ready");
         orderRepository.save(order);
-        return findAll(model);
+        return findAllOrders(model);
     }
 
 }
