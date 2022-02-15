@@ -10,7 +10,6 @@ class Header extends HTMLElement {
                     'display:flex;' +
                     'align-items:center;' +  
                     'justify-content: center;' +
-                    //'background-color: #fff;' +
                 '}' +
                 'ul {' +
                     'padding: 0;' +
@@ -36,21 +35,6 @@ class Header extends HTMLElement {
                     'border-radius: 5px; ' +
                     'color: green; ' +
                 '} ' +
-                '.bell-button {' +
-                    'background-color: white;' +
-                    'border: none;' +
-                    'color: black;' +
-                    'padding: 12px 16px;' +
-                    'font-size: 16px;' +
-                    'cursor: pointer;' +
-                    'position:absolute;' +
-                    'top:10px;' +
-                    'right:200px;' +
-            '} ' +
-                '.bell-button:hover {' +
-                    'padding-bottom: 5px;' +
-                    'box-shadow: inset 0 -2px 0 0 #0a0a23;' +
-            '} ' +
             '</style> ' +
             '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">' +
             '<header> ' +
@@ -63,7 +47,6 @@ class Header extends HTMLElement {
                         '<li class="login"><a href="/login">Login</a></li>' +
                     '</ul> ' +
                 '</nav> ' +
-                '<button class="bell-button"><i class="fa fa-bell"></i></button>' +
             '</header>';
     }
 }

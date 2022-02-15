@@ -22,8 +22,19 @@
         <h1> Welcome to oaxaca waiter system! </h1>
 
         <button onclick="editMenu()">Edit Menu</button>
+        <br/>
+        <div class="dropdown">
+            <button onclick="showNotifications()" id="bell-btn" class="dropbtn">Notifications</button>
+            <div class="dropdown-content" id="myDropdown" >
+                <div th:each="pending: ${alert}">
+                    <span>Table</span>
+                    <span th:text="${pending.tableNo}"> </span>
+                    <span th:text="${pending.message}"></span>
+                </div>
 
-        <br> <br>
+            </div>
+        </div>
+
 
         <div class="notification"> <i class="fa fa-bell"></i>
         <div class="box">
