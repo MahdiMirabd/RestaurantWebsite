@@ -35,7 +35,22 @@ class Header extends HTMLElement {
                     'border: 2px solid red;' +
                     'border-radius: 5px; ' +
                     'color: green; ' +
-                '}' +
+                '} ' +
+                '.bell-button {' +
+                    'background-color: white;' +
+                    'border: none;' +
+                    'color: black;' +
+                    'padding: 12px 16px;' +
+                    'font-size: 16px;' +
+                    'cursor: pointer;' +
+                    'position:absolute;' +
+                    'top:10px;' +
+                    'right:200px;' +
+            '} ' +
+                '.bell-button:hover {' +
+                    'padding-bottom: 5px;' +
+                    'box-shadow: inset 0 -2px 0 0 #0a0a23;' +
+            '} ' +
             '</style> ' +
             '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">' +
             '<header> ' +
@@ -45,9 +60,10 @@ class Header extends HTMLElement {
                         '<li><a href="/">Home</a></li>' +
                         '<li><a href="/menu">Menu</a></li>' +
                         '<li><a href="/order">Order</a></li>' +
-                        '<li class="log"><a href="/login">Login</a></li>' +
+                        '<li class="login"><a href="/login">Login</a></li>' +
                     '</ul> ' +
-                '</nav>' +
+                '</nav> ' +
+                '<button class="bell-button"><i class="fa fa-bell"></i></button>' +
             '</header>';
     }
 }
