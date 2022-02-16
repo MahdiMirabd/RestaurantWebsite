@@ -59,6 +59,7 @@
                 <td>
                     <form  th:action="@{/waiter/{id}(id=${pending.id})}" method="PUT">
                             <input type="submit" value="confirm" class="table-btn"/>
+                            <input type="button" id = cancelorder name="Cancel Order" value="Cancel Order"/>
                     </form>
                 </td>
             </tr>
