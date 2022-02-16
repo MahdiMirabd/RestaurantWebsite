@@ -23,20 +23,21 @@
 
         <button onclick="editMenu()">Edit Menu</button>
         <br/>
+        <br/>
         <div class="dropdown">
             <button onclick="showNotifications()" id="bell-btn" class="dropbtn">Notifications</button>
             <div class="dropdown-content" id="myDropdown" >
-                <div th:each="pending: ${alert}">
+                <div th:each="msg: ${alert}">
                     <span>Table</span>
-                    <span th:text="${pending.tableNo}"> </span>
-                    <span th:text="${pending.message}"></span>
+                    <span th:text="${msg.tableNo}"> </span>
+                    <span th:text="${msg.message}"></span>
+                    <input type="submit" value="clear"/>
                 </div>
-
             </div>
         </div>
 
 
-        <div class="notification"> <i class="fa fa-bell"></i>
+        <!-- <div class="notification"> <i class="fa fa-bell"></i>
         <div class="box">
             <ul>
                 <li>
@@ -48,7 +49,7 @@
         </div>
         </div>
         
-        </div>
+        </div> -->
 
         <!-- section to list all orders in the database -->
         <br/>
