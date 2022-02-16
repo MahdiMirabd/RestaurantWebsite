@@ -4,10 +4,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.view.RedirectView;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import uk.ac.rhul.cs2810.restaurantsystem.model.Menu;
 import uk.ac.rhul.cs2810.restaurantsystem.repository.MenuRepository;
 
 /**
@@ -34,7 +37,20 @@ public class EditMenuController {
 
     @RequestMapping(value = "/editMenu", method = RequestMethod.GET)
     public String findAll(Model model) {
-        model.addAttribute("items", menuRepository.findAll());
+        model.addAttribute("availableItems", menuRepository.findAvailableItems(true));
+        model.addAttribute("unavailableItems", menuRepository.findAvailableItems(false));
         return "editMenu";
+    }
+
+    @RequestMapping(value = "/editMenu/{id}" , method = {RequestMethod.GET, RequestMethod.PUT})
+    public RedirectView setUnavailable(@PathVariable long id, Model model){
+        menuRepository.updateMenuFalse(id);
+        return new RedirectView("/editMenu");
+    }
+
+    @RequestMapping(value = "/editMenuTrue/{id}" , method = {RequestMethod.GET, RequestMethod.PUT})
+    public RedirectView setAvailable(@PathVariable long id, Model model){
+        menuRepository.updateMenuTrue(id);
+        return new RedirectView("/editMenu");
     }
 }
