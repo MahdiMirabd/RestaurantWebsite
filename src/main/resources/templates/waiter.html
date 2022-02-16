@@ -70,16 +70,6 @@
                 <td class="order-status" th:text="${confirmed.status}"></td>
                 <td></td>
             </tr>
-
-            <tr th:each="delivered: ${deliveredOrders}">
-                <td th:text="${delivered.tableNo}"></td>
-                <td th:text="${delivered.name}"></td>
-                <td th:text="${delivered.quantity}"></td>
-                <td class="order-status" th:text="${delivered.status}"></td>
-                <td class="status" th:text="${delivered.status}" ><input class='Delivered' type='button' value='Delivered'/></td>
-            </tr>
-
-
         </table>
     </div>
 </body>
