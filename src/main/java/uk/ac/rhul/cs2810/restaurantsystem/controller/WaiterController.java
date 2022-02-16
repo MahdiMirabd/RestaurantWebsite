@@ -72,10 +72,10 @@ public class WaiterController {
     }
 
     @RequestMapping(value = "/delete/{id}" , method = {RequestMethod.GET, RequestMethod.DELETE})
-    public String deleteNotifications(@PathVariable long id, Model model){
+    public RedirectView deleteNotifications(@PathVariable long id, Model model){
         Notification notification = notificationRepository.getById(id);
         notificationRepository.delete(notification);
-        return findAll(model);
+        return new RedirectView("/waiter");
     }
 
 }
