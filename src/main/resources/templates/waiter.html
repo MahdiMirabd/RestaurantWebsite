@@ -19,40 +19,25 @@
 <body>
     <header-component></header-component> <!-- custom tag created in header.js -->
     <div class="container">
-        <h1> Welcome to oaxaca waiter system! </h1>
-
+        <!--The edit menu section-->
         <button onclick="editMenu()">Edit Menu</button>
         <br/>
         <br/>
+        <!--The notification dropdown -->
         <div class="dropdown">
             <button onclick="showNotifications()" id="bell-btn" class="dropbtn">Notifications</button>
             <div class="dropdown-content" id="myDropdown" >
-                <div th:each="msg: ${alert}">
-                    <span>Table</span>
-                    <span th:text="${msg.tableNo}"> </span>
-                    <span th:text="${msg.message}"></span>
+                <div class="msg-detail" th:each="msg: ${alert}">
+                    <span>Table</span><span>&nbsp</span>
+                    <span th:text="${msg.tableNo}"> </span><span>&nbsp</span>
+                    <span th:text="${msg.message}"></span><span>&nbsp</span>
                     <form  th:action="@{/delete/{id}(id=${msg.id})}" method="DELETE">
-                        <input type="submit" value="clear"/>
+                        <input type="submit" value="✓ clear">
+
                     </form>
                 </div>
             </div>
         </div>
-
-
-        <!-- <div class="notification"> <i class="fa fa-bell"></i>
-        <div class="box">
-            <ul>
-                <li>
-            <div class="text" th:each="pending: ${alert}">
-                <div style="display: inline;" class="text" th:text="${pending.tableNo}"> </div>
-            <div style="display: inline;" class="text" th:text="${pending.message}"></div>
-            </li>
-            </ul>
-        </div>
-        </div>
-        
-        </div> -->
-
         <!-- section to list all orders in the database -->
         <br/>
         <br/>
