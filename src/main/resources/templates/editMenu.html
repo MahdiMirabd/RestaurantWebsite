@@ -48,8 +48,12 @@
                                 <p th:text=" ${item.allergen}" > </p>
                             </div>
                             <div class="available">
-                                <label for="available">available:</label>
-                                <input type="checkbox" id="availability" name="availability" checked>
+                                <form  th:action="@{/editMenu/{id}(id=${item.id})}" method="PUT">
+                                    <input type="submit" value="Set Unavailable" class="table-btn"/>
+                                </form>
+                                <form  th:action="@{/editMenuTrue/{id}(id=${item.id})}" method="PUT">
+                                    <input type="submit" value="Set Available" class="table-btn"/>
+                                </form>
                             </div>
                         </div>
                     </div>
