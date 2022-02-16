@@ -59,13 +59,13 @@ public class WaiterController {
         return findAll(model);
     }
 
-    @RequestMapping(value = "/waiter/{id}" , method = {RequestMethod.GET, RequestMethod.PUT})
+    /*@RequestMapping(value = "/waiter/{id}" , method = {RequestMethod.GET, RequestMethod.PUT})
     public String deliverOrder(@PathVariable long id, Model model){
         Order order = orderRepository.getById(id);
         order.setStatus("delivered");
         orderRepository.save(order);
         return findAll(model);
-    }
+    }*/
 
     /**
      * Submits a new customer request to the database.
