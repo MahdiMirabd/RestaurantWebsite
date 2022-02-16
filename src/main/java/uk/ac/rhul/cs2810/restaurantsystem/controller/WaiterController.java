@@ -39,6 +39,7 @@ public class WaiterController {
     public String findAll(Model model) {
         model.addAttribute("pendingOrders", orderRepository.findOrders("pending"));
         model.addAttribute("confirmedOrders", orderRepository.findOrders("confirmed"));
+        model.addAttribute("deliveredOrders", orderRepository.findOrders("delivered"));
         model.addAttribute("alert", alertRepository.findAll());
         return "waiter";
     }
@@ -57,6 +58,14 @@ public class WaiterController {
         orderRepository.save(order);
         return findAll(model);
     }
+
+    /*@RequestMapping(value = "/waiter/{id}" , method = {RequestMethod.GET, RequestMethod.PUT})
+    public String deliverOrder(@PathVariable long id, Model model){
+        Order order = orderRepository.getById(id);
+        order.setStatus("delivered");
+        orderRepository.save(order);
+        return findAll(model);
+    }*/
 
     /**
      * Submits a new customer request to the database.
