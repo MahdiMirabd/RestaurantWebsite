@@ -37,8 +37,7 @@ public class EditMenuController {
 
     @RequestMapping(value = "/editMenu", method = RequestMethod.GET)
     public String findAll(Model model) {
-        model.addAttribute("availableItems", menuRepository.findAvailableItems(true));
-        model.addAttribute("unavailableItems", menuRepository.findAvailableItems(false));
+        model.addAttribute("items", menuRepository.findAll());
         return "editMenu";
     }
 

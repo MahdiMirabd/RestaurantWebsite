@@ -22,7 +22,7 @@
                 Menu
             </h2>
             <div class="menu-group">
-                <div th:each="item: ${availableItems}" class="menu-item">
+                <div th:each="item: ${items}" class="menu-item">
                     <img class="menu-item-image" th:src="@{${item.image}}" alt="Menu Item"/>
                     <div class="menu-item-text">
                         <div class="menu-item-heading">
@@ -51,36 +51,7 @@
                                 <form  th:action="@{/editMenu/{id}(id=${item.id})}" method="PUT">
                                     <input type="submit" value="Set Unavailable" class="table-btn"/>
                                 </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div th:each="items: ${unavailableItems}" class="menu-item">
-                    <img class="menu-item-image" th:src="@{${items.image}}" alt="Menu Item"/>
-                    <div class="menu-item-text">
-                        <div class="menu-item-heading">
-                            <h3 th=:inline="text" class="menu-item-name">
-                                [[${items.name}]]
-                            </h3>
-                            <h3 th=:inline="text" class="menu-item-price">
-                                [[${items.price}]]
-                            </h3>
-                        </div>
-                        <div class="menu-item-details" >
-                            <div class="ingredients">
-                                <p> served with:&nbsp;</p>
-                                <div th:text=" ${items.ingredients}" > </div>
-                            </div>
-                            <br/>
-                            <div class="calories">
-                                <p class="item-label">calories:&nbsp;</p>
-                                <p th:text=" ${items.calories}" > </p>
-                            </div>
-                            <div class="allergens">
-                                <p> contains:&nbsp;</p>
-                                <p th:text=" ${items.allergen}" > </p>
-                            </div>
-                            <div class="available">
+                                
                                 <form  th:action="@{/editMenuTrue/{id}(id=${item.id})}" method="PUT">
                                     <input type="submit" value="Set Available" class="table-btn"/>
                                 </form>
