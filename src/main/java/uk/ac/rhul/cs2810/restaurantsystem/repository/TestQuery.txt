@@ -1,0 +1,21 @@
+Test queries for the menu filtering option on the menu page.
+
+    //Query for filtering for an item inbetween a price range
+    @Query("SELECT item FROM menu item WHERE item.price > :itemMin AND item.price < :itemMax")
+    List<Menu> findPriceRangeItems(@Param("itemMin") float itemMin, @Param("ItemMax") float itemMax);
+
+    //Query for filtering items without a certain ingredient (checkbox choosing which ingredients to exclude?)
+    @Query("SELECT item FROM menu item WHERE item.ingredients NOT IN (:ingredientList)")
+    List<Menu> findExcIngredientList(@Param("ingredientList") String[] ingredientList);
+
+    //Query for filtering items with a certain ingredient (checkbox choosing which ingredients to include?)
+    @Query("SELECT item FROM menu item WHERE item.ingredients IN (:ingredientList)")
+    List<Menu> findIncIngredientList(@Param("ingredientList") String[] ingredientList);
+
+    //Query for filtering for an item inbetween a calorie range
+    @Query("SELECT item FROM menu item WHERE item.calories > :itemMin AND item.calories < :itemMax")
+    List<Menu> findCalorieRangeItems(@Param("itemMin") float itemMin, @Param("ItemMax") float itemMax);
+
+    //Query for filtering for an item below a certain amount of calories
+    @Query("SELECT item FROM menu item WHERE item.calories < :itemMax")
+    List<Menu> findLessThanCalorieMax(@Param("itemMax") float itemMax);
