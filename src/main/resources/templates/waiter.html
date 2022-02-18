@@ -67,17 +67,16 @@
             </tr>
 
 
-            <tr th:each="delivered: ${deliveredOrders}">
+            <!-- shows delivered orders on the webpage
+                <tr th:each="delivered: ${deliveredOrders}">
                 <td th:text="${delivered.tableNo}"></td>
                 <td th:text="${delivered.name}"></td>
                 <td th:text="${delivered.quantity}"></td>
                 <td class="order-status" th:text="${delivered.status}"></td>
                 <td>
-                    <form  th:action="@{/waiter/{id}(id=${pending.id})}" method="PUT">
-                        <input type="submit" value="delivered" class="table-btn"/>
-                    </form>
+
                 </td>
-            </tr>
+            </tr>-->
 
 
             <tr th:each="confirmed: ${confirmedOrders}">
@@ -86,7 +85,7 @@
                 <td th:text="${confirmed.quantity}"></td>
                 <td class="order-status" th:text="${confirmed.status}"></td>
                 <td>
-                    <form  th:action="@{/waiter/{id}(id=${confirmed.id})}" method="PUT">
+                    <form  th:action="@{/delivery/{id}(id=${confirmed.id})}" method="PUT">
                         <input type="submit" value="delivered" class="table-btn"/>
                     </form>
                 </td>
