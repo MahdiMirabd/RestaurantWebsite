@@ -87,4 +87,11 @@ public class WaiterController {
         return new RedirectView("/waiter");
     }
 
+    @RequestMapping(value = "/cancelOrder/{id}" , method = {RequestMethod.GET, RequestMethod.DELETE})
+    public RedirectView deleteOrder(@PathVariable long id, Model model){
+        Order order = orderRepository.getById(id);
+        orderRepository.delete(order);
+        return new RedirectView("/waiter");
+    }
+
 }
