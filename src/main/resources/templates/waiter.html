@@ -23,11 +23,12 @@
         <h2 class="menu-group-heading">Waiter Controls</h2>
         <br/>
         <br/>
-
         <button onclick="editMenu()" class="edit"><i class="fa fa-edit"></i> Edit Menu</button>
+
         <!--The notification dropdown -->
         <div class="dropdown">
             <button onclick="showNotifications()" id="bell-btn" class="dropbtn"><i class="fa fa-bell"></i> Notifications</button>
+            <span class="badge">3</span>
             <div class="dropdown-content" id="myDropdown" >
                 <div class="msg-detail" th:each="msg: ${alert}">
                     <span>Table</span><span>&nbsp</span>

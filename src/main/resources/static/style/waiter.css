@@ -106,4 +106,20 @@ ul li .text{
 .edit, .dropdown {
     display: inline-flex;
 }
+.badge {
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: block;
+    position: absolute;
+    background: #d32f2f;
+    color: #fff;
+    border: 2px solid white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: -15px;
+    right: -15px;
+    transition: all .3s;
+}
 
