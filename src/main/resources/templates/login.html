@@ -17,16 +17,19 @@
 <body>
 <header-component></header-component> <!-- custom tag created in header.js -->
 <div class="container">
+  <h1>Oaxaca Login</h1>
   <form action="waiter" method="GET"> <!-- using GET method for convinience during development, change to POST -->
-    <br> <div id="showOne" class="myDiv"> <img src="/main/resources/static/img/icon-01.png" alt="waiter" th:src="@{img/icon-01.png}"> </div> <br> 
-    <div id="showTwo" class="myDiv"> <img src="/main/resources/static/img/icon-02.jpg" alt="kitchen" th:src="@{img/icon-02.jpg}">  </div>
+    <br>
+      <div id="showZero" class="myDefaultDiv"> <img src="/main/resources/static/img/logo.jpg" alt="default" th:src="@{img/logo.jpg}"> </div>
+      <div id="showZero" class="myDiv"> <img src="/main/resources/static/img/logo.jpg" alt="default" th:src="@{img/logo.jpg}"> </div>
 
-    <label for="pass" type="text">Enter your password: </label>
-    <input type="password" id="pass" placeholder="Password.">
-
-    <label for="department">Department</label>
-    <select id="department" name="department">
-      <option>Select Role</option>
+      <div id="showOne" class="myDiv"> <img src="/main/resources/static/img/icon-01.png" alt="waiter" th:src="@{img/icon-01.png}"> </div> 
+    <br> 
+      <div id="showTwo" class="myDiv"> <img src="/main/resources/static/img/icon-02.jpg" alt="kitchen" th:src="@{img/icon-02.jpg}">  </div>
+    <br>
+      <input type="password" id="pass" placeholder="Password.">
+    <select id="department" name="department" class="department">
+      <option value="Zero">Select Role</option>
       <option value="One">Waiter</option>
       <option value="Two">Kitchen</option>
       <option value="Three">Customer</option>
