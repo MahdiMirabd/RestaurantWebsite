@@ -39,7 +39,8 @@ public class WaiterController {
     public String findAll(Model model) {
         model.addAttribute("pendingOrders", orderRepository.findOrders("pending"));
         model.addAttribute("confirmedOrders", orderRepository.findOrders("confirmed"));
-        model.addAttribute("alert", alertRepository.findAll());
+        model.addAttribute("readyOrders", orderRepository.findOrders("ready"));
+        model.addAttribute("alert", notificationRepository.findAll());
         return "waiter";
     }
 
