@@ -123,3 +123,9 @@ ul li .text{
     transition: all .3s;
 }
 
+.dropdown-content {
+    height: auto;
+    max-height: 200px;
+    overflow-x: hidden;
+}
+
