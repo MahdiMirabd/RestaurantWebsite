@@ -7,7 +7,7 @@ body {
     padding: 1.5em;
 }
 
-.table-btn, .cancel-order {
+.table-btn, .cancel-order, .edit, .dropbtn {
    align-items: center;
    appearance: none;
    border-radius: 4px;
@@ -40,11 +40,11 @@ body {
    will-change: transform,opacity;
 }
 
-.table-btn:hover, .cancel-order:hover {
+.table-btn:hover, .cancel-order:hover, .edit:hover, .dropbtn:hover {
     box-shadow: rgba(0, 0, 0, .7) 0 2px 4px -1px, rgba(0, 0, 0, .14) 0 4px 5px 0, rgba(0, 0, 0, .12) 0 1px 10px 0;
 }
 
-.table-btn:disabled, .cancel-order:disabled {
+.table-btn:disabled, .cancel-order:disabled, .dropbtn:disabled, .edit:disabled {
     background-color: rgba(0, 0, 0, .12);
     box-shadow: rgba(0, 0, 0, .2) 0 0 0 0, rgba(0, 0, 0, .14) 0 0 0 0, rgba(0, 0, 0, .12) 0 0 0 0;
     color: rgba(0, 0, 0, .37);
@@ -56,7 +56,7 @@ body {
     background-color: #008000;
 }
 
-.table-btn:focus,.cancel-order:focus {
+.table-btn:focus,.cancel-order:focus, .edit:focus, .dropbtn:focus {
     box-shadow: rgba(0, 0, 0, .5) 0 2px 4px -1px, rgba(0, 0, 0, .14) 0 4px 5px 0, rgba(0, 0, 0, .12) 0 1px 10px 0;
 }
 

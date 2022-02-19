@@ -51,19 +51,6 @@ ul li .text{
     font-weight: 100;
 }
 
-.dropbtn, .edit {
-    background-color: #3498DB;
-    color: white;
-    padding: 16px;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-}
-
-.dropbtn:hover, .dropbtn:focus, .edit:hover, .edit:focus {
-    background-color: #2980B9;
-}
-
 .dropdown {
     position: relative;
     display: inline-block;
@@ -105,6 +92,15 @@ ul li .text{
 .cancel-order:active {
     box-shadow: rgba(0, 0, 0, .2) 0 5px 5px -3px, rgba(0, 0, 0, .14) 0 8px 10px 1px, rgba(0, 0, 0, .12) 0 3px 14px 2px;
     background: #b71c1c;
+}
+
+.edit:not(:disabled), .dropbtn:not(:disabled) {
+    background-color: #21981a;
+}
+
+.edit:active, .dropbtn:active {
+    box-shadow: rgba(0, 0, 0, .2) 0 5px 5px -3px, rgba(0, 0, 0, .14) 0 8px 10px 1px, rgba(0, 0, 0, .12) 0 3px 14px 2px;
+    background: #21981a;
 }
 
 .edit, .dropdown {
