@@ -32,3 +32,11 @@ input[type=button] {
 input[type=button]:hover {
   background-color: #45a049;
 }
+
+.myDiv{
+	display:none;
+    text-align:center;
+}  
+.myDiv img{
+  margin: 0 auto;
+}

@@ -19,3 +19,11 @@ function checkPass() {
         window.location="";
     }
 }
+
+$(document).ready(function(){
+    $('#department').on('change', function(){
+    	var demovalue = $(this).val(); 
+        $("div.myDiv").hide();
+        $("#show"+demovalue).show();
+    });
+});
