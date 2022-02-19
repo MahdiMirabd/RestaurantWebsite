@@ -32,7 +32,7 @@
                     <span th:text="${msg.tableNo}"> </span><span>&nbsp</span>
                     <span th:text="${msg.message}"></span><span>&nbsp</span>
                     <form  th:action="@{/delete/{id}(id=${msg.id})}" method="DELETE">
-                        <input type="submit" value="✓ clear">
+                        <input type="submit" value="&#10003;clear"/>
 
                     </form>
                 </div>
@@ -59,8 +59,8 @@
                 <td class="order-status" th:text="${pending.status}"></td>
                 <td>
                     <form  th:action="@{/waiter/{id}(id=${pending.id})}" method="PUT">
-                            <input type="submit" value="confirm" class="table-btn"/>
-                            <button type="button" id = cancelorder name="Cancel Order"><i class="fa fa-close"></i></button>
+                            <input type="submit" value="&#10003;confirm" class="table-btn"/>
+                            <button type="submit" id = "cancelorder"  class="cancel-order" name="Cancel Order"><i class="fa fa-close"></i>cancel</button>
                     </form>
                 </td>
             </tr>
@@ -80,7 +80,7 @@
                 <td th:text="${confirmed.quantity}"></td>
                 <td class="order-status" th:text="${confirmed.status}"></td>
                 <td>
-                    <button type="button" id = cancelorder name="Cancel Order"><i class="fa fa-close"></i></button>
+                    <button type="button" id ="cancelorder" class="cancel-order" name="Cancel Order"><i class="fa fa-close"></i>cancel</button>
                 </td>
             </tr>
              <tr th:each="ready: ${readyOrders}">
@@ -90,7 +90,7 @@
              <td class="order-status" th:text="${ready.status}"></td>
              <td>
                  <form  th:action="@{/delivery/{id}(id=${ready.id})}" method="PUT">
-                     <input type="submit" value="deliver" class="table-btn"/>
+                     <button type="submit" name="deliver" class="table-btn"><i class='fa fa-send'></i>deliver</button>
                  </form>
              </td>
          </tr>

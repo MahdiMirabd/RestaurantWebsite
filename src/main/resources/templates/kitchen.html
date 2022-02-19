@@ -37,7 +37,7 @@
                 <td th:text="${order.status}"></td>
                 <td>
                     <form  th:action="@{/kitchen/{id}(id=${order.id})}" method="PUT">
-                        <input type="submit" value="ready" class="table-btn"/>
+                        <button type="submit" name="deliver" class="table-btn"><i class='fa fa-send'></i>ready</button>
                     </form>
                 </td>
             </tr>
