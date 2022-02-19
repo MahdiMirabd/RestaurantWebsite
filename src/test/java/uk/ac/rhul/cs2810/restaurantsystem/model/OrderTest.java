@@ -54,4 +54,12 @@ public class OrderTest {
         orderRepository.save(order);
         assertEquals(order.getStatus(), "confirmed");
     }
+    @Test
+    void UpdateStat(){
+        Order order = orderRepository.getById((long)38);
+        order.setStatus("delivered");
+        orderRepository.save(order);
+        assertEquals(order.getStatus(), "delivered");
+    
+    }
 }

@@ -3,9 +3,12 @@ package uk.ac.rhul.cs2810.restaurantsystem.repository;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
+
 import uk.ac.rhul.cs2810.restaurantsystem.model.Menu;
 
 /**
@@ -27,4 +30,14 @@ public interface MenuRepository extends JpaRepository<Menu, Long> {
      */
     @Query("SELECT item FROM menu item WHERE item.available = :status")
     List<Menu> findAvailableItems(@Param("status") boolean status);
+
+    @Transactional
+    @Modifying
+    @Query("UPDATE menu m SET m.available= false WHERE m.id = :id ")
+    int updateMenuFalse(@Param("id") long id);
+
+    @Transactional
+    @Modifying
+    @Query("UPDATE menu m SET m.available= true WHERE m.id = :id ")
+    int updateMenuTrue(@Param("id") long id);
 }

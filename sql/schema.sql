@@ -11,7 +11,7 @@ CREATE TABLE menu (
     price NUMERIC (12, 2) NOT NULL,
     calories NUMERIC NOT NULL,
     ingredients VARCHAR(100) NOT NULL,
-    allergen TEXT [] NOT NULL,
+    allergen TEXT[] NOT NULL,
     image VARCHAR (150) NOT NULL,
     available BOOLEAN NOT NULL
 );
