@@ -6,9 +6,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import org.springframework.web.servlet.view.RedirectView;
-import uk.ac.rhul.cs2810.restaurantsystem.model.Alert;
+import uk.ac.rhul.cs2810.restaurantsystem.model.Notification;
 import uk.ac.rhul.cs2810.restaurantsystem.model.Order;
-import uk.ac.rhul.cs2810.restaurantsystem.repository.AlertRepository;
+import uk.ac.rhul.cs2810.restaurantsystem.repository.NotificationRepository;
 import uk.ac.rhul.cs2810.restaurantsystem.repository.OrderRepository;
 
 /**
@@ -27,7 +27,7 @@ public class WaiterController {
      * An instance of the alert repository.
      */
     @Autowired
-    private AlertRepository alertRepository;
+    private NotificationRepository notificationRepository;
 
     /**
      * Queries the backend for all orders and alert notifications.
@@ -39,8 +39,8 @@ public class WaiterController {
     public String findAll(Model model) {
         model.addAttribute("pendingOrders", orderRepository.findOrders("pending"));
         model.addAttribute("confirmedOrders", orderRepository.findOrders("confirmed"));
-        model.addAttribute("deliveredOrders", orderRepository.findOrders("delivered"));
-        model.addAttribute("alert", alertRepository.findAll());
+        model.addAttribute("readyOrders", orderRepository.findOrders("ready"));
+        model.addAttribute("alert", notificationRepository.findAll());
         return "waiter";
     }
 
@@ -75,9 +75,16 @@ public class WaiterController {
      * @return the view back to the order page
      */
     @RequestMapping(value = "/help", method = RequestMethod.POST)
-    public RedirectView submitAlert(Model model, @ModelAttribute(value = "messageTable") Alert message) {
-        Alert alert = alertRepository.save(message);
+    public RedirectView submitAlert(Model model, @ModelAttribute(value = "messageTable") Notification message) {
+        Notification notification = notificationRepository.save(message);
         return new RedirectView("order");
+    }
+
+    @RequestMapping(value = "/delete/{id}" , method = {RequestMethod.GET, RequestMethod.DELETE})
+    public RedirectView deleteNotifications(@PathVariable long id, Model model){
+        Notification notification = notificationRepository.getById(id);
+        notificationRepository.delete(notification);
+        return new RedirectView("/waiter");
     }
 
 }

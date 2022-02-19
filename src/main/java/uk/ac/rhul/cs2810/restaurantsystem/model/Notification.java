@@ -8,15 +8,15 @@ import javax.persistence.*;
  * The Alert table in the database.
  * stores clients request for help.
  */
-@Entity(name = "alert")
-@Table(name = "alert")
+@Entity(name = "notification")
+@Table(name = "notification")
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
 @EqualsAndHashCode
 @ToString
-public class Alert {
+public class Notification {
 
     /**
      * The table's primary key.

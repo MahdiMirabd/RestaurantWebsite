@@ -51,13 +51,63 @@ ul li .text{
     font-weight: 100;
 }
 
-#cancelorder {
-    font-weight: bold;
-    color: #fafafa;
-    background: rgb(253, 2, 2);
-    border-radius: 5px;
-    left: 100px;
-    height: 30px;
-    width: 40px;
-
+.dropbtn, .edit {
+    background-color: #3498DB;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
 }
+
+.dropbtn:hover, .dropbtn:focus, .edit:hover, .edit:focus {
+    background-color: #2980B9;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 250px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown a:hover {background-color: #ddd;}
+
+.show {display: block;}
+
+.msg-detail{
+    display: inline-flex;
+    margin: 1.5em;
+    font-weight: 100;
+    padding-bottom: 1em;
+    border-bottom: 2px solid #ccc;
+}
+
+.cancel-order:not(:disabled) {
+    background-color: #c62828;
+}
+
+.cancel-order:active {
+    box-shadow: rgba(0, 0, 0, .2) 0 5px 5px -3px, rgba(0, 0, 0, .14) 0 8px 10px 1px, rgba(0, 0, 0, .12) 0 3px 14px 2px;
+    background: #b71c1c;
+}
+
+.edit, .dropdown {
+    display: inline-flex;
+}
+

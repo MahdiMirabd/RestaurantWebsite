@@ -27,5 +27,8 @@ public interface OrderRepository extends JpaRepository<Order, Long> {
     @Query("SELECT order FROM orders  order WHERE order.status = :stat")
     List<Order> findOrders(@Param("stat") String stat);
 
+    @Query("SELECT order.tableNo FROM orders order WHERE order.id =:id")
+    List<Order>findTableNumber(@Param("id") Long id);
+
 
 }

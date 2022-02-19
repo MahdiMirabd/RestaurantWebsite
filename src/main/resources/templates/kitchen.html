@@ -10,7 +10,7 @@
     <link rel="manifest" href="/img/favicon_io/site.webmanifest">
     <link rel="stylesheet"  type="text/css" href="/style/allPages.css">
     <link rel="stylesheet"  type="text/css" href="/style/waiter.css">
-    <script src="/javascript/header.js" type="text/javascript" defer></script>
+    <script src="/javascript/staffHeader.js" type="text/javascript" defer></script>
     <script src="/javascript/waiter.js" type="text/javascript" defer></script>
     <title>Kitchen</title>
 </head>
@@ -21,7 +21,9 @@
         <!-- section to list all orders in the database -->
         <br/>
         <br/>
-        <h2>Orders</h2>
+        <h2 class="menu-group-heading">Orders</h2>
+        <br/>
+        <br/>
         <table>
             <tr>
                 <th>Table number</th>
@@ -36,7 +38,9 @@
                 <td th:text="${order.quantity}"></td>
                 <td th:text="${order.status}"></td>
                 <td>
-                    <input type="button" value="ready" class="table-btn"/>
+                    <form  th:action="@{/kitchen/{id}(id=${order.id})}" method="PUT">
+                        <button type="submit" name="deliver" class="table-btn"><i class='fa fa-send'></i>ready</button>
+                    </form>
                 </td>
             </tr>
         </table>
