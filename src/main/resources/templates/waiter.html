@@ -20,12 +20,14 @@
     <header-component></header-component> <!-- custom tag created in header.js -->
     <div class="container">
         <!--The edit menu section-->
-        <button onclick="editMenu()">Edit Menu</button>
+        <h2 class="menu-group-heading">Waiter Controls</h2>
         <br/>
         <br/>
+
+        <button onclick="editMenu()" class="edit"><i class="fa fa-edit"></i> Edit Menu</button>
         <!--The notification dropdown -->
         <div class="dropdown">
-            <button onclick="showNotifications()" id="bell-btn" class="dropbtn">Notifications</button>
+            <button onclick="showNotifications()" id="bell-btn" class="dropbtn"><i class="fa fa-bell"></i> Notifications</button>
             <div class="dropdown-content" id="myDropdown" >
                 <div class="msg-detail" th:each="msg: ${alert}">
                     <span>Table</span><span>&nbsp</span>
@@ -33,7 +35,6 @@
                     <span th:text="${msg.message}"></span><span>&nbsp</span>
                     <form  th:action="@{/delete/{id}(id=${msg.id})}" method="DELETE">
                         <input type="submit" value="&#10003;clear"/>
-
                     </form>
                 </div>
             </div>
@@ -41,17 +42,17 @@
         <!-- section to list all orders in the database -->
         <br/>
         <br/>
-        <h2>Orders</h2>
+        <h2 class="menu-group-heading">Orders</h2>
+        <br/>
+        <br/>
         <table>
             <tr>
                 <th>Table number</th>
                 <th>Item</th>
                 <th>Quantity</th>
                 <th>status</th>
-                <th>action</th>
+                <th>actions</th>
             </tr>
-
-            
             <tr th:each="pending: ${pendingOrders}">
                 <td th:text="${pending.tableNo}"></td>
                 <td th:text="${pending.name}"></td>

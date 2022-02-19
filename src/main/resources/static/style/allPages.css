@@ -65,3 +65,8 @@ body {
     background: #228b22;
 }
 
+.menu-group-heading {
+    margin: 0;
+    padding-bottom: 1em;
+    border-bottom: 2px solid #ccc;
+}
