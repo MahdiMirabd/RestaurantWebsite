@@ -6,12 +6,13 @@ function checkPass() {
     const confirmKitchen = "kitchen";
 
     let password = document.getElementById("pass").value;
-    let department = document.getElementById("department").value;
+    let usernameOptions = document.querySelectorAll("input[name='myUsername']");
+    username = $("input[type='radio'][name='myUsername']:checked").val();
 
-    if (password == confirmWaiterPassword && department == confirmWaiter){
+    if (password == confirmWaiterPassword && username == confirmWaiter){
         window.location="waiter";
     }
-    else if (password == confirmKitchenPassword && department == confirmKitchen){
+    else if (password == confirmKitchenPassword && username == confirmKitchen){
         window.location="kitchen";
     }
     else{

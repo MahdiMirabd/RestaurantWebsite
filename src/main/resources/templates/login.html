@@ -28,12 +28,12 @@
       <div id="showTwo" class="myDiv"> <img src="/main/resources/static/img/icon-02.jpg" alt="kitchen" th:src="@{img/icon-02.jpg}">  </div>
     <br>
       <input type="password" id="pass" placeholder="Password.">
-    <select id="department" name="department" class="department">
-      <option value="Zero">Select Role</option>
-      <option value="One">Waiter</option>
-      <option value="Two">Kitchen</option>
-      <option value="Three">Customer</option>
-    </select>
+      <div class="username">
+        <input class="username__option" type="radio"  name="myUsername" value="waiter" id="myUsername1">
+        <label class="username__label" for="myUsername1" >Waiter</label>
+        <input class="username__option" type="radio"  name="myUsername" value="kitchen" id="myUsername2">
+        <label class="username__label" for="myUsername2" >Kitchen Staff</label>
+      </div>
 
     <input type="button" value="Login" onclick="checkPass();"/>
   </form>
