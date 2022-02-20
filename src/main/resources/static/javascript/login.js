@@ -2,8 +2,8 @@
 function checkPass() {
     const confirmWaiterPassword = "admin";
     const confirmKitchenPassword = "pass";
-    const confirmWaiter = "waiter";
-    const confirmKitchen = "kitchen";
+    const confirmWaiter = "One"; //waiter
+    const confirmKitchen = "Two"; //kitchen
 
     let password = document.getElementById("pass").value;
     let usernameOptions = document.querySelectorAll("input[name='myUsername']");
@@ -21,8 +21,17 @@ function checkPass() {
     }
 }
 
+// $(document).ready(function(){
+//     $('#department').on('change', function(){
+//     	var demovalue = $(this).val(); 
+//         $("div.myDefaultDiv").hide();
+//         $("div.myDiv").hide();
+//         $("#show"+demovalue).show();
+//     });
+// });
+
 $(document).ready(function(){
-    $('#department').on('change', function(){
+    $('.username__option').on('change', function(){
     	var demovalue = $(this).val(); 
         $("div.myDefaultDiv").hide();
         $("div.myDiv").hide();

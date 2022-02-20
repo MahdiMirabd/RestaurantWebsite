@@ -20,18 +20,6 @@ h1{
   border: black solid; 
 }
 
-.department{
-  background:#ecf0f1;
-  border: #ccc 1px solid;
-  border-bottom: #ccc 2px solid;
-  padding: 8px;
-  width:270px;
-  color:#AAAAAA;
-  margin-top:10px;
-  font-size:1em;
-  border-radius:4px;
-}
-
 input[type=password] {
   border-radius:4px;
   background:#ecf0f1;
