@@ -86,3 +86,31 @@ input[type=button]:hover {
   width: 150px;
   height: 150px;
 }
+
+.username {
+  display:inline-flex;
+  overflow: hidden;
+  border-radius: 15px;
+  box-shadow: 0 0 5px black;
+}
+
+.username__option {
+  display:none;
+}
+
+.username__label {
+  padding: 8px 14px;
+  font-size: 14px;
+  color: white;
+  background:#2ecc71;
+  cursor: pointer;
+  transition: background 0.1s;
+}
+
+.username__label:not(:last-of-type) {
+  border-right:1px solid #006B56;
+}
+
+.username__option:checked + .username__label {
+  background: #006B56;
+}
