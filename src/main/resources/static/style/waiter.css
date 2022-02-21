@@ -141,3 +141,15 @@ ul li .text{
 
 
 }
+
+.btn-clear {
+    border: none;
+    color: gray;
+    padding: 0px;
+    font-size: 20px;
+    cursor: pointer;
+    width: 45px;
+    height: 45px;
+    margin:auto;
+}
+

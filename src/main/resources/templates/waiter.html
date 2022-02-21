@@ -35,7 +35,7 @@
                     <span th:text="${msg.tableNo}"> </span><span>&nbsp</span>
                     <span th:text="${msg.message}"></span><span>&nbsp</span>
                     <form  th:action="@{/delete/{id}(id=${msg.id})}" method="DELETE">
-                        <input type="submit" value="&#10003;clear"/>
+                        <button type="submit" value="clear" class="btn-clear"><i class="fa fa-close"></i></button>
                     </form>
                 </div>
             </div>
