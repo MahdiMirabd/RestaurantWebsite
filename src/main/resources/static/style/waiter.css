@@ -129,3 +129,15 @@ ul li .text{
     overflow-x: hidden;
 }
 
+.cancel-confirmed-order{
+    font-weight: bold;
+    color: #fafafa;
+    background: rgb(253, 2, 2);
+    border-radius: 50%;
+    left: 100px;
+    height: 30px;
+    width: 32px;
+    display: inline-block;
+
+
+}

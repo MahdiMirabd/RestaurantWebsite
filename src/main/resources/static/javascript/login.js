@@ -2,16 +2,17 @@
 function checkPass() {
     const confirmWaiterPassword = "admin";
     const confirmKitchenPassword = "pass";
-    const confirmWaiter = "waiter";
-    const confirmKitchen = "kitchen";
+    const confirmWaiter = "One"; //waiter
+    const confirmKitchen = "Two"; //kitchen
 
     let password = document.getElementById("pass").value;
-    let department = document.getElementById("department").value;
+    let usernameOptions = document.querySelectorAll("input[name='myUsername']");
+    username = $("input[type='radio'][name='myUsername']:checked").val();
 
-    if (password == confirmWaiterPassword && department == confirmWaiter){
+    if (password == confirmWaiterPassword && username == confirmWaiter){
         window.location="waiter";
     }
-    else if (password == confirmKitchenPassword && department == confirmKitchen){
+    else if (password == confirmKitchenPassword && username == confirmKitchen){
         window.location="kitchen";
     }
     else{
@@ -19,3 +20,21 @@ function checkPass() {
         window.location="";
     }
 }
+
+// $(document).ready(function(){
+//     $('#department').on('change', function(){
+//     	var demovalue = $(this).val(); 
+//         $("div.myDefaultDiv").hide();
+//         $("div.myDiv").hide();
+//         $("#show"+demovalue).show();
+//     });
+// });
+
+$(document).ready(function(){
+    $('.username__option').on('change', function(){
+    	var demovalue = $(this).val(); 
+        $("div.myDefaultDiv").hide();
+        $("div.myDiv").hide();
+        $("#show"+demovalue).show();
+    });
+});

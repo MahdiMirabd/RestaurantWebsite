@@ -12,3 +12,41 @@ body{
   display:absolute;
   top:100px;
 }
+
+.typewriter {
+  font-family: Courier, monospace;
+  display: inline-block;
+  text-align:center;
+  padding-left: 700px;
+}
+
+.typewriter-text {
+  display: inline-block;
+  overflow: hidden;
+  letter-spacing: 2px;
+  animation: typing 5s steps(30, end), blink .75s step-end infinite;
+  white-space: nowrap;
+  font-size: 50px;
+  font-weight: 900;
+  border-right: 4px solid orange;
+  box-sizing: border-box;
+  text-align:center;
+}
+
+@keyframes typing {
+  from { 
+      width: 0% 
+  }
+  to { 
+      width: 100% 
+  }
+}
+
+@keyframes blink {
+  from, to { 
+      border-color: transparent 
+  }
+  50% { 
+      border-color: orange; 
+  }
+}
