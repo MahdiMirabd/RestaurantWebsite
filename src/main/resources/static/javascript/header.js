@@ -10,6 +10,7 @@ class Header extends HTMLElement {
                     'display:flex;' +
                     'align-items:center;' +  
                     'justify-content: center;' +
+                    'border-bottom: 2px solid #08090A;' +
                     //'background-color: #fff;' +
                 '}' +
                 'ul {' +
@@ -20,14 +21,18 @@ class Header extends HTMLElement {
                     'display: inline; ' +
                 '}' +
                 'a {' +
-                    'font-weight: 900;' +
+                    'font-size: 30px;' +
                     'margin: 0 25px;' +
                     'color: #0a0a23;' +
                     'text-decoration: none;' +
+                    'transition: color .3s ease-in-out, box-shadow .3s ease-in-out;'+
+                    'box-shadow: inset 0 0 0 0 #45a049;' +
                 '} ' +
                 'a:hover {' +
                     'padding-bottom: 5px;' +
-                    'box-shadow: inset 0 -2px 0 0 #0a0a23;' +
+                   // 'box-shadow: inset 0 -2px 0 0 #0a0a23;' +
+                    'box-shadow: inset 100px 0 0 0 #45a049;' +
+                    'color: white;' +
                 '} ' +
                 '.shopping-cart-button {' +
                     'background-color: white;' +
