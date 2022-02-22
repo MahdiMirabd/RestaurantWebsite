@@ -88,7 +88,8 @@ ul li .text{
 
 .dropdown a:hover {background-color: #ddd;}
 
-.show {display: block;}
+.show {display: block;
+}
 
 .msg-detail{
     display: inline-flex;
@@ -99,12 +100,26 @@ ul li .text{
 }
 
 .cancel-order:not(:disabled) {
-    background-color: #c62828;
+    /* background-color: #c62828; */
+    color: #fafafa;
+    background: rgb(253, 2, 2);
+    border-radius: 0px;
+    left: 0px;
+    height: 30px;
+    width: 32px;
+    display:inline-flex;
+    justify-content: center;
+    margin-top: 7px;  
 }
 
 .cancel-order:active {
-    box-shadow: rgba(0, 0, 0, .2) 0 5px 5px -3px, rgba(0, 0, 0, .14) 0 8px 10px 1px, rgba(0, 0, 0, .12) 0 3px 14px 2px;
-    background: #b71c1c;
+    font-weight: bold;
+    color: #fafafa;
+    background: rgb(253, 2, 2);
+    left: 0px;
+    height: 30px;
+    width: 32px;
+    display: inline-flex;
 }
 
 .edit, .dropdown {
@@ -115,11 +130,10 @@ ul li .text{
     font-weight: bold;
     color: #fafafa;
     background: rgb(253, 2, 2);
-    border-radius: 50%;
-    left: 100px;
+    border-radius: 0px;
+    left: 0px;
     height: 30px;
     width: 32px;
-    display: inline-block;
-
-
+    display:inline-flex;
+    justify-content: center;
 }
