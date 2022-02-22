@@ -6,6 +6,10 @@ function showNotifications() {
     document.getElementById("myDropdown").classList.toggle("show");
 }
 
+function showWaiters() {
+    document.getElementById("myWaiters").classList.toggle("show");
+}
+
 window.onclick = function(event) {
     if (!event.target.matches('.dropbtn')) {
         let dropdowns = document.getElementsByClassName("dropdown-content");
@@ -18,4 +22,3 @@ window.onclick = function(event) {
         }
     }
 }
-
