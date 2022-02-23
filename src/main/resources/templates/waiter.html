@@ -24,10 +24,10 @@
         <br/>
         <br/>
 
-        <button onclick="editMenu()" class="edit"><i class="fa fa-edit"></i> Edit Menu</button>
+        <button onclick="editMenu()" class="edit"><i class="fa fa-edit"></i>&nbspEdit Menu</button>
         <!--The notification dropdown -->
         <div class="dropdown">
-            <button onclick="showNotifications()" id="bell-btn" class="dropbtn"><i class="fa fa-bell"></i> Notifications</button>
+            <button onclick="showNotifications()" id="bell-btn" class="dropbtn"><i class="fa fa-bell"></i>&nbspNotifications</button>
             <span class="badge" th=:inline="text">[[${alertCount}]]</span>
             <div class="dropdown-content" id="myDropdown" >
                 <div class="msg-detail" th:each="msg: ${alert}">
@@ -61,8 +61,7 @@
                 <td class="order-status" th:text="${pending.status}"></td>
                 <td>
                     <form  th:action="@{/waiter/{id}(id=${pending.id})}" method="PUT">
-                            <input type="submit" value="&#10003;confirm" class="table-btn"/>
-
+                            <input type="submit" value="&#10003; confirm" class="table-btn"/>
                     </form>
                     <form  th:action="@{/cancelOrder/{id}(id=${pending.id})}" method="DELETE">
                         <button type="submit" value="Delete Order" class="cancel-order"><i class="fa fa-close"></i></button>
@@ -86,7 +85,7 @@
                 <td class="order-status" th:text="${confirmed.status}"></td>
                 <td>
                     <form  th:action="@{/cancelOrder/{id}(id=${confirmed.id})}" method="DELETE">
-                        <button type="submit" value="Delete Order" class="cancel-confirmed-order"><i class="fa fa-close"></i></button>
+                        <button type="submit" value="Delete Order" class="cancel-order"><i class="fa fa-close"></i></button>
                     </form>
                 </td>
             </tr>
@@ -97,7 +96,7 @@
              <td class="order-status" th:text="${ready.status}"></td>
              <td>
                  <form  th:action="@{/delivery/{id}(id=${ready.id})}" method="PUT">
-                     <button type="submit" name="deliver" class="table-btn"><i class='fa fa-send'></i>deliver</button>
+                     <button type="submit" name="deliver" class="table-btn"><i class='fa fa-send'></i>&nbspdeliver</button>
                  </form>
              </td>
          </tr>
