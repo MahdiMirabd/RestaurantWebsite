@@ -10,6 +10,10 @@ function showWaiters() {
     document.getElementById("myWaiters").classList.toggle("show");
 }
 
+function showDelivered() {
+    document.getElementById("myDelivered").classList.toggle("show");
+}
+
 window.onclick = function(event) {
     if (!event.target.matches('.dropbtn')) {
         let dropdowns = document.getElementsByClassName("dropdown-content");
