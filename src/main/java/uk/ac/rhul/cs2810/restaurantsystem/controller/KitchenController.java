@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.view.RedirectView;
 import uk.ac.rhul.cs2810.restaurantsystem.model.Notification;
 import uk.ac.rhul.cs2810.restaurantsystem.repository.NotificationRepository;
 import uk.ac.rhul.cs2810.restaurantsystem.repository.OrderRepository;
@@ -49,12 +50,12 @@ public class KitchenController {
      * @return the view back to the waiter page
      */
     @RequestMapping(value = "/kitchen/{id}" , method = {RequestMethod.GET, RequestMethod.PUT})
-    public String changeStatus(@PathVariable long id, Model model){
+    public RedirectView changeStatus(@PathVariable long id, Model model){
         Order order = orderRepository.getById(id);
         order.setStatus("ready");
         orderRepository.save(order);
         notifyWaiters(id, order);
-        return findAllOrders(model);
+        return new RedirectView("/kitchen");
     }
 
     /**

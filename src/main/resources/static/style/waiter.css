@@ -51,19 +51,6 @@ ul li .text{
     font-weight: 100;
 }
 
-.dropbtn, .edit {
-    background-color: #3498DB;
-    color: white;
-    padding: 16px;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-}
-
-.dropbtn:hover, .dropbtn:focus, .edit:hover, .edit:focus {
-    background-color: #2980B9;
-}
-
 .dropdown {
     position: relative;
     display: inline-block;
@@ -122,8 +109,63 @@ ul li .text{
     display: inline-flex;
 }
 
+.edit:not(:disabled), .dropbtn:not(:disabled) {
+    background-color: #21981a;
+}
+
+.edit:active, .dropbtn:active {
+    box-shadow: rgba(0, 0, 0, .2) 0 5px 5px -3px, rgba(0, 0, 0, .14) 0 8px 10px 1px, rgba(0, 0, 0, .12) 0 3px 14px 2px;
+    background: #21981a;
+}
+
 .edit, .dropdown {
     display: inline-flex;
+}
+.badge {
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: block;
+    position: absolute;
+    background: #d32f2f;
+    color: #fff;
+    border: 2px solid white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: -15px;
+    right: -15px;
+    transition: all .3s;
+}
+
+.dropdown-content {
+    height: auto;
+    max-height: 200px;
+    overflow-x: hidden;
+}
+
+.cancel-confirmed-order{
+    font-weight: bold;
+    color: #fafafa;
+    background: rgb(253, 2, 2);
+    border-radius: 50%;
+    left: 100px;
+    height: 30px;
+    width: 32px;
+    display: inline-block;
+
+
+}
+
+.btn-clear {
+    border: none;
+    color: gray;
+    padding: 0px;
+    font-size: 20px;
+    cursor: pointer;
+    width: 45px;
+    height: 45px;
+    margin:auto;
 }
 
 .cancel-confirmed-order{

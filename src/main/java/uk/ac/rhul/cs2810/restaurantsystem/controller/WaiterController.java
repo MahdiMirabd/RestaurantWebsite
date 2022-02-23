@@ -41,6 +41,7 @@ public class WaiterController {
         model.addAttribute("confirmedOrders", orderRepository.findOrders("confirmed"));
         model.addAttribute("readyOrders", orderRepository.findOrders("ready"));
         model.addAttribute("alert", notificationRepository.findAll());
+        model.addAttribute("alertCount", notificationRepository.count());
         return "waiter";
     }
 
@@ -52,11 +53,11 @@ public class WaiterController {
      * @return the view back to the waiter page
      */
     @RequestMapping(value = "/waiter/{id}" , method = {RequestMethod.GET, RequestMethod.PUT})
-    public String confirmOrder(@PathVariable long id, Model model){
+    public RedirectView confirmOrder(@PathVariable long id, Model model){
         Order order = orderRepository.getById(id);
         order.setStatus("confirmed");
         orderRepository.save(order);
-        return findAll(model);
+        return new RedirectView("/waiter");
     }
 
     @RequestMapping(value = "/delivery/{id}" , method = {RequestMethod.GET, RequestMethod.PUT})

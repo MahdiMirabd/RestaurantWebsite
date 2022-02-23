@@ -14,4 +14,5 @@ import uk.ac.rhul.cs2810.restaurantsystem.model.Notification;
  */
 @Repository
 public interface NotificationRepository extends JpaRepository<Notification, Long> {
+
 }
