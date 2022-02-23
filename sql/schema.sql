@@ -16,10 +16,13 @@ CREATE TABLE menu (
     available BOOLEAN NOT NULL
 );
 INSERT INTO menu (name, price, calories, ingredients, allergen, image, available )
-VALUES  ('Burrito', 20.50, 90, 'beef, cheese and spicy rice', ARRAY ['Milk', 'Celery'], '/img/burrito.jpg', TRUE),
-        ('Nachos', 10.50, 100, 'cheese, tomato', ARRAY ['Eggs'], '/img/nacho.jpg', TRUE),
-        ('Tacos', 15, 120, 'beef, cheese, tomato', ARRAY ['Gluten'], '/img/taco.jpg', TRUE),
-        ('Quesadillas', 13, 80, 'cheese', ARRAY ['Mustard'], '/img/quesadilla.jpg', TRUE);
+VALUES  ('Burrito', 20.50, 90, 'beef, cheese and spicy rice, beans', ARRAY ['Gluten','Milk', 'Celery', 'soy'], '/img/burrito.jpg', TRUE),
+        ('Nacho', 10.50, 100, 'cheese, tomato, guacamole, sour cream', ARRAY ['Gluten','Eggs','Milk'], '/img/nacho.jpg', TRUE),
+        ('Taco', 15, 120, 'beef, cheese, tomato', ARRAY ['Gluten', 'soy','Milk'], '/img/taco.jpg', TRUE),
+        ('Quesadilla', 13, 80, 'chicken, cheese', ARRAY ['Gluten','Mustard','Milk'], '/img/quesadilla.jpg', TRUE),
+        ('Fajita', 14, 80, 'chicken, cheese, salad, sour cream', ARRAY ['Gluten','Mustard','Milk'], '/img/fajitas.jpg', TRUE),
+        ('Enchilada', 12, 80, 'beef, cheese, salad', ARRAY ['Gluten','Soy','Milk'], '/img/enchiladas.jpg', TRUE);
+
 
 INSERT INTO allergen(name, description)
 VALUES  ('Celery', 'Contains Celery'),
