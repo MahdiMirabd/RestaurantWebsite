@@ -8,6 +8,7 @@ class Header extends HTMLElement {
                 'nav {' +
                     'height: 50px;' +
                     'display:flex;' +
+                    'flex-wrap: nowrap;'+
                     'align-items:center;' +  
                     'justify-content: center;' +
                     'border-bottom: 2px solid #08090A;' +
@@ -25,6 +26,8 @@ class Header extends HTMLElement {
                     'margin: 0 25px;' +
                     'color: #0a0a23;' +
                     'text-decoration: none;' +
+                    'border: 2px solid red;' +
+                    'border-radius: 10px;'  +
                     'transition: color .3s ease-in-out, box-shadow .3s ease-in-out;'+
                     'box-shadow: inset 0 0 0 0 #45a049;' +
                 '} ' +
@@ -50,18 +53,21 @@ class Header extends HTMLElement {
                     'background-color: DodgerBlue;' +
                     'color: white;' +
                 '} ' +
-                'h1.Logo{' +
-                    'left:350px; ' +
+                '.Logo{' +
+                    'left:20%; ' +
                     'position: absolute; ' +
-                    'border: 2px solid red;' +
                     'border-radius: 5px; ' +
                     'color: green; ' +
+                    'display:block;' +
+                    'flex-wrap: nowrap;'+
                 '}' +
+                '@media only screen and (max-width: 1200px) {a{font-size:20px;}}' +
+                '@media only screen and (max-width: 1000px) {Logo{left:100%;}}' +
             '</style> ' +
             '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">' +
             '<header> ' +
                 '<nav> ' +
-                '<h1 class = "Logo">Oaxaca</h1>' +
+                '<h1 class = "Logo"><a href="/">Oaxaca</a> </h1>' +
                     '<ul>' +
                         '<li><a href="/">Home</a></li>' +
                         '<li><a href="/menu">Menu</a></li>' +
