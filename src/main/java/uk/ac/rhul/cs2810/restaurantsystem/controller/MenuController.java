@@ -33,4 +33,9 @@ public class MenuController {
         model.addAttribute("items", menuRepository.findItems(true));
         return "menu";
     }
+    @RequestMapping(value = "/menu", method = RequestMethod.GET)
+    public String findPriceFilteredItems(Model model) {
+        model.addAttribute("items", menuRepository.findItems(true));
+        return "menu";
+    }
 }
