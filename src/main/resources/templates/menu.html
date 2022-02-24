@@ -22,6 +22,17 @@
         <div class="menu">
             <h2 class="menu-group-heading">
                 Menu
+                <div class="filtering-options">
+                    <!--<form id="Sort" th:action="@{/Menu/{id}}" method="PUT"> -->
+                        <select name="filters" id="filters">
+                            <option value="Price">Price</option>
+                            <option value="Calories">Calories</option>
+                        </select>
+                        <input class="min" id="minQuantity" type="text" name="minimum" min="0" placeholder="min">
+                        <input class="max" id="maxQuantity" type="text" name="maximum" min="0" placeholder="max">
+                        <input type="submit" value="Sort">
+                    <!--</form> -->
+                </div>
             </h2>
             <div class="menu-group">
                 <div th:each="item: ${items}" class="menu-item">
