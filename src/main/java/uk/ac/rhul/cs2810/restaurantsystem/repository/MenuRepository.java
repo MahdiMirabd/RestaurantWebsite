@@ -50,3 +50,4 @@ public interface MenuRepository extends JpaRepository<Menu, Long> {
     @Modifying
     @Query("SELECT item FROM menu item WHERE item.calories > :itemMin AND item.calories < :itemMax")
     List<Menu> findCalorieRangeItems(@Param("itemMin") float itemMin, @Param("ItemMax") float itemMax);
+}

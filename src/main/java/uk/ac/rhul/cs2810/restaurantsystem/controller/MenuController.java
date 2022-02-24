@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.view.RedirectView;
 
 import uk.ac.rhul.cs2810.restaurantsystem.repository.MenuRepository;
 
@@ -34,12 +35,23 @@ public class MenuController {
         return "menu";
     }
     @RequestMapping(value = "/menu", method = RequestMethod.GET)
-    public String findPriceFilteredItems(Model model) {
+    public RedirectView findPriceFilteredItems(Model model) {
+        model.addAttribute("items", menuRepository.findItems(true));
+        return new RedirectView("/menu");
+    }
+    @RequestMapping(value = "/menu", method = RequestMethod.GET)
+    public RedirectView findCalorieFilteredItems(Model model) {
+        model.addAttribute("items", menuRepository.findItems(true));
+        return new RedirectView("/menu");
+    }
+
+    @RequestMapping(value = "/menu", method = RequestMethod.GET)
+    public String updatePriceFilteredItems(Model model) {
         model.addAttribute("items", menuRepository.findItems(true));
         return "menu";
     }
     @RequestMapping(value = "/menu", method = RequestMethod.GET)
-    public String findCalorieFilteredItems(Model model) {
+    public String updateCalorieFilteredItems(Model model) {
         model.addAttribute("items", menuRepository.findItems(true));
         return "menu";
     }
