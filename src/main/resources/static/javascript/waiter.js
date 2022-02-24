@@ -10,6 +10,10 @@ function showWaiters() {
     document.getElementById("myWaiters").classList.toggle("show");
 }
 
+function showDelivered() {
+    document.getElementById("myDelivered").classList.toggle("show");
+}
+
 window.onclick = function(event) {
     if (!event.target.matches('.dropbtn')) {
         let dropdowns = document.getElementsByClassName("dropdown-content");
@@ -22,3 +26,9 @@ window.onclick = function(event) {
         }
     }
 }
+
+$(document).ready(function() {
+    if($('#dropdown span').text() == 0) {
+        document.getElementById("badge").style.display= 'none';
+    }
+});

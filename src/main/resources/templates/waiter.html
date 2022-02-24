@@ -23,12 +23,23 @@
         <h2 class="menu-group-heading">Waiter Controls</h2>
         <br/>
         <br/>
-
         <button onclick="editMenu()" class="edit"><i class="fa fa-edit"></i>&nbspEdit Menu</button>
-        <!--The notification dropdown -->
+        <!-- The waiter dropdown to allocate 'sections' -->
         <div class="dropdown">
+            <button onclick="showWaiters()" id="bell-btn" class="dropbtn"><i class="fa fa-close"></i>&nbspWaiters</button>
+            <div class="dropdown-content" id="myWaiters" >
+            </div>
+        </div>
+        <!-- Button to un-hide and re-hide orders with status delivered -->
+        <div class="dropdown">
+            <button onclick="showDelivered()" id="bell-btn" class="dropbtn"><i class="fa fa-close"></i>&nbspShow delivered</button>
+            <div class="dropdown-content" id="myDelivered" >
+            </div>
+        </div>
+        <!--The notification dropdown -->
+        <div class="dropdown" id="dropdown">
             <button onclick="showNotifications()" id="bell-btn" class="dropbtn"><i class="fa fa-bell"></i>&nbspNotifications</button>
-            <span class="badge" th=:inline="text">[[${alertCount}]]</span>
+            <span class="badge" id="badge" th=:inline="text">[[${alertCount}]]</span>
             <div class="dropdown-content" id="myDropdown" >
                 <div class="msg-detail" th:each="msg: ${alert}">
                     <span>Table</span><span>&nbsp</span>
@@ -75,7 +86,6 @@
                <td th:text="${delivered.quantity}"></td>
                <td class="order-status" th:text="${delivered.status}"></td>
                <td>
-
                </td>
            </tr>-->
             <tr th:each="confirmed: ${confirmedOrders}">
@@ -85,7 +95,7 @@
                 <td class="order-status" th:text="${confirmed.status}"></td>
                 <td>
                     <form  th:action="@{/cancelOrder/{id}(id=${confirmed.id})}" method="DELETE">
-                        <button type="submit" value="Delete Order" class="cancel-order"><i class="fa fa-close"></i></button>
+                        <button type="submit" value="Delete Order" class="cancel-confirmed-order"><i class="fa fa-close"></i></button>
                     </form>
                 </td>
             </tr>

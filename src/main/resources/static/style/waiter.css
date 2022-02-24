@@ -179,3 +179,11 @@ ul li .text{
     display:inline-flex;
     justify-content: center;
 }
+
+.cancel-confirmed-order:hover{
+    background-color: rgb(204, 5, 5);
+    height: 35px;
+    width: 35px;
+    display: inline-flex;
+    border-radius: 0px;
+}

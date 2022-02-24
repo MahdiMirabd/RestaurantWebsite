@@ -19,6 +19,48 @@
     <div class="typewriter">
         <div class="typewriter-text">Welcome to Oaxaca!</div>
     </div>
-
+    
+    <div class="container">
+        <div style="text-align:center">
+          <h2>Contact Us</h2>
+          <p>Fill in the form below to either: <br>arrange/ammend a booking, request allergen information and more.</p>
+        </div>
+        <div class="row">
+          <div class="column">
+              <iframe 
+                width="540" 
+                height="490" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy" 
+                title="Oaxaca Popup"
+                src="https://www.google.com/maps/embed?pb=!4v1645642023915!6m8!1m7!1s6gV302mHOQ1pXKMAvJBjVw!2m2!1d51.42746659047073!2d-0.5635286935358863!3f128.30255525807638!4f1.012565130980832!5f0.7820865974627469">
+            </iframe>
+            <p align:left>Oaxaca Popup at Royal Holloway Students Union</p>
+          </div>
+          <div class="column">
+            <form action="/replace-me">
+              <label for="first-name">First Name</label>
+              <input type="text" id="fname" name="firstname" placeholder="Your name..">
+              <label for="email">E-mail</label>
+              <input type="text" id="email" name="email" placeholder="Your e-mail address..">
+              <label for="subject">Subject</label>
+              <select id="subject" name="subject">
+                <option value="booking">Booking</option>
+                <option value="menu">Menu</option>
+                <option value="allergens">Allergen informaion</option>
+                <option value="location">Location</option>
+                <option value="dress-code">Dress Code</option>
+                <option value="ammend-booking">Ammend your booking</option>
+                <option value="s-requests">Special Requests</option>
+                <option value="other">Other...</option>
+              </select>
+              <label for="details">Details</label>
+              <textarea id="details" name="details" placeholder="Write something.." style="height:170px"></textarea>
+              <input type="submit" value="Submit">
+            </form>
+          </div>
+        </div>
+      </div>
 </body>
 </html>
