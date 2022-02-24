@@ -29,7 +29,7 @@ public interface MenuRepository extends JpaRepository<Menu, Long> {
      * @return menu items where the status field is true.
      */
     @Query("SELECT item FROM menu item WHERE item.available = :status")
-    List<Menu> findAvailableItems(@Param("status") boolean status);
+    List<Menu> findItems(@Param("status") boolean status);
 
     @Transactional
     @Modifying

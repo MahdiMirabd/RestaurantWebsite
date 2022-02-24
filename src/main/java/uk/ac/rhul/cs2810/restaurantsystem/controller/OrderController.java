@@ -37,7 +37,7 @@ public class OrderController {
      */
     @RequestMapping(value = "/order", method = RequestMethod.GET)
     public String findAvailableItems(Model model) {
-        model.addAttribute("items", menuRepository.findAvailableItems(true));
+        model.addAttribute("items", menuRepository.findItems(true));
         return "order";
     }
 

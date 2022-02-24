@@ -1,10 +1,13 @@
 //Checks if a checkbox has changed since loading the page
 $(document).ready(function() {
-    let checkbox = document.getElementsByClassName('available');
-    for (let i = 0; i < checkbox.length; i++) {
-        let input = checkbox[i];
-        input.addEventListener('change', checkboxChanged)
-    }
+    /*$('.menu-group span').each(function() {
+        //span.after('<span>' + span.text() + '</span>')
+        if($('#menu-item span').text()== false) {
+            document.getElementById("available").style.display= 'none';
+        } else  {
+            document.getElementById("unavailable").style.display= 'none';
+        }
+    });*/
 });
 
 function checkboxChanged(event) {
