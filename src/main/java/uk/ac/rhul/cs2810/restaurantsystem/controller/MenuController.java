@@ -30,7 +30,7 @@ public class MenuController {
      */
     @RequestMapping(value = "/menu", method = RequestMethod.GET)
     public String findAvailableItems(Model model) {
-        model.addAttribute("items", menuRepository.findAvailableItems(true));
+        model.addAttribute("items", menuRepository.findItems(true));
         return "menu";
     }
 }

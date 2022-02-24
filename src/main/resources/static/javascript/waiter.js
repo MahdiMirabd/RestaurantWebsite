@@ -26,3 +26,9 @@ window.onclick = function(event) {
         }
     }
 }
+
+$(document).ready(function() {
+    if($('#dropdown span').text() == 0) {
+        document.getElementById("badge").style.display= 'none';
+    }
+});

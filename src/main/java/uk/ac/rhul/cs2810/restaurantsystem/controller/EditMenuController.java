@@ -20,24 +20,18 @@ import uk.ac.rhul.cs2810.restaurantsystem.repository.MenuRepository;
 @Controller
 public class EditMenuController {
 
+    @Autowired
+    private MenuRepository menuRepository;
+
     /**
      * Gets and displays the content of editMenu.html.
      *
      * @return the editMenu web page
      */
-    @Autowired
-    private MenuRepository menuRepository;
-    
-    @GetMapping(value = {""})
-    public ModelAndView editMenu() {
-        ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("editMenu");
-        return modelAndView;
-    }
-
     @RequestMapping(value = "/editMenu", method = RequestMethod.GET)
     public String findAll(Model model) {
-        model.addAttribute("items", menuRepository.findAll());
+        model.addAttribute("availableItems", menuRepository.findItems(true));
+        model.addAttribute("unavailableItems", menuRepository.findItems(false));
         return "editMenu";
     }
 

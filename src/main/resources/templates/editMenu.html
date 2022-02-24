@@ -5,6 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="apple-touch-icon" sizes="180x180" href="/img/favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon_io/favicon-16x16.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="manifest" href="/img/favicon_io/site.webmanifest">
     <link rel="stylesheet"  type="text/css" href="/style/allPages.css"/>
     <link rel="stylesheet"  type="text/css" href="/style/menu.css"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -21,8 +26,8 @@
             <h2 class="menu-group-heading">
                 Menu
             </h2>
-            <div class="menu-group">
-                <div th:each="item: ${items}" class="menu-item">
+            <div class="menu-group" id="menu-group">
+                <div th:each="item: ${availableItems}" class="menu-item" id="menu-item">
                     <img class="menu-item-image" th:src="@{${item.image}}" alt="Menu Item"/>
                     <div class="menu-item-text">
                         <div class="menu-item-heading">
@@ -47,19 +52,49 @@
                                 <p> contains:&nbsp;</p>
                                 <p th:text=" ${item.allergen}" > </p>
                             </div>
+                            <span style="display: none" id="stat" th=:inline="text">[[${item.available}]]</span>
                             <div class="available">
-                                <form  th:action="@{/editMenu/{id}(id=${item.id})}" method="PUT">
-                                    <input type="submit" value="Set Unavailable" class="table-btn"/>
-                                </form>
-                                
-                                <form  th:action="@{/editMenuTrue/{id}(id=${item.id})}" method="PUT">
-                                    <input type="submit" value="Set Available" class="table-btn"/>
+                                <form id="available" th:action="@{/editMenu/{id}(id=${item.id})}" method="PUT">
+                                    <button type="submit" value="Set Unavailable" class="cancel-order"><i class="fa fa-close"></i>&nbspSet Unavailable</button>
                                 </form>
                             </div>
                         </div>
                     </div>
                 </div>
-
+                <div th:each="item: ${unavailableItems}" class="menu-item" id="menu-item">
+                    <img class="menu-item-image" th:src="@{${item.image}}" alt="Menu Item"/>
+                    <div class="menu-item-text">
+                        <div class="menu-item-heading">
+                            <h3 th=:inline="text" class="menu-item-name">
+                                [[${item.name}]]
+                            </h3>
+                            <h3 th=:inline="text" class="menu-item-price">
+                                [[${item.price}]]
+                            </h3>
+                        </div>
+                        <div class="menu-item-details" >
+                            <div class="ingredients">
+                                <p> served with:&nbsp;</p>
+                                <div th:text=" ${item.ingredients}" > </div>
+                            </div>
+                            <br/>
+                            <div class="calories">
+                                <p class="item-label">calories:&nbsp;</p>
+                                <p th:text=" ${item.calories}" > </p>
+                            </div>
+                            <div class="allergens">
+                                <p> contains:&nbsp;</p>
+                                <p th:text=" ${item.allergen}" > </p>
+                            </div>
+                            <span style="display: none" id="stat" th=:inline="text">[[${item.available}]]</span>
+                            <div class="available">
+                                <form id="unavailable" th:action="@{/editMenuTrue/{id}(id=${item.id})}" method="PUT">
+                                    <input type="submit" value="&#10003; Set Available" class="table-btn"/>
+                                 </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

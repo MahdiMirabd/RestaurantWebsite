@@ -87,7 +87,6 @@ ul li .text{
 }
 
 .cancel-order:not(:disabled) {
-    /* background-color: #c62828; */
     color: #fafafa;
     background: rgb(253, 2, 2);
     border-radius: 0px;
