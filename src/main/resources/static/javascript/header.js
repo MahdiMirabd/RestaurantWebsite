@@ -53,6 +53,26 @@ class Header extends HTMLElement {
                     'background-color: DodgerBlue;' +
                     'color: white;' +
                 '} ' +
+                '.badge { '+
+                  '  padding-left: 9px;'+
+                  ' padding-right: 9px;'+
+                  ' -webkit-border-radius: 9px;'+
+                  ' -moz-border-radius: 9px;'+
+                  ' border-radius: 9px;'+
+                  ' }'+
+                  
+                  ' .label-warning[href],'+
+                  ' .badge-warning[href] {'+
+                    '  background-color: #c67605;'+
+                    ' }'+
+                    '  #lblCartCount {'+
+                        '   font-size: 12px;'+
+                        ' background: #ff0000;'+
+                        ' color: #fff;'+
+                        '     padding: 1px 2px;'+
+                        '      vertical-align: top;'+
+                        '   margin-left: 10px; '+
+                        ' }' +
                 '.Logo{' +
                     'left:20%; ' +
                     'position: absolute; ' +
@@ -75,7 +95,7 @@ class Header extends HTMLElement {
                         '<li class="log"><a href="/login">Login</a></li>' +
                     '</ul> ' +
                 '</nav>' +
-                '<button class="shopping-cart-button"><i class="fa fa-shopping-cart"></i></button>' +
+                '<button class="shopping-cart-button"><i class="fa fa-shopping-cart"></i><span class= "badge badge-warning" id="lblCartCount"> 5 </span> </button>' +
             '</header>';
     }
 }
