@@ -49,4 +49,11 @@ public class Order {
      */
     @Column(name = "status", nullable = false)
     private String status;
+    
+    /**
+     * The time that the order was placed.
+     * Only the hour and minute are shown.
+     */
+    @Column(name = "orderTime", nullable = false)
+    private String orderTime;
 }
