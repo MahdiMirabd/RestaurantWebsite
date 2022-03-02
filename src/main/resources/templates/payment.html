@@ -19,22 +19,37 @@
     <header-component></header-component> <!-- custom tag created in header.js -->
 
     <div class="container">
-        <form>
-            <label for="name">Name</label>
-            <input id="name" maxlength="20" type="text">
+        <div class="payment">
+            <form>
+                <div class="row">
+                    <div class="col-50">
+                        <label for="name">Name</label>
+                        <input id="name" maxlength="20" type="text">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-50">
+                        <label for="cardnumber">Card Number</label>
+                        <input id="cardnumber" type="text" pattern="[0-9]*" inputmode="numeric">
+                    </div>
+                </div>
 
-            <label for="cardnumber">Card Number</label>
-            <input id="cardnumber" type="text" pattern="[0-9]*" inputmode="numeric">
+                <div class="row">
+                    <div class="col-50">
+                        <label for="expirationdate">Expiration (mm/yy)</label>
+                        <input id="expirationdate" type="text" pattern="[0-9]*" inputmode="numeric">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-50">
+                        <label for="securitycode">Security Code</label>
+                        <input id="securitycode" type="text" pattern="[0-9]*" inputmode="numeric">
+                    </div>
+                </div>
 
-            <label for="expirationdate">Expiration (mm/yy)</label>
-            <input id="expirationdate" type="text" pattern="[0-9]*" inputmode="numeric">
-
-            <label for="securitycode">Security Code</label>
-            <input id="securitycode" type="text" pattern="[0-9]*" inputmode="numeric">
-
-            <input type="submit" class="table-btn" name="pay"/>
-        </form>
-
+                <input type="submit" class="table-btn" value="pay"/>
+            </form>
+        </div>
     </div>
 </body>
 </html>
