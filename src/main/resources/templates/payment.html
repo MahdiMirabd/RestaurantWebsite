@@ -19,6 +19,11 @@
     <header-component></header-component> <!-- custom tag created in header.js -->
 
     <div class="container">
+        <select>
+            <option th:each="table : ${tables}"  th:text="${table.id}">
+            </option>
+        </select>
+
         <div class="payment">
             <form>
                 <div class="row">
