@@ -19,10 +19,13 @@
     <header-component></header-component> <!-- custom tag created in header.js -->
 
     <div class="container">
-        <select>
-            <option th:each="table : ${tables}"  th:text="${table.id}">
-            </option>
-        </select>
+        <form>
+            <label for="table-number">Select your table number:</label>
+            <select id="table-number" name="table-number">
+                <option th:each="table : ${tables}"  th:text="${table.id}"></option>
+            </select>
+            <input type="submit"/>
+        </form>
 
         <div class="payment">
             <form>
