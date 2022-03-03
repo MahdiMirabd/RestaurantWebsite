@@ -185,4 +185,6 @@ ul li .text{
     width: 35px;
     display: inline-flex;
     border-radius: 0px;
+    padding-top: 0px;
+    padding-bottom: 0px;
 }

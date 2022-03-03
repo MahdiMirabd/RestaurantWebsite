@@ -248,6 +248,7 @@ th, td {
 
 .table-detail{
   display: flex;
+  border-bottom: 2px solid #ccc;
 }
 
 .call-waiter {
@@ -259,7 +260,7 @@ th, td {
   cursor: pointer;
   width: 120px;
   position: relative;
-  left: 100px;
+  /*left: 100px;*/
   border-radius: 12px;
 }
 
@@ -289,5 +290,6 @@ th, td {
 }
 
 .waiter-alert {
-  padding: 12px;
+  padding-top: 12px;
+  text-align:center;
 }
