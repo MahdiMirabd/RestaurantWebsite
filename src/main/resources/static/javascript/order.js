@@ -200,4 +200,15 @@ function postAlert(){
   
 }
 
+var itemCount = 0;
+
+$('.add-to-cart-btn').click(function (){
+  itemCount ++;
+  $('#lblCartCount').html(itemCount).css('display', 'block');
+}); 
+
+function myFunction() {
+    alert("Are you ready to order?");
+}
+
 }

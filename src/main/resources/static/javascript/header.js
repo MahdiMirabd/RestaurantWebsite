@@ -72,6 +72,7 @@ class Header extends HTMLElement {
                         '     padding: 1px 2px;'+
                         '      vertical-align: top;'+
                         '   margin-left: 10px; '+
+                        'display :none;'+
                         ' }' +
                 '.Logo{' +
                     'left:20%; ' +
@@ -95,7 +96,7 @@ class Header extends HTMLElement {
                         '<li class="log"><a href="/login">Login</a></li>' +
                     '</ul> ' +
                 '</nav>' +
-                '<button class="shopping-cart-button"><i class="fa fa-shopping-cart"></i><span class= "badge badge-warning" id="lblCartCount"> 5 </span> </button>' +
+                '<button class="shopping-cart-button"><i class="fa fa-shopping-cart"></i><span class= "badge badge-warning" id="lblCartCount"> 0 </span> </button>' +
             '</header>';
     }
 }
