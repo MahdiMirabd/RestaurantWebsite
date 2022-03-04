@@ -212,3 +212,13 @@ function myFunction() {
 }
 
 }
+
+$(".help-popup").click(function(){
+    $('.help-hover').show();
+});
+$('.help-hover').click(function(){
+    $('.help-hover').hide();
+});
+$('.popup-close-button').click(function(){
+    $('.help-hover').hide();
+});
