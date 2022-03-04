@@ -46,9 +46,9 @@ function addItemToCart(image,name, quantity, price) {
          <p class="cart-price cart-column"><input type="hidden" value="${tableNumber}" th:field="*{tableNo}" name="tableNo"/></p>
          <p class="cart-price cart-column"><input type="hidden" value="pending" th:field="*{status}" name="status"/></p>
         <div class="cart-quantity">
-            <!-- <p class="cart-quantity-input"><input type="hidden" value="${quantity}" name="quantity"/>${quantity}</p> -->
             <input class="cart-quantity-input" type="number" value="${quantity}" name="quantity"/>
         </div>
+        <input class="order-time" type="hidden" value="TBD" th:field="*{orderTime}" name="orderTime"/>
         </div>
         <button class="btn btn-remove"><i class='fas fa-trash-alt'></i></button>
         <button class="order-submit-button" type="submit" value="submit"/></button>
@@ -62,6 +62,17 @@ function addItemToCart(image,name, quantity, price) {
 
 $(function() {
     $("#submit-all").click(function(){
+        // all the orders in the shopping cart will have the same order time
+        let today = new Date();
+        let time = today.getHours() + ":" + today.getMinutes();
+        let cartItemContainer = document.getElementsByClassName('cart-items')[0];
+        let cartRows = cartItemContainer.getElementsByClassName('cart-row');
+        for (let i = 0; i < cartRows.length; i++) {
+            let cartRow = cartRows[i];
+            let orderTimeElement = cartRow.getElementsByClassName('order-time')[0];
+            orderTimeElement.value = time;
+        }
+        // all the hidden submit buttons for each item in the shopping card, will be clicked at the same time
         $('.cart-item-cart-column').each(function(){
             valuesToSend = $(this).serialize();
             $.ajax($(this).attr('action'),
