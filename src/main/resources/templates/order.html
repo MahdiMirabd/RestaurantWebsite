@@ -57,8 +57,27 @@
             <form action="help" class="waiter-alert" method="POST" th:action="@{/help}"  >
                 <input type="hidden" id = tablenumber name="tableNo" class="tbl-no" value="30"/>
                 <input type="hidden" value="Needs help"  name="message"/>
-                <input type="submit" value="Call The Waiter" class="call-waiter"/>
+                <input type="submit" value="Call The Waiter" class="help-button"/>
             </form>
+
+
+
+            <a class="help-popup">How To Order</a> <!--delete this and merge with new button-->
+
+            <div class="help-hover">
+                <span class="helper"></span>
+                <div>
+                    <div class="popup-close-button">&times;</div>
+                    <p>Testing testing 123...<br />inside the popup box test.</p>
+                </div>
+            </div>
+
+            <form action="help" class="waiter-alert" method="POST" th:action="@{/orderhelp}">
+                <input type="submit" value="How To Order" class="help-button"/>
+            </form>
+
+
+
             <div class="cart-heading">
             </div>
             </div>
