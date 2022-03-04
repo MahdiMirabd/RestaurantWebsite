@@ -153,6 +153,7 @@ function updateCartTotal() {
     let cartItemContainer = document.getElementsByClassName('cart-items')[0];
     let cartRows = cartItemContainer.getElementsByClassName('cart-row');
     let total = 0;
+    var itemCount = 0;
     for (let i = 0; i < cartRows.length; i++) {
         let cartRow = cartRows[i];
         let priceElement = cartRow.getElementsByClassName('cart-item-price')[0];
@@ -161,10 +162,13 @@ function updateCartTotal() {
         const quantity = quantityElement.value;
         console.log(price * quantity);
         total = total + (price * quantity);
+        itemCount+=parseInt(quantity);
     }
     total = Math.round(total * 100) / 100;
     totalPrice = total;
     document.getElementsByClassName('cart-total-price')[0].innerText = '£' + total;
+    console.log(itemCount);
+    $('#lblCartCount').html(itemCount).css('display', 'inline');
 }
 
 $(document).ready(function () {
@@ -200,7 +204,7 @@ function postAlert(){
   
 }
 
-var itemCount = 0;
+
 
 $('.add-to-cart-btn').click(function (){
   itemCount ++;

@@ -73,6 +73,9 @@ class Header extends HTMLElement {
                         '      vertical-align: top;'+
                         '   margin-left: 10px; '+
                         'display :none;'+
+                        'position:absolute;'+
+                        'top:3px;'+
+                        'right:1px;'+
                         ' }' +
                 '.Logo{' +
                     'left:20%; ' +
@@ -82,6 +85,8 @@ class Header extends HTMLElement {
                     'display:block;' +
                     'flex-wrap: nowrap;'+
                 '}' +
+
+                '.shop-cart{ border: solid;}'+
                 '@media only screen and (max-width: 1200px) {a{font-size:20px;}}' +
                 '@media only screen and (max-width: 1000px) {Logo{left:100%;}}' +
             '</style> ' +
@@ -96,7 +101,9 @@ class Header extends HTMLElement {
                         '<li class="log"><a href="/login">Login</a></li>' +
                     '</ul> ' +
                 '</nav>' +
+                '<div id= "shop-cart"> ' +
                 '<button class="shopping-cart-button"><i class="fa fa-shopping-cart"></i><span class= "badge badge-warning" id="lblCartCount"> 0 </span> </button>' +
+                '</div>'+
             '</header>';
     }
 }
