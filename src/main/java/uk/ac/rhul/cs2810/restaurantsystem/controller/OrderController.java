@@ -68,7 +68,7 @@ public class OrderController {
      * @return the view back to the order page
      */
     @RequestMapping(value = "/help", method = RequestMethod.POST)
-    public RedirectView submitAlert(Model model, @ModelAttribute(value = "messageTable") Notification message) {
+    public RedirectView submitAlert(Model model, @ModelAttribute(value = "notification") Notification message) {
         Notification notification = notificationRepository.save(message);
         return new RedirectView("/order");
     }
