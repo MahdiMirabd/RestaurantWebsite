@@ -24,7 +24,7 @@
             <select id="table-number" name="table-number">
                 <option th:each="table : ${tables}"  th:text="${table.id}"></option>
             </select>
-            <input type="submit"/>
+            <input type="submit" class="table-btn"/>
         </form>
 
         <div class="payment">
