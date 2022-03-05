@@ -68,18 +68,7 @@ public class WaiterController {
         return new RedirectView("/waiter");
     }
 
-    /**
-     * Submits a new customer request to the database.
-     *
-     * @param model the database table on which to post the request
-     * @param message the data to be posted
-     * @return the view back to the order page
-     */
-    @RequestMapping(value = "/help", method = RequestMethod.POST)
-    public RedirectView submitAlert(Model model, @ModelAttribute(value = "messageTable") Notification message) {
-        Notification notification = notificationRepository.save(message);
-        return new RedirectView("order");
-    }
+
 
     @RequestMapping(value = "/delete/{id}" , method = {RequestMethod.GET, RequestMethod.DELETE})
     public RedirectView deleteNotifications(@PathVariable long id, Model model){

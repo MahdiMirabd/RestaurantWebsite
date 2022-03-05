@@ -12,6 +12,7 @@
     <link rel="stylesheet"  type="text/css" href="/style/allPages.css"/>
     <link rel="stylesheet"  type="text/css" href="/style/payment.css"/>
     <script src="/javascript/header.js" type="text/javascript" defer></script>
+    <script src="/javascript/payment.js" type="text/javascript" defer></script>
     <title>Payment</title>
 </head>
 <body>
@@ -19,14 +20,17 @@
     <header-component></header-component> <!-- custom tag created in header.js -->
 
     <div class="container">
-        <form>
-            <label for="table-number">Select your table number:</label>
-            <select id="table-number" name="table-number">
-                <option th:each="table : ${tables}"  th:text="${table.id}"></option>
-            </select>
-            <input type="submit" class="table-btn"/>
-        </form>
-
+        <div class="custom-select">
+            <form action="#" th:action="@{payment/total}" method="PUT" >
+                <label for="table-number">Select your table number:</label>
+              <!--   <select  id="table-number" name="table-number"  th:field="*{id}">
+                    <option th:each="table : ${tables}" th:text="${table.id}"  ></option>
+                </select> -->
+                <input type="number" id="table-number" name="id" />
+                <input type="submit" class="table-btn"/>
+            </form>
+        </div>
+        <span>Total Price </span> <span>£</span>
         <div class="payment">
             <form>
                 <div class="row">
