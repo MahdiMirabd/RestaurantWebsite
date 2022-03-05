@@ -40,6 +40,7 @@ public class WaiterController {
         model.addAttribute("pendingOrders", orderRepository.findOrders("pending"));
         model.addAttribute("confirmedOrders", orderRepository.findOrders("confirmed"));
         model.addAttribute("readyOrders", orderRepository.findOrders("ready"));
+        model.addAttribute("deliveredOrders", orderRepository.findOrders("delivered"));
         model.addAttribute("alert", notificationRepository.findAll());
         model.addAttribute("alertCount", notificationRepository.count());
         return "waiter";
