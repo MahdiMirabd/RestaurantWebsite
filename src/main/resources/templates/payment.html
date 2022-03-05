@@ -21,7 +21,7 @@
 
     <div class="container">
         <div class="custom-select">
-            <form action="#" th:action="@{payment/total}" method="PUT" >
+            <form action="#" th:action="@{/payment}" method="PUT" >
                 <label for="table-number">Select your table number:</label>
               <!--   <select  id="table-number" name="table-number"  th:field="*{id}">
                     <option th:each="table : ${tables}" th:text="${table.id}"  ></option>
@@ -30,7 +30,7 @@
                 <input type="submit" class="table-btn"/>
             </form>
         </div>
-        <span>Total Price </span> <span>£</span>
+        <span>Total Price = </span> <span th=:inline="text">[[${total}]]</span>
         <div class="payment">
             <form>
                 <div class="row">
