@@ -22,14 +22,20 @@ public class PaymentController {
     OrderRepository orderRepository;
 
     @RequestMapping(value = "/payment", method = {RequestMethod.GET, RequestMethod.PUT})
-    public String findByStatus(Model model, @ModelAttribute(value = "orders") Order order) {
+    public void getOrderTotal(Model model, @ModelAttribute(value = "orders") Order order) {
         //model.addAttribute("tables", tableRepository.findByStatus(false));
         Long tableNo = order.getId();
         model.addAttribute("total", orderRepository.getTotalCost(tableNo));
+        model.addAttribute("table", tableNo);
         System.out.println(orderRepository.getTotalCost(tableNo));
-        return "payment";
+
     }
 
+    @RequestMapping(value = "payment/complete", method = {RequestMethod.GET, RequestMethod.PUT})
+    public RedirectView completePayment(Model model, @ModelAttribute(value = "orders") Order order) {
+
+        return new RedirectView("/payment");
+    }
    /* @RequestMapping(value = "/payment", method = RequestMethod.GET)
     public ModelAndView payment() {
        ModelAndView modelAndView = new ModelAndView();

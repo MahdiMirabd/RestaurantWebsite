@@ -13,6 +13,7 @@
     <link rel="stylesheet"  type="text/css" href="/style/payment.css"/>
     <script src="/javascript/header.js" type="text/javascript" defer></script>
     <script src="/javascript/payment.js" type="text/javascript" defer></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <title>Payment</title>
 </head>
 <body>
@@ -27,12 +28,13 @@
                     <option th:each="table : ${tables}" th:text="${table.id}"  ></option>
                 </select> -->
                 <input type="number" id="table-number" name="id" />
-                <input type="submit" class="table-btn"/>
+                <input type="submit" class="table-btn" id="submit-btn"/>
             </form>
         </div>
-        <span>Total Price = </span> <span th=:inline="text">[[${total}]]</span>
-        <div class="payment">
-            <form>
+        <div class="payment" id="payment">
+            <span>Total Price = </span> <span th=:inline="text">[[${total}]]</span>
+            <form action="#" th:action="@{payment/complete}" method="PUT">
+                <input type="hidden" th:value="${table}" name="id"/>
                 <div class="row">
                     <div class="col-50">
                         <label for="name">Name</label>
@@ -62,6 +64,7 @@
                 <input type="submit" class="table-btn" value="pay"/>
             </form>
         </div>
+
     </div>
 </body>
 </html>
