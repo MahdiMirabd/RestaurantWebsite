@@ -1,9 +1,11 @@
 package uk.ac.rhul.cs2810.restaurantsystem.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 import uk.ac.rhul.cs2810.restaurantsystem.model.Order;
 
 import java.util.List;
@@ -32,4 +34,9 @@ public interface OrderRepository extends JpaRepository<Order, Long> {
 
     @Query("SELECT sum(m.price) FROM orders o, menu m WHERE o.tableNo =:tableNo and m.name = o.name")
     public Float getTotalCost(@Param("tableNo") Long tableNo);
+
+    @Transactional
+    @Modifying
+    @Query("UPDATE orders o SET o.status = :paid WHERE o.tableNo = :tableNo ")
+    void updateOrderStatus(@Param("tableNo") long tableNo, @Param("paid") String paid);
 }

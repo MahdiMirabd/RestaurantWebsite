@@ -33,7 +33,8 @@ public class PaymentController {
 
     @RequestMapping(value = "payment/complete", method = {RequestMethod.GET, RequestMethod.PUT})
     public RedirectView completePayment(Model model, @ModelAttribute(value = "orders") Order order) {
-
+        Long tableNo = order.getId();
+        orderRepository.updateOrderStatus(tableNo, "paid");
         return new RedirectView("/payment");
     }
    /* @RequestMapping(value = "/payment", method = RequestMethod.GET)
