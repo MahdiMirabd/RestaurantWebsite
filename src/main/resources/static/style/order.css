@@ -315,24 +315,15 @@ th, td {
   color: white;
 }
 
-/* Popup box BEGIN */
 .help-hover{
-  background:rgba(0,0,0,.4);
   cursor:pointer;
   display:none;
   height:100%;
   position:fixed;
   text-align:center;
   top:0;
-  width:100%;
+  width:65%;
   z-index:10000;
-}
-.help-popup {
-  cursor: pointer;
-  font-size: 20px;
-  margin: 20px;
-  display: inline-block;
-  font-weight: bold;
 }
 .help-hover .helper{
   display:inline-block;
@@ -371,4 +362,8 @@ th, td {
   width: 30px;
   height: 30px;
   text-align: center;
+}
+.order-help {
+  padding-top: 12px;
+  text-align:center;
 }

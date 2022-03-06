@@ -228,7 +228,7 @@ function myFunction() {
 
 }
 
-$(".help-popup").click(function(){
+$(".order-help").click(function(){
     $('.help-hover').show();
 });
 $('.help-hover').click(function(){
