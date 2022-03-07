@@ -25,9 +25,9 @@ public class PaymentController {
     public void getOrderTotal(Model model, @ModelAttribute(value = "orders") Order order) {
         //model.addAttribute("tables", tableRepository.findByStatus(false));
         Long tableNo = order.getId();
-        model.addAttribute("total", orderRepository.getTotalCost(tableNo));
+        model.addAttribute("total", orderRepository.getTotalCost(tableNo,"delivered"));
         model.addAttribute("table", tableNo);
-        System.out.println(orderRepository.getTotalCost(tableNo));
+       // System.out.println(orderRepository.getTotalCost(tableNo));
 
     }
 

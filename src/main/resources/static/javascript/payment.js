@@ -4,5 +4,5 @@ $(document).ready(function() {
     $("#month").prop("disabled",true);
     $("#year").prop("disabled",true);
     $("#securitycode").prop("disabled",true);
-
+    $("#total").hide();
 });

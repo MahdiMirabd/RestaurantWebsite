@@ -32,8 +32,8 @@ public interface OrderRepository extends JpaRepository<Order, Long> {
     @Query("SELECT order.tableNo FROM orders order WHERE order.id =:id")
     List<Order>findTableNumber(@Param("id") Long id);
 
-    @Query("SELECT sum(m.price) FROM orders o, menu m WHERE o.tableNo =:tableNo and m.name = o.name")
-    public Float getTotalCost(@Param("tableNo") Long tableNo);
+    @Query("SELECT sum(m.price) FROM orders o, menu m WHERE o.tableNo =:tableNo and o.status =:stat and m.name = o.name ")
+    public Float getTotalCost(@Param("tableNo") Long tableNo, @Param("stat") String stat);
 
     @Transactional
     @Modifying
