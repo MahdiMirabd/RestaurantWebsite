@@ -32,3 +32,7 @@ $(document).ready(function() {
         document.getElementById("badge").style.display= 'none';
     }
 });
+
+$(document).ready(function() {
+    $("#shop-cart").hide();
+  });

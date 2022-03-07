@@ -237,3 +237,8 @@ $('.help-hover').click(function(){
 $('.popup-close-button').click(function(){
     $('.help-hover').hide();
 });
+
+$(document).ready(function() {
+    $("#shop-cart").show();
+  });
+

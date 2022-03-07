@@ -102,9 +102,20 @@ class Header extends HTMLElement {
                     '</ul> ' +
                 '</nav>' +
                 '<div id= "shop-cart"> ' +
-                '<button class="shopping-cart-button"><i class="fa fa-shopping-cart"></i><span class= "badge badge-warning" id="lblCartCount"> 0 </span> </button>' +
+                '<button class="shopping-cart-button id="shopping-cart-button"><i class="fa fa-shopping-cart"></i><span class= "badge badge-warning" id="lblCartCount"> 0 </span> </button>' +
                 '</div>'+
-            '</header>';
+            '</header>'
+
+          '  <script>' +
+            ' $(document).ready(function() {'+
+              '  $("#shop-cart").hide();' +
+              '   });'+
+          '  </script>';
+
     }
 }
 customElements.define('header-component', Header);
+
+$(document).ready(function() {
+    $("#shop-cart").hide();
+  });
