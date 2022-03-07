@@ -32,6 +32,13 @@
             </form>
         </div>
         <div class="payment" id="payment">
+            <label>Accepted Cards</label>
+            <div class="icon-container">
+                <i class="fa fa-cc-visa" style="color:navy;"></i>
+                <i class="fa fa-cc-amex" style="color:blue;"></i>
+                <i class="fa fa-cc-mastercard" style="color:red;"></i>
+                <i class="fa fa-cc-discover" style="color:orange;"></i>
+            </div>
             <span>Total Price = </span> <span th=:inline="text">[[${total}]]</span>
             <form action="#" th:action="@{payment/complete}" method="PUT">
                 <input type="hidden" th:value="${table}" name="id"/>
