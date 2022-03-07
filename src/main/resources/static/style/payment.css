@@ -29,3 +29,10 @@ label {
     box-sizing: border-box;
 }
 
+#expiration-date {
+    width: 49%;
+}
+.payment select {
+    padding: 10px;
+    margin-right: 15px;
+}
