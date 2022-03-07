@@ -25,10 +25,13 @@ public class PaymentController {
     public void getOrderTotal(Model model, @ModelAttribute(value = "orders") Order order) {
         //model.addAttribute("tables", tableRepository.findByStatus(false));
         Long tableNo = order.getId();
-        model.addAttribute("total", orderRepository.getTotalCost(tableNo,"delivered"));
+        Float totalPrice = orderRepository.getTotalCost(tableNo,"delivered");
+        if (totalPrice != null) {
+            model.addAttribute("total", "Total price is: " + totalPrice);
+        } else {
+            model.addAttribute("total", "There is no payment due.");
+        }
         model.addAttribute("table", tableNo);
-       // System.out.println(orderRepository.getTotalCost(tableNo));
-
     }
 
     @RequestMapping(value = "payment/complete", method = {RequestMethod.GET, RequestMethod.PUT})
