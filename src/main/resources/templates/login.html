@@ -10,9 +10,7 @@
   <link rel="manifest" href="/img/favicon_io/site.webmanifest">
   <link rel="stylesheet"  type="text/css" href="/style/login.css">
   <link rel="stylesheet"  type="text/css" href="/style/allPages.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="/javascript/header.js" type="text/javascript" defer></script>
-  <script src="/javascript/login.js" type="text/javascript" defer></script>
+  <script src="/script/header.js" type="text/javascript" defer></script>
   <title>Login</title>
 </head>
 <body>
@@ -29,6 +27,12 @@
         <br>
         <div id="showTwo" class="myDiv"> <img alt="kitchen" th:src="@{img/icon-02.jpg}">  </div>
         <br>
+        <div th:if="${param.error}">
+          Invalid username and password.
+        </div>
+        <div th:if="${param.logout}">
+          You have been logged out.
+        </div>
         <form th:action="@{/login}" method="POST">
           <div class="username">
             <!--<input class="username__option" type="radio"  name="myUsername" value="One" id="myUsername1">
