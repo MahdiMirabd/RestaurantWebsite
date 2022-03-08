@@ -128,7 +128,7 @@ th, td {
   vertical-align:middle;
 }
 
-.popup-close-button {
+.popupCloseButton, .popup-close-button {
   display: inline-block;
   cursor: pointer;
   background-color: rgb(248, 248, 248);
@@ -175,6 +175,7 @@ th, td {
   object-fit: cover;
   margin-right: 1.5em;
   padding: 25px 5px 5px 5px;
+  display: block;
 }
 
 .cart-item-info {
