@@ -365,6 +365,16 @@ th, td {
   text-align: center;
 }
 .order-help {
-  padding-top: 12px;
-  text-align:center;
+  background-color: white;
+  color: rgb(191, 26, 26);
+  padding: 12px 16px;
+  font-size: 12px;
+  cursor: pointer;
+  width: 120px;
+  position: relative;
+  left: 100px;
+  border-radius: 12px;
+  display: inline;
+  top: -40px;
+
 }
