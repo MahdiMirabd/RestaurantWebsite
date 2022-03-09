@@ -72,8 +72,4 @@ public class OrderController {
         Notification notification = notificationRepository.save(message);
         return new RedirectView("/order");
     }
-
-
-   
-
 }
