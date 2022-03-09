@@ -19,10 +19,8 @@ public class LoginController {
      *
      * @return the login web page
      */
-    @GetMapping(value = {""})
-    public ModelAndView login() {
-        ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("login");
-        return modelAndView;
-    }
+    /*@RequestMapping(value = "/login", method = RequestMethod.GET)
+    public String login() {
+        return "/login";
+    }*/
 }

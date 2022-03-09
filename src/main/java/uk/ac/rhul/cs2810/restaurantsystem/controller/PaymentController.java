@@ -40,4 +40,25 @@ public class PaymentController {
         orderRepository.updateOrderStatus(tableNo, "paid");
         return new RedirectView("/payment");
     }
+   /* @RequestMapping(value = "/payment", method = RequestMethod.GET)
+    public ModelAndView payment() {
+       ModelAndView modelAndView = new ModelAndView();
+       modelAndView.setViewName("payment");
+       return modelAndView;
+    }*/
+
+    /*@RequestMapping(value = "payment/total/{id}", method = RequestMethod.PUT)
+    public RedirectView findOrderTotal(@PathVariable Long id, Model model) {
+        System.out.println(id);
+        return new RedirectView("/payment");
+    }*/
+    /*@RequestMapping(value = "payment/total", method = {RequestMethod.GET, RequestMethod.PUT})
+    public RedirectView findOrderTotal(Model model, @ModelAttribute(value = "orders") Order order) {
+        Long tableNo = order.getId();
+        model.addAttribute("total", orderRepository.getTotalCost(tableNo));
+        System.out.println(orderRepository.getTotalCost(tableNo));
+        return new RedirectView("/payment");
+    }*/
+
+
 }
