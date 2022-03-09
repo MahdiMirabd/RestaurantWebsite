@@ -12,6 +12,7 @@
     <link rel="stylesheet"  type="text/css" href="/style/allPages.css"/>
     <link rel="stylesheet"  type="text/css" href="/style/menu.css"/>
     <script src="/javascript/header.js" type="text/javascript" defer></script>
+    <script src="/javascript/menu.js" type="text/javascript" defer></script>
     <title>Menu</title>
 </head>
 <body>
@@ -23,6 +24,8 @@
             <h2 class="menu-group-heading">
                 Menu
                 <div class="filtering-options" id="filtering-options">
+                    <button class="glutten" onclick="filterOptions()">Glutten free</button>
+
                     <form id="filtering-options" th:action="@{/menuFiltered}" method="PUT">
                         <select name="filters" id="filters">
                             <option value="Price">Price</option>
@@ -35,7 +38,7 @@
                 </div>
             </h2>
             <div class="menu-group">
-                <div th:each="item: ${items}" class="menu-item">
+                <div th:each="item: ${items}" class="menu-item" id="menu-item">
                     <img class="menu-item-image" th:src="@{${item.image}}" alt="Menu Item"/>
                     <div class="menu-item-text">
                         <div class="menu-item-heading">
@@ -59,7 +62,7 @@
                             </div>
                             <div class="allergens">
                                 <p> contains:&nbsp;</p>
-                                <p th:text=" ${item.allergen}" > </p>
+                                <p th:text=" ${item.allergen}" id="allergen-list"> </p>
                             </div>
                         </div>
                     </div>
