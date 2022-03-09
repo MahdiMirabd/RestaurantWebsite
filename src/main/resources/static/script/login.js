@@ -32,7 +32,7 @@ function checkPass() {
 
 $(document).ready(function(){
     $('.username__option').on('change', function(){
-        var demovalue = $(this).val();
+    	var demovalue = $(this).val(); 
         $("div.myDefaultDiv").hide();
         $("div.myDiv").hide();
         $("#show"+demovalue).show();
