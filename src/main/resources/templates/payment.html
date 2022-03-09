@@ -28,13 +28,12 @@
                     <option th:each="table : ${tables}" th:text="${table.id}"  ></option>
                 </select> -->
                 <input type="number" id="table-number" name="id" />
-                <input type="submit" class="table-btn" id="submit-btn" onclick="showForm()"/>
+                <input type="submit" class="table-btn" id="submit-btn" />
             </form>
         </div>
 
         <div class="payment" id="payment">
             <h3 id="total" th=:inline="text">[[${total}]]</h3>
-            <label>Accepted Cards</label>
             <div class="icon-container">
                 <i class="fa fa-cc-visa" style="color:navy;"></i>
                 <i class="fa fa-cc-amex" style="color:blue;"></i>
@@ -43,28 +42,26 @@
             </div>
 
             <form action="#" th:action="@{payment/complete}" method="PUT">
-                <input type="hidden" th:value="${table}" name="id"/>
+                <input type="hidden" th:value="${table}" name="id" id="table-num" onkeyup="validate()"/>
                 <div class="row">
                     <div class="col-50">
                         <label for="name">Name</label>
-                        <input id="name" maxlength="20" type="text">
+                        <input class="form-control vcheck" id="name" maxlength="20" type="text">
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-50">
                         <label for="cardnumber">Card Number</label>
-                        <input id="cardnumber" type="text" pattern="[0-9]*" inputmode="numeric"
-                               oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');">
+                        <input class="form-control vcheck"  id="cardnumber" type="text" pattern="[0-9]*" inputmode="numeric"
+                               oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" onkeyup="validate()">
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="col-50">
-                        <!--<label for="expirationdate">Expiration (mm/yy)</label>
-                        <input id="expirationdate" type="text" pattern="[0-9]*" inputmode="numeric"> -->
                         <div class="form-group" id="expiration-date">
                             <label>Expiration Date</label>
-                            <select id="month">
+                            <select id="month" class="form-control vcheck">
                                 <option value="01">01</option>
                                 <option value="02">02</option>
                                 <option value="03">03</option>
@@ -78,7 +75,7 @@
                                 <option value="11">11</option>
                                 <option value="12">12</option>
                             </select>
-                            <select id="year">
+                            <select id="year" class="form-control vcheck">
                                 <option value="22"> 2022</option>
                                 <option value="23"> 2023</option>
                                 <option value="24"> 2024</option>
@@ -90,12 +87,12 @@
                 <div class="row">
                     <div class="col-50">
                         <label for="securitycode">Security Code</label>
-                        <input id="securitycode" type="text" pattern="[0-9]*" inputmode="numeric"
-                               oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');">
+                        <input class="form-control vcheck" id="securitycode" type="text" pattern="[0-9]*" inputmode="numeric"
+                               oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" onkeyup="validate()">
                     </div>
                 </div>
 
-                <input type="submit" class="table-btn" value="pay"/>
+                <button type="submit" class="table-btn" id="submit" value="pay" disabled>pay</button>
             </form>
         </div>
 
