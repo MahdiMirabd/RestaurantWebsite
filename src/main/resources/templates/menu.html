@@ -24,17 +24,24 @@
             <h2 class="menu-group-heading">
                 Menu
                 <div class="filtering-options" id="filtering-options">
-                    <button class="glutten" onclick="filterOptions()">Glutten free</button>
-
-                    <form id="filtering-options" th:action="@{/menuFiltered}" method="PUT">
-                        <select name="filters" id="filters">
-                            <option value="Price">Price</option>
-                            <option value="Calories">Calories</option>
-                        </select>
-                        <input class="min" id="minQuantity" type="number" name="minimum" min="0" placeholder="min">
-                        <input class="max" id="maxQuantity" type="number" name="maximum" min="0" placeholder="max">
-                        <input type="submit" value="Sort">
-                    </form>
+                    <select name="filters" id="filters">
+                        <option value="no-filters">No Filters</option>
+                        <option value="gluten">Gluten Free</option>
+                        <option value="celery">Celery Free</option>
+                        <option value="crustacean">Crustacean Free</option>
+                        <option value="eggs">Egg Free</option>
+                        <option value="fish">Fish Free</option>
+                        <option value="lupin">Lupin Free</option>
+                        <option value="milk">Milk Free</option>
+                        <option value="mollusc">Mollusc Free</option>
+                        <option value="mustard">Mustard Free</option>
+                        <option value="nuts">Nut Free</option>
+                        <option value="peanuts">Peanut Free</option>
+                        <option value="sesame seeds">Sesame Seed Free</option>
+                        <option value="soya">Soya Free</option>
+                        <option value="sulphites">Sulphite Free</option>
+                    </select>
+                    <button class="filter" onclick="filterOptions(filters.value)">Sort</button>
                 </div>
             </h2>
             <div class="menu-group">
