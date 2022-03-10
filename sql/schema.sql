@@ -1,10 +1,13 @@
-DROP TABLE IF EXISTS menu, allergen CASCADE;
+DROP TABLE IF EXISTS menu, allergen, tables CASCADE;
 
 CREATE TABLE allergen (
     name VARCHAR (50) NOT NULL PRIMARY KEY,
     description VARCHAR(100) NOT NULL
 );
-
+CREATE TABLE tables (
+    id SERIAL PRIMARY KEY,
+    available BOOLEAN NOT NULL
+);
 CREATE TABLE menu (
     id SERIAL PRIMARY KEY,
     name VARCHAR (50) NOT NULL,
@@ -15,6 +18,7 @@ CREATE TABLE menu (
     image VARCHAR (150) NOT NULL,
     available BOOLEAN NOT NULL
 );
+
 INSERT INTO menu (name, price, calories, ingredients, allergen, image, available )
 VALUES  ('Burrito', 20.50, 90, 'beef, cheese and spicy rice, beans', ARRAY ['Gluten','Milk', 'Celery', 'soy'], '/img/burrito.jpg', TRUE),
         ('Nacho', 10.50, 100, 'cheese, tomato, guacamole, sour cream', ARRAY ['Gluten','Eggs','Milk'], '/img/nacho.jpg', TRUE),
@@ -40,4 +44,17 @@ VALUES  ('Celery', 'Contains Celery'),
         ('Soya', 'Contains Soy'),
         ('Sulphites', 'Contains Sulphur Dioxide');
 
-
+insert INTO tables(available)
+VALUES  (TRUE),
+        (TRUE),
+        (TRUE),
+        (TRUE),
+        (TRUE),
+        (TRUE),
+        (TRUE),
+        (TRUE),
+        (TRUE),
+        (TRUE),
+        (TRUE),
+        (TRUE);
+        

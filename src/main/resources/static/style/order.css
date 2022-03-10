@@ -261,7 +261,6 @@ th, td {
   cursor: pointer;
   width: 120px;
   position: relative;
-  /*left: 100px;*/
   border-radius: 12px;
 }
 
@@ -372,9 +371,9 @@ th, td {
   cursor: pointer;
   width: 120px;
   position: relative;
-  left: 100px;
+  left: 380px;
   border-radius: 12px;
   display: inline;
-  top: -40px;
-
+  top: -42px;
+  text-align: center;
 }
