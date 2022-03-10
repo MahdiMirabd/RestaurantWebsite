@@ -22,13 +22,50 @@
 
 <body>
     <header-component></header-component> <!-- custom tag created in header.js -->
+    <div class="timer">
+        <label id="minutes">00</label>:<label id="seconds">00</label>
+    </div>
     <div class="container">
         <div class="table-detail">
             <h2>Table Number:&nbsp </h2>
             <h2 class="table-id"></h2>
-    </div>
-    <div class="timer">
-        <label id="minutes">00</label>:<label id="seconds">00</label>
-    </div>
+        </div>
+        <div class="order-heading-with-logo">
+            <!-- need to hide this div until a table number is generated -->
+            <h2 class="order-heading">
+                Order
+            </h2>
+            <div class="table-div">
+                <table class="table">
+                    <tr class="table-row" th:each="item: ${items}">
+                        <td class="row-img">
+                            <img class="item-img" th:src="@{${item.image}}" />
+                        </td>
+                        <td class="row-name" th:text="${item.name}"></td>
+                        <td class="row-price" th:text="${item.price}"></td>
+                        <td>
+                            <div class="button-container">
+                                <button class="decrement-qty-btn" type="button" value="-">-</button>
+                                <input class="qty" id="item-quantity" type="text" name="quantity" min="0"
+                                    value="0"></input>
+                                <button class="increment-qty-btn" type="button" value="+">+</button>
+                            </div>
+                        </td>
+                        <td>
+                            <button class="add-to-cart-btn" id="add-to-cart" value="submit">Add to cart</button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <form action="help" class="waiter-alert" method="POST" th:action="@{/help}"  >
+                <input type="hidden" id = tablenumber name="tableNo" class="tbl-no" value="30"/>
+                <input type="hidden" value="Needs help"  name="message"/>
+                <input type="submit" value="Call The Waiter" class="call-waiter"/>
+            </form>
+            <div class="cart-heading">
+            </div>
+            </div>
+        </div>
 </body>
 </html>
