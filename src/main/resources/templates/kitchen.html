@@ -29,15 +29,15 @@
                 <th>Table number</th>
                 <th>Item</th>
                 <th>Quantity</th>
+                <th>Order Time</th>
                 <th>status</th>
-                <th>Order Times</th>
                 <th>action</th>
             </tr>
             <tr th:each="order: ${orders}">
                 <td th:text="${order.tableNo}"></td>
                 <td th:text="${order.name}"></td>
                 <td th:text="${order.quantity}"></td>
-                <td th:text="${order.orderTimes}"></td>
+                <td th:text="${order.orderTime}"></td>
                 <td th:text="${order.status}"></td>
                 <td>
                     <form  th:action="@{/kitchen/{id}(id=${order.id})}" method="PUT">
