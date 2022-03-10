@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<!-- ensure that thymeleaf is added or the data will not display on the page -->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="apple-touch-icon" sizes="180x180" href="/img/favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="/img/favicon_io/site.webmanifest">
+    <link rel="stylesheet"  type="text/css" href="/style/allPages.css"/>
+    <link rel="stylesheet"  type="text/css" href="/style/payment.css"/>
+    <script src="/javascript/header.js" type="text/javascript" defer></script>
+    <script src="/javascript/payment.js" type="text/javascript" defer></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Payment</title>
+</head>
+<body>
+
+    <header-component></header-component> <!-- custom tag created in header.js -->
+
+    <div class="container">
+        <div class="custom-select">
+            <form action="#" th:action="@{/payment}" method="PUT" >
+                <label for="table-number">Enter your table number:</label>
+                <input type="number" id="table-number" name="id" onkeyup="check()"/>
+                <button type="submit" class="table-btn" id="submit-btn" value="submit" disabled>submit</button>
+            </form>
+        </div>
+
+        <div class="payment" id="payment">
+            <h3 id="total" th=:inline="text">[[${total}]]</h3>
+            <div class="icon-container">
+                <i class="fa fa-cc-visa" style="color:navy;"></i>
+                <i class="fa fa-cc-amex" style="color:blue;"></i>
+                <i class="fa fa-cc-mastercard" style="color:red;"></i>
+                <i class="fa fa-cc-discover" style="color:orange;"></i>
+            </div>
+
+            <form action="#" th:action="@{payment/complete}" method="PUT">
+                <input type="hidden" th:value="${table}" name="id" id="table-num" onkeyup="validate()"/>
+                <div class="row">
+                    <div class="col-50">
+                        <label for="name">Name</label>
+                        <input class="form-control vcheck" id="name" maxlength="20" type="text">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-50">
+                        <label for="cardnumber">Card Number</label>
+                        <input class="form-control vcheck"  id="cardnumber" type="text" pattern="[0-9]*" inputmode="numeric"
+                               oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" onkeyup="validate()">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-50">
+                        <div class="form-group" id="expiration-date">
+                            <label>Expiration Date</label>
+                            <select id="month" class="form-control vcheck">
+                                <option value="01">01</option>
+                                <option value="02">02</option>
+                                <option value="03">03</option>
+                                <option value="04">04</option>
+                                <option value="05">05</option>
+                                <option value="06">06</option>
+                                <option value="07">07</option>
+                                <option value="08">08</option>
+                                <option value="09">09</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                            </select>
+                            <select id="year" class="form-control vcheck">
+                                <option value="22"> 2022</option>
+                                <option value="23"> 2023</option>
+                                <option value="24"> 2024</option>
+                                <option value="24"> 2025</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <br/>
+                <div class="row">
+                    <div class="col-50">
+                        <label for="securitycode">Security Code</label>
+                        <input class="form-control vcheck" id="securitycode" type="text" pattern="[0-9]*" inputmode="numeric"
+                               oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" onkeyup="validate()">
+                    </div>
+                </div>
+                <button type="submit" class="table-btn" id="submit" value="pay" disabled>pay</button>
+            </form>
+        </div>
+
+    </div>
+</body>
+</html>

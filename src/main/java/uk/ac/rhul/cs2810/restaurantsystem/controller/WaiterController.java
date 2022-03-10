@@ -40,6 +40,7 @@ public class WaiterController {
         model.addAttribute("pendingOrders", orderRepository.findOrders("pending"));
         model.addAttribute("confirmedOrders", orderRepository.findOrders("confirmed"));
         model.addAttribute("readyOrders", orderRepository.findOrders("ready"));
+        model.addAttribute("deliveredOrders", orderRepository.findOrders("delivered"));
         model.addAttribute("alert", notificationRepository.findAll());
         model.addAttribute("alertCount", notificationRepository.count());
         return "waiter";
@@ -68,18 +69,7 @@ public class WaiterController {
         return new RedirectView("/waiter");
     }
 
-    /**
-     * Submits a new customer request to the database.
-     *
-     * @param model the database table on which to post the request
-     * @param message the data to be posted
-     * @return the view back to the order page
-     */
-    @RequestMapping(value = "/help", method = RequestMethod.POST)
-    public RedirectView submitAlert(Model model, @ModelAttribute(value = "messageTable") Notification message) {
-        Notification notification = notificationRepository.save(message);
-        return new RedirectView("order");
-    }
+
 
     @RequestMapping(value = "/delete/{id}" , method = {RequestMethod.GET, RequestMethod.DELETE})
     public RedirectView deleteNotifications(@PathVariable long id, Model model){

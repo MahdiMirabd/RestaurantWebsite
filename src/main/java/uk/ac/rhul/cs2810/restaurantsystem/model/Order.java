@@ -28,7 +28,7 @@ public class Order {
      * The table for which the order is placed.
      */
     @Column(name = "tableNo", nullable = false)
-    private int tableNo;
+    private long tableNo;
 
     /**
      * The name of the menu item being ordered.

@@ -5,8 +5,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import org.springframework.web.servlet.view.RedirectView;
+import uk.ac.rhul.cs2810.restaurantsystem.model.Notification;
 import uk.ac.rhul.cs2810.restaurantsystem.model.Order;
 import uk.ac.rhul.cs2810.restaurantsystem.repository.MenuRepository;
+import uk.ac.rhul.cs2810.restaurantsystem.repository.NotificationRepository;
 import uk.ac.rhul.cs2810.restaurantsystem.repository.OrderRepository;
 
 
@@ -28,6 +31,9 @@ public class OrderController {
      */
     @Autowired
     private OrderRepository orderRepository;
+
+    @Autowired
+    private NotificationRepository notificationRepository;
 
     /**
      * Finds all menu items with availability set to true.
@@ -54,8 +60,16 @@ public class OrderController {
        return "order";
     }
 
-
-
-   
-
+    /**
+     * Submits a new customer request to the database.
+     *
+     * @param model the database table on which to post the request
+     * @param message the data to be posted
+     * @return the view back to the order page
+     */
+    @RequestMapping(value = "/help", method = RequestMethod.POST)
+    public RedirectView submitAlert(Model model, @ModelAttribute(value = "notification") Notification message) {
+        Notification notification = notificationRepository.save(message);
+        return new RedirectView("/order");
+    }
 }

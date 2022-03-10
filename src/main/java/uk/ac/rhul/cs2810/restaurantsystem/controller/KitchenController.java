@@ -68,7 +68,7 @@ public class KitchenController {
     public void notifyWaiters(Long id, Order order){
         Notification notification = new Notification();
         notification.setMessage("order is ready");
-        notification.setTableNo(order.getTableNo());
+        notification.setTableNo((int) order.getTableNo());
         notificationRepository.save(notification);
     }
 

@@ -79,15 +79,6 @@
                     </form>
                 </td>
             </tr>
-            <!-- shows delivered orders on the webpage
-               <tr th:each="delivered: ${deliveredOrders}">
-               <td th:text="${delivered.tableNo}"></td>
-               <td th:text="${delivered.name}"></td>
-               <td th:text="${delivered.quantity}"></td>
-               <td class="order-status" th:text="${delivered.status}"></td>
-               <td>
-               </td>
-           </tr>-->
             <tr th:each="confirmed: ${confirmedOrders}">
                 <td th:text="${confirmed.tableNo}"></td>
                 <td th:text="${confirmed.name}"></td>
@@ -109,6 +100,13 @@
                      <button type="submit" name="deliver" class="table-btn"><i class='fa fa-send'></i>&nbspdeliver</button>
                  </form>
              </td>
+         </tr>
+         <tr th:each="delivered: ${deliveredOrders}">
+            <td th:text="${delivered.tableNo}"></td>
+            <td th:text="${delivered.name}"></td>
+            <td th:text="${delivered.quantity}"></td>
+            <td class="order-status" th:text="${delivered.status}"></td>
+            <td></td>
          </tr>
         </table>
     </div>
