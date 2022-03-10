@@ -11,8 +11,8 @@
     <link rel="manifest" href="/img/favicon_io/site.webmanifest">
     <link rel="stylesheet"  type="text/css" href="/style/allPages.css"/>
     <link rel="stylesheet"  type="text/css" href="/style/payment.css"/>
-    <script src="/script/header.js" type="text/javascript" defer></script>
-    <script src="/script/payment.js" type="text/javascript" defer></script>
+    <script src="/javascript/header.js" type="text/javascript" defer></script>
+    <script src="/javascript/payment.js" type="text/javascript" defer></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <title>Payment</title>
 </head>
@@ -23,12 +23,9 @@
     <div class="container">
         <div class="custom-select">
             <form action="#" th:action="@{/payment}" method="PUT" >
-                <label for="table-number">Select your table number:</label>
-              <!--   <select  id="table-number" name="table-number"  th:field="*{id}">
-                    <option th:each="table : ${tables}" th:text="${table.id}"  ></option>
-                </select> -->
-                <input type="number" id="table-number" name="id" />
-                <input type="submit" class="table-btn" id="submit-btn" />
+                <label for="table-number">Enter your table number:</label>
+                <input type="number" id="table-number" name="id" onkeyup="check()"/>
+                <button type="submit" class="table-btn" id="submit-btn" value="submit" disabled>submit</button>
             </form>
         </div>
 
@@ -84,6 +81,7 @@
                         </div>
                     </div>
                 </div>
+                <br/>
                 <div class="row">
                     <div class="col-50">
                         <label for="securitycode">Security Code</label>
@@ -91,7 +89,6 @@
                                oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" onkeyup="validate()">
                     </div>
                 </div>
-
                 <button type="submit" class="table-btn" id="submit" value="pay" disabled>pay</button>
             </form>
         </div>

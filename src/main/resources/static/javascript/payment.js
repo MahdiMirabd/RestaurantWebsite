@@ -1,3 +1,11 @@
+function check() {
+    if(document.getElementById("table-number").value===""){
+        document.getElementById('submit-btn').disabled = true;
+    } else {
+        document.getElementById('submit-btn').disabled = false;
+    }
+}
+
 function validate() {
     if(document.getElementById("name").value==="" ||
         document.getElementById("cardnumber").value==="" ||
