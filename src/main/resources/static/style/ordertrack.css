@@ -1,6 +1,24 @@
 .timer{
     font-size: 70px;
 	font-weight: bold;
-	color: #21981a;
+	color: rgb(32, 153, 26);
 	padding-left: 350px;
 }
+p {
+	animation:colorchg 1s;
+	animation-delay: 300s;
+	animation-iteration-count: infinite;
+	color:rgb(32, 153, 26);
+	animation-fill-mode: forwards;
+  }
+  @keyframes colorchg {
+	  0%{
+		color:rgb(255, 0, 0);
+	  }
+	100% {
+	  color:rgb(255, 0, 0);
+	}
+  }
+  p{
+	  display: inline;
+  }
