@@ -15,7 +15,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="/javascript/staffHeader.js" type="text/javascript" defer></script>
     <script src="/javascript/editMenu.js" type="text/javascript" defer></script>
-    <title>Menu</title>
+    <title>Edit Menu</title>
 </head>
 <body>
 
@@ -54,7 +54,7 @@
                             </div>
                             <span style="display: none" id="stat" th=:inline="text">[[${item.available}]]</span>
                             <div class="available">
-                                <form id="available" th:action="@{/editMenu/{id}(id=${item.id})}" method="PUT">
+                                <form id="available" th:action="@{/editMenu/setFalse/{id}(id=${item.id})}" method="PUT">
                                     <button type="submit" value="Set Unavailable" class="cancel-order"><i class="fa fa-close"></i>&nbspSet Unavailable</button>
                                 </form>
                             </div>
@@ -88,7 +88,7 @@
                             </div>
                             <span style="display: none" id="stat" th=:inline="text">[[${item.available}]]</span>
                             <div class="available">
-                                <form id="unavailable" th:action="@{/editMenuTrue/{id}(id=${item.id})}" method="PUT">
+                                <form id="unavailable" th:action="@{/editMenu/setTrue/{id}(id=${item.id})}" method="PUT">
                                     <input type="submit" value="&#10003; Set Available" class="table-btn"/>
                                  </form>
                             </div>

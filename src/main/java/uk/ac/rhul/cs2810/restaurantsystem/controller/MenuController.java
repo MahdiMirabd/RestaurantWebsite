@@ -4,22 +4,23 @@ package uk.ac.rhul.cs2810.restaurantsystem.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.view.RedirectView;
 
-import uk.ac.rhul.cs2810.restaurantsystem.repository.MenuRepository;
 import uk.ac.rhul.cs2810.restaurantsystem.service.MenuService;
 
 /**
- * Queries the repository for data in the menu table,
- * This data will be displayed on a webpage
+ * Delegates its functionality to the service layer and returns the
+ * result of the computation to the view.
+ * This data will be displayed on the menu.html page.
  *
  * @author Hestre
  */
 @Controller
 public class MenuController {
+    /**
+     * An instance of the menuService class.
+     */
     @Autowired
     private MenuService menuService;
 

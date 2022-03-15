@@ -23,29 +23,23 @@ import uk.ac.rhul.cs2810.restaurantsystem.model.Menu;
 @Repository
 public interface MenuRepository extends JpaRepository<Menu, Long> {
     /**
-     * Finds all the menu items whose status is equal to true.
+     * Finds all available menu items in the database table.
      *
      * @param status can be either true or false
-     * @return menu items where the status field is true.
+     * @return menu items where the status field is true
      */
     @Query("SELECT item FROM menu item WHERE item.available = :status")
     List<Menu> findItems(@Param("status") boolean status);
 
+    /**
+     *Updates the availability of a selected menu item in the database table.
+     *
+     * @param id the menu item to be updated
+     * @param availability a boolean value which can be True or False
+     */
     @Transactional
     @Modifying
-    @Query("UPDATE menu m SET m.available= false WHERE m.id = :id ")
-    int updateMenuFalse(@Param("id") long id);
+    @Query("UPDATE menu m SET m.available= :availability WHERE m.id = :id ")
+    void changeAvailability(@Param("id") long id, @Param("availability") Boolean availability);
 
-    @Transactional
-    @Modifying
-    @Query("UPDATE menu m SET m.available= true WHERE m.id = :id ")
-    int updateMenuTrue(@Param("id") long id);
-
-    @Transactional
-    @Query("SELECT item FROM menu item WHERE item.price >= :minQuantity AND item.price <= :maxQuantity")
-    List<Menu> findPriceRangeItems(@Param("minQuantity") float minQuantity, @Param("maxQuantity") float maxQuantity);
-
-    @Transactional
-    @Query("SELECT item FROM menu item WHERE item.calories >= :minQuantity AND item.calories <= :maxQuantity")
-    List<Menu> findCalorieRangeItems(@Param("minQuantity") float minQuantity, @Param("maxQuantity") float maxQuantity);
 }
