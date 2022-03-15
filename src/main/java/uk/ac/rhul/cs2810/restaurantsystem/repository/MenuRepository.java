@@ -40,4 +40,12 @@ public interface MenuRepository extends JpaRepository<Menu, Long> {
     @Modifying
     @Query("UPDATE menu m SET m.available= true WHERE m.id = :id ")
     int updateMenuTrue(@Param("id") long id);
+
+    @Transactional
+    @Query("SELECT item FROM menu item WHERE item.price >= :minQuantity AND item.price <= :maxQuantity")
+    List<Menu> findPriceRangeItems(@Param("minQuantity") float minQuantity, @Param("maxQuantity") float maxQuantity);
+
+    @Transactional
+    @Query("SELECT item FROM menu item WHERE item.calories >= :minQuantity AND item.calories <= :maxQuantity")
+    List<Menu> findCalorieRangeItems(@Param("minQuantity") float minQuantity, @Param("maxQuantity") float maxQuantity);
 }

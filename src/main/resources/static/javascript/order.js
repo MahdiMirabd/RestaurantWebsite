@@ -84,7 +84,8 @@ $(function() {
         });
         $(".btn-remove").click();
         $('.cart-popup').hide();
-        alert("Your order have been placed.")
+        alert("Your order has been placed.");
+        window.location="ordertrack"
     });
 });
 
