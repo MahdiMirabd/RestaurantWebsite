@@ -12,6 +12,7 @@ import uk.ac.rhul.cs2810.restaurantsystem.model.Notification;
 import uk.ac.rhul.cs2810.restaurantsystem.repository.NotificationRepository;
 import uk.ac.rhul.cs2810.restaurantsystem.repository.OrderRepository;
 import uk.ac.rhul.cs2810.restaurantsystem.model.Order;
+import uk.ac.rhul.cs2810.restaurantsystem.service.OrderService;
 
 /**
  * Queries the backend for data to be displayed on the kitchen page.
@@ -24,7 +25,7 @@ public class KitchenController {
      * An instance of the order repository.
      */
     @Autowired
-    private OrderRepository orderRepository;
+    private OrderService orderService;
 
     @Autowired
     private NotificationRepository notificationRepository;
@@ -36,9 +37,8 @@ public class KitchenController {
      * @return a list of all confirmed orders in the database
      */
     @RequestMapping(value = "/kitchen", method = RequestMethod.GET)
-    @GetMapping(value = {""})
-    public String findAllOrders(Model model) {
-        model.addAttribute("orders", orderRepository.findOrders("confirmed"));
+    public String findConfirmedOrders(Model model) {
+        model.addAttribute("orders", orderService.findOrderByStatus("confirmed"));
         return "kitchen";
     }
 
@@ -51,9 +51,7 @@ public class KitchenController {
      */
     @RequestMapping(value = "/kitchen/{id}" , method = {RequestMethod.GET, RequestMethod.PUT})
     public RedirectView changeStatus(@PathVariable long id, Model model){
-        Order order = orderRepository.getById(id);
-        order.setStatus("ready");
-        orderRepository.save(order);
+        Order order = orderService.updateOrderStatus(id, "ready");
         notifyWaiters(id, order);
         return new RedirectView("/kitchen");
     }

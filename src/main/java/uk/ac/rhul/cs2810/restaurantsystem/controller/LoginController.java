@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
- * Queries the backend for data to be displayed on the login page.
+ * Renders the content of login.html on a webpage.
  *
  */
 @Controller
@@ -19,7 +19,7 @@ public class LoginController {
      *
      * @return the login web page
      */
-    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    @RequestMapping(value = "/login")
     public ModelAndView login() {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("login");

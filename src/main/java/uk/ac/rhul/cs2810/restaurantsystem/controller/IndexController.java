@@ -3,14 +3,14 @@ package uk.ac.rhul.cs2810.restaurantsystem.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
- * Queries the backend for data to be displayed on the index page.
+ * Renders the content of Index.html on a webpage.
  *
  */
 @Controller
-@RequestMapping(value = {"/"})
 public class IndexController {
 
     /**
@@ -18,7 +18,7 @@ public class IndexController {
      *
      * @return the home web page
      */
-    @GetMapping(value = {""})
+    @RequestMapping(value = "/")
     public ModelAndView index() {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("index");
