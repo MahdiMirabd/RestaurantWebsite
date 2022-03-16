@@ -26,10 +26,8 @@ class Header extends HTMLElement {
                     'margin: 0 25px;' +
                     'color: #0a0a23;' +
                     'text-decoration: none;' +
-                    'border: 2px solid red;' +
                     'border-radius: 10px;'  +
                     'transition: color .3s ease-in-out, box-shadow .3s ease-in-out;'+
-                    'box-shadow: inset 0 0 0 0 #45a049;' +
                 '} ' +
                 'a:hover {' +
                     'padding-bottom: 5px;' +

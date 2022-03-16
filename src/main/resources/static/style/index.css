@@ -1,5 +1,5 @@
 .typewriter {
-  font-family: Courier, monospace;
+  font-family: 'Helvetica Neue', sans-serif;
   text-align:center;
   position: relative;
 }
@@ -47,23 +47,13 @@ input[type=text], select, textarea {
   resize: vertical;
 }
 
-input[type=submit] {
-  background-color: #04AA6D;
-  color: white;
-  padding: 12px 20px;
-  border: none;
-  cursor: pointer;
-}
-
-input[type=submit]:hover {
-  background-color: #45a049;
-}
-
 .column {
   float: left;
   width: 50%;
   margin-top: 6px;
   padding: 20px;
+  justify-content: center;
+
 }
 
 .row:after {
@@ -72,11 +62,30 @@ input[type=submit]:hover {
   clear: both;
 }
 
-.info-text {
-  display: inline-block;
-  width:500px;
-  height:400px;
-  border: 1px solid red;
-  background-color: red;
-  justify-content: left;
+h1 {
+  font-family: 'Helvetica Neue', sans-serif;
+  font-size: 70px;
+  font-weight: bold;
+  letter-spacing: -1px;
+  line-height: 1;
+  text-align: center;
 }
+#order-btn {
+  color: #111;
+}
+#text-section {
+  background-color: #c62828;
+  height:520px;
+  color: white;
+}
+
+#home-image {
+  background-image: url('/img/index-img.jpeg');
+  height:300px;
+}
+#order-now {
+  justify-content: right;
+}
+
+
+

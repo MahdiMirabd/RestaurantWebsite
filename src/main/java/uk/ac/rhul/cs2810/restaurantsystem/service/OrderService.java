@@ -71,7 +71,7 @@ public class OrderService {
      * @param status only sum orders with delivered status
      * @return a sum of the orders
      */
-    public float getTotalCost(Long tableNo, String status) {
+    public Float getTotalCost(Long tableNo, String status) {
         return orderRepository.getTotalCost(tableNo,status);
     }
 }

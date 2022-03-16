@@ -17,7 +17,7 @@ body {
    color: #fff;
    cursor: pointer;
    display: inline-flex;
-   font-family: Roboto,sans-serif;
+   font-family: 'Helvetica Neue', sans-serif;
    font-size: .800rem;
    font-weight: 500;
    height: 30px;
@@ -31,7 +31,7 @@ body {
    position: relative;
    text-align: center;
    text-decoration: none;
-   text-transform: uppercase;
+   text-transform: capitalize;
    transition: box-shadow 280ms cubic-bezier(.4, 0, .2, 1);
    user-select: none;
    -webkit-user-select: none;
