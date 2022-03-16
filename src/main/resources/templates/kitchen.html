@@ -40,7 +40,7 @@
                 <td th:text="${order.orderTime}"></td>
                 <td th:text="${order.status}"></td>
                 <td>
-                    <form  th:action="@{/kitchen/{id}(id=${order.id})}" method="PUT">
+                    <form  th:action="@{/kitchen/orderReady/{id}(id=${order.id})}" method="PUT">
                         <button type="submit" name="deliver" class="table-btn"><i class='fa fa-send'></i>&nbspready</button>
                     </form>
                 </td>

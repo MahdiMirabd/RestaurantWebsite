@@ -12,6 +12,7 @@ import uk.ac.rhul.cs2810.restaurantsystem.model.Notification;
 import uk.ac.rhul.cs2810.restaurantsystem.repository.NotificationRepository;
 import uk.ac.rhul.cs2810.restaurantsystem.repository.OrderRepository;
 import uk.ac.rhul.cs2810.restaurantsystem.model.Order;
+import uk.ac.rhul.cs2810.restaurantsystem.service.NotificationService;
 import uk.ac.rhul.cs2810.restaurantsystem.service.OrderService;
 
 /**
@@ -22,13 +23,16 @@ import uk.ac.rhul.cs2810.restaurantsystem.service.OrderService;
 public class KitchenController {
 
     /**
-     * An instance of the order repository.
+     * An instance of the order service
      */
     @Autowired
     private OrderService orderService;
 
+    /**
+     * An instance of the notification sevice.
+     */
     @Autowired
-    private NotificationRepository notificationRepository;
+    private NotificationService notificationService;
 
     /**
      * Finds all orders with confirmed status in the database.
@@ -43,31 +47,16 @@ public class KitchenController {
     }
 
     /**
-     * Changes the status of an order from confirmed to ready.
+     * Updates the status of an order from confirmed to ready,
+     * and notifies the waiters when the order is ready.
      *
      * @param id the order number
-     * @param model the database table to query
      * @return the view back to the waiter page
      */
-    @RequestMapping(value = "/kitchen/{id}" , method = {RequestMethod.GET, RequestMethod.PUT})
-    public RedirectView changeStatus(@PathVariable long id, Model model){
+    @RequestMapping(value = "/kitchen/orderReady/{id}" , method = {RequestMethod.GET, RequestMethod.PUT})
+    public RedirectView changeStatus(@PathVariable long id) {
         Order order = orderService.updateOrderStatus(id, "ready");
-        notifyWaiters(id, order);
+        notificationService.insertNotification("order is ready", order);
         return new RedirectView("/kitchen");
     }
-
-    /**
-     * Adds notification of delivery.
-     *
-     * @param id the order id
-     * @param order the table on which to post the notification
-     */
-    @RequestMapping(value = "/notify" , method = RequestMethod.POST)
-    public void notifyWaiters(Long id, Order order){
-        Notification notification = new Notification();
-        notification.setMessage("order is ready");
-        notification.setTableNo((int) order.getTableNo());
-        notificationRepository.save(notification);
-    }
-
 }
