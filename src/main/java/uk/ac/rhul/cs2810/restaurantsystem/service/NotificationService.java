@@ -58,4 +58,13 @@ public class NotificationService {
         Notification notification = notificationRepository.getById(id);
         notificationRepository.delete(notification);
     }
+
+    /**
+     * Adds a client request to the database.
+     *
+     * @param message the client message to be added
+     */
+    public void addClientRequest(Notification message) {
+        notificationRepository.save(message);
+    }
 }

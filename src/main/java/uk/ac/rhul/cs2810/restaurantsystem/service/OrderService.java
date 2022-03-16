@@ -54,4 +54,13 @@ public class OrderService {
         Order order = orderRepository.getById(id);
         orderRepository.delete(order);
     }
+
+    /**
+     * Adds a new order to the database.
+     *
+     * @param order the order to be added to the database table
+     */
+    public void addOrder(Order order) {
+        orderRepository.save(order);
+    }
 }
