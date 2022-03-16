@@ -37,18 +37,18 @@ class Header extends HTMLElement {
                 '} ' +
                 '.shopping-cart-button {' +
                     'background-color: white;' +
-                    'border: 2px solid Dodgerblue;' +
-                    'color: DodgerBlue;' +
+                    'color: black;' +
                     'padding: 12px 16px;' +
                     'font-size: 16px;' +
                     'cursor: pointer;' +
                     'position:absolute;' +
                     'top:10px;' +
                     'right:200px;' +
-                    'border-radius: 10px;'  +
+                    'border: none;' +
+                    ': 10px;'  +
                 '} ' +
                   '.shopping-cart-button:hover {' +
-                    'background-color: DodgerBlue;' +
+                    'background-color: black;' +
                     'color: white;' +
                 '} ' +
                 '.badge { '+
