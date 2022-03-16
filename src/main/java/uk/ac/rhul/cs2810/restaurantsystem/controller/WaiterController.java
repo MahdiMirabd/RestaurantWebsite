@@ -10,9 +10,11 @@ import uk.ac.rhul.cs2810.restaurantsystem.model.Notification;
 import uk.ac.rhul.cs2810.restaurantsystem.model.Order;
 import uk.ac.rhul.cs2810.restaurantsystem.repository.NotificationRepository;
 import uk.ac.rhul.cs2810.restaurantsystem.repository.OrderRepository;
+import uk.ac.rhul.cs2810.restaurantsystem.service.NotificationService;
+import uk.ac.rhul.cs2810.restaurantsystem.service.OrderService;
 
 /**
- * Queries the backend for data to be displayed on the waiter page.
+ * Queries the backend for data to be displayed on the waiter.html.
  *
  */
 @Controller
@@ -21,13 +23,13 @@ public class WaiterController {
      * An instance of the order repository.
      */
     @Autowired
-    private OrderRepository orderRepository;
+    private OrderService orderService;
 
     /**
-     * An instance of the alert repository.
+     * An instance of the notification service.
      */
     @Autowired
-    private NotificationRepository notificationRepository;
+    private NotificationService notificationService;
 
     /**
      * Queries the backend for all orders and alert notifications.
@@ -37,12 +39,12 @@ public class WaiterController {
      */
     @RequestMapping(value = "/waiter", method = RequestMethod.GET)
     public String findAll(Model model) {
-        model.addAttribute("pendingOrders", orderRepository.findOrders("pending"));
-        model.addAttribute("confirmedOrders", orderRepository.findOrders("confirmed"));
-        model.addAttribute("readyOrders", orderRepository.findOrders("ready"));
-        model.addAttribute("deliveredOrders", orderRepository.findOrders("delivered"));
-        model.addAttribute("alert", notificationRepository.findAll());
-        model.addAttribute("alertCount", notificationRepository.count());
+        model.addAttribute("pendingOrders", orderService.findOrderByStatus("pending"));
+        model.addAttribute("confirmedOrders", orderService.findOrderByStatus("confirmed"));
+        model.addAttribute("readyOrders", orderService.findOrderByStatus("ready"));
+        model.addAttribute("deliveredOrders", orderService.findOrderByStatus("delivered"));
+        model.addAttribute("alert", notificationService.findAll());
+        model.addAttribute("alertCount", notificationService.getTotalNotifications());
         return "waiter";
     }
 
@@ -50,39 +52,47 @@ public class WaiterController {
      * Changes the status of an order from pending to confirmed.
      *
      * @param id the order number
-     * @param model the database table on which to post the order
      * @return the view back to the waiter page
      */
-    @RequestMapping(value = "/waiter/{id}" , method = {RequestMethod.GET, RequestMethod.PUT})
-    public RedirectView confirmOrder(@PathVariable long id, Model model){
-        Order order = orderRepository.getById(id);
-        order.setStatus("confirmed");
-        orderRepository.save(order);
+    @RequestMapping(value = "/waiter/confirmOrder/{id}" , method = {RequestMethod.GET, RequestMethod.PUT})
+    public RedirectView confirmOrder(@PathVariable long id) {
+        Order order = orderService.updateOrderStatus(id, "confirmed");
         return new RedirectView("/waiter");
     }
 
-    @RequestMapping(value = "/delivery/{id}" , method = {RequestMethod.GET, RequestMethod.PUT})
-    public RedirectView deliverOrder(@PathVariable long id, Model model){
-        Order order = orderRepository.getById(id);
-        order.setStatus("delivered");
-        orderRepository.save(order);
+    /**
+     * Updates an order in the database to delivered.
+     *
+     * @param id the order to be updated
+     * @return to the base URL
+     */
+    @RequestMapping(value = "/waiter/deliverOrder/{id}" , method = {RequestMethod.GET, RequestMethod.PUT})
+    public RedirectView deliverOrder(@PathVariable long id) {
+        Order order = orderService.updateOrderStatus(id, "delivered");
         return new RedirectView("/waiter");
     }
 
-
-
-    @RequestMapping(value = "/delete/{id}" , method = {RequestMethod.GET, RequestMethod.DELETE})
-    public RedirectView deleteNotifications(@PathVariable long id, Model model){
-        Notification notification = notificationRepository.getById(id);
-        notificationRepository.delete(notification);
+    /**
+     * Deletes a notification from the database.
+     *
+     * @param id the notification to be deleted
+     * @return to the base URL
+     */
+    @RequestMapping(value = "/waiter/deleteNotification/{id}" , method = {RequestMethod.GET, RequestMethod.DELETE})
+    public RedirectView deleteNotifications(@PathVariable long id) {
+        notificationService.deleteNotification(id);
         return new RedirectView("/waiter");
     }
 
-    @RequestMapping(value = "/cancelOrder/{id}" , method = {RequestMethod.GET, RequestMethod.DELETE})
-    public RedirectView deleteOrder(@PathVariable long id, Model model){
-        Order order = orderRepository.getById(id);
-        orderRepository.delete(order);
+    /**
+     * Deletes an order from the database.
+     *
+     * @param id the order to be deleted
+     * @return to the base URL
+     */
+    @RequestMapping(value = "/waiter/cancelOrder/{id}" , method = {RequestMethod.GET, RequestMethod.DELETE})
+    public RedirectView deleteOrder(@PathVariable long id) {
+        orderService.deleteOrder(id);
         return new RedirectView("/waiter");
     }
-
 }

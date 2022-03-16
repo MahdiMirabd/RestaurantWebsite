@@ -23,13 +23,13 @@ import uk.ac.rhul.cs2810.restaurantsystem.service.OrderService;
 public class KitchenController {
 
     /**
-     * An instance of the order service
+     * An instance of the order service.
      */
     @Autowired
     private OrderService orderService;
 
     /**
-     * An instance of the notification sevice.
+     * An instance of the notification service.
      */
     @Autowired
     private NotificationService notificationService;

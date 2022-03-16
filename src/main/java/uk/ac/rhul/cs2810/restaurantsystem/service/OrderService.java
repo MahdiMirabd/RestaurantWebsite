@@ -44,4 +44,14 @@ public class OrderService {
         orderRepository.save(order);
         return order;
     }
+
+    /**
+     * Deletes an order from the database.
+     *
+     * @param id the order to be removed
+     */
+    public void deleteOrder(Long id) {
+        Order order = orderRepository.getById(id);
+        orderRepository.delete(order);
+    }
 }

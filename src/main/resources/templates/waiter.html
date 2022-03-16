@@ -45,7 +45,7 @@
                     <span>Table</span><span>&nbsp</span>
                     <span th:text="${msg.tableNo}"> </span><span>&nbsp</span>
                     <span th:text="${msg.message}"></span><span>&nbsp</span>
-                    <form  th:action="@{/delete/{id}(id=${msg.id})}" method="DELETE">
+                    <form  th:action="@{/waiter/deleteNotification/{id}(id=${msg.id})}" method="DELETE">
                         <button type="submit" value="clear" class="btn-clear"><i class="fa fa-close"></i></button>
                     </form>
                 </div>
@@ -73,10 +73,10 @@
                 <td th:text="${pending.orderTime}"></td>
                 <td class="order-status" th:text="${pending.status}"></td>
                 <td>
-                    <form  th:action="@{/waiter/{id}(id=${pending.id})}" method="PUT">
+                    <form  th:action="@{/waiter/confirmOrder/{id}(id=${pending.id})}" method="PUT">
                             <input type="submit" value="&#10003; confirm" class="table-btn"/>
                     </form>
-                    <form  th:action="@{/cancelOrder/{id}(id=${pending.id})}" method="DELETE">
+                    <form  th:action="@{/waiter/cancelOrder/{id}(id=${pending.id})}" method="DELETE">
                         <button type="submit" value="Delete Order" class="cancel-order"><i class="fa fa-close"></i></button>
                     </form>
                 </td>
@@ -88,7 +88,7 @@
                 <td th:text="${confirmed.orderTime}"></td>
                 <td class="order-status" th:text="${confirmed.status}"></td>
                 <td>
-                    <form  th:action="@{/cancelOrder/{id}(id=${confirmed.id})}" method="DELETE">
+                    <form  th:action="@{/waiter/cancelOrder/{id}(id=${confirmed.id})}" method="DELETE">
                         <button type="submit" value="Delete Order" class="cancel-confirmed-order"><i class="fa fa-close"></i></button>
                     </form>
                 </td>
@@ -100,7 +100,7 @@
              <td th:text="${ready.orderTime}"></td>
              <td class="order-status" th:text="${ready.status}"></td>
              <td>
-                 <form  th:action="@{/delivery/{id}(id=${ready.id})}" method="PUT">
+                 <form  th:action="@{/waiter/deliverOrder/{id}(id=${ready.id})}" method="PUT">
                      <button type="submit" name="deliver" class="table-btn"><i class='fa fa-send'></i>&nbspdeliver</button>
                  </form>
              </td>

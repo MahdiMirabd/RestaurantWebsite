@@ -6,6 +6,12 @@ import uk.ac.rhul.cs2810.restaurantsystem.model.Notification;
 import uk.ac.rhul.cs2810.restaurantsystem.model.Order;
 import uk.ac.rhul.cs2810.restaurantsystem.repository.NotificationRepository;
 
+import java.util.List;
+
+/**
+ * Interfaces with the notification Repository to fulfill
+ * requests by the controller and return a response.
+ */
 @Service
 public class NotificationService {
 
@@ -23,5 +29,33 @@ public class NotificationService {
         notification.setMessage(message);
         notification.setTableNo((int) order.getTableNo());
         notificationRepository.save(notification);
+    }
+
+    /**
+     * Gets all notifications in the database.
+     *
+     * @return a list of all notifications
+     */
+    public List<Notification> findAll() {
+        return notificationRepository.findAll();
+    }
+
+    /**
+     * Gets the total number of notifications in the database
+     *
+     * @return the count of notifications
+     */
+    public Long getTotalNotifications() {
+        return notificationRepository.count();
+    }
+
+    /**
+     * Deletes a notification from the database.
+     *
+     * @param id the notification to be deleted
+     */
+    public void deleteNotification(Long id) {
+        Notification notification = notificationRepository.getById(id);
+        notificationRepository.delete(notification);
     }
 }

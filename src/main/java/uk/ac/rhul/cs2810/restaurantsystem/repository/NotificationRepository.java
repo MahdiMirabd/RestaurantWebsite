@@ -8,7 +8,7 @@ import uk.ac.rhul.cs2810.restaurantsystem.model.Notification;
  * Provides the means for storing, retrieving,
  * searching, updating and deleting alerts in the database.
  *
- * Alert - the model name
+ * Notification - the model name
  * Long - the primary key of the table
  *
  */
