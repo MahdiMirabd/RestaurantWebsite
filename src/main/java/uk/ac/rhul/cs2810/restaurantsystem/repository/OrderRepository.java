@@ -29,12 +29,31 @@ public interface OrderRepository extends JpaRepository<Order, Long> {
     @Query("SELECT order FROM orders  order WHERE order.status = :stat")
     List<Order> findOrderByStatus(@Param("stat") String stat);
 
+    /**
+     * Gets the table Number associated with an order.
+     *
+     * @param id the order to lookup
+     * @return the table number of an order
+     */
     @Query("SELECT order.tableNo FROM orders order WHERE order.id =:id")
-    List<Order>findTableNumber(@Param("id") Long id);
+    Order findTableNumber(@Param("id") Long id);
 
+    /**
+     * Computes the sum of all orders submitted by a specified table.
+     *
+     * @param tableNo the table number to lookup
+     * @param stat the status of the order should be "delivered".
+     * @return the total cost of orders by a specified table.
+     */
     @Query("SELECT sum(m.price) FROM orders o, menu m WHERE o.tableNo =:tableNo and o.status =:stat and m.name = o.name ")
     public Float getTotalCost(@Param("tableNo") Long tableNo, @Param("stat") String stat);
 
+    /**
+     * Updates the status of an order from delivered to paid.
+     *
+     * @param tableNo the table number for which payment is maid
+     * @param paid the status to be applied to the order in the database
+     */
     @Transactional
     @Modifying
     @Query("UPDATE orders o SET o.status = :paid WHERE o.tableNo = :tableNo ")
