@@ -30,5 +30,4 @@ public class Tables {
      */
     @Column(name = "available", nullable = false)
     private boolean available;
-
 }

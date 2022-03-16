@@ -63,4 +63,15 @@ public class OrderService {
     public void addOrder(Order order) {
         orderRepository.save(order);
     }
+
+    /**
+     * Gets the sum of the orders submitted by a table number.
+     *
+     * @param tableNo the table number to lookup
+     * @param status only sum orders with delivered status
+     * @return a sum of the orders
+     */
+    public float getTotalCost(Long tableNo, String status) {
+        return orderRepository.getTotalCost(tableNo,status);
+    }
 }

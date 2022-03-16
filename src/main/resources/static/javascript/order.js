@@ -38,7 +38,7 @@ function addItemToCart(image,name, quantity, price) {
         <div class="cart-item-box">
         <img class="cart-item cart-column" src="${image}" id="cart-item-img" alt="The image of the item." name="image" />
         <div class="cart-item-info">
-        <form action="order" class="cart-item-cart-column" method="POST" th:action="@{/order}"  >
+        <form action="order/addOrder" class="cart-item-cart-column" method="POST" th:action="@{/order/addOrder}"  >
          <div>
             <p class="cart-item-title"><input type="hidden" value="${name}" name="name"/>${name}</p> 
          </div>

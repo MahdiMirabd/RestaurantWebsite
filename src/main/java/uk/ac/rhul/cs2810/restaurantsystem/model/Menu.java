@@ -66,5 +66,4 @@ public class Menu {
      */
     @Column(name = "available", nullable = false)
     private boolean available;
-
 }

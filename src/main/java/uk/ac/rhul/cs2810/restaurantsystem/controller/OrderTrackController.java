@@ -12,7 +12,7 @@ import uk.ac.rhul.cs2810.restaurantsystem.repository.NotificationRepository;
 import uk.ac.rhul.cs2810.restaurantsystem.repository.OrderRepository;
 
 /**
- * Queries the backend for data to be displayed on the waiter page.
+ * Queries the backend for data to be displayed on orderTrack.html
  *
  */
 @Controller
@@ -24,28 +24,4 @@ public class OrderTrackController {
         modelAndView.setViewName("ordertrack");
         return modelAndView;
     }
-    // @Autowired
-    // private OrderRepository orderRepository;
-    // @RequestMapping(value = "/ordertrack", method = RequestMethod.GET)
-    // public String findAll(Model model) {
-    //     model.addAttribute("pendingOrders", orderRepository.findOrders("pending"));
-    //     model.addAttribute("confirmedOrders", orderRepository.findOrders("confirmed"));
-    //     model.addAttribute("readyOrders", orderRepository.findOrders("ready"));
-    //     return "waiter";
-    // }
-    // @RequestMapping(value = "/ordertrack/{id}" , method = {RequestMethod.GET, RequestMethod.PUT})
-    // public RedirectView confirmOrder(@PathVariable long id, Model model){
-    //     Order order = orderRepository.getById(id);
-    //     order.setStatus("confirmed");
-    //     orderRepository.save(order);
-    //     return new RedirectView("/ordertrack");
-    // }
-
-    // @RequestMapping(value = "/ordertrack/{id}" , method = {RequestMethod.GET, RequestMethod.PUT})
-    // public RedirectView deliverOrder(@PathVariable long id, Model model){
-    //     Order order = orderRepository.getById(id);
-    //     order.setStatus("delivered");
-    //     orderRepository.save(order);
-    //     return new RedirectView("/ordertrack");
-    // }
 }

@@ -5,7 +5,7 @@ import lombok.*;
 import javax.persistence.*;
 
 /**
- * The Alert table in the database.
+ * The Notification table in the database.
  * stores clients request for help.
  */
 @Entity(name = "notification")
@@ -36,8 +36,4 @@ public class Notification {
      */
     @Column(name = "message", nullable = false)
     private String message;
-
-   
-
-    
 }

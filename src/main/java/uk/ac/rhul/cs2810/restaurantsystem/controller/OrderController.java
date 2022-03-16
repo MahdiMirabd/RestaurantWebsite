@@ -56,7 +56,7 @@ public class OrderController {
      * @param orders the data to be posted
      * @return the order page
      */
-    @RequestMapping(value = "/order", method = RequestMethod.POST)
+    @RequestMapping(value = "/order/addOrder", method = RequestMethod.POST)
     public String submitOrder(@ModelAttribute(value = "orders") Order orders) {
         orderService.addOrder(orders);
         return "order";
@@ -68,7 +68,7 @@ public class OrderController {
      * @param message the data to be posted
      * @return the view back to the order page
      */
-    @RequestMapping(value = "/help", method = RequestMethod.POST)
+    @RequestMapping(value = "/order/clientHelp", method = RequestMethod.POST)
     public RedirectView submitAlert(@ModelAttribute(value = "notification") Notification message) {
         notificationService.addClientRequest(message);
         return new RedirectView("/order");
