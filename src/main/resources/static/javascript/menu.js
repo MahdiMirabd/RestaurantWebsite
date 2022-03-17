@@ -6,7 +6,7 @@ function filterOptions(allergy) {
         let content = div.innerHTML.trim();
         console.log(content);
         console.log(allergy);
-        if (allergy == "no-filters"){
+        if (allergy == "no-filters") {
             location.reload();
         }
         if (content.toLowerCase().includes(allergy)) {
