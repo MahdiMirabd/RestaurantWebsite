@@ -57,12 +57,15 @@
                 <input type="hidden" id = tablenumber name="tableNo" class="tbl-no" value="30"/>
                 <input type="hidden" value="Needs help"  name="message"/>
                 <input type="submit" value="Call The Waiter" class="help-button"/>
-            </form>
-            <div class="help-hover">
+            </form>            
+            <div class="help-hover"> <!-- How to order popup -->
                 <span class="helper"></span>
                 <div>
                     <div class="popup-close-button">&times;</div>
-                    <p><strong><u>How to Order:</u></strong>
+                    <!-- The step-by-step guide on how to order in text format.
+                        Hidden to the user, kept as a reference for system use. 
+                        
+                        <p><strong><u>How to Order:</u></strong>
                         <br/>
                         To start your order you first need to <strong>add items to your cart</strong>.
                         <br/>
@@ -76,18 +79,25 @@
                         Your order will then be sent to the kitchen and you can check the status of
                         your order by <strong>calling a waiter</strong> who can assist you.
                         <br/><br/>
-                        --TEST IMAGE--
+                        ---->
                         <br/>
+                        <strong>Step 1:</strong> 
+                        <hr class="rounded">
                         <img src="/main/resources/static/img/logo.jpg" alt="default" th:src="@{img/instruction_01.png}" height="74.26px" width="575px">
                         <br/>
+                        <strong>Step 2:</strong>
+                        <hr class="rounded">
                         <img src="/main/resources/static/img/logo.jpg" alt="default" th:src="@{img/instruction_02.png}" height="74.26px" width="575px">
                         <br/>
+                        <strong>Step 3 & 4:</strong>
+                        <hr class="rounded">
                         <img src="/main/resources/static/img/logo.jpg" alt="default" th:src="@{img/instruction_03.png}" height="200px" width="112px">
                         <img src="/main/resources/static/img/logo.jpg" alt="default" th:src="@{img/instruction_04.png}" height="200px" width="262.91px">
-                </p>
+                        <hr class="rounded">
+                    </p>
                 </div>
             </div>
-            <form action="help" class="order-help" method="GET">
+            <form action="help" class="order-help" method="GET"> <!-- How to order button -->
                 <input type="button" value="How To Order" class="help-button"/>
             </form>
             <div class="cart-heading">
