@@ -34,13 +34,25 @@ public class EditMenuController {
         model.addAttribute("unavailableItems", menuRepository.findItems(false));
         return "editMenu";
     }
-
+    /**
+     * Sets a particular menu item to unavailable 
+     *
+     * @param  id the variable representing the availability of an item
+     * @param  model the database table being queried
+     * @return orders with a particular status
+     */
     @RequestMapping(value = "/editMenu/{id}" , method = {RequestMethod.GET, RequestMethod.PUT})
     public RedirectView setUnavailable(@PathVariable long id, Model model){
         menuRepository.updateMenuFalse(id);
         return new RedirectView("/editMenu");
     }
-
+    /**
+     * Sets a particular menu item to available 
+     *
+     * @param  id the variable representing the availability of an item
+     * @param  model the database table being queried
+     * @return orders with a particular status
+     */
     @RequestMapping(value = "/editMenuTrue/{id}" , method = {RequestMethod.GET, RequestMethod.PUT})
     public RedirectView setAvailable(@PathVariable long id, Model model){
         menuRepository.updateMenuTrue(id);
