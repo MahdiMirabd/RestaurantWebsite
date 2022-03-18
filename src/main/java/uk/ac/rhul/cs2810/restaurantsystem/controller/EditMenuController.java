@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import uk.ac.rhul.cs2810.restaurantsystem.model.Menu;
 import uk.ac.rhul.cs2810.restaurantsystem.repository.MenuRepository;
+import uk.ac.rhul.cs2810.restaurantsystem.service.MenuService;
 
 /**
  * Queries the backend for data to be displayed on the editMenu page.
@@ -21,41 +22,42 @@ import uk.ac.rhul.cs2810.restaurantsystem.repository.MenuRepository;
 public class EditMenuController {
 
     @Autowired
-    private MenuRepository menuRepository;
+    private MenuService menuService;
 
     /**
      * Gets and displays the content of editMenu.html.
      *
+     * @param model - the database table being queried
      * @return the editMenu web page
      */
     @RequestMapping(value = "/editMenu", method = RequestMethod.GET)
     public String findAll(Model model) {
-        model.addAttribute("availableItems", menuRepository.findItems(true));
-        model.addAttribute("unavailableItems", menuRepository.findItems(false));
+        model.addAttribute("availableItems", menuService.findItems(true));
+        model.addAttribute("unavailableItems", menuService.findItems(false));
         return "editMenu";
     }
+
     /**
-     * Sets a particular menu item to unavailable 
+     * Updates the availability of a selected menu item to false.
      *
-     * @param  id the variable representing the availability of an item
-     * @param  model the database table being queried
-     * @return orders with a particular status
+     * @param id the menu item to be updated
+     * @return to the edit menu base url.
      */
-    @RequestMapping(value = "/editMenu/{id}" , method = {RequestMethod.GET, RequestMethod.PUT})
-    public RedirectView setUnavailable(@PathVariable long id, Model model){
-        menuRepository.updateMenuFalse(id);
+    @RequestMapping(value = "/editMenu/setFalse/{id}" , method = {RequestMethod.GET, RequestMethod.PUT})
+    public RedirectView setUnavailable(@PathVariable long id){
+        menuService.changeAvailability(id,false);
         return new RedirectView("/editMenu");
     }
+
     /**
-     * Sets a particular menu item to available 
+     * Updates the availability of a selected menu item to true.
      *
-     * @param  id the variable representing the availability of an item
-     * @param  model the database table being queried
-     * @return orders with a particular status
+     * @param id the menu item to be updated
+     * @return to the edit menu base url.
      */
-    @RequestMapping(value = "/editMenuTrue/{id}" , method = {RequestMethod.GET, RequestMethod.PUT})
-    public RedirectView setAvailable(@PathVariable long id, Model model){
-        menuRepository.updateMenuTrue(id);
+    @RequestMapping(value = "/editMenu/setTrue/{id}" , method = {RequestMethod.GET, RequestMethod.PUT})
+    public RedirectView setAvailable(@PathVariable long id){
+        menuService.changeAvailability(id,true);
         return new RedirectView("/editMenu");
     }
 }
