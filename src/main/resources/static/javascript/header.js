@@ -12,7 +12,6 @@ class Header extends HTMLElement {
                     'align-items:center;' +  
                     'justify-content: center;' +
                     'border-bottom: 2px solid #08090A;' +
-                    //'background-color: #fff;' +
                 '}' +
                 'ul {' +
                     'padding: 0;' +
@@ -31,7 +30,6 @@ class Header extends HTMLElement {
                 '} ' +
                 'a:hover {' +
                     'padding-bottom: 5px;' +
-                   // 'box-shadow: inset 0 -2px 0 0 #0a0a23;' +
                     'box-shadow: inset 100px 0 0 0 #45a049;' +
                     'color: white;' +
                 '} ' +
@@ -91,7 +89,7 @@ class Header extends HTMLElement {
             '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">' +
             '<header> ' +
                 '<nav> ' +
-                '<h1 class = "Logo"><a href="/">Oaxaca</a> </h1>' +
+                '<h1 class = "Logo"><a style="border: 2px solid red;" href="/">Oaxaca</a> </h1>' +
                     '<ul>' +
                         '<li><a href="/">Home</a></li>' +
                         '<li><a href="/menu">Menu</a></li>' +
