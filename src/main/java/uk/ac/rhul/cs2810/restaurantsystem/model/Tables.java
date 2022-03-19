@@ -13,10 +13,7 @@ import javax.persistence.*;
 @Table(name = "tables")
 @NoArgsConstructor
 @AllArgsConstructor
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
+@Data
 public class Tables {
     /**
      * The table's primary key.

@@ -1,12 +1,19 @@
 package uk.ac.rhul.cs2810.restaurantsystem.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
+/**
+ * A list of users and their roles.
+ */
 @Entity(name = "users")
 @Table(name = "users")
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class User {
     /**
      * The table's primary key.

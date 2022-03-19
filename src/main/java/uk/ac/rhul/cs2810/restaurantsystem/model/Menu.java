@@ -13,9 +13,7 @@ import javax.persistence.*;
 @Table(name = "menu") // the name of the table in the database
 @NoArgsConstructor
 @AllArgsConstructor
-@Getter
-@Setter
-@ToString
+@Data
 public class Menu {
 
     /**

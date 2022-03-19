@@ -12,10 +12,7 @@ import javax.persistence.*;
 @Table(name = "orders")
 @NoArgsConstructor
 @AllArgsConstructor
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
+@Data
 public class Order {
     /**
      * The table's primary key.
