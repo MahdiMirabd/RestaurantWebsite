@@ -43,6 +43,6 @@ public class User {
     /**
      * Session id
      */
-    @Column(name = "session", nullable = false)
+    @Column(name = "session")
     private String session;
 }
