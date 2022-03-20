@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS menu, allergen, tables CASCADE;
+DROP TABLE IF EXISTS menu, allergen CASCADE;
 
 CREATE TABLE allergen (
     name VARCHAR (50) NOT NULL PRIMARY KEY,
@@ -43,17 +43,3 @@ VALUES  ('Celery', 'Contains Celery'),
         ('Sesame Seeds', 'Contains Sesame Seed'),
         ('Soya', 'Contains Soy'),
         ('Sulphites', 'Contains Sulphur Dioxide');
-
-insert INTO tables(available)
-VALUES  (TRUE),
-        (TRUE),
-        (TRUE),
-        (TRUE),
-        (TRUE),
-        (TRUE),
-        (TRUE),
-        (TRUE),
-        (TRUE),
-        (TRUE),
-        (TRUE),
-        (TRUE);
