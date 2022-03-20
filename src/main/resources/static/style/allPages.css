@@ -7,7 +7,7 @@ body {
     padding: 1.5em;
 }
 
-.table-btn, .cancel-order, .edit, .dropbtn, .cancel-confirmed-order, .add-to-cart-btn{
+.table-btn, .cancel-order, .edit, .dropbtn, .cancel-confirmed-order, .add-to-cart-btn, .help-button{
    align-items: center;
    appearance: none;
    border-radius: 4px;
@@ -40,28 +40,52 @@ body {
    will-change: transform,opacity;
 }
 
-.table-btn:hover, .cancel-order:hover, .cancel-confirmed-order:hover, .add-to-cart-btn:hover{
-    box-shadow: rgba(0, 0, 0, .7) 0 2px 4px -1px, rgba(0, 0, 0, .14) 0 4px 5px 0, rgba(0, 0, 0, .12) 0 1px 10px 0;
+.table-btn:hover,
+.cancel-order:hover,
+.cancel-confirmed-order:hover,
+.add-to-cart-btn:hover,
+.help-button:hover {
+    box-shadow: rgba(0, 0, 0, .7) 0 2px 4px -1px,
+                rgba(0, 0, 0, .14) 0 4px 5px 0,
+                rgba(0, 0, 0, .12) 0 1px 10px 0;
 }
 
-.table-btn:disabled, .cancel-order:disabled, .cancel-confirmed-order:disabled, .add-to-cart-btn:disabled{
+.table-btn:disabled,
+.cancel-order:disabled,
+.cancel-confirmed-order:disabled,
+.add-to-cart-btn:disabled,
+.help-button:disabled {
     background-color: rgba(0, 0, 0, .12);
-    box-shadow: rgba(0, 0, 0, .2) 0 0 0 0, rgba(0, 0, 0, .14) 0 0 0 0, rgba(0, 0, 0, .12) 0 0 0 0;
+    box-shadow: rgba(0, 0, 0, .2) 0 0 0 0,
+                rgba(0, 0, 0, .14) 0 0 0 0,
+                rgba(0, 0, 0, .12) 0 0 0 0;
     color: rgba(0, 0, 0, .37);
     cursor: default;
     pointer-events: none;
 }
 
-.table-btn:not(:disabled), .add-to-cart-btn:not(:disabled) {
+.table-btn:not(:disabled),
+.add-to-cart-btn:not(:disabled),
+.help-button:not(:disabled) {
     background-color: #008000;
 }
 
-.table-btn:focus,.cancel-order:focus, .cancel-confirmed-order:focus, .add-to-cart-btn:focus {
-    box-shadow: rgba(0, 0, 0, .5) 0 2px 4px -1px, rgba(0, 0, 0, .14) 0 4px 5px 0, rgba(0, 0, 0, .12) 0 1px 10px 0;
+.table-btn:focus,
+.cancel-order:focus,
+.cancel-confirmed-order:focus,
+.add-to-cart-btn:focus
+.help-button:focus {
+    box-shadow: rgba(0, 0, 0, .5) 0 2px 4px -1px,
+                rgba(0, 0, 0, .14) 0 4px 5px 0,
+                rgba(0, 0, 0, .12) 0 1px 10px 0;
 }
 
-.table-btn:active, .add-to-cart-btn:active {
-    box-shadow: rgba(0, 0, 0, .2) 0 5px 5px -3px, rgba(0, 0, 0, .14) 0 8px 10px 1px, rgba(0, 0, 0, .12) 0 3px 14px 2px;
+.table-btn:active,
+.add-to-cart-btn:active
+.help-button:active {
+    box-shadow: rgba(0, 0, 0, .2) 0 5px 5px -3px,
+                rgba(0, 0, 0, .14) 0 8px 10px 1px,
+                rgba(0, 0, 0, .12) 0 3px 14px 2px;
     background: #228b22;
 }
 
