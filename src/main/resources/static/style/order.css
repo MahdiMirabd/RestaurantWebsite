@@ -167,7 +167,7 @@ th, td {
 .btn-remove {
   background-color: white;
   border: 2px solid white;
-  color: red;
+  color: gray;
   padding: 0px;
   font-size: 20px;
   cursor: pointer;
@@ -177,8 +177,8 @@ th, td {
 }
 
 .btn-remove:hover {
-  border-radius: 10px;
-  border: 2px solid red;
+  cursor: pointer;
+  transform: scale(1.10);
 }
 
 .cart-total {
@@ -191,23 +191,6 @@ th, td {
 
 .cart-total-price {
   margin-left:0.5rem;
-}
-
-#submit-all {
-  display:flex;
-  margin:1.5rem auto 0 auto;
-  background-color: #ff5328;
-  border: none;
-  color: white;
-  padding: 12px 16px;
-  font-size: 1rem;
-  font-weight:500;
-  cursor: pointer;
-}
-
-#submit-all:hover {
-  font-size:1.1rem;
-  font-weight:520;
 }
 
 .table-detail{

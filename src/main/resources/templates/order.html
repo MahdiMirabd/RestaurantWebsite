@@ -23,19 +23,19 @@
     <header-component></header-component> <!-- custom tag created in header.js -->
     <div class="container">
         <div class="table-selection">
-            <select class="table-select">
+            <select class="data" id="data">
                 <option value="0">select your table number</option>
                 <option th:each="table : ${tables}" th:value="${table.id}" th:text="${table.id}"></option>
             </select>
-            <button type="submit" class="table-btn">register</button>
+            <button type="button" class="table-btn" onclick="setTable(data.value)">register</button>
         </div>
         <div class="table-detail">
             <h2>Table Number:&nbsp </h2>
             <h2 class="table-id"></h2>
         </div>
         <br/>
-        <form action="help" class="waiter-alert" method="POST" th:action="@{/order/clientHelp}"  >
-            <input type="hidden" id = tablenumber name="tableNo" class="tbl-no" value="30"/>
+        <form action="help" class="waiter-alert" method="POST" th:action="@{/order}"  >
+            <input type="hidden" id="table-num" name="tableNo" class="tbl-no" th:value="${tableNo}"/>
             <input type="hidden" value="Needs help"  name="message"/>
             <button type="submit" value="Call The Waiter" class="help-button"><i class="fa fa-bell"></i>&nbsp;Call the waiter</button>
         </form>
@@ -116,7 +116,7 @@
                 <span class="cart-total-price">£0.00</span>
             </div>
             <div class="submit-button">
-                <button id="submit-all" class="btn btn-info">Submit</button>
+                <button id="submit-all" class="table-btn">Submit</button>
             </div>
         </div>
     </div>
