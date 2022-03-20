@@ -14,7 +14,9 @@ import java.util.List;
  */
 @Service
 public class NotificationService {
-
+    /**
+     * An instance of the notification repository.
+     */
     @Autowired
     NotificationRepository notificationRepository;
 

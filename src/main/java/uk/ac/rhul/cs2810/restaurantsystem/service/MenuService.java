@@ -13,6 +13,9 @@ import java.util.List;
  */
 @Service
 public class MenuService {
+    /**
+     * An instance of the menu repository.
+     */
     @Autowired
     private MenuRepository menuRepository;
 
@@ -35,5 +38,14 @@ public class MenuService {
      */
     public void changeAvailability(Long id, Boolean availability) {
         menuRepository.changeAvailability(id, availability);
+    }
+
+    /**
+     * Gets all menu items in the database.
+     *
+     * @return a list of all menu items
+     */
+    public List<Menu> findAll() {
+        return menuRepository.findAll();
     }
 }

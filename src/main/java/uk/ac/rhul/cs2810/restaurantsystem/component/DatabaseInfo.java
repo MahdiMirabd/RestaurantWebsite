@@ -13,12 +13,24 @@ import uk.ac.rhul.cs2810.restaurantsystem.repository.TableRepository;
  */
 @Component
 public class DatabaseInfo implements CommandLineRunner {
+    /**
+     * An instance of the table repository.
+     */
     @Autowired
     TableRepository tableRepository;
 
+    /**
+     * An instance of the menu repository.
+     */
     @Autowired
     MenuRepository menuRepository;
 
+    /**
+     * Executes commands on the command line.
+     *
+     * @param args the commands to be run
+     * @throws Exception if the commands cannot be executed
+     */
     @Override
     public void run(String... args) throws Exception {
         if(tableRepository.count() == 0) {
@@ -48,6 +60,9 @@ public class DatabaseInfo implements CommandLineRunner {
         }
     }
 
+    /**
+     * Insert Menu items into the database.
+     */
     public void insertMenuItems() {
         Menu burrito = new Menu(1,"Burrito",20.5f, 90, "beef, cheese and spicy rice, beans",
                 "Gluten, Milk, Celery, Soy", "/img/burrito.jpg", true );
