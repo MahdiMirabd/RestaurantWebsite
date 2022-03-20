@@ -1,13 +1,5 @@
-DROP TABLE IF EXISTS menu, allergen CASCADE;
+DROP TABLE IF EXISTS menu CASCADE;
 
-CREATE TABLE allergen (
-    name VARCHAR (50) NOT NULL PRIMARY KEY,
-    description VARCHAR(100) NOT NULL
-);
-CREATE TABLE tables (
-    id SERIAL PRIMARY KEY,
-    available BOOLEAN NOT NULL
-);
 CREATE TABLE menu (
     id SERIAL PRIMARY KEY,
     name VARCHAR (50) NOT NULL,
@@ -26,20 +18,3 @@ VALUES  ('Burrito', 20.50, 90, 'beef, cheese and spicy rice, beans', ARRAY ['Glu
         ('Quesadilla', 13, 80, 'chicken, cheese', ARRAY ['Gluten','Mustard','Milk'], '/img/quesadilla.jpg', TRUE),
         ('Fajita', 14, 80, 'chicken, cheese, salad, sour cream', ARRAY ['Gluten','Mustard','Milk'], '/img/fajita.jpg', TRUE),
         ('Enchilada', 12, 80, 'beef, cheese, salad', ARRAY ['Gluten','Soy','Milk'], '/img/enchiladas.jpg', TRUE);
-
-
-INSERT INTO allergen(name, description)
-VALUES  ('Celery', 'Contains Celery'),
-        ('Gluten', 'Contains Gluten'),
-        ('Crustaceans', 'Contains Shell Fish' ),
-        ('Eggs', 'Contains Eggs'),
-        ('Fish', 'Contains Fish'),
-        ('Lupin', 'Contains Lupin'),
-        ('Milk', 'Dairy Product'),
-        ('Molluscs', 'Contains Troponin'),
-        ('Mustard', 'Contains Sin a 1 in Yellow Mustard, Bra j 1 in Brown Mustard'),
-        ('Nuts', 'Contains nuts'),
-        ('Peanuts', 'Contains peanuts'),
-        ('Sesame Seeds', 'Contains Sesame Seed'),
-        ('Soya', 'Contains Soy'),
-        ('Sulphites', 'Contains Sulphur Dioxide');
