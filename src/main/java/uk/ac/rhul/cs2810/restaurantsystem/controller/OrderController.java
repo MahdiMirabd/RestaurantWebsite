@@ -14,6 +14,7 @@ import uk.ac.rhul.cs2810.restaurantsystem.repository.OrderRepository;
 import uk.ac.rhul.cs2810.restaurantsystem.service.MenuService;
 import uk.ac.rhul.cs2810.restaurantsystem.service.NotificationService;
 import uk.ac.rhul.cs2810.restaurantsystem.service.OrderService;
+import uk.ac.rhul.cs2810.restaurantsystem.service.TableService;
 
 
 /**
@@ -38,6 +39,9 @@ public class OrderController {
     @Autowired
     private NotificationService notificationService;
 
+    @Autowired
+    private TableService tableService;
+
     /**
      * Finds all menu items with availability set to true.
      *
@@ -47,6 +51,7 @@ public class OrderController {
     @RequestMapping(value = "/order", method = RequestMethod.GET)
     public String findAvailableItems(Model model) {
         model.addAttribute("items", menuService.findItems(true));
+        model.addAttribute("tables", tableService.findAvailableTable(true));
         return "order";
     }
 

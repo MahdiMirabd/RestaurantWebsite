@@ -20,5 +20,5 @@ import uk.ac.rhul.cs2810.restaurantsystem.model.Tables;
 public interface TableRepository extends JpaRepository<Tables, Long> {
 
     @Query("SELECT t FROM tables  t WHERE t.available = :stat")
-    List<Tables> findByStatus(@Param("stat") boolean stat);
+    List<Tables> findByAvailability(@Param("stat") boolean stat);
 }

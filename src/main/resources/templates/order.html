@@ -22,7 +22,13 @@
 <body>
     <header-component></header-component> <!-- custom tag created in header.js -->
     <div class="container">
-
+        <div class="table-selection">
+            <select class="table-select">
+                <option value="0">select your table number</option>
+                <option th:each="table : ${tables}" th:value="${table.id}" th:text="${table.id}"></option>
+            </select>
+            <button type="submit" class="table-btn">register</button>
+        </div>
         <div class="table-detail">
             <h2>Table Number:&nbsp </h2>
             <h2 class="table-id"></h2>
