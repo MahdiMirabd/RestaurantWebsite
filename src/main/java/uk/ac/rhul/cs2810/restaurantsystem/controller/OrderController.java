@@ -8,9 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.view.RedirectView;
 import uk.ac.rhul.cs2810.restaurantsystem.model.Notification;
 import uk.ac.rhul.cs2810.restaurantsystem.model.Order;
-import uk.ac.rhul.cs2810.restaurantsystem.repository.MenuRepository;
-import uk.ac.rhul.cs2810.restaurantsystem.repository.NotificationRepository;
-import uk.ac.rhul.cs2810.restaurantsystem.repository.OrderRepository;
+import uk.ac.rhul.cs2810.restaurantsystem.model.Tables;
 import uk.ac.rhul.cs2810.restaurantsystem.service.MenuService;
 import uk.ac.rhul.cs2810.restaurantsystem.service.NotificationService;
 import uk.ac.rhul.cs2810.restaurantsystem.service.OrderService;
@@ -48,8 +46,22 @@ public class OrderController {
      * @param model the database table to query
      * @return a list of available menu items
      */
-    @RequestMapping(value = "/order", method = RequestMethod.GET)
-    public String findAvailableItems(Model model) {
+    @RequestMapping(value = "/order", method = {RequestMethod.GET, RequestMethod.PUT, RequestMethod.POST})
+    public String findAvailableItems(Model model, @ModelAttribute(value = "tables")
+    Tables tables, @ModelAttribute(value = "notification") Notification message) {
+        Long table = tables.getId();
+        if (table != null) {
+
+            tableService.changeTableAvailability(false, table);
+            model.addAttribute("tableNo", table);
+        }
+
+       /* Long tableNum = message.getId();
+        if (tableNum != null) {
+            notificationService.addClientRequest(message);
+        }
+        */
+
         model.addAttribute("items", menuService.findItems(true));
         model.addAttribute("tables", tableService.findAvailableTable(true));
         return "order";

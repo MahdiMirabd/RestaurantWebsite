@@ -270,3 +270,13 @@ th, td {
 .order-help {
   display: inline-block;
 }
+
+select {
+  width: 20%;
+  height: 5%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
