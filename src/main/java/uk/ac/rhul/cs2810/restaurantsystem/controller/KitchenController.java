@@ -55,7 +55,8 @@ public class KitchenController {
      */
     @RequestMapping(value = "/kitchen/orderReady/{id}" , method = {RequestMethod.GET, RequestMethod.PUT})
     public RedirectView changeStatus(@PathVariable long id) {
-        Order order = orderService.updateOrderStatus(id, "ready");
+        Order order = orderService.getById(id);
+        orderService.updateOrderStatus(order.getTableNo(), "ready");
         notificationService.insertNotification("order is ready", order);
         return new RedirectView("/kitchen");
     }
