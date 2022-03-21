@@ -31,7 +31,7 @@ class Header extends HTMLElement {
                 'a:hover {' +
                     'padding-bottom: 5px;' +
                     'box-shadow: inset 100px 0 0 0 #45a049;' +
-                    'color: white;' +
+                    'color: white !important;' +
                 '} ' +
                 '.shopping-cart-button {' +
                     'background-color: white;' +
@@ -77,19 +77,21 @@ class Header extends HTMLElement {
                     'left:20%; ' +
                     'position: absolute; ' +
                     'border-radius: 5px; ' +
-                    'color: green; ' +
+                    'color: green ; ' +
                     'display:block;' +
                     'flex-wrap: nowrap;'+
                 '}' +
 
+                'Logo:hover{color: white !important;}'+
+
                 '.shop-cart{ border: solid;}'+
-                '@media only screen and (max-width: 1200px) {a{font-size:20px;}}' +
-                '@media only screen and (max-width: 1000px) {Logo{left:100%;}}' +
+                '@media only screen and (max-width: 1450px) {a{font-size:20px;}}' +
+                '@media only screen and (max-width: 1450px) {Logo{left:100%;}}' +
             '</style> ' +
             '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">' +
             '<header> ' +
                 '<nav> ' +
-                '<h1 class = "Logo"><a style="border: 2px solid red;" href="/">Oaxaca</a> </h1>' +
+                '<h1 class = "Logo"><a style="border: 2px solid red; color: green;" href="/">Oaxaca</a> </h1>' +
                     '<ul>' +
                         '<li><a href="/">Home</a></li>' +
                         '<li><a href="/menu">Menu</a></li>' +
