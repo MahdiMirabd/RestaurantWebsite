@@ -1,3 +1,4 @@
+/* styling for the animated title sequence */
 .typewriter {
   font-family: 'Helvetica Neue', sans-serif;
   text-align:center;
@@ -17,37 +18,30 @@
   position: relative;
 }
 
-@keyframes typing {
-  from { 
-      width: 0% 
+  /* animation effects to simulate keyboard typing of the title */
+  @keyframes typing {
+    from { 
+        width: 0% 
+    }
+    to { 
+        width: 100% 
+    }
   }
-  to { 
-      width: 100% 
-  }
-}
 
-@keyframes blink {
-  from, to { 
-      border-color: transparent 
+  @keyframes blink {
+    from, to { 
+        border-color: transparent 
+    }
+    50% { 
+        border-color: orange; 
+    }
   }
-  50% { 
-      border-color: orange; 
-  }
-}
 
 * {
   box-sizing: border-box;
 }
 
-input[type=text], select, textarea {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid #ccc;
-  margin-top: 6px;
-  margin-bottom: 16px;
-  resize: vertical;
-}
-
+/* styling for the homepages 'center piece' */
 .column {
   float: left;
   width: 50%;
@@ -57,6 +51,7 @@ input[type=text], select, textarea {
 
 }
 
+/* row: container for the 'center piece' */
 .row:after {
   content: "";
   display: table;
@@ -76,9 +71,11 @@ h1 {
   line-height: 1;
   text-align: center;
 }
+
 #order-btn {
   color: #111;
 }
+
 #text-section {
   background-color: #c62828;
   height:520px;
@@ -90,14 +87,12 @@ h1 {
   height:300px;
   border-radius: 2%;
 }
+
 #order-now {
   justify-content: right;
 }
 
-* {
-  box-sizing: border-box;
-}
-
+/* styling for definition of various input types */
 input[type=text], select, textarea {
   width: 100%;
   padding: 12px;
@@ -119,6 +114,10 @@ input[type=submit]:hover {
   background-color: #45a049;
 }
 
+/* styling for the contact us container that has very large  
+  padding to separate it from the main focal point of the 
+  home page while still being a primary thing that the 
+  customer can access */
 .contact-us {
   margin-top: 275px;
   margin-bottom: 150px;
@@ -139,4 +138,3 @@ input[type=submit]:hover {
   display: table;
   clear: both;
 }
-

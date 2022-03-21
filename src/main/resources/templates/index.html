@@ -18,12 +18,12 @@
     <header-component></header-component> <!-- custom tag created in header.js -->
     <br/>
     <div class="container">
+      <!-- an animated title sequence that plays on page load -->
         <div class="typewriter">
             <div class="typewriter-text">Welcome to Oaxaca!</div>
         </div>
-
-
         <div class="row">
+          <!-- contains an image of our food (left) and an 'order now' button that redirects to /order -->
             <div  class="column" id="home-image">
             </div>
             <div class="column" >
@@ -33,8 +33,7 @@
                 </form>
             </div>
         </div>
-
-          
+    <!-- contact us form -->
     <div class="contact-us">
       <div style="text-align:center">
         <h2><strong>Contact Us</strong></h2>
@@ -42,6 +41,7 @@
       </div>
       <div class="c-row">
         <div class="column">
+            <!-- using Google maps embed to show the business itself -->
             <iframe 
               width="540" 
               height="490" 
@@ -51,15 +51,19 @@
               title="Oaxaca Popup"
               src="https://www.google.com/maps/embed?pb=!4v1645642023915!6m8!1m7!1s6gV302mHOQ1pXKMAvJBjVw!2m2!1d51.42746659047073!2d-0.5635286935358863!3f128.30255525807638!4f1.012565130980832!5f0.7820865974627469">
           </iframe>
+          <!-- caption of iframe embed -->
           <p align:left><small> Popup at Royal Holloway Students Union</small></p>
         </div>
         <div class="column">
-          <form action="/replace-me">
+          <!-- no action has been implemented as of yet, for now it is proof of concept -->
+          <form method="post" onsubmit="reload()">
+            <!-- query form for customer to fill out -->
             <label for="first-name">First Name</label>
             <input type="text" id="fname" name="firstname" placeholder="Your name..">
             <label for="email">E-mail</label>
             <input type="text" id="email" name="email" placeholder="Your e-mail address..">
             <label for="subject">Subject</label>
+            <!-- subject of enquiry with a dropdown list of options, or 'other'-->
             <select id="subject" name="subject">
               <option value="booking">Booking</option>
               <option value="menu">Menu</option>
@@ -72,6 +76,7 @@
             </select>
             <label for="details">Details</label>
             <textarea id="details" name="details" placeholder="Write something.." style="height:170px"></textarea>
+            <!-- form submit reloads page -->
             <input type="submit" value="Submit">
           </form>
         </div>
