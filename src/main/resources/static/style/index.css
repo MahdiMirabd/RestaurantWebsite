@@ -2,6 +2,7 @@
   font-family: 'Helvetica Neue', sans-serif;
   text-align:center;
   position: relative;
+  padding-top: 200px;
 }
 
 .typewriter-text {
@@ -62,6 +63,11 @@ input[type=text], select, textarea {
   clear: both;
 }
 
+.row {
+  text-align: center;
+  padding-top: 90px;
+}
+
 h1 {
   font-family: 'Helvetica Neue', sans-serif;
   font-size: 70px;
@@ -82,10 +88,55 @@ h1 {
 #home-image {
   background-image: url('/img/index-img.jpeg');
   height:300px;
+  border-radius: 2%;
 }
 #order-now {
   justify-content: right;
 }
 
+* {
+  box-sizing: border-box;
+}
 
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+
+input[type=submit] {
+  background-color: #04AA6D;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+.contact-us {
+  margin-top: 275px;
+  margin-bottom: 150px;
+  border-radius: 5px;
+  background-color: rgb(250, 248, 248);
+  padding: 10px;
+}
+
+.column {
+  float: left;
+  width: 50%;
+  margin-top: 6px;
+  padding: 20px;
+}
+
+.c-row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
 
