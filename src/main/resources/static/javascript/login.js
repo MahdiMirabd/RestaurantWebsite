@@ -21,15 +21,6 @@ function checkPass() {
     }
 }
 
-// $(document).ready(function(){
-//     $('#department').on('change', function(){
-//     	var demovalue = $(this).val(); 
-//         $("div.myDefaultDiv").hide();
-//         $("div.myDiv").hide();
-//         $("#show"+demovalue).show();
-//     });
-// });
-
 $(document).ready(function(){
     $('.username__option').on('change', function(){
         var demovalue = $(this).val();
