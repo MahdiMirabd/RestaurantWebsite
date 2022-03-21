@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import uk.ac.rhul.cs2810.restaurantsystem.model.Notification;
 import uk.ac.rhul.cs2810.restaurantsystem.model.Order;
-import uk.ac.rhul.cs2810.restaurantsystem.repository.NotificationRepository;
 
 import java.util.List;
 
