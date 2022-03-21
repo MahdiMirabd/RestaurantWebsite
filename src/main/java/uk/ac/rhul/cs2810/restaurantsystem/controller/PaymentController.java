@@ -26,11 +26,6 @@ public class PaymentController {
     @Autowired
     OrderService orderService;
 
-    /**
-     * An instance of the order repository.
-     */
-    @Autowired
-    OrderRepository orderRepository;
 
     /**
      * Gets the total cost of orders submitted by a table.
@@ -60,7 +55,7 @@ public class PaymentController {
     @RequestMapping(value = "payment/complete", method = {RequestMethod.GET, RequestMethod.PUT})
     public RedirectView completePayment(@ModelAttribute(value = "orders") Order order) {
         Long tableNo = order.getId();
-        orderRepository.updateOrderStatus(tableNo, "paid");
+        orderService.updateOrderStatus(tableNo, "paid");
         return new RedirectView("/payment");
     }
 }

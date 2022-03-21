@@ -74,4 +74,14 @@ public class OrderService {
     public Float getTotalCost(Long tableNo, String status) {
         return orderRepository.getTotalCost(tableNo,status);
     }
+
+    /**
+     * Updates the status of an order to paid.
+     *
+     * @param tableNo the table's order to be updated
+     * @param paid the status to be applied to the table number
+     */
+    public void updateOrderStatus(Long tableNo, String paid){
+        orderRepository.updateOrderStatus(tableNo, paid);
+    }
 }
