@@ -20,13 +20,13 @@
 <body>
 
     <header-component></header-component> <!-- custom tag created in header.js -->
-
     <div class="container">
         <div class="menu">
             <h2 class="menu-group-heading">
                 Menu
             </h2>
             <div class="menu-group" id="menu-group">
+                <!-- displays all the available menu items in the database -->
                 <div th:each="item: ${availableItems}" class="menu-item" id="menu-item">
                     <img class="menu-item-image" th:src="@{${item.image}}" alt="Menu Item"/>
                     <div class="menu-item-text">
@@ -61,6 +61,8 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- displays all the unavailable menu items in the database -->
                 <div th:each="item: ${unavailableItems}" class="menu-item" id="menu-item">
                     <img class="menu-item-image" th:src="@{${item.image}}" alt="Menu Item"/>
                     <div class="menu-item-text">
