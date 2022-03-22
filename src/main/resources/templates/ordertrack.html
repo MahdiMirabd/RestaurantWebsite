@@ -28,10 +28,9 @@
     </div>
     <div class="form-popup" id="myForm">
         <h1>Enter your table number</h1>
-        <form action="getStatus" class="form-container">    
+        <form action="getStatus" class="form-container" th:action="@{/ordertrack/getStatus}">    
           <label for="table_no"><b>Table Number</b></label>
           <input type="number" placeholder="Enter your table number" name="table" required>
-      
           <button type="submit" class="btn" onclick="closeForm()">Enter</button>
         </form>
       </div>

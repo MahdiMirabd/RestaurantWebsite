@@ -18,6 +18,7 @@ import uk.ac.rhul.cs2810.restaurantsystem.service.OrderService;
  */
 @Controller
 public class OrderTrackController {
+    
     /**
      * An instance of the order service.
      */
@@ -31,8 +32,8 @@ public class OrderTrackController {
         return modelAndView;
     }
     @RequestMapping(value = "/ordertrack/getStatus", method = RequestMethod.GET)
-    public String getStatus(Model model, @ModelAttribute(value = "table") long table) {
+    public RedirectView getStatus(Model model, @ModelAttribute(value = "table") long table) {
         model.addAttribute("table", orderService.getTableStatus(table));
-        return "status";
+        return new RedirectView("/ordertrack");
     }
 }
