@@ -10,18 +10,29 @@ import uk.ac.rhul.cs2810.restaurantsystem.model.Notification;
 import uk.ac.rhul.cs2810.restaurantsystem.model.Order;
 import uk.ac.rhul.cs2810.restaurantsystem.repository.NotificationRepository;
 import uk.ac.rhul.cs2810.restaurantsystem.repository.OrderRepository;
+import uk.ac.rhul.cs2810.restaurantsystem.service.OrderService;
 
 /**
  * Queries the backend for data to be displayed on orderTrack.html
  *
  */
 @Controller
-@RequestMapping(value = {"/ordertrack"})
 public class OrderTrackController {
-    @GetMapping(value = {""})
+    /**
+     * An instance of the order service.
+     */
+    @Autowired
+    private OrderService orderService;
+
+    @RequestMapping(value = "/ordertrack", method = RequestMethod.GET)
     public ModelAndView ordertrack() {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("ordertrack");
         return modelAndView;
+    }
+    @RequestMapping(value = "/ordertrack/getStatus", method = RequestMethod.GET)
+    public String getStatus(Model model, @ModelAttribute(value = "table") long table) {
+        model.addAttribute("table", orderService.getTableStatus(table));
+        return "status";
     }
 }

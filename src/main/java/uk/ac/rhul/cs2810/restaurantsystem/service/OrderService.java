@@ -74,4 +74,7 @@ public class OrderService {
     public Float getTotalCost(Long tableNo, String status) {
         return orderRepository.getTotalCost(tableNo,status);
     }
+    public String getTableStatus(long table) {
+        return orderRepository.findStatusByTable(table);
+    }
 }

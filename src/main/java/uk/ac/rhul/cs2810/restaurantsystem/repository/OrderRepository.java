@@ -28,6 +28,14 @@ public interface OrderRepository extends JpaRepository<Order, Long> {
      */
     @Query("SELECT order FROM orders  order WHERE order.status = :stat")
     List<Order> findOrderByStatus(@Param("stat") String stat);
+    /**
+     * Finds all orders which has a particular status.
+     *
+     * @param stat can be either pending, confirmed, ready or delivered
+     * @return orders with a particular status
+     */
+    @Query("SELECT order.status FROM orders order WHERE order.tableNo = :table")
+    String findStatusByTable(@Param("table") long table);
 
     /**
      * Gets the table Number associated with an order.

@@ -1,6 +1,7 @@
 window.onload = function() {
     openForm()
     setTime()
+    hideBackground()
   };
 var minutesLabel = document.getElementById("minutes");
 var secondsLabel = document.getElementById("seconds");
@@ -12,6 +13,11 @@ function openForm() {
 
 function closeForm() {
   document.getElementById("myForm").style.display = "none";
+  document.getElementById("container").style.display = "block";
+}
+
+function hideBackground() {
+  document.getElementById("container").style.display = "none";
 }
   function setTime() {
     ++totalSeconds;
