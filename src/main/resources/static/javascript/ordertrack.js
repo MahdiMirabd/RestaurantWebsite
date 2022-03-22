@@ -1,10 +1,18 @@
 window.onload = function() {
+    openForm()
     setTime()
   };
 var minutesLabel = document.getElementById("minutes");
 var secondsLabel = document.getElementById("seconds");
 var totalSeconds = 0;
 setInterval(setTime, 1000);
+function openForm() {
+  document.getElementById("myForm").style.display = "block";
+}
+
+function closeForm() {
+  document.getElementById("myForm").style.display = "none";
+}
   function setTime() {
     ++totalSeconds;
     secondsLabel.innerHTML = pad(totalSeconds % 60);

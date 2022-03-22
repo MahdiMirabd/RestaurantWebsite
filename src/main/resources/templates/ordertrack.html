@@ -26,6 +26,16 @@
     <div class="timer">
         <label id="minutes">00</label><p>:</p><label id="seconds">00</label>
     </div>
+    <div class="form-popup" id="myForm">
+        <h1>Enter your table number</h1>
+        <form action="/action_page.php" class="form-container">    
+          <label for="table_no"><b>Table Number</b></label>
+          <input type="number" placeholder="Enter your table number" name="table" required>
+      
+          <button type="submit" class="btn">Enter</button>
+          <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+        </form>
+      </div>
     <div class="container">
         <div class="table-detail">
             <h2>Table Number:&nbsp </h2>
@@ -36,29 +46,6 @@
             <h2 class="order-heading">
                 Order
             </h2>
-            <div class="table-div">
-                <table class="table">
-                    <tr class="table-row" th:each="item: ${items}">
-                        <td class="row-img">
-                            <img class="item-img" th:src="@{${item.image}}" />
-                        </td>
-                        <td class="row-name" th:text="${item.name}"></td>
-                        <td class="row-price" th:text="${item.price}"></td>
-                        <td>
-                            <div class="button-container">
-                                <button class="decrement-qty-btn" type="button" value="-">-</button>
-                                <input class="qty" id="item-quantity" type="text" name="quantity" min="0"
-                                    value="0"/>
-                                <button class="increment-qty-btn" type="button" value="+">+</button>
-                            </div>
-                        </td>
-                        <td>
-                            <button class="add-to-cart-btn" id="add-to-cart" value="submit">Add to cart</button>
-                        </td>
-                    </tr>
-                </table>
-            </div>
-
             <form action="help" class="waiter-alert" method="POST" th:action="@{/help}"  >
                 <input type="hidden" id = tablenumber name="tableNo" class="tbl-no" value="30"/>
                 <input type="hidden" value="Needs help"  name="message"/>
