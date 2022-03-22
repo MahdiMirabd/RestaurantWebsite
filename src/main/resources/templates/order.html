@@ -31,13 +31,13 @@
         </div>
         <div class="table-detail">
             <h2>Table Number:&nbsp </h2>
-            <h2 class="table-id"></h2>
+            <h2 class="table-id" id="table-id"></h2>
         </div>
         <br/>
-        <form action="help" class="waiter-alert" method="POST" th:action="@{/order}"  >
-            <input type="hidden" id="table-num" name="tableNo" class="tbl-no" th:value="${tableNo}"/>
+        <form action="help" class="waiter-alert" method="POST" th:action="@{/order/clientHelp}"  >
+            <input type="hidden" id="table-num" name="tableNo" class="tbl-no"/> <br/>
             <input type="hidden" value="Needs help"  name="message"/>
-            <button type="submit" value="Call The Waiter" class="help-button"><i class="fa fa-bell"></i>&nbsp;Call the waiter</button>
+            <button type="submit" id="alert-btn" value="Call The Waiter" class="help-button"><i class="fa fa-bell"></i>&nbsp;Call the waiter</button>
         </form>
         <div class="help-hover">
             <span class="helper"></span>

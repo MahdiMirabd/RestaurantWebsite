@@ -184,25 +184,18 @@ function updateCartTotal() {
 }
 
 $(document).ready(function () {
-  /*  if (typeof(Storage) !== "undefined") {
-        if (localStorage.clickcount) {
-            localStorage.clickcount = Number(localStorage.clickcount)+1;
-        } else {
-            localStorage.clickcount = 1;
-        }
-    }
-        tableNumber = localStorage.clickcount;
-        $(".table-id").text(tableNumber);
-        $(".order-heading-with-logo").show();
-        document.getElementsByClassName('table-field').value = tableNumber;
-        document.getElementsByClassName('tbl-no').value = tableNumber;*/
+   // let table = document.getElementsByClassName('table-id')
+   // let content = table.innerHTML;
+  // if (document.getElementById('table-id').innerHTML == "") {
+      //  document.getElementById('alert-btn').disabled = true;
+  // }
 });
 
 function setTable(table) {
     tableNumber = table;
     $(".table-id").text(tableNumber);
     $(".order-heading-with-logo").show();
-   // $("#table-num").val(tableNumber);
+    $("#table-num").val(tableNumber);
    // document.getElementsByClassName('table-field').value = tableNumber;
    // document.getElementsByClassName('tbl-no').value = tableNumber
     //Dom.get("gadget_url").set("value","");

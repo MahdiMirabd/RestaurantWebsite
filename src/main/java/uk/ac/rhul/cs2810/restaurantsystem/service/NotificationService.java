@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import uk.ac.rhul.cs2810.restaurantsystem.model.Notification;
 import uk.ac.rhul.cs2810.restaurantsystem.model.Order;
+import uk.ac.rhul.cs2810.restaurantsystem.repository.NotificationRepository;
 
 import java.util.List;
 
@@ -28,7 +29,7 @@ public class NotificationService {
     public void insertNotification(String message, Order order) {
         Notification notification = new Notification();
         notification.setMessage(message);
-        notification.setTableNo((int) order.getTableNo());
+        notification.setTableNo(order.getTableNo());
         notificationRepository.save(notification);
     }
 

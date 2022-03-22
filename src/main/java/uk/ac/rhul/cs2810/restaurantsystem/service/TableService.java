@@ -1,6 +1,7 @@
 package uk.ac.rhul.cs2810.restaurantsystem.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import uk.ac.rhul.cs2810.restaurantsystem.model.Tables;
 import uk.ac.rhul.cs2810.restaurantsystem.repository.TableRepository;
@@ -33,5 +34,14 @@ public class TableService {
      */
     public void changeTableAvailability(boolean available, Long table) {
         tableRepository.changeTableAvailability(available, table);
+    }
+
+    /**
+     * Gets all of the tables from the database.
+     *
+     * @return a sorted list of all the tables in the database
+     */
+    public List<Tables> findAll() {
+        return tableRepository.findAll(Sort.by(Sort.Direction.ASC, "id"));
     }
 }

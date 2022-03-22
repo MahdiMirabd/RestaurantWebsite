@@ -32,20 +32,6 @@ public class OrderService {
     }
 
     /**
-     * Updates the status of an order to an new specified status
-     *
-     * @param id the order to be updated
-     * @param status the new status to be applied to an order
-     * @return the order which has been updated.
-     */
-    /*public Order updateOrderStatus(Long id, String status) {
-        Order order = orderRepository.getById(id);
-        order.setStatus(status);
-        orderRepository.save(order);
-        return order;
-    }*/
-
-    /**
      * Deletes an order from the database.
      *
      * @param id the order to be removed

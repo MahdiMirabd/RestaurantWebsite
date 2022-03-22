@@ -26,7 +26,7 @@ public class Notification {
      * The Table requesting assistance.
      */
     @Column(name = "tableNo", nullable = false)
-    private int tableNo;
+    private Long tableNo;
 
     /**
      * A generic message which will be sent to the waiter.

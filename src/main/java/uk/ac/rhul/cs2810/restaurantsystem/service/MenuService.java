@@ -1,6 +1,7 @@
 package uk.ac.rhul.cs2810.restaurantsystem.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import uk.ac.rhul.cs2810.restaurantsystem.model.Menu;
 import uk.ac.rhul.cs2810.restaurantsystem.repository.MenuRepository;
@@ -46,6 +47,6 @@ public class MenuService {
      * @return a list of all menu items
      */
     public List<Menu> findAll() {
-        return menuRepository.findAll();
+        return menuRepository.findAll(Sort.by(Sort.Direction.ASC, "name"));
     }
 }
