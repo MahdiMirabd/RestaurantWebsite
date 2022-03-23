@@ -1,3 +1,6 @@
+/**
+ * Navigation bar displayed at the top of each screen.
+ */
 class Header extends HTMLElement {
     constructor() {
         super();
@@ -105,16 +108,12 @@ class Header extends HTMLElement {
                 '</div>'+
             '</header>'
 
-          '  <script>' +
-            ' $(document).ready(function() {'+
-              '  $("#shop-cart").hide();' +
-              '   });'+
-          '  </script>';
-
     }
 }
 customElements.define('header-component', Header);
-
+/**
+ * Hides the shopping cart.
+ */
 $(document).ready(function() {
     $("#shop-cart").hide();
   });
