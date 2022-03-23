@@ -20,26 +20,28 @@
       <h1>Oaxaca Login</h1>
 
       <form> <!-- using GET method for convinience during development, change to POST -->
-        <br>
+        <br/>
         <!-- form images -->
         <!-- logo image -->
-        <div id="showZero" class="myDefaultDiv"> <img src="/main/resources/static/img/logo.jpg" alt="default" th:src="@{img/logo.jpg}"> </div>
-        <div id="showZero" class="myDiv"> <img src="/main/resources/static/img/logo.jpg" alt="default" th:src="@{img/logo.jpg}"> </div>
+        <div id="showZero" class="logo-image"> <img src="/main/resources/static/img/logo.jpg" alt="default" th:src="@{img/logo.jpg}"> </div>
         <!-- image of waiter -->
-        <div id="showOne" class="myDiv"> <img src="/main/resources/static/img/icon-01.png" alt="waiter" th:src="@{img/icon-01.png}"> </div>
+
+        <div id="showOne" class="images"> <img src="/main/resources/static/img/icon-01.png" alt="waiter" th:src="@{img/icon-01.png}"> </div>
         <br/>
         <!-- image of kitchen staff -->
-        <div id="showTwo" class="myDiv"> <img src="/main/resources/static/img/icon-02.jpg" alt="kitchen" th:src="@{img/icon-02.jpg}">  </div>
-        <br>
+        <div id="showTwo" class="images"> <img src="/main/resources/static/img/icon-02.jpg" alt="kitchen" th:src="@{img/icon-02.jpg}">  </div>
+        <br/>
         <!-- radio buttons for user selection -->
-        <div class="username">
+        <div class="user">
           <input class="username__option" type="radio"  name="myUsername" value="One" id="myUsername1">
           <label class="username__label" for="myUsername1" >Waiter</label>
           <input class="username__option" type="radio"  name="myUsername" value="Two" id="myUsername2">
           <label class="username__label" for="myUsername2" >kitchen</label>
         </div>
-        <br>
+        <br/>
         <input type="password" id="pass" placeholder="Password">
+        <br/>
+        <br/>
         <input type="button" class="table-btn" value="Login" onclick="checkPass();"/>
       </form>
     </div>

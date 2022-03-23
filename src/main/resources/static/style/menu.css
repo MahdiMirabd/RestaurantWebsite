@@ -1,9 +1,10 @@
+/* Text style for menu */
 .menu {
     font-family: "Inter", sans-serif;
     font-size: 14px;
 }
 
-
+/* Menu Items section format */
 .menu-group {
     display: grid;
     grid-template-columns: 1fr;
@@ -11,10 +12,12 @@
     padding: 1.5em 0;
 }
 
+/* Menu  items */
 .menu-item {
     display: flex;
 }
 
+/* Images for each menu items */
 .menu-item-image {
     width: 80px;
     height: 80px;
@@ -23,15 +26,19 @@
     margin-right: 1.5em;
 }
 
+/* Section containing details for each food items */
 .menu-item-text {
     flex-grow: 1;
 }
 
+/* Contains item name and price */
 .menu-item-heading {
     display: flex;
     justify-content: space-between;
     margin: 0;
 }
+
+/*  name of the menu item */
 .menu-item-name {
     margin-right: 1.5em;
 }
@@ -41,16 +48,19 @@
     line-height: 1.6;
 }
 
+/* calorie and allergen information */
 p {
     margin-top: 0;
     margin-bottom: 0;
 }
 
+/* display elements in these sections inline */
 .calories, .allergens, .ingredients{
     display: flex;
 
 }
 
+/* Resizes the menu and reorder the page when it is minimised or maximised */
 @media screen and (min-width: 992px) {
     .menu {
         font-size: 16px;
@@ -64,32 +74,6 @@ p {
         width: 150px;
         height: 150px;
     }}
-
-.filter-btn {
-    white-space: nowrap;
-    text-align: center;
-    background-color: white;
-    border: 2px solid rgb(23, 194, 63);
-    color: rgb(23, 194, 63);
-    padding: 12px 16px;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 12px;
-    position: absolute;
-    right: -180px;
-    top: -5px;
-}
-
-.filter-btn:hover {
-    background-color: rgb(23, 194, 63);
-    color: white;
-}
-
-.filtering-options {
-    position: absolute;
-    right: 650px;
-    top: 80px;
-}
 
 *,
 *::before,

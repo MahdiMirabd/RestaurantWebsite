@@ -1,15 +1,18 @@
+/* content of the page */
 body{
-  margin: 0 auto 0 auto;  
-  width:100%; 
+  margin: 0 auto 0 auto;
+  width:100%;
   text-align:center;
-  margin: 20px 0px 20px 0px;   
+  margin: 20px 0px 20px 0px;
 }
 
+/* heading text */
 h1{
   font-size:1.5em;
   color:#525252;
 }
 
+/* box which contain login content */
 .login-container{
   background:white;
   width:350px;
@@ -26,10 +29,7 @@ h1{
   bottom: 0;
 }
 
-input[type=password]::before, input[type=text]::before {
-  content: "\A";
-}
-
+/* The input fields on the page */
 input[type=password], input[type=text] {
   border-radius:10px;
   background:#ecf0f1;
@@ -41,65 +41,50 @@ input[type=password], input[type=text] {
   transition: 0.25s;
 }
 
+/* Stretch the input fields on focus */
 input[type=password]:focus, input[type=text]:focus {
   width: 180px;
 }
 
-input[type=button] {
-  background:#2ecc71;
-  width:260px;
-  padding-top:5px;
-  padding-bottom:5px;
-  color:white;
-  border-radius:4px;
-  border: #45a049 1px solid;
-  margin-top:25px;
-  margin-bottom:20px;
-  float:center;
-  font-weight:800;
-  font-size:0.8em;
-}
-
-input[type=button]:hover {
-  background-color: #45a049;
-  font-size:0.83em;
-  width:270px;
-}
-
-.myDiv{
+/* All images used on the page */
+.images{
 	display:none;
     text-align:center;
-}  
+}
 
-.myDefaultDiv {
+/* The logo images container */
+.logo-image {
   text-align: center;
 }
 
-.myDefaultDiv img{
+/* the logo image */
+.logo-image img {
   margin: 0 auto;
   width: 150px;
   height: 150px;
 }
 
-.myDiv img{
+/* all images on the web page */
+.images img{
   margin: 0 auto;
   width: 150px;
   height: 150px;
 }
 
-.username {
+/* section with radio buttons to select the user */
+.user {
   display:inline-flex;
   overflow: hidden;
   border-radius: 12px;
-/*   border: 1px solid dodgerblue; */
-/*   box-shadow: 0 0 3px black; */
   margin-bottom: 15px;
 }
 
+/* hide all input fields with this class name on web page */
 .username__option {
   display:none;
 }
 
+/* The label displayed on radio buttons for user selection */
 .username__label {
   padding: 8px 14px;
   font-size: 0.9em;
@@ -108,20 +93,21 @@ input[type=button]:hover {
   cursor: pointer;
   transition: 0.25s;
 }
-
+/* waiter radio button */
 .username__label:first-of-type {
-/*   border-right:1px solid dodgerblue; #006B56; */
   border: 1px solid #ccc;
   border-top-left-radius: 12px;
   border-bottom-left-radius: 12px;
 }
+
+/* kitchen radio button */
 .username__label:last-of-type {
-/*   border-right:1px solid dodgerblue; #006B56; */
   border: 1px solid #ccc;
   border-top-right-radius: 12px;
   border-bottom-right-radius: 12px;
 }
 
+/* Selected radio button */
 .username__option:checked + .username__label {
   background: #c6c6c6;
 

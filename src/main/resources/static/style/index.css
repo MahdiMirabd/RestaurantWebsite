@@ -32,7 +32,7 @@
   box-sizing: border-box;
 }
 
-/* Style for input fields on the contact form */
+/* Input fields on the contact form */
 input[type=text], select, textarea {
   width: 100%;
   padding: 12px;
@@ -59,7 +59,7 @@ input[type=text], select, textarea {
   clear: both;
 }
 
-/* Style for section header text eg. contact us */
+/* Section header text eg. contact us */
 h1 {
   font-family: 'Helvetica Neue', sans-serif;
   font-size: 70px;
@@ -68,7 +68,7 @@ h1 {
   line-height: 1;
   text-align: center;
 }
-/* Style for order button heading text */
+/* Order button heading text */
 #order-text {
   color: #111;
 }
