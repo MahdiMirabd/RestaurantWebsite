@@ -17,11 +17,11 @@ th, td {
 }
 
 .item-img {
-    width: 80px;
-    height: 80px;
-    flex-shrink: 0;
-    object-fit: cover;
-    margin-right: 1.5em;
+  width: 80px;
+  height: 80px;
+  flex-shrink: 0;
+  object-fit: cover;
+  margin-right: 1.5em;
 }
 
 .order-heading {
@@ -89,8 +89,6 @@ th, td {
   display:inline-block;
   height:100%;
   vertical-align:middle;
-  align-items: center;
-  align-self: center;
 }
 
 .popupCloseButton, .popup-close-button {
@@ -283,8 +281,10 @@ select {
   resize: vertical;
 }
 
-
 hr.rounded {
   border-top: 4px solid #bbb;
   border-radius: 5px;
 }
+
+
+

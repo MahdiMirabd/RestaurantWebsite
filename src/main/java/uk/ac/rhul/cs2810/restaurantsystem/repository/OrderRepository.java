@@ -52,7 +52,7 @@ public interface OrderRepository extends JpaRepository<Order, Long> {
      * Updates the status of an order from delivered to paid.
      *
      * @param tableNo the table number for which payment is maid
-     * @param paid the status to be applied to the order in the database
+     * @param stat the status to be applied to the order in the database
      */
     @Transactional
     @Modifying

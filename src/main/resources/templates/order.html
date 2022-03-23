@@ -47,36 +47,31 @@
         <div class="help-hover">
             <span class="helper"></span>
             <div>
-                <div class="popup-close-button">&times;</div>
-                <p><strong><u>How to Order:</u></strong>
-                    <br/>
-                    To start your order you first need to <strong>add items to your cart</strong>.
-                    <br/>
-                    Simply select the item you want - a Burrito for example.
-                    <br/>
-                    Then select the quantity using the <strong>'+'</strong> buttons - for example 2 for your party.
-                    <br/>
-                    When it all looks good and your whole table has ordered, press <strong>add to cart</strong>.
-                    <br/><br/>
-                    To finalise your order press the <strong>cart icon</strong> and check over your order then press <strong>submit</strong>.
-                    Your order will then be sent to the kitchen and you can check the status of
-                    your order by <strong>calling a waiter</strong> who can assist you.
-                    <br/><br/>
-                    --TEST IMAGE--
-                    <br/>
-                    <img src="/main/resources/static/img/logo.jpg" alt="default" th:src="@{img/instruction_01.png}" height="74.26px" width="575px">
-                    <br/>
-                    <img src="/main/resources/static/img/logo.jpg" alt="default" th:src="@{img/instruction_02.png}" height="74.26px" width="575px">
-                    <br/>
-                    <img src="/main/resources/static/img/logo.jpg" alt="default" th:src="@{img/instruction_03.png}" height="200px" width="112px">
-                    <img src="/main/resources/static/img/logo.jpg" alt="default" th:src="@{img/instruction_04.png}" height="200px" width="262.91px">
+                <div class="popup-close-button">&times</div>
+                <strong>Step 1:</strong>
+                <hr class="rounded">
+                <img src="/main/resources/static/img/logo.jpg" alt="default" th:src="@{img/instruction_01.png}" height="74.26px" width="575px">
+                <br/>
+                <strong>Step 2:</strong>
+                <hr class="rounded">
+                <img src="/main/resources/static/img/logo.jpg" alt="default" th:src="@{img/instruction_02.png}" height="74.26px" width="575px">
+                <br/>
+                <strong>Step 3 & 4:</strong>
+                <hr class="rounded">
+                <img src="/main/resources/static/img/logo.jpg" alt="default" th:src="@{img/instruction_03.png}" height="200px" width="112px">
+                <img src="/main/resources/static/img/logo.jpg" alt="default" th:src="@{img/instruction_04.png}" height="200px" width="262.91px">
+                <hr class="rounded">
                 </p>
             </div>
         </div>
-        <form>
+        <form class="order-help" > <!-- How to order button -->
             <button type="button" value="How To Order" class="help-button"><i class="fa fa-question-circle" style="font-size:30px; color:red;"></i>&nbsp;How to order</button>
         </form>
-        <br/>
+        <div class="cart-heading">
+        </div>
+    </div>
+    </div>
+    </div>
         <br/>
         <!-- order form where the user selects their order -->
         <div class="order-heading-with-logo">
