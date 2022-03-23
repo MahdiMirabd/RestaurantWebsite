@@ -81,7 +81,7 @@
                                 <img class="item-img" th:src="@{${item.image}}" />
                             </td>
                             <td class="row-name" th:text="${item.name}"></td>
-                            <td class="row-price" th:text="${item.price}"></td>
+                            <td class="row-price" th=:inline="text">£[[${item.price}]]</td>
                             <td>
                                 <div class="button-container">
                                     <button class="decrement-qty-btn" type="button" value="-">-</button>

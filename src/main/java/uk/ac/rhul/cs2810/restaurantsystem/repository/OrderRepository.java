@@ -7,6 +7,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import uk.ac.rhul.cs2810.restaurantsystem.model.Order;
+import uk.ac.rhul.cs2810.restaurantsystem.model.Tables;
 
 import java.util.List;
 /**
@@ -26,7 +27,7 @@ public interface OrderRepository extends JpaRepository<Order, Long> {
      * @param stat can be either pending, confirmed, ready or delivered
      * @return orders with a particular status
      */
-    @Query("SELECT order FROM orders  order WHERE order.status = :stat")
+    @Query("SELECT order, table.waiter AS waiter FROM orders  order, tables table  WHERE order.status = :stat and order.tableNo = table.id")
     List<Order> findOrderByStatus(@Param("stat") String stat);
 
     /**

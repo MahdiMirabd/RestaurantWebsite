@@ -1,6 +1,8 @@
 package uk.ac.rhul.cs2810.restaurantsystem.model;
 
 import lombok.*;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
 
@@ -53,4 +55,12 @@ public class Order {
      */
     @Column(name = "orderTime", nullable = false)
     private String orderTime;
+
+    /**
+     * The table ID for which the order is placed.
+     */
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "tables.id", nullable = false)
+    private Tables table;
+
 }
