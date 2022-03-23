@@ -22,6 +22,7 @@
     <div class="container">
         <div class="menu">
             <h2 class="menu-group-heading">Menu
+                <!-- section for menu filtering -->
                 <div class="filtering-options" id="filtering-options">
                     <div class="select">
                         <select name="filters" id="filters">
@@ -46,6 +47,7 @@
                     <button class="table-btn" onclick="filterOptions(filters.value)">search</button>
                 </div>
             </h2>
+            <!-- section which displays menu items -->
             <div class="menu-group">
                 <div th:each="item: ${items}" class="menu-item" id="menu-item">
                     <img class="menu-item-image" th:src="@{${item.image}}" alt="Menu Item"/>

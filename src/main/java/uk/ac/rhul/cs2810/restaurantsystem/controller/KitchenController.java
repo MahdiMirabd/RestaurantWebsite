@@ -3,14 +3,11 @@ package uk.ac.rhul.cs2810.restaurantsystem.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
 import org.springframework.web.servlet.view.RedirectView;
-import uk.ac.rhul.cs2810.restaurantsystem.model.Notification;
-import uk.ac.rhul.cs2810.restaurantsystem.repository.NotificationRepository;
-import uk.ac.rhul.cs2810.restaurantsystem.repository.OrderRepository;
 import uk.ac.rhul.cs2810.restaurantsystem.model.Order;
 import uk.ac.rhul.cs2810.restaurantsystem.service.NotificationService;
 import uk.ac.rhul.cs2810.restaurantsystem.service.OrderService;
@@ -55,7 +52,8 @@ public class KitchenController {
      */
     @RequestMapping(value = "/kitchen/orderReady/{id}" , method = {RequestMethod.GET, RequestMethod.PUT})
     public RedirectView changeStatus(@PathVariable long id) {
-        Order order = orderService.updateOrderStatus(id, "ready");
+        Order order = orderService.getById(id);
+        orderService.updateOrderStatus(order.getTableNo(), "ready");
         notificationService.insertNotification("order is ready", order);
         return new RedirectView("/kitchen");
     }

@@ -14,7 +14,9 @@ import java.util.List;
  */
 @Service
 public class NotificationService {
-
+    /**
+     * An instance of the notification repository.
+     */
     @Autowired
     NotificationRepository notificationRepository;
 
@@ -27,7 +29,7 @@ public class NotificationService {
     public void insertNotification(String message, Order order) {
         Notification notification = new Notification();
         notification.setMessage(message);
-        notification.setTableNo((int) order.getTableNo());
+        notification.setTableNo(order.getTableNo());
         notificationRepository.save(notification);
     }
 

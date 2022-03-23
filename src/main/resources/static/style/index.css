@@ -1,11 +1,11 @@
-/* styling for the animated title sequence */
+/* Section which contains the welcome message */
 .typewriter {
   font-family: 'Helvetica Neue', sans-serif;
   text-align:center;
   position: relative;
-  padding-top: 200px;
 }
 
+/* The welcome message */
 .typewriter-text {
   text-align: center;
   overflow: hidden;
@@ -17,83 +17,22 @@
   box-sizing: border-box;
   position: relative;
 }
-
-  /* animation effects to simulate keyboard typing of the title */
-  @keyframes typing {
-    from { 
-        width: 0% 
-    }
-    to { 
-        width: 100% 
-    }
+/* Typing effect used on the welcome message */
+@keyframes typing {
+  from { 
+      width: 0% 
   }
-
-  @keyframes blink {
-    from, to { 
-        border-color: transparent 
-    }
-    50% { 
-        border-color: orange; 
-    }
+  to { 
+      width: 100% 
   }
+}
+
 
 * {
   box-sizing: border-box;
 }
 
-/* styling for the homepages 'center piece' */
-.column {
-  float: left;
-  width: 50%;
-  margin-top: 6px;
-  padding: 20px;
-  justify-content: center;
-
-}
-
-/* row: container for the 'center piece' */
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-.row {
-  text-align: center;
-  padding-top: 90px;
-}
-
-h1 {
-  font-family: 'Helvetica Neue', sans-serif;
-  font-size: 70px;
-  font-weight: bold;
-  letter-spacing: -1px;
-  line-height: 1;
-  text-align: center;
-  padding-bottom: 30px;
-}
-
-#order-btn {
-  color: #111;
-}
-
-#text-section {
-  background-color: #c62828;
-  height:520px;
-  color: white;
-}
-
-#home-image {
-  background-image: url('/img/index-img.jpeg');
-  height:300px;
-  border-radius: 2%;
-}
-
-#order-now {
-  justify-content: right;
-}
-
-/* styling for definition of various input types */
+/* Input fields on the contact form */
 input[type=text], select, textarea {
   width: 100%;
   padding: 12px;
@@ -103,39 +42,50 @@ input[type=text], select, textarea {
   resize: vertical;
 }
 
-input[type=submit] {
-  background-color: #04AA6D;
-  color: white;
-  padding: 12px 20px;
-  border: none;
-  cursor: pointer;
-}
-
-input[type=submit]:hover {
-  background-color: #45a049;
-}
-
-/* styling for the contact us container that has very large  
-  padding to separate it from the main focal point of the 
-  home page while still being a primary thing that the 
-  customer can access */
-.contact-us {
-  margin-top: 275px;
-  margin-bottom: 150px;
-  border-radius: 5px;
-  background-color: rgb(250, 248, 248);
-  padding: 10px;
-}
-
+/* Separates a div into 2 columns */
 .column {
   float: left;
   width: 50%;
   margin-top: 6px;
   padding: 20px;
+  justify-content: center;
+
 }
 
-.c-row:after {
+/* Separates a div into two rows */
+.row:after {
   content: "";
   display: table;
   clear: both;
 }
+
+/* Section header text eg. contact us */
+h1 {
+  font-family: 'Helvetica Neue', sans-serif;
+  font-size: 70px;
+  font-weight: bold;
+  letter-spacing: -1px;
+  line-height: 1;
+  text-align: center;
+}
+/* Order button heading text */
+#order-text {
+  color: #111;
+}
+
+/* Background for contact us heading section */
+#text-section {
+  background-color: #c62828;
+  height:520px;
+  color: white;
+}
+
+/* Image used on the home page*/
+#home-image {
+  background-image: url('/img/index-img.jpeg');
+  height:300px;
+}
+
+
+
+

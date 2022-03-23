@@ -4,12 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
 import org.springframework.web.servlet.view.RedirectView;
-import uk.ac.rhul.cs2810.restaurantsystem.model.Notification;
+
 import uk.ac.rhul.cs2810.restaurantsystem.model.Order;
-import uk.ac.rhul.cs2810.restaurantsystem.repository.NotificationRepository;
-import uk.ac.rhul.cs2810.restaurantsystem.repository.OrderRepository;
 import uk.ac.rhul.cs2810.restaurantsystem.service.NotificationService;
 import uk.ac.rhul.cs2810.restaurantsystem.service.OrderService;
 
@@ -56,7 +53,8 @@ public class WaiterController {
      */
     @RequestMapping(value = "/waiter/confirmOrder/{id}" , method = {RequestMethod.GET, RequestMethod.PUT})
     public RedirectView confirmOrder(@PathVariable long id) {
-        Order order = orderService.updateOrderStatus(id, "confirmed");
+        Order order = orderService.getById(id);
+        orderService.updateOrderStatus(order.getTableNo(), "confirmed");
         return new RedirectView("/waiter");
     }
 
@@ -68,7 +66,8 @@ public class WaiterController {
      */
     @RequestMapping(value = "/waiter/deliverOrder/{id}" , method = {RequestMethod.GET, RequestMethod.PUT})
     public RedirectView deliverOrder(@PathVariable long id) {
-        Order order = orderService.updateOrderStatus(id, "delivered");
+        Order order = orderService.getById(id);
+        orderService.updateOrderStatus(order.getTableNo(), "delivered");
         return new RedirectView("/waiter");
     }
 

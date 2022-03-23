@@ -32,20 +32,6 @@ public class OrderService {
     }
 
     /**
-     * Updates the status of an order to an new specified status
-     *
-     * @param id the order to be updated
-     * @param status the new status to be applied to an order
-     * @return the order which has been updated.
-     */
-    public Order updateOrderStatus(Long id, String status) {
-        Order order = orderRepository.getById(id);
-        order.setStatus(status);
-        orderRepository.save(order);
-        return order;
-    }
-
-    /**
      * Deletes an order from the database.
      *
      * @param id the order to be removed
@@ -76,12 +62,22 @@ public class OrderService {
     }
 
     /**
-     * Updates the status of an order to paid.
+     * Updates the status of an order to a specified value.
      *
-     * @param tableNo the table's order to be updated
-     * @param paid the status to be applied to the table number
+     * @param tableNo the set of orders submitted by a table to be updated
+     * @param status the value to be applied to the order
      */
-    public void updateOrderStatus(Long tableNo, String paid){
-        orderRepository.updateOrderStatus(tableNo, paid);
+    public void updateOrderStatus(Long tableNo, String status) {
+        orderRepository.updateOrderStatus(tableNo, status);
+    }
+
+    /**
+     * Gets an order by the id.
+     *
+     * @param id the order id to lookup
+     * @return the order which satisfies the order id
+     */
+    public Order getById(Long id) {
+        return orderRepository.getById(id);
     }
 }

@@ -20,17 +20,67 @@
 </head>
 
 <body>
-    <header-component></header-component> <!-- custom tag created in header.js -->
+    <!-- custom tag created in header.js -->
+    <header-component></header-component>
     <div class="container">
+        <!-- section to select table number -->
+        <div class="table-selection">
+            <select class="data" id="data">
+                <option value="0">select your table number</option>
+                <option th:each="table : ${tables}" th:value="${table.id}" th:text="${table.id}"></option>
+            </select>
+            <button type="button" class="table-btn" onclick="setTable(data.value)">register</button>
+        </div>
+        <!-- section which displays selected table number -->
         <div class="table-detail">
             <h2>Table Number:&nbsp </h2>
-            <h2 class="table-id"></h2>
+            <h2 class="table-id" id="table-id"></h2>
         </div>
+        <br/>
+        <!-- section to send a client request for help -->
+        <form action="help" class="waiter-alert" method="POST" th:action="@{/order/clientHelp}"  >
+            <input type="hidden" id="table-num" name="tableNo" class="tbl-no"/> <br/>
+            <input type="hidden" value="Needs help"  name="message"/>
+            <button type="submit" id="alert-btn" value="Call The Waiter" class="help-button"><i class="fa fa-bell"></i>&nbsp;Call the waiter</button>
+        </form>
+        <!-- help section pop-up button -->
+        <div class="help-hover">
+            <span class="helper"></span>
+            <div>
+                <div class="popup-close-button">&times;</div>
+                <p><strong><u>How to Order:</u></strong>
+                    <br/>
+                    To start your order you first need to <strong>add items to your cart</strong>.
+                    <br/>
+                    Simply select the item you want - a Burrito for example.
+                    <br/>
+                    Then select the quantity using the <strong>'+'</strong> buttons - for example 2 for your party.
+                    <br/>
+                    When it all looks good and your whole table has ordered, press <strong>add to cart</strong>.
+                    <br/><br/>
+                    To finalise your order press the <strong>cart icon</strong> and check over your order then press <strong>submit</strong>.
+                    Your order will then be sent to the kitchen and you can check the status of
+                    your order by <strong>calling a waiter</strong> who can assist you.
+                    <br/><br/>
+                    --TEST IMAGE--
+                    <br/>
+                    <img src="/main/resources/static/img/logo.jpg" alt="default" th:src="@{img/instruction_01.png}" height="74.26px" width="575px">
+                    <br/>
+                    <img src="/main/resources/static/img/logo.jpg" alt="default" th:src="@{img/instruction_02.png}" height="74.26px" width="575px">
+                    <br/>
+                    <img src="/main/resources/static/img/logo.jpg" alt="default" th:src="@{img/instruction_03.png}" height="200px" width="112px">
+                    <img src="/main/resources/static/img/logo.jpg" alt="default" th:src="@{img/instruction_04.png}" height="200px" width="262.91px">
+                </p>
+            </div>
+        </div>
+        <form>
+            <button type="button" value="How To Order" class="help-button"><i class="fa fa-question-circle" style="font-size:30px; color:red;"></i>&nbsp;How to order</button>
+        </form>
+        <br/>
+        <br/>
+        <!-- order form where the user selects their order -->
         <div class="order-heading-with-logo">
-            <!-- need to hide this div until a table number is generated -->
-            <h2 class="order-heading">
-                Order
-            </h2>
+            <h2 class="order-heading">Place an order</h2>
             <div class="table-div">
                 <table class="table">
                     <tr class="table-row" th:each="item: ${items}">
@@ -42,8 +92,7 @@
                         <td>
                             <div class="button-container">
                                 <button class="decrement-qty-btn" type="button" value="-">-</button>
-                                <input class="qty" id="item-quantity" type="text" name="quantity" min="0"
-                                    value="0"></input>
+                                <input class="qty" id="item-quantity" type="text" name="quantity" min="0" value="0"/>
                                 <button class="increment-qty-btn" type="button" value="+">+</button>
                             </div>
                         </td>
@@ -53,58 +102,9 @@
                     </tr>
                 </table>
             </div>
-            <form action="help" class="waiter-alert" method="POST" th:action="@{/order/clientHelp}"  >
-                <input type="hidden" id = tablenumber name="tableNo" class="tbl-no" value="30"/>
-                <input type="hidden" value="Needs help"  name="message"/>
-                <input type="submit" value="Call The Waiter" class="help-button"/>
-            </form>            
-            <div class="help-hover"> <!-- How to order popup -->
-                <span class="helper"></span>
-                <div class="popup-container">
-                    <div class="popup-close-button">&times;</div>
-                    <!-- The step-by-step guide on how to order in text format.
-                        Hidden to the user, kept as a reference for system use. 
-                        
-                        <p><strong><u>How to Order:</u></strong>
-                        <br/>
-                        To start your order you first need to <strong>add items to your cart</strong>.
-                        <br/>
-                        Simply select the item you want - a Burrito for example. 
-                        <br/>
-                        Then select the quantity using the <strong>'+'</strong> buttons - for example 2 for your party.
-                        <br/>
-                        When it all looks good and your whole table has ordered, press <strong>add to cart</strong>.
-                        <br/><br/>
-                        To finalise your order press the <strong>cart icon</strong> and check over your order then press <strong>submit</strong>.
-                        Your order will then be sent to the kitchen and you can check the status of
-                        your order by <strong>calling a waiter</strong> who can assist you.
-                        <br/><br/>
-                        ---->
-                        <br/>
-                        <strong>Step 1:</strong> 
-                        <hr class="rounded">
-                        <img src="/main/resources/static/img/logo.jpg" alt="default" th:src="@{img/instruction_01.png}" height="74.26px" width="575px">
-                        <br/>
-                        <strong>Step 2:</strong>
-                        <hr class="rounded">
-                        <img src="/main/resources/static/img/logo.jpg" alt="default" th:src="@{img/instruction_02.png}" height="74.26px" width="575px">
-                        <br/>
-                        <strong>Step 3 & 4:</strong>
-                        <hr class="rounded">
-                        <img src="/main/resources/static/img/logo.jpg" alt="default" th:src="@{img/instruction_03.png}" height="200px" width="112px">
-                        <img src="/main/resources/static/img/logo.jpg" alt="default" th:src="@{img/instruction_04.png}" height="200px" width="262.91px">
-                        <hr class="rounded">
-                    </p>
-                </div>
-            </div>
-            <form action="help" class="order-help" method="GET"> <!-- How to order button -->
-                <input type="button" value="How To Order" class="help-button"/>
-            </form>
-            <div class="cart-heading">
-            </div>
-            </div>
         </div>
     </div>
+    <!-- shopping cart pop-up section -->
     <div class="cart-popup">
         <span class="helper"></span>
         <div>
@@ -122,7 +122,7 @@
                 <span class="cart-total-price">£0.00</span>
             </div>
             <div class="submit-button">
-                <button id="submit-all" class="btn btn-info">Submit</button>
+                <button id="submit-all" class="table-btn">Submit</button>
             </div>
         </div>
     </div>
