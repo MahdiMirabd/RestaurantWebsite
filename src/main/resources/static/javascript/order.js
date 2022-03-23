@@ -184,11 +184,7 @@ function updateCartTotal() {
 }
 
 $(document).ready(function () {
-   // let table = document.getElementsByClassName('table-id')
-   // let content = table.innerHTML;
-  // if (document.getElementById('table-id').innerHTML == "") {
-      //  document.getElementById('alert-btn').disabled = true;
-  // }
+    $(".order-section").hide();
 });
 
 function setTable(table) {
@@ -196,6 +192,8 @@ function setTable(table) {
     $(".table-id").text(tableNumber);
     $(".order-heading-with-logo").show();
     $("#table-num").val(tableNumber);
+    $(".order-section").show();
+    $(".table-selection").hide();
    // document.getElementsByClassName('table-field').value = tableNumber;
    // document.getElementsByClassName('tbl-no').value = tableNumber
     //Dom.get("gadget_url").set("value","");
