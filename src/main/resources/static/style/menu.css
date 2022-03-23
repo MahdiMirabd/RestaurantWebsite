@@ -142,3 +142,13 @@ select:focus + .focus {
     border: 2px solid var(--select-focus);
     border-radius: inherit;
 }
+
+.table-btn, .filtering-options{
+    right: 15px;
+    display: inline-flex;
+    
+}
+
+.table-btn{
+    left: 10px;
+}
