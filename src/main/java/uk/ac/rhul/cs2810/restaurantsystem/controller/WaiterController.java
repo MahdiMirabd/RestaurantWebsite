@@ -9,6 +9,7 @@ import org.springframework.web.servlet.view.RedirectView;
 import uk.ac.rhul.cs2810.restaurantsystem.model.Order;
 import uk.ac.rhul.cs2810.restaurantsystem.service.NotificationService;
 import uk.ac.rhul.cs2810.restaurantsystem.service.OrderService;
+import uk.ac.rhul.cs2810.restaurantsystem.service.UserService;
 
 /**
  * Queries the backend for data to be displayed on the waiter.html.
@@ -28,6 +29,9 @@ public class WaiterController {
     @Autowired
     private NotificationService notificationService;
 
+    @Autowired
+    private UserService userService;
+
     /**
      * Queries the backend for all orders and alert notifications.
      *
@@ -35,14 +39,13 @@ public class WaiterController {
      * @return a list of all pending and confirmed orders as well as alerts in the database
      */
     @RequestMapping(value = "/waiter", method = RequestMethod.GET)
-    public String findAll(Model model) {
+    public void findAll(Model model) {
         model.addAttribute("pendingOrders", orderService.findOrderByStatus("pending"));
         model.addAttribute("confirmedOrders", orderService.findOrderByStatus("confirmed"));
         model.addAttribute("readyOrders", orderService.findOrderByStatus("ready"));
         model.addAttribute("deliveredOrders", orderService.findOrderByStatus("delivered"));
         model.addAttribute("alert", notificationService.findAll());
         model.addAttribute("alertCount", notificationService.getTotalNotifications());
-        return "waiter";
     }
 
     /**
