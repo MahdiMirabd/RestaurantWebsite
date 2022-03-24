@@ -1,28 +1,27 @@
 package uk.ac.rhul.cs2810.restaurantsystem.model;
 
-import lombok.*;
-
-import javax.persistence.*;
 
 /**
  * The number of tables available for seating in the restaurant.
  *
  * @author Hestre
  */
+
+import lombok.*;
+
+import javax.persistence.*;
+
 @Entity(name = "tables")
 @Table(name = "tables")
 @NoArgsConstructor
 @AllArgsConstructor
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
+@Data
 public class Tables {
     /**
      * The table's primary key.
      */
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     /**
@@ -30,4 +29,8 @@ public class Tables {
      */
     @Column(name = "available", nullable = false)
     private boolean available;
+
+    @Column(name = "waiter", nullable = false)
+    private String waiter;
+
 }

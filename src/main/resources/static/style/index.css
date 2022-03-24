@@ -1,9 +1,11 @@
+/* Section which contains the welcome message */
 .typewriter {
   font-family: 'Helvetica Neue', sans-serif;
   text-align:center;
   position: relative;
 }
 
+/* The welcome message */
 .typewriter-text {
   text-align: center;
   overflow: hidden;
@@ -15,7 +17,7 @@
   box-sizing: border-box;
   position: relative;
 }
-
+/* Typing effect used on the welcome message */
 @keyframes typing {
   from { 
       width: 0% 
@@ -25,19 +27,12 @@
   }
 }
 
-@keyframes blink {
-  from, to { 
-      border-color: transparent 
-  }
-  50% { 
-      border-color: orange; 
-  }
-}
 
 * {
   box-sizing: border-box;
 }
 
+/* Input fields on the contact form */
 input[type=text], select, textarea {
   width: 100%;
   padding: 12px;
@@ -47,6 +42,7 @@ input[type=text], select, textarea {
   resize: vertical;
 }
 
+/* Separates a div into 2 columns */
 .column {
   float: left;
   width: 50%;
@@ -56,12 +52,14 @@ input[type=text], select, textarea {
 
 }
 
+/* Separates a div into two rows */
 .row:after {
   content: "";
   display: table;
   clear: both;
 }
 
+/* Section header text eg. contact us */
 h1 {
   font-family: 'Helvetica Neue', sans-serif;
   font-size: 70px;
@@ -70,22 +68,24 @@ h1 {
   line-height: 1;
   text-align: center;
 }
-#order-btn {
+/* Order button heading text */
+#order-text {
   color: #111;
 }
+
+/* Background for contact us heading section */
 #text-section {
   background-color: #c62828;
   height:520px;
   color: white;
 }
 
+/* Image used on the home page*/
 #home-image {
   background-image: url('/img/index-img.jpeg');
   height:300px;
 }
-#order-now {
-  justify-content: right;
-}
+
 
 
 

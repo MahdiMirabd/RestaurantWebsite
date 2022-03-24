@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!-- ensure that thymeleaf is added or the data will not display on the page -->
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,29 +15,30 @@
     <title>oaxaca</title>
 </head>
 <body>
-    <header-component></header-component> <!-- custom tag created in header.js -->
+    <!-- custom tag created in header.js -->
+    <header-component></header-component>
     <br/>
     <div class="container">
+        <!-- welcome message -->
         <div class="typewriter">
             <div class="typewriter-text">Welcome to Oaxaca!</div>
         </div>
-
-
+        <!-- section with button to redirect to the order page -->
         <div class="row>">
             <div  class="column" id="home-image">
             </div>
             <div class="column" >
-                <h1 id="order-btn"> Enjoy our delicious menu</h1>
+                <h1 id="order-text"> Enjoy our delicious menu</h1>
                 <form action="/order">
-                    <button class="table-btn" id="order-now">order now</button>
+                    <button class="table-btn" id="order-btn">order now</button>
                 </form>
             </div>
         </div>
-
+        <!-- contact form -->
         <div style="text-align:center">
         </div>
           <div class="column">
-            <form action="/replace-me">
+            <form >
               <label for="fname">First Name</label>
               <input type="text" id="fname" name="firstname" placeholder="Your name..">
               <label for="email">E-mail</label>

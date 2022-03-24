@@ -13,16 +13,14 @@ import javax.persistence.*;
 @Table(name = "menu") // the name of the table in the database
 @NoArgsConstructor
 @AllArgsConstructor
-@Getter
-@Setter
-@ToString
+@Data
 public class Menu {
 
     /**
      * The table's primary key.
      */
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     /**

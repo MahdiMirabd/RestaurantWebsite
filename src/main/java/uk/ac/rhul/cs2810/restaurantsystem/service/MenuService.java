@@ -1,6 +1,7 @@
 package uk.ac.rhul.cs2810.restaurantsystem.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import uk.ac.rhul.cs2810.restaurantsystem.model.Menu;
 import uk.ac.rhul.cs2810.restaurantsystem.repository.MenuRepository;
@@ -13,6 +14,9 @@ import java.util.List;
  */
 @Service
 public class MenuService {
+    /**
+     * An instance of the menu repository.
+     */
     @Autowired
     private MenuRepository menuRepository;
 
@@ -35,5 +39,14 @@ public class MenuService {
      */
     public void changeAvailability(Long id, Boolean availability) {
         menuRepository.changeAvailability(id, availability);
+    }
+
+    /**
+     * Gets all menu items in the database.
+     *
+     * @return a list of all menu items
+     */
+    public List<Menu> findAll() {
+        return menuRepository.findAll(Sort.by(Sort.Direction.ASC, "name"));
     }
 }

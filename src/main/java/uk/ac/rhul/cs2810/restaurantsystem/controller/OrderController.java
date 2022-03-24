@@ -8,12 +8,10 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.view.RedirectView;
 import uk.ac.rhul.cs2810.restaurantsystem.model.Notification;
 import uk.ac.rhul.cs2810.restaurantsystem.model.Order;
-import uk.ac.rhul.cs2810.restaurantsystem.repository.MenuRepository;
-import uk.ac.rhul.cs2810.restaurantsystem.repository.NotificationRepository;
-import uk.ac.rhul.cs2810.restaurantsystem.repository.OrderRepository;
 import uk.ac.rhul.cs2810.restaurantsystem.service.MenuService;
 import uk.ac.rhul.cs2810.restaurantsystem.service.NotificationService;
 import uk.ac.rhul.cs2810.restaurantsystem.service.OrderService;
+import uk.ac.rhul.cs2810.restaurantsystem.service.TableService;
 
 
 /**
@@ -38,6 +36,9 @@ public class OrderController {
     @Autowired
     private NotificationService notificationService;
 
+    @Autowired
+    private TableService tableService;
+
     /**
      * Finds all menu items with availability set to true.
      *
@@ -47,6 +48,7 @@ public class OrderController {
     @RequestMapping(value = "/order", method = RequestMethod.GET)
     public String findAvailableItems(Model model) {
         model.addAttribute("items", menuService.findItems(true));
+        model.addAttribute("tables", tableService.findAll());
         return "order";
     }
 
