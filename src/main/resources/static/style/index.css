@@ -101,18 +101,6 @@ h1 {
 * {
   box-sizing: border-box;
 }
-/*Styling for the button*/
-input[type=submit] {
-  background-color: #04AA6D;
-  color: white;
-  padding: 12px 20px;
-  border: none;
-  cursor: pointer;
-}
-/*Change the background colour when hovering*/
-input[type=submit]:hover {
-  background-color: #45a049;
-}
 
 /* styling for the contact us container that has very large
   padding to separate it from the main focal point of the
