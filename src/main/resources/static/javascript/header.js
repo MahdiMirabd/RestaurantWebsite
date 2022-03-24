@@ -60,7 +60,7 @@ class Header extends HTMLElement {
                   ' -moz-border-radius: 9px;'+
                   ' border-radius: 9px;'+
                   ' }'+
-                  '/* This is responsible for the cart counter*/'
+                  '/* This is responsible for the cart counter*/' +
                   ' .label-warning[href],'+
                   ' .badge-warning[href] {'+
                     '  background-color: #c67605;'+
