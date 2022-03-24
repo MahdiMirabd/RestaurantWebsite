@@ -32,12 +32,13 @@
           <label for="table_no"><b>Table Number</b></label>
           <input type="number" placeholder="Enter your table number" name="id" required>
           <button type="submit" class="btn" onclick="closeForm()">Enter</button>
-          <h3 id="table" th=:inline="text">[[${table}]]</h3>
+          <h3 id="table" th=:inline="text"> Order Status: [[${table}]]</h3>
         </form>
       </div>
     <div class="container" id="container">
         <div class="table-detail">
             <h2>Table Number:&nbsp</h2>
+            <h2 id="table" th=:inline="text"> Order Status: [[${table}]]</h2>
             <h2 class="table-id"></h2>
         </div>
         <div class="order-heading-with-logo">
@@ -45,14 +46,6 @@
             <h2 class="order-heading">
                 Order
             </h2>
-            <form action="help" class="waiter-alert" method="POST" th:action="@{/help}"  >
-                <input type="hidden" id = tablenumber name="tableNo" class="tbl-no" value="30"/>
-                <input type="hidden" value="Needs help"  name="message"/>
-                <input type="submit" value="Call The Waiter" class="call-waiter"/>
-            </form>
-            <div class="cart-heading">
-            </div>
-            </div>
         </div>
 </body>
 </html>
