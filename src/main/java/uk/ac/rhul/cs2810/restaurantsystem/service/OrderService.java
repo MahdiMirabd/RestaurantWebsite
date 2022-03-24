@@ -87,6 +87,12 @@ public class OrderService {
     public Order getById(Long id) {
         return orderRepository.getById(id);
     }
+    /**
+     * Gets the status of a table and returns a message depending on the status
+     *
+     * @param table the table number
+     * @return a message depending on the status of the order
+     */
     public String getTableStatus(long table) {
         List<Order> orders = orderRepository.findStatusByTable(table);
         if (orders.size() > 0)  {
