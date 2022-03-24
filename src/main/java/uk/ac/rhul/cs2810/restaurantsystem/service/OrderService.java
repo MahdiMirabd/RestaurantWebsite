@@ -92,6 +92,6 @@ public class OrderService {
         if (orders.size() > 0)  {
             return orders.get(0).getStatus();
         }
-            return "null";
+            return "";
     }
 }

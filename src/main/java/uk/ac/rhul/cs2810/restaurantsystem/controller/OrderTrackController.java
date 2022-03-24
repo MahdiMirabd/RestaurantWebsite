@@ -25,7 +25,12 @@ public class OrderTrackController {
      */
     @Autowired
     private OrderService orderService;
-
+    /**
+     * Finds the status of an order given a table
+     *
+     * @param model the database table 
+     * @param table table number
+     */
     @RequestMapping(value = "/ordertrack", method = {RequestMethod.GET, RequestMethod.POST})
     public void getStatus(Model model, @ModelAttribute(value = "table") Tables table) {
         model.addAttribute("table", orderService.getTableStatus(table.getId()));

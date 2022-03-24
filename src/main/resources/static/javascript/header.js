@@ -99,6 +99,7 @@ class Header extends HTMLElement {
                         '<li><a href="/">Home</a></li>' +
                         '<li><a href="/menu">Menu</a></li>' +
                         '<li><a href="/order">Order</a></li>' +
+                        '<li><a href="/ordertrack">Order Track</a></li>' +
                         '<li><a href="/payment">Payment</a></li>'+
                         '<li class="log"><a href="/login">Login</a></li>' +
                     '</ul> ' +
