@@ -88,6 +88,10 @@ public class OrderService {
         return orderRepository.getById(id);
     }
     public String getTableStatus(long table) {
-        return orderRepository.findStatusByTable(table);
+        List<Order> orders = orderRepository.findStatusByTable(table);
+        if (orders.size() > 0)  {
+            return orders.get(0).getStatus();
+        }
+            return "null";
     }
 }
