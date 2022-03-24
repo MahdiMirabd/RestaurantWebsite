@@ -17,6 +17,9 @@ import uk.ac.rhul.cs2810.restaurantsystem.service.MenuService;
 @Controller
 public class EditMenuController {
 
+    /**
+     * An instance of the menu service.
+     */
     @Autowired
     private MenuService menuService;
 

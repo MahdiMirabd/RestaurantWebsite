@@ -28,7 +28,7 @@ public class DatabaseInfo implements CommandLineRunner {
     MenuRepository menuRepository;
 
     /**
-     * An instance of the user repository
+     * An instance of the user repository.
      */
     @Autowired
     UserRepository userRepository;
@@ -96,6 +96,10 @@ public class DatabaseInfo implements CommandLineRunner {
         menuRepository.save(fajita);
         menuRepository.save(enchilada);
     }
+
+    /**
+     * Inserts user records into the database.
+     */
     public void insertUserRecords() {
         User waiter1 = new User(1,"Waiter1", "waiter1", "WAITER");
         User waiter2 = new User(2,"Waiter2", "waiter2", "WAITER" );

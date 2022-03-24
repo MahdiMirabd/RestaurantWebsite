@@ -9,8 +9,6 @@ import uk.ac.rhul.cs2810.restaurantsystem.repository.TableRepository;
 
 import java.util.List;
 
-import javax.persistence.criteria.CriteriaBuilder.Case;
-
 /**
  * Interfaces with the Order Repository to fulfill
  * requests by the controller and return a response.

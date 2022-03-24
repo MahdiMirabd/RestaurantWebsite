@@ -30,6 +30,9 @@ public class Tables {
     @Column(name = "available", nullable = false)
     private boolean available;
 
+    /**
+     * The name of the assigned table.
+     */
     @Column(name = "waiter", nullable = false)
     private String waiter;
 
