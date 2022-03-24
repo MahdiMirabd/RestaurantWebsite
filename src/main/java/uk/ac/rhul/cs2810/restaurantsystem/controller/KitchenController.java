@@ -11,6 +11,7 @@ import org.springframework.web.servlet.view.RedirectView;
 import uk.ac.rhul.cs2810.restaurantsystem.model.Order;
 import uk.ac.rhul.cs2810.restaurantsystem.service.NotificationService;
 import uk.ac.rhul.cs2810.restaurantsystem.service.OrderService;
+import uk.ac.rhul.cs2810.restaurantsystem.service.UserService;
 
 /**
  * Queries the backend for data to be displayed on the kitchen page.
@@ -31,6 +32,9 @@ public class KitchenController {
     @Autowired
     private NotificationService notificationService;
 
+    @Autowired
+    private UserService userService;
+
     /**
      * Finds all orders with confirmed status in the database.
      *
@@ -38,9 +42,11 @@ public class KitchenController {
      * @return a list of all confirmed orders in the database
      */
     @RequestMapping(value = "/kitchen", method = RequestMethod.GET)
-    public String findConfirmedOrders(Model model) {
-        model.addAttribute("orders", orderService.findOrderByStatus("confirmed"));
-        return "kitchen";
+    public void findConfirmedOrders(Model model) {
+        // can only view the content of this page by logging in as a kitchen staff.
+        if (userService.getPermissions().equals("kitchen")) {
+            model.addAttribute("orders", orderService.findOrderByStatus("confirmed"));
+        }
     }
 
     /**

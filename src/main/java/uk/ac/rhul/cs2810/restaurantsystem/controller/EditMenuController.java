@@ -9,6 +9,7 @@ import org.springframework.web.servlet.view.RedirectView;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import uk.ac.rhul.cs2810.restaurantsystem.service.MenuService;
+import uk.ac.rhul.cs2810.restaurantsystem.service.UserService;
 
 /**
  * Queries the backend for data to be displayed on the editMenu page.
@@ -24,16 +25,24 @@ public class EditMenuController {
     private MenuService menuService;
 
     /**
+     * An instance of the user service.
+     */
+    @Autowired
+    private UserService userService;
+
+    /**
      * Gets and displays the content of editMenu.html.
      *
      * @param model - the database table being queried
      * @return the editMenu web page
      */
     @RequestMapping(value = "/editMenu", method = RequestMethod.GET)
-    public String findAll(Model model) {
-        model.addAttribute("availableItems", menuService.findItems(true));
-        model.addAttribute("unavailableItems", menuService.findItems(false));
-        return "editMenu";
+    public void findAll(Model model) {
+        //need to access this page by logging in as a waiter.
+        if (userService.getPermissions().equals("waiter")) {
+            model.addAttribute("availableItems", menuService.findItems(true));
+            model.addAttribute("unavailableItems", menuService.findItems(false));
+        }
     }
 
     /**

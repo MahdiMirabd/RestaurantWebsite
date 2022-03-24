@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
 import uk.ac.rhul.cs2810.restaurantsystem.model.Order;
@@ -40,12 +41,15 @@ public class WaiterController {
      */
     @RequestMapping(value = "/waiter", method = RequestMethod.GET)
     public void findAll(Model model) {
-        model.addAttribute("pendingOrders", orderService.findOrderByStatus("pending"));
-        model.addAttribute("confirmedOrders", orderService.findOrderByStatus("confirmed"));
-        model.addAttribute("readyOrders", orderService.findOrderByStatus("ready"));
-        model.addAttribute("deliveredOrders", orderService.findOrderByStatus("delivered"));
-        model.addAttribute("alert", notificationService.findAll());
-        model.addAttribute("alertCount", notificationService.getTotalNotifications());
+        //can only access the content of this page by logging in as a waiter.
+        if (userService.getPermissions().equals("waiter")) {
+            model.addAttribute("pendingOrders", orderService.findOrderByStatus("pending"));
+            model.addAttribute("confirmedOrders", orderService.findOrderByStatus("confirmed"));
+            model.addAttribute("readyOrders", orderService.findOrderByStatus("ready"));
+            model.addAttribute("deliveredOrders", orderService.findOrderByStatus("delivered"));
+            model.addAttribute("alert", notificationService.findAll());
+            model.addAttribute("alertCount", notificationService.getTotalNotifications());
+        }
     }
 
     /**

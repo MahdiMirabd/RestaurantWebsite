@@ -28,9 +28,9 @@ public class LoginController {
      */
     @RequestMapping(value = "/login")
     public ModelAndView loginPage() {
-        ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("login");
-        return modelAndView;
+        ModelAndView login = new ModelAndView();
+        login.setViewName("login");
+        return login;
     }
 
     /**
@@ -49,8 +49,10 @@ public class LoginController {
             String role = userService.findUserRole(user);
 
             if (role.equals("WAITER")) {
+                userService.setPermissions("waiter");
                 return new RedirectView("http://localhost:8080/waiter");
             }
+                userService.setPermissions("kitchen");
                 return new RedirectView("http://localhost:8080/kitchen");
 
         }

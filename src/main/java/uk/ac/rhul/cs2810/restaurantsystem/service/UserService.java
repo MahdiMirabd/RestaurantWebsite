@@ -13,6 +13,16 @@ public class UserService {
     @Autowired
     UserRepository userRepository;
 
+    private String permissions = " ";
+
+    public void setPermissions(String permissions) {
+        this.permissions = permissions;
+    }
+
+    public String getPermissions() {
+        return this.permissions;
+    }
+
     /**
      * Authenticates a user.
      *
