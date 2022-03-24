@@ -274,3 +274,6 @@ $(document).ready(function() {
     $("#shop-cart").show();
   });
 
+function enableButton() {
+    document.getElementById('register-btn').disabled = false;
+}

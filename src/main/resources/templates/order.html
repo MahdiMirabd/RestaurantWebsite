@@ -25,11 +25,11 @@
     <div class="container">
         <!-- section to select table number -->
         <div class="table-selection">
-            <select class="data" id="data">
+            <select class="data" id="data" onchange="enableButton()">
                 <option value="0">select your table number</option>
                 <option th:each="table : ${tables}" th:value="${table.id}" th:text="${table.id}"></option>
             </select>
-            <button type="button" class="table-btn" onclick="setTable(data.value)">register</button>
+            <button type="button" class="table-btn"  id="register-btn" onclick="setTable(data.value)" disabled="disabled">register</button>
         </div>
         <!-- section which displays selected table number -->
         <div class="order-section">
