@@ -93,7 +93,7 @@ h1 {
   border-radius: 2%;
 }
 
-
+/*Order now button*/
 #order-now {
   justify-content: right;
 }
@@ -101,7 +101,7 @@ h1 {
 * {
   box-sizing: border-box;
 }
-
+/*Styling for the button*/
 input[type=submit] {
   background-color: #04AA6D;
   color: white;
@@ -109,7 +109,7 @@ input[type=submit] {
   border: none;
   cursor: pointer;
 }
-
+/*Change the background colour when hovering*/
 input[type=submit]:hover {
   background-color: #45a049;
 }
