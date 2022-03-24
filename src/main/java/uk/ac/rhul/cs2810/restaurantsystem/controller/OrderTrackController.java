@@ -26,15 +26,8 @@ public class OrderTrackController {
     @Autowired
     private OrderService orderService;
 
-    @RequestMapping(value = "/ordertrack", method = RequestMethod.GET)
-    public ModelAndView ordertrack() {
-        ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("ordertrack");
-        return modelAndView;
-    }
-    @RequestMapping(value = "/ordertrack/getStatus", method = {RequestMethod.GET, RequestMethod.POST})
+    @RequestMapping(value = "/ordertrack", method = {RequestMethod.GET, RequestMethod.POST})
     public void getStatus(Model model, @ModelAttribute(value = "table") Tables table) {
         model.addAttribute("table", orderService.getTableStatus(table.getId()));
-        //return new RedirectView("/ordertrack");
     }
 }
