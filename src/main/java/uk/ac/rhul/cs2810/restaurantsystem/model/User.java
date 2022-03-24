@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 
 /**
- * A list of users and their roles.
+ * Table of users and their roles.
  */
 @Entity(name = "users")
 @Table(name = "users")

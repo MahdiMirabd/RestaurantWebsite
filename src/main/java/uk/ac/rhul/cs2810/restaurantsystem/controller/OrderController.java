@@ -13,7 +13,6 @@ import uk.ac.rhul.cs2810.restaurantsystem.service.NotificationService;
 import uk.ac.rhul.cs2810.restaurantsystem.service.OrderService;
 import uk.ac.rhul.cs2810.restaurantsystem.service.TableService;
 
-
 /**
  * Queries the backend for data to be displayed on the order page.
  *

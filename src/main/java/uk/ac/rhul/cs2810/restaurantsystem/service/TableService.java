@@ -8,8 +8,13 @@ import uk.ac.rhul.cs2810.restaurantsystem.repository.TableRepository;
 
 import java.util.List;
 
+/**
+ * Interfaces with the table Repository to fulfill
+ * requests by the controller and return a response.
+ */
 @Service
 public class TableService {
+
     /**
      * An instance of the table repository.
      */

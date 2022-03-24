@@ -7,7 +7,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import uk.ac.rhul.cs2810.restaurantsystem.model.Order;
-import uk.ac.rhul.cs2810.restaurantsystem.model.Tables;
+
 
 import java.util.List;
 /**

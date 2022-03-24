@@ -17,9 +17,21 @@ import uk.ac.rhul.cs2810.restaurantsystem.model.User;
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
 
+    /**
+     * Gets a user with a specific username.
+     *
+     * @param username the username to lookup
+     * @return a user with the matching username
+     */
     @Query("SELECT user FROM users user WHERE user.username = :username")
     User findByUsername(@Param("username") String username);
 
+    /**
+     * Gets the password associated with a username.
+     *
+     * @param username the username to lookup
+     * @return the password for a username
+     */
     @Query("SELECT user.password FROM users user WHERE user.username = :username")
     String findUserPassword(@Param("username") String username);
 }
