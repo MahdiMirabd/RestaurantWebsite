@@ -240,7 +240,7 @@ table {
   background-color: #ccc;
 }
 
-/* Formats the position of help popup screens */
+/* Formats the position of help popup screens and hover */
 .help-hover > div {
   background-color: #fff;
   box-shadow: 10px 10px 60px #555;
@@ -273,7 +273,7 @@ table {
   height: 30px;
   text-align: center;
 }
-/* displays call waiter button inline with help screen button */
+/* displays the alert for waiter in a line */
 .waiter-alert,
 .order-help {
   display: inline-block;
