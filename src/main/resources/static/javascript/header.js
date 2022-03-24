@@ -8,6 +8,7 @@ class Header extends HTMLElement {
     connectedCallback() {
         this.innerHTML ='' +
             '<style> ' +
+            '/* Responsible for the full header bar on each page*/'+
                 'nav {' +
                     'height: 50px;' +
                     'display:flex;' +
@@ -59,7 +60,7 @@ class Header extends HTMLElement {
                   ' -moz-border-radius: 9px;'+
                   ' border-radius: 9px;'+
                   ' }'+
-                  
+                  '/* This is responsible for the cart counter*/'
                   ' .label-warning[href],'+
                   ' .badge-warning[href] {'+
                     '  background-color: #c67605;'+
@@ -76,6 +77,7 @@ class Header extends HTMLElement {
                         'top:3px;'+
                         'right:1px;'+
                         ' }' +
+                        '/*Responsible for the logo in the corner of the header*/'+
                 '.Logo{' +
                     'left:20%; ' +
                     'position: absolute; ' +
@@ -88,6 +90,7 @@ class Header extends HTMLElement {
                 'Logo:hover{color: white !important;}'+
 
                 '.shop-cart{ border: solid;}'+
+                '/*Responsible for the resizing of the header based on the screen size*/'+
                 '@media only screen and (max-width: 1450px) {a{font-size:20px;}}' +
                 '@media only screen and (max-width: 1450px) {Logo{left:100%;}}' +
             '</style> ' +
