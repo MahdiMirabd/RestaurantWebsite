@@ -1,9 +1,14 @@
-//The total price of the order
+/* The total price of the order */
 let totalPrice = 0;
+/* The table number for an order */
 let tableNumber = 0;
-let callWaiterClicked = 0;
-// Add to cart button
-// It button will multiply the price of the item by the quantity and add it to the total price.
+
+/* Tracks the quantity selected for a menu item */
+let itemCount = 0;
+
+/**
+ * Adds  the product of the item price and quantity to the total price.
+ */
 $().ready(function () {
     $(".add-to-cart-btn").click(function (event) {
         buttonClicked = event.target;
@@ -23,6 +28,14 @@ $().ready(function () {
     });
 });
 
+/**
+ * Adds a new menu item to the shopping cart
+ *
+ * @param image the item image
+ * @param name the menu item name
+ * @param quantity the quantity selected for the item
+ * @param price the unit price of the item
+ */
 function addItemToCart(image,name, quantity, price) {
     let cartRow = document.createElement('div');
     cartRow.classList.add('cart-row');
@@ -60,6 +73,9 @@ function addItemToCart(image,name, quantity, price) {
     cartRow.getElementsByClassName('cart-quantity-input')[0].addEventListener('change', quantityChanged);
 }
 
+/**
+ * Submits an order to the backend.
+ */
 $(function() {
     $("#submit-all").click(function(){
         // all the orders in the shopping cart will have the same order time
@@ -85,13 +101,14 @@ $(function() {
         $(".btn-remove").click();
         $('.cart-popup').hide();
         alert("Your order has been placed.");
-        //window.location="ordertrack"
     });
 });
 
-// "-" button
-// It decrements the quantity of the item in that row ONLY if the integer value of quantity is bigger than 0,
-// if not then the button does nothing and the quantity value remains unchanged (0).
+/**
+ * "-" button,
+ * It decrements the quantity of the item in that row ONLY if the integer value of quantity
+ * is bigger than 0, if not then the button does nothing and the quantity value remains unchanged (0).
+ */
 $().ready(function () {
     $(".decrement-qty-btn").click(function () {
         let quantity = $(this).closest('tr').find('input.qty').val();
@@ -103,8 +120,10 @@ $().ready(function () {
     });
 });
 
-// "+" button
-// It increments the quantity of the item in that row.
+/**
+ * "+" button,
+ * It increments the quantity of the item in that row.
+ */
 $().ready(function () {
     $(".increment-qty-btn").click(function () {
         let quantity = $(this).closest('tr').find('input.qty').val();
@@ -115,8 +134,11 @@ $().ready(function () {
     });
 });
 
-// Shopping cart button
-// it displays the total price of the items added to the cart.
+
+/**
+ * Shopping cart button,
+ * it displays the total price of the items added to the cart.
+ */
 $().ready(function () {
     $(".shopping-cart-button").click(function(){
         $('.cart-popup').show();
@@ -126,7 +148,9 @@ $().ready(function () {
     });
 });
 
-//Waits for a remove button to be clicked
+/**
+ * Waits for a remove button to be clicked.
+ */
 $().ready(function() {
     let removeBtn = document.getElementsByClassName('btn-remove');
     for (let i = 0; i < removeBtn.length; i++) {
@@ -135,7 +159,9 @@ $().ready(function() {
     }
 });
 
-//checks if the menu has been updated so the price can then be updated
+/**
+ * checks if the menu has been updated so the price can then be updated
+ */
 $().ready(function() {
     let quantityInputs = document.getElementsByClassName('cart-quantity-input');
     for (let i = 0; i < quantityInputs.length; i++) {
@@ -144,14 +170,21 @@ $().ready(function() {
     }
 });
 
-//Removes an item from the cart
+/**
+ * Removes an item from the cart
+ * @param event when the user selects the trash can icon on cart.
+ */
 function removeItemFromCart(event) {
     let buttonClicked = event.target;
     buttonClicked.parentElement.parentElement.remove();
     updateCartTotal();
 }
 
-//updates total price in real time
+/**
+ * updates total price in real time.
+ *
+ * @param event when the user changes the quantity of a cart item
+ */
 function quantityChanged(event) {
     let input = event.target;
     if (isNaN(input.value) || input.value <= 0) {
@@ -160,7 +193,9 @@ function quantityChanged(event) {
     updateCartTotal();
 }
 
-//Update cart total after changes have been made
+/**
+ * Update cart total after changes have been made
+ */
 function updateCartTotal() {
     let cartItemContainer = document.getElementsByClassName('cart-items')[0];
     let cartRows = cartItemContainer.getElementsByClassName('cart-row');
@@ -183,67 +218,62 @@ function updateCartTotal() {
     $('#lblCartCount').html(itemCount).css('display', 'inline');
 }
 
+/**
+ * Hides the order form until the user selects a table number
+ */
 $(document).ready(function () {
-   // let table = document.getElementsByClassName('table-id')
-   // let content = table.innerHTML;
-  // if (document.getElementById('table-id').innerHTML == "") {
-      //  document.getElementById('alert-btn').disabled = true;
-  // }
+    $(".order-section").hide();
 });
 
+/**
+ * Sets the table number to be applied to an order
+ *
+ * @param table the table number
+ */
 function setTable(table) {
     tableNumber = table;
     $(".table-id").text(tableNumber);
     $(".order-heading-with-logo").show();
     $("#table-num").val(tableNumber);
-   // document.getElementsByClassName('table-field').value = tableNumber;
-   // document.getElementsByClassName('tbl-no').value = tableNumber
-    //Dom.get("gadget_url").set("value","");
+    $(".order-section").show();
+    $(".table-selection").hide();
 }
 
-
-function callWaiterFunction() {
-    if (callWaiterClicked == 0) {
-        document.getElementById("call-waiter").disabled = true;
-        document.getElementById("call-waiter").innerHTML = "Waiter called, please wait!";
-        callWaiterClicked++;
-        alert("Please wait until a waiter comes to see you!!");
-    }
-function postAlert(){
-    let alertMessage = `
-    <form action="waiter" class="waiter-alert" method="POST" th:action="@{/waiter}"  >
-      <p class="Table-No"><input type="hidden" value="${tableNumber}" th:field="*{tableNo}" name="tableNo"/></p>
-      <p class="Alert-Message"><input type="hidden" value="Needs help" th:field="*{message}" name="messgae"/></p>
-      <button class="order-submit-button" type="submit" value="submit"/>
-    </form>`
-    document.getElementsByClassName("alertM").innerHTML  =alertMessage;
-  
-}
-
-
-
+/**
+ * Changes the test of the "add" to cart button to "added".
+ */
 $('.add-to-cart-btn').click(function (){
   itemCount ++;
   $('#lblCartCount').html(itemCount).css('display', 'block');
-}); 
+});
 
-function myFunction() {
-    alert("Are you ready to order?");
-}
-
-}
-
+/**
+ * Displays cart and help screen when the button is clicked.
+ */
 $(".order-help").click(function(){
     $('.help-hover').show();
 });
+
+/**
+ * Hides the Help screen when the close button is selected.
+ */
 $('.help-hover').click(function(){
     $('.help-hover').hide();
 });
+
+/**
+ * The close button for pop-up boxes on the page which hides them.
+ */
 $('.popup-close-button').click(function(){
     $('.help-hover').hide();
 });
-
+/**
+ * Displays the shopping cart on this page.
+ */
 $(document).ready(function() {
     $("#shop-cart").show();
   });
 
+function enableButton() {
+    document.getElementById('register-btn').disabled = false;
+}

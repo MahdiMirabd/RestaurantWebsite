@@ -38,23 +38,18 @@
     margin: 0;
 }
 
-/*  name of the menu item */
+/*  Name of the menu item */
 .menu-item-name {
     margin-right: 1.5em;
 }
 
-
-.menu-item-description {
-    line-height: 1.6;
-}
-
-/* calorie and allergen information */
+/* Calorie and allergen information */
 p {
     margin-top: 0;
     margin-bottom: 0;
 }
 
-/* display elements in these sections inline */
+/* Display elements in these sections inline */
 .calories, .allergens, .ingredients{
     display: flex;
 
@@ -75,18 +70,14 @@ p {
         height: 150px;
     }}
 
-*,
-*::before,
-*::after {
-    box-sizing:border-box;
-}
-
+/* Input field border format for filter selection */
 :root {
     --select-border: #777;
     --select-focus: rgb(23, 194, 63);
     --select-arrow: var(--select-border);
 }
 
+/* Format menu filtering dropdown selection */
 select {
     appearance: none;
     background-color: transparent;
@@ -101,6 +92,7 @@ select {
     outline: none;
 }
 
+/* Menu filtering dropdown selection position */
 .select {
     width: 140%;
     min-width: 15ch;
@@ -119,26 +111,25 @@ select {
     position: relative;
 }
 
-.select::after {
-    content: "";
-    width: 0.8em;
-    height: 0.5em;
-    background-color: var(--select-arrow);
-    clip-path: polygon(100% 0%, 0 0%, 50% 100%);
-    justify-self: end;
-}
-
-select,
-.select:after {
-    grid-area: select;
-}
-
+/* Turns input border black when selected */
 select:focus + .focus {
     position: absolute;
     top: -1px;
     left: -1px;
     right: -1px;
     bottom: -1px;
-    border: 2px solid var(--select-focus);
+    border: 2px solid darkgrey;
     border-radius: inherit;
+}
+
+/* Place the selection dropdown and search button inline */
+.table-btn, .filtering-options{
+    right: 15px;
+    display: inline-flex;
+    
+}
+
+/* Format the position of the buttons */
+.table-btn{
+    left: 10px;
 }

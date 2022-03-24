@@ -3,6 +3,7 @@
   font-family: 'Helvetica Neue', sans-serif;
   text-align:center;
   position: relative;
+  padding-top: 200px;
 }
 
 /* The welcome message */
@@ -59,6 +60,10 @@ input[type=text], select, textarea {
   clear: both;
 }
 
+.row {
+  text-align: center;
+  padding-top: 90px;
+}
 /* Section header text eg. contact us */
 h1 {
   font-family: 'Helvetica Neue', sans-serif;
@@ -67,6 +72,7 @@ h1 {
   letter-spacing: -1px;
   line-height: 1;
   text-align: center;
+  padding-bottom: 30px;
 }
 /* Order button heading text */
 #order-text {
@@ -84,8 +90,50 @@ h1 {
 #home-image {
   background-image: url('/img/index-img.jpeg');
   height:300px;
+  border-radius: 2%;
 }
 
+#order-now {
+  justify-content: right;
+}
 
+* {
+  box-sizing: border-box;
+}
 
+input[type=submit] {
+  background-color: #04AA6D;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  cursor: pointer;
+}
 
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+/* styling for the contact us container that has very large  
+  padding to separate it from the main focal point of the 
+  home page while still being a primary thing that the 
+  customer can access */
+.contact-us {
+  margin-top: 275px;
+  margin-bottom: 150px;
+  border-radius: 5px;
+  background-color: rgb(250, 248, 248);
+  padding: 10px;
+}
+
+.column {
+  float: left;
+  width: 50%;
+  margin-top: 6px;
+  padding: 20px;
+}
+
+.c-row:after {
+  content: "";
+  display: table;
+  clear: both;
+}

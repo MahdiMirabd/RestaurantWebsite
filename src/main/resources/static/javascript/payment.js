@@ -1,3 +1,6 @@
+/**
+ * Disables the submit button if the table number input field is null.
+ */
 function check() {
     if(document.getElementById("table-number").value===""){
         document.getElementById('submit-btn').disabled = true;
@@ -6,6 +9,10 @@ function check() {
     }
 }
 
+/**
+ * Disables the payment button if the selected input fields
+ * have not been populated.
+ */
 function validate() {
     if(document.getElementById("name").value==="" ||
         document.getElementById("cardnumber").value==="" ||

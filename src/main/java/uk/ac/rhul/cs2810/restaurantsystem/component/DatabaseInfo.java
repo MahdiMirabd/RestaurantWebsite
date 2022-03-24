@@ -5,8 +5,10 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 import uk.ac.rhul.cs2810.restaurantsystem.model.Menu;
 import uk.ac.rhul.cs2810.restaurantsystem.model.Tables;
+import uk.ac.rhul.cs2810.restaurantsystem.model.User;
 import uk.ac.rhul.cs2810.restaurantsystem.repository.MenuRepository;
 import uk.ac.rhul.cs2810.restaurantsystem.repository.TableRepository;
+import uk.ac.rhul.cs2810.restaurantsystem.repository.UserRepository;
 
 /**
  * Populates specified database tables automatically.
@@ -26,6 +28,12 @@ public class DatabaseInfo implements CommandLineRunner {
     MenuRepository menuRepository;
 
     /**
+     * An instance of the user repository
+     */
+    @Autowired
+    UserRepository userRepository;
+
+    /**
      * Executes commands on the command line.
      *
      * @param args the commands to be run
@@ -38,6 +46,10 @@ public class DatabaseInfo implements CommandLineRunner {
         }
         if(menuRepository.count() == 0) {
             insertMenuItems();
+        }
+
+        if(userRepository.count() == 0) {
+            insertUserRecords();
         }
     }
 
@@ -84,4 +96,18 @@ public class DatabaseInfo implements CommandLineRunner {
         menuRepository.save(fajita);
         menuRepository.save(enchilada);
     }
+    public void insertUserRecords() {
+        User waiter1 = new User(1,"Waiter1", "waiter1", "WAITER");
+        User waiter2 = new User(2,"Waiter2", "waiter2", "WAITER" );
+        User waiter3 = new User(3,"Waiter3", "waiter3", "WAITER");
+        User kitchen = new User(4,"Kitchen", "kitchen", "KITCHEN");
+
+        userRepository.save(waiter1);
+        userRepository.save(waiter2);
+        userRepository.save(waiter3);
+        userRepository.save(kitchen);
+
+    }
+
+
 }

@@ -12,7 +12,7 @@
     <link rel="manifest" href="/img/favicon_io/site.webmanifest">
     <link rel="stylesheet"  type="text/css" href="/style/allPages.css">
     <link rel="stylesheet"  type="text/css" href="/style/waiter.css">
-    <script src="/javascript/staffHeader.js" type="text/javascript" defer></script>
+    <script src="/javascript/header.js" type="text/javascript" defer></script>
     <script src="/javascript/waiter.js" type="text/javascript" defer></script>
     <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
     <title>Waiter</title>
@@ -39,7 +39,7 @@
         </div>
         <!--The notification dropdown -->
         <div class="dropdown" id="dropdown">
-            <!-- notification drop down section -->
+            <!-- notification drop-down section -->
             <button onclick="showNotifications()" id="bell-btn" class="dropbtn"><i class="fa fa-bell"></i>&nbspNotifications</button>
             <span class="badge" id="badge" th=:inline="text">[[${alertCount}]]</span>
             <div class="dropdown-content" id="myDropdown" >
@@ -61,11 +61,12 @@
         <br/>
         <table>
             <tr>
-                <th>Table number</th>
+                <th>Table</th>
                 <th>Item</th>
                 <th>Quantity</th>
-                <th>Order times</th>
+                <th>Time</th>
                 <th>Status</th>
+                <th> Waiter</th>
                 <th>Actions</th>
             </tr>
             <!-- list all pending orders -->
@@ -75,6 +76,7 @@
                 <td th:text="${pending.quantity}"></td>
                 <td th:text="${pending.orderTime}"></td>
                 <td class="order-status" th:text="${pending.status}"></td>
+                <td th:text="${pending.table.waiter}"></td>
                 <td>
                     <form  th:action="@{/waiter/confirmOrder/{id}(id=${pending.id})}" method="PUT">
                             <input type="submit" value="&#10003; confirm" class="table-btn"/>
@@ -91,9 +93,10 @@
                 <td th:text="${confirmed.quantity}"></td>
                 <td th:text="${confirmed.orderTime}"></td>
                 <td class="order-status" th:text="${confirmed.status}"></td>
+                <td th:text="${confirmed.table.waiter}"></td>
                 <td>
                     <form  th:action="@{/waiter/cancelOrder/{id}(id=${confirmed.id})}" method="DELETE">
-                        <button type="submit" value="Delete Order" class="cancel-confirmed-order"><i class="fa fa-close"></i></button>
+                        <button type="submit" value="Delete Order" class="cancel-order"><i class="fa fa-close"></i></button>
                     </form>
                 </td>
             </tr>
@@ -104,6 +107,7 @@
              <td th:text="${ready.quantity}"></td>
              <td th:text="${ready.orderTime}"></td>
              <td class="order-status" th:text="${ready.status}"></td>
+             <td th:text="${ready.table.waiter}"></td>
              <td>
                  <form  th:action="@{/waiter/deliverOrder/{id}(id=${ready.id})}" method="PUT">
                      <button type="submit" name="deliver" class="table-btn"><i class='fa fa-send'></i>&nbspdeliver</button>
@@ -112,11 +116,13 @@
          </tr>
             <!-- list all delivered orders -->
          <tr th:each="delivered: ${deliveredOrders}">
-            <td th:text="${delivered.tableNo}"></td>
-            <td th:text="${delivered.name}"></td>
-            <td th:text="${delivered.quantity}"></td>
-            <td class="order-status" th:text="${delivered.status}"></td>
-            <td></td>
+             <td th:text="${delivered.tableNo}"></td>
+             <td th:text="${delivered.name}"></td>
+             <td th:text="${delivered.quantity}"></td>
+             <td th:text="${delivered.orderTime}"></td>
+             <td class="order-status" th:text="${delivered.status}"></td>
+             <td th:text="${delivered.table.waiter}"></td>
+             <td> </td>
          </tr>
         </table>
     </div>

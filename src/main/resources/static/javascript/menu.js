@@ -1,3 +1,9 @@
+/**
+ * Hides and show menu items based on a specified allergen,
+ * Hides all menu items that contains an allergen.
+ *
+ * @param allergy the allergen to be filtered out
+ */
 function filterOptions(allergy) {
     let divs = document.getElementsByClassName('menu-item');
 

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!-- ensure that thymeleaf is added or the data will not display on the page -->
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,12 +19,12 @@
     <header-component></header-component>
     <br/>
     <div class="container">
-        <!-- welcome message -->
+      <!-- an animated title sequence that plays on page load -->
         <div class="typewriter">
             <div class="typewriter-text">Welcome to Oaxaca!</div>
         </div>
         <!-- section with button to redirect to the order page -->
-        <div class="row>">
+        <div class="row">
             <div  class="column" id="home-image">
             </div>
             <div class="column" >
@@ -34,37 +34,55 @@
                 </form>
             </div>
         </div>
-        <!-- contact form -->
-        <div style="text-align:center">
+        <!-- contact us form -->
+               
+    <div class="contact-us">
+      <div style="text-align:center">
+        <h2><strong>Contact Us</strong></h2>
+        <p>Fill in the form below to either: <br>arrange/ammend a booking, request allergen information and more.</p>
+      </div>
+      <div class="c-row">
+        <div class="column">
+           <!-- using Google maps embed to show the business itself -->
+            <iframe 
+              width="540" 
+              height="490" 
+              style="border:0;" 
+              allowfullscreen="" 
+              loading="lazy" 
+              title="Oaxaca Popup"
+              src="https://www.google.com/maps/embed?pb=!4v1645642023915!6m8!1m7!1s6gV302mHOQ1pXKMAvJBjVw!2m2!1d51.42746659047073!2d-0.5635286935358863!3f128.30255525807638!4f1.012565130980832!5f0.7820865974627469">
+          </iframe>
+          <!-- caption of iframe embed -->
+          <p align:left><small> Popup at Royal Holloway Students Union</small></p>
         </div>
-          <div class="column">
-            <form >
-              <label for="fname">First Name</label>
-              <input type="text" id="fname" name="firstname" placeholder="Your name..">
-              <label for="email">E-mail</label>
-              <input type="text" id="email" name="email" placeholder="Your e-mail address..">
-              <label for="subject">Subject</label>
-              <select id="subject" name="subject">
-                <option value="booking">Booking</option>
-                <option value="menu">Menu</option>
-                <option value="allergens">Allergen information</option>
-                <option value="location">Location</option>
-                <option value="dress-code">Dress Code</option>
-                <option value="ammend-booking">Amend your booking</option>
-                <option value="s-requests">Special Requests</option>
-                <option value="other">Other...</option>
-              </select>
-              <label for="details">Details</label>
-              <textarea id="details" name="details" placeholder="Write something.." style="height:170px"></textarea>
-              <input type="submit" value="Submit" class="table-btn"/>
-            </form>
-          </div>
-        <div class="row">
-            <div class="column" id="text-section">
-                <h1> Contact us</h1>
-        </div>
-
+        <div class="column">
+          <!-- no action has been implemented as of yet, for now it is proof of concept -->
+          <form method="post" onclick="reload()">
+            <!-- query form for customer to fill out -->
+            <label for="first-name">First Name</label>
+            <input type="text" id="fname" name="firstname" placeholder="Your name..">
+            <label for="email">E-mail</label>
+            <input type="text" id="email" name="email" placeholder="Your e-mail address..">
+            <label for="subject">Subject</label>
+             <!-- subject of enquiry with a dropdown list of options, or 'other'-->
+            <select id="subject" name="subject">
+              <option value="booking">Booking</option>
+              <option value="menu">Menu</option>
+              <option value="allergens">Allergen informaion</option>
+              <option value="location">Location</option>
+              <option value="dress-code">Dress Code</option>
+              <option value="amend-booking">Amend your booking</option>
+              <option value="s-requests">Special Requests</option>
+              <option value="other">Other...</option>
+            </select>
+            <label for="details">Details</label>
+            <textarea id="details" name="details" placeholder="Write something.." style="height:170px"></textarea>
+             <!-- form submit reloads page -->
+            <input type="submit" value="Submit">
+          </form>
         </div>
       </div>
+    </div>
 </body>
 </html>

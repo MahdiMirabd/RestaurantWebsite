@@ -1,61 +1,29 @@
+/* The order table */
 table {
     font-family: arial, sans-serif;
     border-collapse: collapse;
     width: 100%;
 }
 
+/* Add border around table rows */
 td, th {
     border: 1px solid #dddddd;
     text-align: left;
     padding: 8px;
 }
 
+/* Background colour of every other row is gray */
 tr:nth-child(even) {
     background-color: #dddddd;
 }
 
-.notification{
-    color: #ff0000;
-}
-.ul{
-    position: absolute;
-    left: 0;
-    top: 60px;
-    margin: 0;
-    width: 100%;
-    background: #fff;
-    box-shadow: 0, 5px, 15px rgba(0, 0, 0, 5);
-    padding: 20px;
-    box-sizing: border-box;
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 30px;
-    display:none;
-}
-.ul li{
-    list-style: none;
-    border-bottom: 1px solid rgb(0, 0, 0);
-    padding: 8px 0;
-    display: flex;
-}
-
-ul li:hover .text{
-    font-weight: bold;
-    color: #ff2ced;
-}
-
-ul li .text{
-    top:3px;
-    cursor: pointer;
-    transition: .0s;
-    display: block;
-    font-weight: 100;
-}
-
+/* The position of th notification dropdown */
 .dropdown {
     position: relative;
     display: inline-block;
 }
 
+/* Arrange the content dropdown list */
 .dropdown-content {
     display: none;
     position: absolute;
@@ -64,20 +32,18 @@ ul li .text{
     overflow: auto;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
+    height: auto;
+    max-height: 200px;
+    overflow-x: hidden;
+
 }
 
-.dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
+/* Displays the content of the  notification drop down  */
+.show {
     display: block;
 }
 
-.dropdown a:hover {background-color: #ddd;}
-
-.show {display: block;
-}
-
+/* notification text */
 .msg-detail{
     display: inline-flex;
     margin: 1.5em;
@@ -86,6 +52,7 @@ ul li .text{
     border-bottom: 2px solid #ccc;
 }
 
+/* Active cancel order button */
 .cancel-order:not(:disabled) {
     color: #fafafa;
     background: rgb(253, 2, 2);
@@ -98,6 +65,7 @@ ul li .text{
     margin-top: 7px;  
 }
 
+/* Cancel order button click format */
 .cancel-order:active {
     font-weight: bold;
     color: #fafafa;
@@ -108,18 +76,26 @@ ul li .text{
     display: inline-flex;
 }
 
-.edit:not(:disabled), .dropbtn:not(:disabled) {
+/* Waiter control active button formats */
+.edit:not(:disabled),
+.dropbtn:not(:disabled) {
     background-color: #21981a;
 }
 
-.edit:active, .dropbtn:active {
+/* Waiter controls click event button formats */
+.edit:active,
+.dropbtn:active {
     box-shadow: rgba(0, 0, 0, .2) 0 5px 5px -3px, rgba(0, 0, 0, .14) 0 8px 10px 1px, rgba(0, 0, 0, .12) 0 3px 14px 2px;
     background: #21981a;
 }
 
-.edit, .dropdown {
+/* Display the menu editing button and the notification button inline */
+.edit,
+.dropdown {
     display: inline-flex;
 }
+
+/* Displays the number of notifications */
 .badge {
     border-radius: 50%;
     width: 30px;
@@ -137,25 +113,7 @@ ul li .text{
     transition: all .3s;
 }
 
-.dropdown-content {
-    height: auto;
-    max-height: 200px;
-    overflow-x: hidden;
-}
-
-.cancel-confirmed-order{
-    font-weight: bold;
-    color: #fafafa;
-    background: rgb(253, 2, 2);
-    border-radius: 50%;
-    left: 100px;
-    height: 30px;
-    width: 32px;
-    display: inline-block;
-
-
-}
-
+/* Deletes a notification from the notification center */
 .btn-clear {
     border: none;
     color: gray;
@@ -167,22 +125,3 @@ ul li .text{
     margin:auto;
 }
 
-.cancel-confirmed-order{
-    font-weight: bold;
-    color: #fafafa;
-    background: rgb(253, 2, 2);
-    border-radius: 0px;
-    left: 0px;
-    height: 30px;
-    width: 32px;
-    display:inline-flex;
-    justify-content: center;
-}
-
-.cancel-confirmed-order:hover{
-    background-color: rgb(204, 5, 5);
-    height: 35px;
-    width: 35px;
-    display: inline-flex;
-    border-radius: 0px;
-}

@@ -1,3 +1,6 @@
+/**
+ * Navigation bar displayed at the top of each screen.
+ */
 class Header extends HTMLElement {
     constructor() {
         super();
@@ -12,7 +15,6 @@ class Header extends HTMLElement {
                     'align-items:center;' +  
                     'justify-content: center;' +
                     'border-bottom: 2px solid #08090A;' +
-                    //'background-color: #fff;' +
                 '}' +
                 'ul {' +
                     'padding: 0;' +
@@ -31,9 +33,8 @@ class Header extends HTMLElement {
                 '} ' +
                 'a:hover {' +
                     'padding-bottom: 5px;' +
-                   // 'box-shadow: inset 0 -2px 0 0 #0a0a23;' +
                     'box-shadow: inset 100px 0 0 0 #45a049;' +
-                    'color: white;' +
+                    'color: white !important;' +
                 '} ' +
                 '.shopping-cart-button {' +
                     'background-color: white;' +
@@ -51,7 +52,7 @@ class Header extends HTMLElement {
                     'background-color: black;' +
                     'color: white;' +
                 '} ' +
-                '.badge { '+
+                '.header-badge { '+
                   '  padding-left: 9px;'+
                   ' padding-right: 9px;'+
                   ' -webkit-border-radius: 9px;'+
@@ -79,19 +80,21 @@ class Header extends HTMLElement {
                     'left:20%; ' +
                     'position: absolute; ' +
                     'border-radius: 5px; ' +
-                    'color: green; ' +
+                    'color: green ; ' +
                     'display:block;' +
                     'flex-wrap: nowrap;'+
                 '}' +
 
+                'Logo:hover{color: white !important;}'+
+
                 '.shop-cart{ border: solid;}'+
-                '@media only screen and (max-width: 1200px) {a{font-size:20px;}}' +
-                '@media only screen and (max-width: 1000px) {Logo{left:100%;}}' +
+                '@media only screen and (max-width: 1450px) {a{font-size:20px;}}' +
+                '@media only screen and (max-width: 1450px) {Logo{left:100%;}}' +
             '</style> ' +
             '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">' +
             '<header> ' +
                 '<nav> ' +
-                '<h1 class = "Logo"><a href="/">Oaxaca</a> </h1>' +
+                '<h1 class = "Logo"><a style="border: 2px solid red; color: green;" href="/">Oaxaca</a> </h1>' +
                     '<ul>' +
                         '<li><a href="/">Home</a></li>' +
                         '<li><a href="/menu">Menu</a></li>' +
@@ -101,20 +104,16 @@ class Header extends HTMLElement {
                     '</ul> ' +
                 '</nav>' +
                 '<div id= "shop-cart"> ' +
-                '<button class="shopping-cart-button id="shopping-cart-button"><i class="fa fa-shopping-cart"></i><span class= "badge badge-warning" id="lblCartCount"> 0 </span> </button>' +
+                '<button class="shopping-cart-button id="shopping-cart-button"><i class="fa fa-shopping-cart"></i><span class= "header-badge badge-warning" id="lblCartCount"> 0 </span> </button>' +
                 '</div>'+
             '</header>'
-
-          '  <script>' +
-            ' $(document).ready(function() {'+
-              '  $("#shop-cart").hide();' +
-              '   });'+
-          '  </script>';
 
     }
 }
 customElements.define('header-component', Header);
-
+/**
+ * Hides the shopping cart.
+ */
 $(document).ready(function() {
     $("#shop-cart").hide();
   });

@@ -1,9 +1,10 @@
-.timer{
+.timer {
     font-size: 70px;
 	font-weight: bold;
 	color: rgb(32, 153, 26);
 	padding-left: 350px;
 }
+
 p {
 	animation:colorchg 1s;
 	animation-delay: 300s;
@@ -11,6 +12,7 @@ p {
 	color:rgb(32, 153, 26);
 	animation-fill-mode: forwards;
   }
+
   @keyframes colorchg {
 	  0%{
 		color:rgb(255, 0, 0);
