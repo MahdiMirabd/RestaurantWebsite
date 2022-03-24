@@ -52,7 +52,7 @@ class Header extends HTMLElement {
                     'background-color: black;' +
                     'color: white;' +
                 '} ' +
-                '.badge { '+
+                '.header-badge { '+
                   '  padding-left: 9px;'+
                   ' padding-right: 9px;'+
                   ' -webkit-border-radius: 9px;'+
@@ -104,7 +104,7 @@ class Header extends HTMLElement {
                     '</ul> ' +
                 '</nav>' +
                 '<div id= "shop-cart"> ' +
-                '<button class="shopping-cart-button id="shopping-cart-button"><i class="fa fa-shopping-cart"></i><span class= "badge badge-warning" id="lblCartCount"> 0 </span> </button>' +
+                '<button class="shopping-cart-button id="shopping-cart-button"><i class="fa fa-shopping-cart"></i><span class= "header-badge badge-warning" id="lblCartCount"> 0 </span> </button>' +
                 '</div>'+
             '</header>'
 

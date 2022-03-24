@@ -3,6 +3,9 @@ let totalPrice = 0;
 /* The table number for an order */
 let tableNumber = 0;
 
+/* Tracks the quantity selected for a menu item */
+let itemCount = 0;
+
 /**
  * Adds  the product of the item price and quantity to the total price.
  */

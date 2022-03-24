@@ -122,13 +122,14 @@ select:focus + .focus {
     border-radius: inherit;
 }
 
-/* place the selection dropdown and search button inline */
+/* Place the selection dropdown and search button inline */
 .table-btn, .filtering-options{
     right: 15px;
     display: inline-flex;
     
 }
 
+/* Format the position of the buttons */
 .table-btn{
     left: 10px;
 }
