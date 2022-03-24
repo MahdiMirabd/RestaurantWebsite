@@ -23,9 +23,6 @@
 
 <body>
     <header-component></header-component> <!-- custom tag created in header.js -->
-    <div class="timer">
-        <label id="minutes">00</label><p>:</p><label id="seconds">00</label>
-    </div>
     <div class="form-popup" id="myForm">
         <h1>Enter your table number</h1>
         <form action="getStatus" class="form-container" th:action="@{/ordertrack}" method="POST">
@@ -35,18 +32,5 @@
           <h3 id="table" th=:inline="text"> Order Status: [[${table}]]</h3>
         </form>
       </div>
-    <div class="container" id="container">
-        <div class="table-detail">
-            <h2>Table Number:&nbsp</h2>
-            <p></p>
-            <h2 id="table" th=:inline="text"> Order Status: [[${table}]]</h2>
-            <h2 class="table-id"></h2>
-        </div>
-        <div class="order-heading-with-logo">
-            <!-- need to hide this div until a table number is generated -->
-            <h2 class="order-heading">
-                Order
-            </h2>
-        </div>
 </body>
 </html>

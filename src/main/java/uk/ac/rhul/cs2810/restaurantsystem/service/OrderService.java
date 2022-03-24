@@ -9,6 +9,8 @@ import uk.ac.rhul.cs2810.restaurantsystem.repository.TableRepository;
 
 import java.util.List;
 
+import javax.persistence.criteria.CriteriaBuilder.Case;
+
 /**
  * Interfaces with the Order Repository to fulfill
  * requests by the controller and return a response.
@@ -90,7 +92,18 @@ public class OrderService {
     public String getTableStatus(long table) {
         List<Order> orders = orderRepository.findStatusByTable(table);
         if (orders.size() > 0)  {
-            return orders.get(0).getStatus();
+            String status = orders.get(0).getStatus();
+            switch(status) {
+                case "pending":
+                    return "We got your order";
+                case "confirmed":
+                    return "Your order is being prepared";
+                case "ready":
+                    return "Your order is ready";
+                case "delivered":
+                    return "Your order is with you";
+            }
+            
         }
             return "";
     }

@@ -12,7 +12,8 @@ function openForm() {
 }
 
 function closeForm() {
-  document.getElementById("myForm").style.display = "none";
+  //document.getElementById("myForm").style.display = "none";
+  $("#myForm").hide();
   document.getElementById("container").style.display = "block";
 }
 
