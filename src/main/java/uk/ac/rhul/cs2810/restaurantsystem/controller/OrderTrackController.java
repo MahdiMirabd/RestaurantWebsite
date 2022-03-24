@@ -8,6 +8,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 import uk.ac.rhul.cs2810.restaurantsystem.model.Notification;
 import uk.ac.rhul.cs2810.restaurantsystem.model.Order;
+import uk.ac.rhul.cs2810.restaurantsystem.model.Tables;
 import uk.ac.rhul.cs2810.restaurantsystem.repository.NotificationRepository;
 import uk.ac.rhul.cs2810.restaurantsystem.repository.OrderRepository;
 import uk.ac.rhul.cs2810.restaurantsystem.service.OrderService;
@@ -31,9 +32,9 @@ public class OrderTrackController {
         modelAndView.setViewName("ordertrack");
         return modelAndView;
     }
-    @RequestMapping(value = "/ordertrack/getStatus", method = RequestMethod.GET)
-    public RedirectView getStatus(Model model, @ModelAttribute(value = "table") long table) {
-        model.addAttribute("table", orderService.getTableStatus(table));
-        return new RedirectView("/ordertrack");
+    @RequestMapping(value = "/ordertrack/getStatus", method = {RequestMethod.GET, RequestMethod.POST})
+    public void getStatus(Model model, @ModelAttribute(value = "table") Tables table) {
+        model.addAttribute("table", orderService.getTableStatus(table.getId()));
+        //return new RedirectView("/ordertrack");
     }
 }

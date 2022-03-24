@@ -18,7 +18,7 @@
     <script src="/javascript/header.js" type="text/javascript" defer></script>
     <script src="/javascript/order.js" type="text/javascript" defer></script>
     <script src="/javascript/ordertrack.js" type="text/javascript" defer></script>
-    <title>Order</title>
+    <title>Order Tracking</title>
 </head>
 
 <body>
@@ -28,15 +28,16 @@
     </div>
     <div class="form-popup" id="myForm">
         <h1>Enter your table number</h1>
-        <form action="getStatus" class="form-container" th:action="@{/ordertrack/getStatus}">    
+        <form action="getStatus" class="form-container" th:action="@{ordertrack/getStatus}" method="POST">    
           <label for="table_no"><b>Table Number</b></label>
-          <input type="number" placeholder="Enter your table number" name="table" required>
+          <input type="number" placeholder="Enter your table number" name="id" required>
           <button type="submit" class="btn" onclick="closeForm()">Enter</button>
+          <h3 id="table" th=:inline="text">[[${table}]]</h3>
         </form>
       </div>
     <div class="container" id="container">
         <div class="table-detail">
-            <h2>Table Number:&nbsp </h2>
+            <h2>Table Number:&nbsp</h2>
             <h2 class="table-id"></h2>
         </div>
         <div class="order-heading-with-logo">
